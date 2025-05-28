@@ -127,7 +127,8 @@ business_glossary = {
         "owner": "Regulatory Affairs",
         "last_updated": "2024-03-15",
         "standards": ["Section 2.8", "Section 2.10"],
-        "regulatory_requirement": "FDA PMTA"
+        "regulatory_requirement": "FDA PMTA",
+        "use_cases": ["Product Description (Nonclinical)", "Comprehensive Regulatory Compliance"]
     },
     "Nicotine_Content": {
         "definition": "Total nicotine content measured in mg per cigarette or product unit",
@@ -136,7 +137,8 @@ business_glossary = {
         "owner": "Quality Control Lab",
         "last_updated": "2024-03-15",
         "standards": ["Section 2.8", "Section 2.9"],
-        "regulatory_requirement": "FDA Testing Standards"
+        "regulatory_requirement": "FDA Testing Standards",
+        "use_cases": ["Product Description (Nonclinical)", "Product Impact on Individual Health", "Comprehensive Regulatory Compliance"]
     },
     "Tar_Content": {
         "definition": "Anhydrous tar yield measured under ISO conditions",
@@ -145,7 +147,8 @@ business_glossary = {
         "owner": "Quality Control Lab",
         "last_updated": "2024-03-15",
         "standards": ["Section 2.8", "Section 2.9"],
-        "regulatory_requirement": "ISO 4387 Standard"
+        "regulatory_requirement": "ISO 4387 Standard",
+        "use_cases": ["Product Description (Nonclinical)", "Comprehensive Regulatory Compliance"]
     },
     "Subject_ID": {
         "definition": "Unique clinical study participant identifier with privacy protection",
@@ -154,7 +157,8 @@ business_glossary = {
         "owner": "Clinical Research Team",
         "last_updated": "2024-03-15",
         "standards": ["Section 2.7", "Section 2.9"],
-        "regulatory_requirement": "ICH GCP Guidelines"
+        "regulatory_requirement": "ICH GCP Guidelines",
+        "use_cases": ["Product Impact on Individual Health", "Product Impact on Population Health", "Comprehensive Regulatory Compliance"]
     },
     "Cotinine_Level": {
         "definition": "Biomarker for nicotine exposure measured in ng/mL",
@@ -163,7 +167,8 @@ business_glossary = {
         "owner": "Clinical Research Team", 
         "last_updated": "2024-03-15",
         "standards": ["Section 2.7", "Section 2.9"],
-        "regulatory_requirement": "Clinical Validation"
+        "regulatory_requirement": "Clinical Validation",
+        "use_cases": ["Product Impact on Individual Health", "Product Impact on Population Health", "Comprehensive Regulatory Compliance"]
     },
     "Age_Verification": {
         "definition": "Confirmed age verification status for tobacco product access",
@@ -172,7 +177,48 @@ business_glossary = {
         "owner": "Regulatory Affairs",
         "last_updated": "2024-03-15",
         "standards": ["Section 2.7", "Section 2.9"],
-        "regulatory_requirement": "21 CFR 1140"
+        "regulatory_requirement": "21 CFR 1140",
+        "use_cases": ["Product Impact on Individual Health", "Product Impact on Population Health", "Comprehensive Regulatory Compliance"]
+    },
+    "Manufacturing_Date": {
+        "definition": "Date of tobacco product manufacturing for batch tracking",
+        "type": "CDE",
+        "domain": "Manufacturing",
+        "owner": "Manufacturing Operations",
+        "last_updated": "2024-03-15",
+        "standards": ["Section 2.8", "Section 2.10"],
+        "regulatory_requirement": "FDA Manufacturing Standards",
+        "use_cases": ["Product Description (Nonclinical)", "Comprehensive Regulatory Compliance"]
+    },
+    "Clinical_Endpoint": {
+        "definition": "Primary or secondary endpoint measured in clinical tobacco studies",
+        "type": "CDE",
+        "domain": "Clinical Research",
+        "owner": "Clinical Research Team",
+        "last_updated": "2024-03-15",
+        "standards": ["Section 2.7", "Section 2.9"],
+        "regulatory_requirement": "ICH E6 Guidelines",
+        "use_cases": ["Product Impact on Individual Health", "Comprehensive Regulatory Compliance"]
+    },
+    "Population_Demographics": {
+        "definition": "Age, gender, and geographic distribution of tobacco use population",
+        "type": "CDE",
+        "domain": "Epidemiology",
+        "owner": "Public Health Team",
+        "last_updated": "2024-03-15",
+        "standards": ["Section 2.9"],
+        "regulatory_requirement": "CDC Surveillance Standards",
+        "use_cases": ["Product Impact on Population Health", "Comprehensive Regulatory Compliance"]
+    },
+    "Exposure_Biomarker": {
+        "definition": "Biological indicators of tobacco product exposure in study populations",
+        "type": "CDE",
+        "domain": "Biomarkers",
+        "owner": "Clinical Research Team",
+        "last_updated": "2024-03-15",
+        "standards": ["Section 2.7", "Section 2.9"],
+        "regulatory_requirement": "FDA Biomarker Qualification",
+        "use_cases": ["Product Impact on Individual Health", "Product Impact on Population Health", "Comprehensive Regulatory Compliance"]
     }
 }
 
@@ -210,12 +256,24 @@ def search_data():
 
 @app.route('/api/glossary', methods=['GET'])
 def get_glossary():
-    return jsonify(business_glossary)
+    use_case_filter = request.args.get('use_case', '')
+    
+    if use_case_filter:
+        # Filter glossary by use case
+        filtered_glossary = {}
+        for term, data in business_glossary.items():
+            if use_case_filter in data.get('use_cases', []):
+                filtered_glossary[term] = data
+        return jsonify(filtered_glossary)
+    else:
+        return jsonify(business_glossary)
 
 @app.route('/api/quality', methods=['GET'])
 def get_quality_metrics():
-    # Tobacco industry specific quality metrics
-    return jsonify({
+    use_case_filter = request.args.get('use_case', '')
+    
+    # Base quality metrics
+    base_metrics = {
         "overall_score": 0.91,
         "metrics": {
             "regulatory_compliance": 0.98,
@@ -236,7 +294,40 @@ def get_quality_metrics():
             "population_health": 0.85,
             "regulatory_compliance": 0.98
         }
-    })
+    }
+    
+    # Use case specific adjustments
+    if use_case_filter:
+        use_case_metrics = {
+            "Product Description (Nonclinical)": {
+                "overall_score": 0.95,
+                "cde_coverage": {"total_fields": 45, "standardized_fields": 42, "cde_identified": 15, "compliance_ready": 42},
+                "focus_areas": ["Product Characterization", "Manufacturing", "Quality Control"]
+            },
+            "Product Impact on Individual Health": {
+                "overall_score": 0.92,
+                "cde_coverage": {"total_fields": 38, "standardized_fields": 35, "cde_identified": 12, "compliance_ready": 35},
+                "focus_areas": ["Clinical Research", "Biomarkers", "Subject Safety"]
+            },
+            "Product Impact on Population Health": {
+                "overall_score": 0.85,
+                "cde_coverage": {"total_fields": 28, "standardized_fields": 24, "cde_identified": 8, "compliance_ready": 24},
+                "focus_areas": ["Epidemiology", "Population Demographics", "Public Health"]
+            },
+            "Comprehensive Regulatory Compliance": {
+                "overall_score": 0.98,
+                "cde_coverage": {"total_fields": 127, "standardized_fields": 124, "cde_identified": 44, "compliance_ready": 124},
+                "focus_areas": ["All Domains", "Cross-functional Integration", "Regulatory Readiness"]
+            }
+        }
+        
+        if use_case_filter in use_case_metrics:
+            specific_metrics = use_case_metrics[use_case_filter]
+            base_metrics["overall_score"] = specific_metrics["overall_score"]
+            base_metrics["cde_coverage"].update(specific_metrics["cde_coverage"])
+            base_metrics["focus_areas"] = specific_metrics["focus_areas"]
+    
+    return jsonify(base_metrics)
 
 @app.route('/api/workflow', methods=['POST'])
 def initiate_workflow():
