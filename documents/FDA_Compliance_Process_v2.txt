@@ -1,0 +1,54 @@
+FDA TOBACCO COMPLIANCE PROCESS - VERSION 2.1
+=====================================================
+
+OVERVIEW:
+All tobacco products must meet FDA PMTA requirements. Check PMTA_STATUS field in product master.
+
+KEY PROCESSES:
+
+1. PRODUCT REGISTRATION
+   - All products require unique PROD_ID 
+   - Must have valid UPC_CD for retail tracking
+   - Nicotine content (NIC_MG) mandatory for cigarettes
+   - Tar content (TAR_MG) required for traditional cigarettes
+   - Menthol products flagged with CAT_CD = 02
+
+2. LOT TRACKING REQUIREMENTS
+   - Every lot must have LOT_NUM format: LTYYYY[MM][DD][XX]
+   - Manufacturing date (MFG_DT) mandatory
+   - Expiration date (EXP_DT) = MFG_DT + 24 months for cigarettes
+   - Expiration date (EXP_DT) = MFG_DT + 12 months for smokeless tobacco
+
+3. INVENTORY MANAGEMENT
+   - Track INV_QTY by warehouse location (WHS_LOC)
+   - Monitor expiration dates for disposal requirements
+   - REG_STAT values: APPR (approved), PEND (pending), HOLD (on hold), DENY (denied)
+
+4. AGE VERIFICATION REQUIREMENTS
+   - All retail sales require age verification (CUST_AGE_VERF = Y)
+   - Valid age check methods: DL_SCAN, PASSPORT, STATE_ID, MILITARY_ID
+   - MANUAL verification only for system failures
+   - License scanning (LIC_SCAN) preferred for audit trail
+
+5. WARNING LABEL COMPLIANCE
+   - All products must display warnings (WARN_DSPL = Y)
+   - Cigarettes: Surgeon General warning
+   - Smokeless: Cancer warning required
+   - Menthol: Additional menthol-specific warnings
+
+6. TAX REPORTING
+   - Track TAX_CD: TC01 (cigarette tax), TC02 (smokeless tax)
+   - Calculate tax based on quantity and product type
+   - Monthly reporting to state agencies required
+
+COMPLIANCE VIOLATIONS:
+- Age verification failure = COMP_STAT = VIOL
+- Missing documentation = COMP_STAT = QUEST
+- Full compliance = COMP_STAT = COMP
+
+CRITICAL DATA ELEMENTS:
+- Product ID, Lot Number, Nicotine Content
+- Age Verification Status, Warning Display
+- Tax Classification, Expiration Date
+
+Contact: compliance@tobacco-company.com for questions 

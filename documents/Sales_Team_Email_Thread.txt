@@ -1,0 +1,75 @@
+From: sarah.johnson@tobacco-company.com
+To: sales-team@tobacco-company.com
+Subject: RE: Q1 Inventory Issues - URGENT
+Date: March 15, 2024
+
+Team,
+
+Following up on yesterday's call about the inventory discrepancies. Here's what we know:
+
+1. WHS_LOC codes are getting mixed up again. Reminder:
+   - WH-A = Cigarettes (main warehouse)
+   - WH-B = Menthol/Specialty cigarettes 
+   - WH-C = Smokeless tobacco products
+
+2. The EXP_DT calculation is wrong in the system for smokeless products. 
+   Should be 12 months from MFG_DT, not 24. This is causing compliance issues.
+
+3. New FDA requirements for menthol tracking:
+   - All menthol products MUST have CAT_CD = 02
+   - Virginia Slims and Capri are menthol lines (update product master)
+   - Need to track menthol percentage in new field
+
+From: mike.rodriguez@tobacco-company.com  
+Date: March 15, 2024
+
+Sarah - also seeing issues with the retail data feed:
+
+- RTL_ID formatting inconsistent (some have leading zeros, some don't)
+- AGE_CHK_MTHD = "UNK" should trigger compliance review
+- Missing LIC_SCAN data causing audit failures
+- TAX_AMT calculations off for multi-pack purchases
+
+The compliance team is asking for a clean dataset with proper field definitions. 
+Current cryptic field names are causing training issues for new staff.
+
+From: lisa.chen@tobacco-company.com
+Date: March 16, 2024
+
+Critical issue: Found products with NULL nicotine values in cigarette category. 
+This is a FDA violation. 
+
+Business rules we need to enforce:
+- Cigarettes (CAT_CD = 01, 02, 03) MUST have NIC_MG and TAR_MG
+- Smokeless (CAT_CD = 05) should have NULL for tar, but we need nicotine equivalent data
+- All products need valid SUPP_ID for supply chain traceability
+
+Also, we're getting dinged on warning label compliance. Every retail transaction 
+needs WARN_DSPL = Y, no exceptions.
+
+Please clean up the data definitions. Regional managers are struggling to understand 
+what COMP_STAT codes mean:
+- COMP = Compliant sale
+- VIOL = Violation (usually age verification failure)  
+- QUEST = Questionable (needs manual review)
+
+Thanks,
+Lisa
+
+From: tom.williams@tobacco-company.com
+Date: March 16, 2024
+
+Adding to Lisa's point - the product naming is a mess:
+
+Current cryptic names vs what they should be:
+- CIG-MAR-RED-100 → "Marlboro Red 100s"
+- TOB-GRZ-NAT-1OZ → "Grizzly Natural Smokeless Tobacco 1oz"
+- CIG-NEW-MEN-100 → "Newport Menthol 100s"
+
+We need a proper business glossary. New employees can't figure out the product codes.
+
+Also, PKG_SZ field is inconsistent:
+- Cigarettes: count per pack (usually 20)
+- Smokeless: weight in ounces
+
+Tom 

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Governance Agent - Tobacco Industry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        .use-case-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .tobacco-gold {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="gradient-bg text-white p-6">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold mb-2">🚬 AI Data Governance Agent</h1>
+            <p class="text-xl opacity-90">Tobacco Industry Regulatory Compliance & Data Management</p>
+            <div class="mt-4 text-sm opacity-80">
+                Supporting FDA Standards: Section 2.7 (Collection) | Section 2.8 (Tabulation) | Section 2.9 (Analysis) | Section 2.10 (Data Exchange)
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-6">
+        
+        <!-- Use Cases Overview -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">🎯 Tobacco Data Governance Use Cases</h2>
+            <div id="use-cases-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Use cases will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800">
+                    <i class="fas fa-search mr-2 text-blue-600"></i>AI-Powered Data Discovery
+                </h2>
+                <div class="flex gap-4 mb-4">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Search for 'nicotine', 'biomarker', 'surveillance', 'regulatory'..." 
+                        class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    >
+                    <select id="use-case-filter" class="p-3 border border-gray-300 rounded-lg">
+                        <option value="">All Use Cases</option>
+                        <option value="Product Description">Product Description</option>
+                        <option value="Individual Health">Individual Health</option>
+                        <option value="Population Health">Population Health</option>
+                        <option value="Regulatory Compliance">Regulatory Compliance</option>
+                    </select>
+                    <button onclick="searchData()" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        <i class="fas fa-search mr-2"></i>Search
+                    </button>
+                </div>
+                <div id="search-results" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <!-- Search results will appear here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            
+            <!-- Data Inventory -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-bold mb-4 text-blue-600">
+                    <i class="fas fa-database mr-2"></i>Data Inventory
+                </h3>
+                <div id="data-inventory">
+                    <p class="text-gray-600">Use search to discover tobacco data assets...</p>
+                </div>
+            </div>
+
+            <!-- Business Glossary -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-bold mb-4 text-green-600">
+                    <i class="fas fa-book mr-2"></i>Business Glossary & CDEs
+                </h3>
+                <div id="business-glossary">
+                    <!-- Auto-loaded on page load -->
+                </div>
+            </div>
+
+            <!-- Data Quality -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-bold mb-4 text-purple-600">
+                    <i class="fas fa-chart-line mr-2"></i>Data Quality Metrics
+                </h3>
+                <div id="data-quality">
+                    <!-- Auto-loaded on page load -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Workflow Section -->
+        <section class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="text-xl font-bold mb-4 text-orange-600">
+                <i class="fas fa-cogs mr-2"></i>Tobacco Compliance Workflow
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <select id="asset-selector" class="p-3 border border-gray-300 rounded-lg">
+                    <option value="">Select Data Asset...</option>
+                    <option value="DB001">Product Characterization DB</option>
+                    <option value="DB002">Biomarker Clinical DB</option>
+                    <option value="DB003">Population Surveillance DB</option>
+                    <option value="DB004">Regulatory Compliance DB</option>
+                    <option value="FILE001">Product Characterization Data</option>
+                    <option value="API001">FDA Submission API</option>
+                </select>
+                <select id="action-selector" class="p-3 border border-gray-300 rounded-lg">
+                    <option value="access_request">Request Data Access</option>
+                    <option value="compliance_check">Run Compliance Check</option>
+                    <option value="cde_validation">Validate CDEs</option>
+                    <option value="fda_submission">Prepare FDA Submission</option>
+                </select>
+                <button onclick="initiateWorkflow()" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                    <i class="fas fa-play mr-2"></i>Initiate Workflow
+                </button>
+            </div>
+            <div id="workflow-result" class="mt-4"></div>
+        </section>
+
+    </div>
+
+    <script>
+        // Load use cases on page load
+        window.onload = function() {
+            loadUseCases();
+            loadGlossary();
+            loadQualityMetrics();
+        }
+
+        async function loadUseCases() {
+            try {
+                const response = await fetch('/api/use-cases');
+                const data = await response.json();
+                
+                const grid = document.getElementById('use-cases-grid');
+                grid.innerHTML = data.use_cases.map(useCase => `
+                    <div class="use-case-card text-white rounded-lg p-4 card-hover cursor-pointer" onclick="filterByUseCase('${useCase.id}')">
+                        <h4 class="font-bold text-lg mb-2">${useCase.name}</h4>
+                        <p class="text-sm opacity-90 mb-3">${useCase.description}</p>
+                        <div class="text-xs">
+                            <div class="mb-1">📊 <strong>${useCase.assets}</strong> Assets | 🏷️ <strong>${useCase.cdes}</strong> CDEs</div>
+                            <div class="opacity-80">Standards: ${useCase.standards.join(', ')}</div>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading use cases:', error);
+            }
+        }
+
+        function filterByUseCase(useCaseId) {
+            const searchInput = document.getElementById('search-input');
+            const useCaseFilter = document.getElementById('use-case-filter');
+            
+            // Set filter based on use case
+            const filterMap = {
+                'product_description': 'Product Description',
+                'individual_health': 'Individual Health', 
+                'population_health': 'Population Health',
+                'regulatory_compliance': 'Regulatory Compliance'
+            };
+            
+            useCaseFilter.value = filterMap[useCaseId] || '';
+            searchData();
+        }
+
+        async function searchData() {
+            const query = document.getElementById('search-input').value;
+            const useCase = document.getElementById('use-case-filter').value;
+            
+            try {
+                const response = await fetch('/api/search', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({query, use_case: useCase})
+                });
+                const results = await response.json();
+                displayResults(results);
+            } catch (error) {
+                console.error('Search error:', error);
+            }
+        }
+
+        function displayResults(results) {
+            const inventory = document.getElementById('data-inventory');
+            
+            let html = '';
+            
+            // Databases
+            if (results.databases && results.databases.length > 0) {
+                html += results.databases.map(db => `
+                    <div class="mb-4 p-3 bg-blue-50 rounded">
+                        <h4 class="font-bold text-blue-800">${db.name}</h4>
+                        <p class="text-sm text-gray-600">${db.description}</p>
+                        <div class="mt-2 text-xs text-blue-600">
+                            <div>${db.type} • Owner: ${db.owner}</div>
+                            <div>Use Case: ${db.use_case}</div>
+                            <div>CDEs: ${db.cde_count} | Quality: ${(db.quality_score * 100).toFixed(0)}%</div>
+                            <div class="mt-1 text-purple-600">Standards: ${db.standards.join(', ')}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            // Files
+            if (results.files && results.files.length > 0) {
+                html += results.files.map(file => `
+                    <div class="mb-4 p-3 bg-green-50 rounded">
+                        <h4 class="font-bold text-green-800">${file.name}</h4>
+                        <p class="text-sm text-gray-600">${file.description}</p>
+                        <div class="mt-2 text-xs text-green-600">
+                            <div>${file.type} • Owner: ${file.owner}</div>
+                            <div>Use Case: ${file.use_case}</div>
+                            <div>Quality: ${(file.quality_score * 100).toFixed(0)}%</div>
+                            ${file.fields ? `<div class="mt-1">Key Fields: ${file.fields.join(', ')}</div>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            // APIs
+            if (results.apis && results.apis.length > 0) {
+                html += results.apis.map(api => `
+                    <div class="mb-4 p-3 bg-orange-50 rounded">
+                        <h4 class="font-bold text-orange-800">${api.name}</h4>
+                        <p class="text-sm text-gray-600">${api.description}</p>
+                        <div class="mt-2 text-xs text-orange-600">
+                            <div>${api.type} • Owner: ${api.owner}</div>
+                            <div>Use Case: ${api.use_case}</div>
+                            <div>Quality: ${(api.quality_score * 100).toFixed(0)}%</div>
+                            ${api.endpoints ? `<div class="mt-1">Endpoints: ${api.endpoints.join(', ')}</div>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            if (!html) {
+                html = '<p class="text-gray-600">No results found. Try searching for tobacco-specific terms.</p>';
+            }
+            
+            inventory.innerHTML = html;
+        }
+
+        async function loadGlossary() {
+            try {
+                const response = await fetch('/api/glossary');
+                const glossary = await response.json();
+                
+                const container = document.getElementById('business-glossary');
+                container.innerHTML = Object.entries(glossary).map(([term, data]) => `
+                    <div class="mb-4 p-3 bg-green-50 rounded">
+                        <h4 class="font-bold text-green-800">${term}</h4>
+                        <p class="text-sm text-gray-600">${data.definition}</p>
+                        <div class="mt-2 text-xs text-green-600">
+                            <div><span class="px-2 py-1 bg-green-200 rounded">${data.type}</span> • Domain: ${data.domain}</div>
+                            <div>Owner: ${data.owner}</div>
+                            <div class="text-purple-600 mt-1">Standards: ${data.standards.join(', ')}</div>
+                            <div class="text-red-600">Regulatory: ${data.regulatory_requirement}</div>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading glossary:', error);
+            }
+        }
+
+        async function loadQualityMetrics() {
+            try {
+                const response = await fetch('/api/quality');
+                const quality = await response.json();
+                
+                const container = document.getElementById('data-quality');
+                container.innerHTML = `
+                    <div class="mb-4">
+                        <h4 class="font-bold text-purple-800 text-2xl">${(quality.overall_score * 100).toFixed(1)}%</h4>
+                        <p class="text-sm text-gray-600">Overall Quality Score</p>
+                    </div>
+                    
+                    <div class="space-y-2 mb-4">
+                        ${Object.entries(quality.metrics).map(([metric, score]) => `
+                            <div class="flex justify-between text-sm">
+                                <span class="capitalize">${metric.replace('_', ' ')}</span>
+                                <span class="font-semibold">${(score * 100).toFixed(0)}%</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="bg-purple-50 p-3 rounded">
+                        <h5 class="font-bold text-purple-800 mb-2">CDE Coverage</h5>
+                        <div class="text-xs space-y-1">
+                            <div>Total Fields: <strong>${quality.cde_coverage.total_fields}</strong></div>
+                            <div>Standardized: <strong>${quality.cde_coverage.standardized_fields}</strong></div>
+                            <div>CDEs Identified: <strong>${quality.cde_coverage.cde_identified}</strong></div>
+                            <div>Compliance Ready: <strong>${quality.cde_coverage.compliance_ready}</strong></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-3 rounded mt-3">
+                        <h5 class="font-bold text-gray-800 mb-2">Use Case Readiness</h5>
+                        <div class="text-xs space-y-1">
+                            ${Object.entries(quality.use_case_coverage).map(([useCase, score]) => `
+                                <div class="flex justify-between">
+                                    <span class="capitalize">${useCase.replace('_', ' ')}</span>
+                                    <span class="font-semibold">${(score * 100).toFixed(0)}%</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Error loading quality metrics:', error);
+            }
+        }
+
+        async function initiateWorkflow() {
+            const assetId = document.getElementById('asset-selector').value;
+            const action = document.getElementById('action-selector').value;
+            const useCase = document.getElementById('use-case-filter').value;
+            
+            if (!assetId || !action) {
+                alert('Please select both an asset and an action');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/workflow', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({asset_id: assetId, action, use_case: useCase})
+                });
+                const result = await response.json();
+                
+                document.getElementById('workflow-result').innerHTML = `
+                    <div class="bg-green-50 border border-green-200 rounded p-4 mt-4">
+                        <h4 class="font-bold text-green-800">Workflow Initiated Successfully</h4>
+                        <p class="text-sm text-gray-600">${result.message}</p>
+                        <div class="mt-2 text-xs">
+                            <div><strong>Workflow ID:</strong> ${result.workflow_id}</div>
+                            <div><strong>Status:</strong> ${result.status}</div>
+                            <div><strong>Estimated Completion:</strong> ${result.estimated_completion}</div>
+                        </div>
+                        ${result.compliance_checks && result.compliance_checks.length > 0 ? `
+                            <div class="mt-3">
+                                <strong class="text-sm">Compliance Checks:</strong>
+                                <ul class="text-xs mt-1 list-disc list-inside">
+                                    ${result.compliance_checks.map(check => `<li>${check}</li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                        ${result.next_steps ? `
+                            <div class="mt-3">
+                                <strong class="text-sm">Next Steps:</strong>
+                                <ul class="text-xs mt-1 list-disc list-inside">
+                                    ${result.next_steps.map(step => `<li>${step}</li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Workflow error:', error);
+            }
+        }
+
+        // Allow search on Enter key
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchData();
+            }
+        });
+    </script>
+</body>
+</html> 
