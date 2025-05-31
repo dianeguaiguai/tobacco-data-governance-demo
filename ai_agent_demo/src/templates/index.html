@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Data Governance Agent - Tobacco Industry</title>
+    <title>AI Data Governance Agent - Life Sciences Industry</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -18,6 +18,9 @@
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
         .tobacco-gold {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        }
+        .product-gold {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
         }
         .use-case-card {
@@ -291,7 +294,7 @@
                         <div class="space-y-8">
                             <!-- Use Cases Overview -->
                             <div>
-                                <h3 class="text-2xl font-bold mb-6 text-gray-800">🎯 Tobacco Data Governance Use Cases</h3>
+                                <h3 class="text-2xl font-bold mb-6 text-gray-800">🎯 Data Governance Use Cases</h3>
                                 <div id="use-cases-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                                     <!-- Use cases will be loaded here -->
                                 </div>
@@ -398,7 +401,7 @@
                                 <!-- Current Persona Description -->
                                 <div id="persona-description" class="p-3 bg-blue-50 rounded-lg">
                                     <p class="text-sm text-blue-800">
-                                        <strong>Data Steward View:</strong> Focus on data quality, governance metrics, and regulatory compliance. Your goal: Ensure FAIR data foundation across tobacco regulatory landscape.
+                                        <strong>Data Steward View:</strong> Focus on data quality, governance metrics, and regulatory compliance. Your goal: Ensure FAIR data foundation across regulatory landscape.
                                     </p>
                                 </div>
                             </div>
@@ -431,7 +434,7 @@
                                 <div id="ai-discovery-results" class="mb-6">
                                     <div class="text-center text-gray-500 py-8">
                                         <i class="fas fa-robot text-4xl mb-4"></i>
-                                        <p>Ask AI to discover and locate your tobacco data assets</p>
+                                        <p>Ask AI to discover and locate your data assets</p>
                                     </div>
                                 </div>
 
@@ -439,7 +442,7 @@
                                 <div class="bg-blue-50 rounded-lg p-4 mb-6">
                                     <h4 class="font-bold text-blue-800 mb-3">🗺️ AI Data Location Guide</h4>
                                     <div id="data-location-guide" class="text-sm text-blue-700">
-                                        <p>Use AI search above to get intelligent guidance on where to find specific data assets across your tobacco data landscape.</p>
+                                        <p>Use AI search above to get intelligent guidance on where to find specific data assets across your data landscape.</p>
                                     </div>
                                 </div>
                             </div>
@@ -473,19 +476,19 @@
         const personas = {
             steward: {
                 name: "🛡️ Data Steward",
-                description: "Focus on data quality, governance metrics, and regulatory compliance. Your goal: Ensure FAIR data foundation across tobacco regulatory landscape.",
+                description: "Focus on data quality, governance metrics, and regulatory compliance. Your goal: Ensure FAIR data foundation across regulatory landscape.",
                 color: "blue",
                 priorities: ["Quality Metrics", "Compliance Tracking", "Governance Workflows"]
             },
             owner: {
                 name: "👑 Data Owner", 
-                description: "Manage data assets, control access, and demonstrate business value. Your goal: Maximize ROI from tobacco data while ensuring secure, controlled access.",
+                description: "Manage data assets, control access, and demonstrate business value. Your goal: Maximize ROI from data while ensuring secure, controlled access.",
                 color: "green",
                 priorities: ["Asset Management", "Access Control", "Business Value", "ROI Tracking"]
             },
             sme: {
                 name: "🧠 SME",
-                description: "Provide domain expertise, validate business definitions, and ensure data meets regulatory requirements. Your goal: Make tobacco data meaningful and fit-for-purpose.",
+                description: "Provide domain expertise, validate business definitions, and ensure data meets regulatory requirements. Your goal: Make data meaningful and fit-for-purpose.",
                 color: "purple", 
                 priorities: ["Business Definitions", "Domain Validation", "Regulatory Requirements"]
             }
@@ -645,7 +648,7 @@
                             {
                                 type: 'indexing',
                                 title: 'Section 2.8 Data Indexing',
-                                content: 'Auto-index tobacco product tabulation data per FDA Section 2.8 standards. Estimated effort savings: 35 hours/week for regulatory stewards.'
+                                content: 'Auto-index product tabulation data per FDA Section 2.8 standards. Estimated effort savings: 35 hours/week for regulatory stewards.'
                             }
                         ];
                     } else if (useCase.includes('Individual Health')) {
@@ -692,7 +695,7 @@
                             {
                                 type: 'discovery',
                                 title: 'Universal Data Discovery',
-                                content: 'AI found 127 total fields across tobacco systems. Recommend implementing unified metadata catalog to improve discovery from 3 days to 30 minutes.'
+                                content: 'AI found 127 total fields across systems. Recommend implementing unified metadata catalog to improve discovery from 3 days to 30 minutes.'
                             },
                             {
                                 type: 'indexing',
@@ -774,7 +777,7 @@
                             {
                                 type: 'metadata',
                                 title: 'Product Metadata Validation',
-                                content: 'AI suggests enriching tobacco product metadata with Section 2.8 nonclinical standards. Your expertise needed for product characterization accuracy.'
+                                content: 'AI suggests enriching product metadata with Section 2.8 nonclinical standards. Your expertise needed for product characterization accuracy.'
                             },
                             {
                                 type: 'tagging',
@@ -826,7 +829,7 @@
                             {
                                 type: 'metadata',
                                 title: 'Metadata Enrichment',
-                                content: 'AI suggests enriching tobacco product metadata with Section 2.8 standards. This improves findability for regulatory submissions.'
+                                content: 'AI suggests enriching product metadata with Section 2.8 standards. This improves findability for regulatory submissions.'
                             },
                             {
                                 type: 'tagging',
@@ -848,7 +851,7 @@
                             {
                                 type: 'compliance',
                                 title: 'Product Data Compliance',
-                                content: 'Set up automated compliance monitoring for tobacco product specifications. AI tracks usage for FDA nonclinical audit readiness.'
+                                content: 'Set up automated compliance monitoring for product specifications. AI tracks usage for FDA nonclinical audit readiness.'
                             }
                         ];
                     } else if (useCase.includes('Individual Health')) {
@@ -900,7 +903,7 @@
                             {
                                 type: 'compliance',
                                 title: 'Compliance Monitoring',
-                                content: 'Set up automated FDA compliance monitoring for tobacco data access. AI tracks all data usage for audit readiness.'
+                                content: 'Set up automated FDA compliance monitoring for data access. AI tracks all data usage for audit readiness.'
                             }
                         ];
                     }
@@ -1034,7 +1037,7 @@
                             {
                                 type: 'protocols',
                                 title: 'Access Protocol Design',
-                                content: 'AI can draft tobacco-specific data access protocols aligned with Section 2.7 collection standards for your review.'
+                                content: 'AI can draft product-specific data access protocols aligned with Section 2.7 collection standards for your review.'
                             }
                         ];
                     }
@@ -1454,39 +1457,289 @@
         }
 
         function loadUseCaseDetails(useCase) {
-            // Load data inventory for this use case
-            document.getElementById('use-case-data-inventory').innerHTML = `
-                <div class="space-y-3">
-                    <div class="text-sm font-semibold text-blue-800">${useCase.assets} Data Assets Identified</div>
-                    <div class="grid grid-cols-2 gap-2 text-xs">
-                        <div class="bg-white p-2 rounded border">
-                            <div class="font-semibold">Primary Sources</div>
-                            <div class="text-gray-600">Clinical DBs, Product Data</div>
-                        </div>
-                        <div class="bg-white p-2 rounded border">
-                            <div class="font-semibold">Compliance Status</div>
-                            <div class="text-green-600">✓ FDA Ready</div>
+            // Create detailed data inventory based on use case
+            let dataAssetsContent = '';
+            let cdeContent = '';
+            
+            if (useCase.name === 'Product Description (Nonclinical)') {
+                dataAssetsContent = `
+                    <div class="space-y-3">
+                        <div class="text-sm font-semibold text-blue-800">3 Data Assets Identified</div>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">1. Product_Characterization_DB</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: SQL Database<br>
+                                    • Records: 2.3M records<br>
+                                    • Tables: product_tests, batch_records, quality_metrics, composition_data<br>
+                                    • Owner: Quality Control Lab<br>
+                                    • Quality Score: 95%
+                                </div>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">2. product_characterization_raw.csv</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: CSV File<br>
+                                    • Size: 45MB, 125,000 rows<br>
+                                    • Fields: PROD_CHAR_ID, NIC_TOT, TAR_ANHY, CO_YLD, FILT_EFF, MOIST_CONT, PH_VAL<br>
+                                    • Owner: Quality Control Lab<br>
+                                    • Quality Score: 75%
+                                </div>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">3. Laboratory_LIMS_API</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: SOAP API<br>
+                                    • Endpoints: /test-results, /batch-tracking, /certifications, /equipment-calibration<br>
+                                    • Response Time: < 500ms<br>
+                                    • Owner: Quality Control<br>
+                                    • Uptime: 99.5%
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `;
+                `;
+                
+                cdeContent = `
+                    <div class="space-y-3">
+                        <div class="text-sm font-semibold text-green-800">12 CDEs Suggested</div>
+                        <div class="text-xs space-y-2">
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Product_ID</div>
+                                <div class="text-gray-600">Unique identifier for product in FDA submissions • VARCHAR(20)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Nicotine_Content</div>
+                                <div class="text-gray-600">Total nicotine content measured in mg per unit • DECIMAL(5,2)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Tar_Content</div>
+                                <div class="text-gray-600">Anhydrous tar yield measured under ISO conditions • DECIMAL(4,1)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Manufacturing_Date</div>
+                                <div class="text-gray-600">Date of product manufacturing for batch tracking • DATE</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Batch_Number</div>
+                                <div class="text-gray-600">Unique manufacturing batch identifier • VARCHAR(12)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Quality_Score</div>
+                                <div class="text-gray-600">Composite quality assessment score • DECIMAL(3,2)</div>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-2">+ 6 additional CDEs including Regulatory_Status, Carbon_Monoxide_Yield, Moisture_Content, pH_Value, Filter_Efficiency, Production_Facility_ID</div>
+                        </div>
+                    </div>
+                `;
+            } else if (useCase.name === 'Product Impact on Individual Health') {
+                dataAssetsContent = `
+                    <div class="space-y-3">
+                        <div class="text-sm font-semibold text-blue-800">2 Data Assets Identified</div>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">1. Biomarker_Clinical_DB</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: NoSQL Database<br>
+                                    • Records: 850K documents<br>
+                                    • Collections: biomarker_results, clinical_observations, adverse_events, subject_demographics<br>
+                                    • Owner: Clinical Research Team<br>
+                                    • Quality Score: 92%
+                                </div>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">2. biomarker_exposure_data.csv</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: CSV File<br>
+                                    • Size: 28MB, 67,500 rows<br>
+                                    • Fields: SUBJ_ID, COT_LEVEL, NNAL_CONC, AGE_VERIF, EXP_HIST, BMI_VAL, BP_SYS<br>
+                                    • Owner: Clinical Research Team<br>
+                                    • Quality Score: 82%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                cdeContent = `
+                    <div class="space-y-3">
+                        <div class="text-sm font-semibold text-green-800">9 CDEs Suggested</div>
+                        <div class="text-xs space-y-2">
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Subject_ID</div>
+                                <div class="text-gray-600">Unique clinical study participant identifier • VARCHAR(15)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Cotinine_Level</div>
+                                <div class="text-gray-600">Biomarker for nicotine exposure measured in ng/mL • DECIMAL(8,2)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Clinical_Endpoint</div>
+                                <div class="text-gray-600">Primary or secondary endpoint measured in clinical studies • VARCHAR(100)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Exposure_Biomarker</div>
+                                <div class="text-gray-600">Biological indicators of product exposure • DECIMAL(10,3)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Study_Protocol_ID</div>
+                                <div class="text-gray-600">Unique identifier for clinical study protocol • VARCHAR(20)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Adverse_Event_Code</div>
+                                <div class="text-gray-600">Standardized code for adverse events • VARCHAR(10)</div>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-2">+ 3 additional CDEs including Age_Verification, Blood_Pressure_Systolic, Body_Mass_Index</div>
+                        </div>
+                    </div>
+                `;
+            } else if (useCase.name === 'Product Impact on Population Health') {
+                dataAssetsContent = `
+                    <div class="space-y-3">
+                        <div class="text-sm font-semibold text-blue-800">2 Data Assets Identified</div>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">1. Population_Surveillance_DB</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: Data Warehouse<br>
+                                    • Records: 12.5M records<br>
+                                    • Datasets: population_surveys, health_outcomes, usage_patterns, demographic_profiles<br>
+                                    • Owner: Epidemiology Team<br>
+                                    • Quality Score: 89%
+                                </div>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">2. surveillance_population_data.csv</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: CSV File<br>
+                                    • Size: 156MB, 425,000 rows<br>
+                                    • Fields: SURV_ID, USE_PAT, HEALTH_OUT, DEMO_DATA, GEO_LOC, EDU_LEV<br>
+                                    • Owner: Epidemiology Team<br>
+                                    • Quality Score: 78%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                cdeContent = `
+                    <div class="space-y-3">
+                        <div class="text-sm font-semibold text-green-800">8 CDEs Suggested</div>
+                        <div class="text-xs space-y-2">
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Population_Demographics</div>
+                                <div class="text-gray-600">Age, gender, and geographic distribution of use population • JSON</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Exposure_Biomarker</div>
+                                <div class="text-gray-600">Biological indicators of product exposure in study populations • DECIMAL(10,3)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Age_Verification</div>
+                                <div class="text-gray-600">Confirmed age verification status for product access • BOOLEAN</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Survey_ID</div>
+                                <div class="text-gray-600">Unique identifier for population survey responses • VARCHAR(15)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Health_Outcome</div>
+                                <div class="text-gray-600">Measured health outcomes in population studies • VARCHAR(50)</div>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-2">+ 3 additional CDEs including Geographic_Location, Education_Level, Usage_Pattern</div>
+                        </div>
+                    </div>
+                `;
+            } else if (useCase.name === 'Comprehensive Regulatory Compliance') {
+                dataAssetsContent = `
+                    <div class="space-y-3">
+                        <div class="text-sm font-semibold text-blue-800">4 Data Assets Identified</div>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">1. Regulatory_Compliance_DB</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: Document Store<br>
+                                    • Records: 45K documents<br>
+                                    • Types: submission_packages, compliance_reports, audit_trails, regulatory_correspondence<br>
+                                    • Owner: Regulatory Affairs<br>
+                                    • Quality Score: 98%
+                                </div>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">2. FDA_Submission_API</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: REST API<br>
+                                    • Endpoints: /pmta, /mrtp, /compliance, /labeling, /adverse-events<br>
+                                    • Response Time: < 200ms<br>
+                                    • Owner: Regulatory IT<br>
+                                    • Uptime: 99.8%
+                                </div>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">3. Product_Characterization_DB</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: SQL Database (shared with Product Description)<br>
+                                    • Focus: Regulatory compliance data views<br>
+                                    • Quality Score: 95%
+                                </div>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">4. Clinical_Data_API</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: GraphQL API<br>
+                                    • Endpoints: /biomarkers, /adverse-events, /demographics, /exposure-data<br>
+                                    • Response Time: < 300ms<br>
+                                    • Owner: Clinical IT<br>
+                                    • Uptime: 99.7%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                cdeContent = `
+                    <div class="space-y-3">
+                        <div class="text-sm font-semibold text-green-800">15 CDEs Suggested</div>
+                        <div class="text-xs space-y-2">
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Product_ID</div>
+                                <div class="text-gray-600">Unique identifier for product in FDA submissions • VARCHAR(20)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Regulatory_Status</div>
+                                <div class="text-gray-600">Current regulatory approval status for product • VARCHAR(20)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Subject_ID</div>
+                                <div class="text-gray-600">Unique clinical study participant identifier • VARCHAR(15)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Nicotine_Content</div>
+                                <div class="text-gray-600">Total nicotine content measured in mg per unit • DECIMAL(5,2)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Adverse_Event_Code</div>
+                                <div class="text-gray-600">Standardized code for adverse events following product exposure • VARCHAR(10)</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Manufacturing_Date</div>
+                                <div class="text-gray-600">Date of product manufacturing for batch tracking • DATE</div>
+                            </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Study_Protocol_ID</div>
+                                <div class="text-gray-600">Unique identifier for clinical study protocol • VARCHAR(20)</div>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-2">+ 8 additional CDEs including Cotinine_Level, Exposure_Biomarker, Age_Verification, Population_Demographics, Batch_Number, Quality_Score, Clinical_Endpoint, Tar_Content</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Load data inventory for this use case
+            document.getElementById('use-case-data-inventory').innerHTML = dataAssetsContent;
 
             // Load glossary/CDEs for this use case
-            document.getElementById('use-case-glossary').innerHTML = `
-                <div class="space-y-3">
-                    <div class="text-sm font-semibold text-green-800">${useCase.cdes} CDEs Suggested</div>
-                    <div class="text-xs space-y-1">
-                        <div class="bg-white p-2 rounded border">
-                            <div class="font-semibold">Nicotine Content</div>
-                            <div class="text-gray-600">mg per cigarette, standardized measurement</div>
-                        </div>
-                        <div class="bg-white p-2 rounded border">
-                            <div class="font-semibold">Biomarker Level</div>
-                            <div class="text-gray-600">Individual health impact measurement</div>
-                        </div>
-                    </div>
-                </div>
-            `;
+            document.getElementById('use-case-glossary').innerHTML = cdeContent;
 
             // Load quality metrics
             document.getElementById('use-case-quality').innerHTML = `
@@ -1504,6 +1757,14 @@
                         <div class="flex justify-between text-xs">
                             <span>Consistency:</span>
                             <span class="text-yellow-600 font-semibold">89%</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span>CDE Coverage:</span>
+                            <span class="text-blue-600 font-semibold">${Math.round((useCase.cdes / 15) * 100)}%</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span>Regulatory Readiness:</span>
+                            <span class="text-green-600 font-semibold">98%</span>
                         </div>
                     </div>
                 </div>
@@ -1523,9 +1784,20 @@
                             <span>Quality Check ✓</span>
                         </div>
                         <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>CDE Mapping ✓</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
                             <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
                             <span>FDA Submission (In Progress)</span>
                         </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+                            <span>Audit Trail Generation (Pending)</span>
+                        </div>
+                    </div>
+                    <div class="mt-3 text-xs text-gray-600">
+                        <strong>Next Steps:</strong> Regulatory review, final validation, submission package generation
                     </div>
                 </div>
             `;
@@ -1629,7 +1901,7 @@
 
         function getStepDescription(step) {
             const descriptions = {
-                1: "🔍 AI scanning 50+ data systems, identifying 127 tobacco-related data fields...",
+                1: "🔍 AI scanning 50+ data systems, identifying 127 related data fields...",
                 2: "📋 Analyzing data standards, suggesting 44 high-priority CDEs with 94-96% confidence...", 
                 3: "📝 Generating metadata definitions, extracting business knowledge from documents...",
                 4: "🛡️ Applying quality rules, setting up data governance controls...",
