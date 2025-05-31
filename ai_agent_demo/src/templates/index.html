@@ -20,6 +20,95 @@
         .tobacco-gold {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
         }
+        .use-case-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .process-step:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .process-step.active .step-number {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .process-step.completed .step-number {
+            background-color: #10b981;
+            color: white;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .step-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            line-height: 1.2;
+        }
+
+        .process-step.active .step-label {
+            color: #3b82f6;
+        }
+
+        .process-step.completed .step-label {
+            color: #10b981;
+        }
+
+        /* Tab Styling */
+        .tab-button {
+            transition: all 0.2s ease;
+        }
+
+        .tab-button.active {
+            color: #3b82f6 !important;
+            border-color: #3b82f6 !important;
+        }
+
+        .tab-content {
+            min-height: 600px;
+        }
+
+        .tab-content.hidden {
+            display: none;
+        }
+
+        /* Use Case Selection */
+        .use-case-card.selected {
+            border: 2px solid #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -33,308 +122,6 @@
             </div>
         </div>
     </header>
-
-    <!-- Before/After Transformation Section -->
-    <section class="bg-gradient-to-r from-gray-50 to-blue-50 py-8">
-        <div class="container mx-auto p-6">
-            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">
-                🔄 Transformation: Before vs After AI Agent
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Before Column -->
-                <div class="bg-red-50 rounded-lg p-6 border-l-4 border-red-400">
-                    <h3 class="text-2xl font-bold text-red-800 mb-6 flex items-center">
-                        ❌ Before AI Agent
-                    </h3>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
-                            <div>
-                                <h4 class="font-semibold text-red-700">Scattered data, no definitions</h4>
-                                <p class="text-sm text-red-600">Data stewards spend 3 days hunting across 50+ systems</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
-                            <div>
-                                <h4 class="font-semibold text-red-700">No starting point for CDEs</h4>
-                                <p class="text-sm text-red-600">Manual CDE identification takes weeks</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
-                            <div>
-                                <h4 class="font-semibold text-red-700">Tribal knowledge trapped in documents</h4>
-                                <p class="text-sm text-red-600">Business definitions buried in emails and files</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
-                            <div>
-                                <h4 class="font-semibold text-red-700">No clear ownership</h4>
-                                <p class="text-sm text-red-600">SMEs unknown, data lineage unclear</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
-                            <div>
-                                <h4 class="font-semibold text-red-700">Manual compliance checks</h4>
-                                <p class="text-sm text-red-600">Audit preparation takes 3+ weeks</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-6 p-4 bg-red-100 rounded">
-                        <p class="text-sm font-semibold text-red-800">⏱️ Time to Value: 3-6 months</p>
-                        <p class="text-sm font-semibold text-red-800">💰 Cost: High manual effort, delayed projects</p>
-                    </div>
-                </div>
-
-                <!-- After Column -->
-                <div class="bg-green-50 rounded-lg p-6 border-l-4 border-green-400">
-                    <h3 class="text-2xl font-bold text-green-800 mb-6 flex items-center">
-                        ✅ After AI Agent + Human Review
-                    </h3>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                            <div>
-                                <h4 class="font-semibold text-green-700">Draft metadata for 127 fields in 30 minutes</h4>
-                                <p class="text-sm text-green-600">AI discovers and catalogs data across all systems</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                            <div>
-                                <h4 class="font-semibold text-green-700">Suggested 44 high-priority CDEs</h4>
-                                <p class="text-sm text-green-600">AI identifies CDEs with 94-96% confidence</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                            <div>
-                                <h4 class="font-semibold text-green-700">Key terms extracted from documents</h4>
-                                <p class="text-sm text-green-600">AI parses and structures business knowledge</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                            <div>
-                                <h4 class="font-semibold text-green-700">Draft list of SMEs for review</h4>
-                                <p class="text-sm text-green-600">AI suggests domain experts and data owners</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                            <div>
-                                <h4 class="font-semibold text-green-700">Automated compliance workflows</h4>
-                                <p class="text-sm text-green-600">Continuous monitoring, 2-day audit prep</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-6 p-4 bg-green-100 rounded">
-                        <p class="text-sm font-semibold text-green-800">⚡ Time to Value: 2-3 weeks</p>
-                        <p class="text-sm font-semibold text-green-800">💎 ROI: $2M+ annually, 85% time savings</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Key Metrics -->
-            <div class="mt-8 text-center">
-                <div class="inline-flex bg-white rounded-lg p-4 shadow-lg border">
-                    <div class="flex items-center space-x-8">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-blue-600">85%</div>
-                            <div class="text-sm text-gray-600">Time Reduction</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-green-600">91%</div>
-                            <div class="text-sm text-gray-600">Quality Score</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-purple-600">48</div>
-                            <div class="text-sm text-gray-600">AI Contexts</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-orange-600">$2M+</div>
-                            <div class="text-sm text-gray-600">Annual ROI</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Interactive Demo Buttons -->
-            <div class="mt-8 text-center">
-                <h3 class="text-xl font-bold mb-6 text-gray-800">🔄 Complete Data Governance Process Flow</h3>
-                
-                <!-- Process Flow Visualization -->
-                <div class="mb-8 flex justify-center">
-                    <div class="bg-white rounded-lg shadow-lg p-6 max-w-4xl">
-                        <div class="flex items-center justify-between space-x-4">
-                            <div class="flex flex-col items-center">
-                                <div id="step1-indicator" class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2 border-2 border-blue-300">
-                                    <span class="text-blue-600 font-bold">1</span>
-                                </div>
-                                <div class="text-xs text-center">
-                                    <div class="font-semibold">Discover</div>
-                                    <div class="text-gray-600">Find Assets</div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex-1 h-0.5 bg-gray-300"></div>
-                            
-                            <div class="flex flex-col items-center">
-                                <div id="step2-indicator" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-2 border-2 border-gray-300">
-                                    <span class="text-gray-400 font-bold">2</span>
-                                </div>
-                                <div class="text-xs text-center">
-                                    <div class="font-semibold">Standardize</div>
-                                    <div class="text-gray-600">CDEs</div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex-1 h-0.5 bg-gray-300"></div>
-                            
-                            <div class="flex flex-col items-center">
-                                <div id="step3-indicator" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-2 border-2 border-gray-300">
-                                    <span class="text-gray-400 font-bold">3</span>
-                                </div>
-                                <div class="text-xs text-center">
-                                    <div class="font-semibold">Define</div>
-                                    <div class="text-gray-600">Metadata</div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex-1 h-0.5 bg-gray-300"></div>
-                            
-                            <div class="flex flex-col items-center">
-                                <div id="step4-indicator" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-2 border-2 border-gray-300">
-                                    <span class="text-gray-400 font-bold">4</span>
-                                </div>
-                                <div class="text-xs text-center">
-                                    <div class="font-semibold">Protect</div>
-                                    <div class="text-gray-600">Quality Rules</div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex-1 h-0.5 bg-gray-300"></div>
-                            
-                            <div class="flex flex-col items-center">
-                                <div id="step5-indicator" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-2 border-2 border-gray-300">
-                                    <span class="text-gray-400 font-bold">5</span>
-                                </div>
-                                <div class="text-xs text-center">
-                                    <div class="font-semibold">Report</div>
-                                    <div class="text-gray-600">Governance</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Process Control Buttons -->
-                <div class="mb-6">
-                    <button onclick="startGovernanceProcess()" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all font-semibold shadow-lg">
-                        🚀 Start Complete Governance Process
-                    </button>
-                    <button onclick="resetProcess()" class="ml-4 px-4 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-all">
-                        🔄 Reset Process
-                    </button>
-                </div>
-                
-                <!-- Individual Step Buttons -->
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                    <button id="step1-btn" onclick="runStep(1)" class="px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all" disabled>
-                        <div class="font-semibold">Step 1: Discover</div>
-                        <div class="text-xs">🔍 Data Assets</div>
-                    </button>
-                    <button id="step2-btn" onclick="runStep(2)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Step 2: Standardize</div>
-                        <div class="text-xs">🏷️ CDEs</div>
-                    </button>
-                    <button id="step3-btn" onclick="runStep(3)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Step 3: Define</div>
-                        <div class="text-xs">📝 Metadata</div>
-                    </button>
-                    <button id="step4-btn" onclick="runStep(4)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Step 4: Protect</div>
-                        <div class="text-xs">🛡️ Quality Rules</div>
-                    </button>
-                    <button id="step5-btn" onclick="runStep(5)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Step 5: Report</div>
-                        <div class="text-xs">📋 Governance</div>
-                    </button>
-                </div>
-                
-                <!-- Process Status -->
-                <div id="process-status" class="mt-4 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-400" style="display: none;">
-                    <div class="text-sm font-semibold text-blue-800">Process Status:</div>
-                    <div id="status-text" class="text-sm text-blue-700">Ready to begin governance transformation...</div>
-                </div>
-            </div>
-            
-            <!-- Demo Results Container -->
-            <div id="demo-container" class="mt-8" style="display: none;">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <div id="demo-content">
-                        <!-- Demo content will be displayed here -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAIR Principles Navigation -->
-    <nav class="bg-white shadow-sm border-b-2 border-gray-200">
-        <div class="container mx-auto p-4">
-            <div class="flex justify-between items-center">
-                <!-- FAIR Navigation -->
-                <div class="flex space-x-6">
-                    <button onclick="highlightFAIR('findable')" id="fair-findable" class="fair-nav-btn px-4 py-2 rounded-lg text-blue-600 bg-blue-50 font-semibold">
-                        🔍 FINDABLE
-                    </button>
-                    <button onclick="highlightFAIR('accessible')" id="fair-accessible" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
-                        🔓 ACCESSIBLE
-                    </button>
-                    <button onclick="highlightFAIR('interoperable')" id="fair-interoperable" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
-                        🔄 INTEROPERABLE
-                    </button>
-                    <button onclick="highlightFAIR('reusable')" id="fair-reusable" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
-                        ♻️ REUSABLE
-                    </button>
-                </div>
-                
-                <!-- Persona Selection -->
-                <div class="flex items-center space-x-4">
-                    <span class="text-sm font-medium text-gray-700">View as:</span>
-                    <select id="persona-selector" onchange="switchPersona()" class="px-3 py-2 border border-gray-300 rounded-lg text-sm">
-                        <option value="steward">🛡️ Data Steward</option>
-                        <option value="owner">👑 Data Owner</option>
-                        <option value="sme">🧠 SME</option>
-                    </select>
-                </div>
-            </div>
-            
-            <!-- Current Persona Description -->
-            <div id="persona-description" class="mt-3 p-3 bg-blue-50 rounded-lg">
-                <p class="text-sm text-blue-800">
-                    <strong>Data Steward View:</strong> Focus on data quality, governance metrics, and regulatory compliance. Your goal: Ensure FAIR data foundation across tobacco regulatory landscape.
-                </p>
-            </div>
-        </div>
-    </nav>
 
     <!-- AI Intelligence Panel -->
     <div class="bg-gradient-to-r from-purple-50 to-blue-50 border-b">
@@ -356,123 +143,323 @@
 
     <div class="container mx-auto p-6">
         
-        <!-- Use Cases Overview -->
+        <!-- Three-Tab Interface -->
         <section class="mb-8">
-            <h2 class="text-2xl font-bold mb-4 text-gray-800">🎯 Tobacco Data Governance Use Cases</h2>
-            <div id="use-cases-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <!-- Use cases will be loaded here -->
-            </div>
-        </section>
-
-        <!-- Search Section -->
-        <section class="mb-8">
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-bold mb-4 text-gray-800">
-                    <i class="fas fa-search mr-2 text-blue-600"></i>AI-Powered Data Discovery
-                </h2>
-                <div class="flex gap-4 mb-4">
-                    <input 
-                        type="text" 
-                        id="search-input" 
-                        placeholder="Search for 'nicotine', 'biomarker', 'surveillance', 'regulatory'..." 
-                        class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                    >
-                    <select id="use-case-filter" class="p-3 border border-gray-300 rounded-lg">
-                        <option value="">All Use Cases</option>
-                        <option value="Product Description (Nonclinical)">Product Description (Nonclinical)</option>
-                        <option value="Product Impact on Individual Health">Product Impact on Individual Health</option>
-                        <option value="Product Impact on Population Health">Product Impact on Population Health</option>
-                        <option value="Comprehensive Regulatory Compliance">Comprehensive Regulatory Compliance</option>
-                    </select>
-                    <button onclick="searchData()" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                        <i class="fas fa-search mr-2"></i>Search
-                    </button>
-                    <button onclick="clearFilter()" class="px-4 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600">
-                        <i class="fas fa-times mr-2"></i>Clear
-                    </button>
+            <div class="bg-white rounded-lg shadow-lg">
+                <!-- Tab Navigation -->
+                <div class="border-b border-gray-200">
+                    <nav class="flex space-x-8 px-6" aria-label="Tabs">
+                        <button onclick="switchTab('process')" id="process-tab" class="tab-button active py-4 px-1 border-b-2 border-blue-500 font-medium text-sm text-blue-600">
+                            <i class="fas fa-cogs mr-2"></i>Data Governance Process
+                        </button>
+                        <button onclick="switchTab('use-cases')" id="use-cases-tab" class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                            <i class="fas fa-th-large mr-2"></i>Use Cases & Implementation
+                        </button>
+                        <button onclick="switchTab('ai-assistant')" id="ai-assistant-tab" class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                            <i class="fas fa-robot mr-2"></i>AI Assistant
+                        </button>
+                    </nav>
                 </div>
-                <div id="search-results" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-                    <!-- Search results will appear here -->
+
+                <!-- Tab Content -->
+                <div class="p-6">
+                    <!-- Tab 1: Data Governance Process (General) -->
+                    <div id="process-content" class="tab-content">
+                        <div class="space-y-8">
+                            <!-- Transformation Before/After -->
+                            <div class="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-6 border">
+                                <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
+                                    <i class="fas fa-exchange-alt mr-2"></i>Transformation: Before vs After AI Agent
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <!-- Before AI Agent -->
+                                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-400">
+                                        <h4 class="font-bold text-red-800 mb-4 text-lg">❌ Before AI Agent</h4>
+                                        <ul class="space-y-3 text-sm text-red-700">
+                                            <li>• <strong>Scattered data, no definitions</strong><br><span class="text-red-600">Data stewards spend 3 days hunting across 50+ systems</span></li>
+                                            <li>• <strong>No starting point for CDEs</strong><br><span class="text-red-600">Manual CDE identification takes weeks</span></li>
+                                            <li>• <strong>Tribal knowledge trapped in documents</strong><br><span class="text-red-600">Business definitions buried in emails and files</span></li>
+                                            <li>• <strong>No clear ownership</strong><br><span class="text-red-600">SMEs unknown, data lineage unclear</span></li>
+                                            <li>• <strong>Manual compliance checks</strong><br><span class="text-red-600">Audit preparation takes 3+ weeks</span></li>
+                                        </ul>
+                                        <div class="mt-4 p-3 bg-red-100 rounded text-sm">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-clock mr-2 text-red-600"></i>
+                                                <span class="font-semibold text-red-800">Time to Value: 3-6 months</span>
+                                            </div>
+                                            <div class="flex items-center mt-1">
+                                                <i class="fas fa-dollar-sign mr-2 text-red-600"></i>
+                                                <span class="font-semibold text-red-800">Cost: High manual effort, delayed projects</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- After AI Agent -->
+                                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-400">
+                                        <h4 class="font-bold text-green-800 mb-4 text-lg">✅ After AI Agent + Human Review</h4>
+                                        <ul class="space-y-3 text-sm text-green-700">
+                                            <li>• <strong>Draft metadata for 127 fields in 30 minutes</strong><br><span class="text-green-600">AI discovers and catalogs data across all systems</span></li>
+                                            <li>• <strong>Suggested 44 high-priority CDEs</strong><br><span class="text-green-600">AI identifies CDEs with 94-96% confidence</span></li>
+                                            <li>• <strong>Key terms extracted from documents</strong><br><span class="text-green-600">AI parses and structures business knowledge</span></li>
+                                            <li>• <strong>Draft list of SMEs for review</strong><br><span class="text-green-600">AI suggests domain experts and data owners</span></li>
+                                            <li>• <strong>Automated compliance workflows</strong><br><span class="text-green-600">Continuous monitoring, 2-day audit prep</span></li>
+                                        </ul>
+                                        <div class="mt-4 p-3 bg-green-100 rounded text-sm">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-clock mr-2 text-green-600"></i>
+                                                <span class="font-semibold text-green-800">Time to Value: 2-3 weeks</span>
+                                            </div>
+                                            <div class="flex items-center mt-1">
+                                                <i class="fas fa-dollar-sign mr-2 text-green-600"></i>
+                                                <span class="font-semibold text-green-800">ROI: $2M+ annually, 85% time savings</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Key Metrics -->
+                                <div class="grid grid-cols-4 gap-4 mt-8 text-center">
+                                    <div class="bg-white p-4 rounded-lg shadow">
+                                        <div class="text-3xl font-bold text-blue-600">85%</div>
+                                        <div class="text-sm text-gray-600">Time Reduction</div>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg shadow">
+                                        <div class="text-3xl font-bold text-green-600">91%</div>
+                                        <div class="text-sm text-gray-600">Quality Score</div>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg shadow">
+                                        <div class="text-3xl font-bold text-purple-600">48</div>
+                                        <div class="text-sm text-gray-600">AI Contexts</div>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg shadow">
+                                        <div class="text-3xl font-bold text-orange-600">$2M+</div>
+                                        <div class="text-sm text-gray-600">Annual ROI</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Complete Process Flow -->
+                            <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border">
+                                <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
+                                    <i class="fas fa-project-diagram mr-2"></i>Complete Data Governance Process Flow
+                                </h3>
+                                
+                                <!-- Process Steps -->
+                                <div class="flex justify-center mb-8">
+                                    <div class="flex space-x-6">
+                                        <div class="process-step active" id="general-step-1">
+                                            <div class="step-number">1</div>
+                                            <div class="step-label">Discover<br><span class="text-xs">Find Assets</span></div>
+                                        </div>
+                                        <div class="process-step" id="general-step-2">
+                                            <div class="step-number">2</div>
+                                            <div class="step-label">Standardize<br><span class="text-xs">CDEs</span></div>
+                                        </div>
+                                        <div class="process-step" id="general-step-3">
+                                            <div class="step-number">3</div>
+                                            <div class="step-label">Define<br><span class="text-xs">Metadata</span></div>
+                                        </div>
+                                        <div class="process-step" id="general-step-4">
+                                            <div class="step-number">4</div>
+                                            <div class="step-label">Protect<br><span class="text-xs">Quality Rules</span></div>
+                                        </div>
+                                        <div class="process-step" id="general-step-5">
+                                            <div class="step-number">5</div>
+                                            <div class="step-label">Report<br><span class="text-xs">Governance</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Process Control -->
+                                <div class="text-center mb-6">
+                                    <button onclick="startGeneralGovernanceProcess()" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold shadow-lg text-lg">
+                                        🚀 Start Complete Governance Process
+                                    </button>
+                                    <button onclick="resetGeneralProcess()" class="ml-4 px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-all">
+                                        <i class="fas fa-undo mr-2"></i>Reset Process
+                                    </button>
+                                </div>
+
+                                <!-- Process Results -->
+                                <div id="general-process-results" class="mt-6"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Use Cases & Implementation -->
+                    <div id="use-cases-content" class="tab-content hidden">
+                        <div class="space-y-8">
+                            <!-- Use Cases Overview -->
+                            <div>
+                                <h3 class="text-2xl font-bold mb-6 text-gray-800">🎯 Tobacco Data Governance Use Cases</h3>
+                                <div id="use-cases-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                    <!-- Use cases will be loaded here -->
+                                </div>
+                            </div>
+
+                            <!-- Selected Use Case Details -->
+                            <div id="selected-use-case-details" class="hidden">
+                                <h3 class="text-2xl font-bold mb-6 text-gray-800" id="selected-use-case-title">Use Case Implementation</h3>
+                                
+                                <!-- Implementation Components Grid -->
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                                    <!-- Data Inventory -->
+                                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6 border-l-4 border-blue-500">
+                                        <h4 class="text-xl font-bold mb-4 text-blue-700">
+                                            <i class="fas fa-database mr-2"></i>Data Inventory
+                                            <span class="text-sm font-normal text-blue-500 ml-2">(FINDABLE)</span>
+                                        </h4>
+                                        <div id="use-case-data-inventory">
+                                            <!-- Will be populated when use case is selected -->
+                                        </div>
+                                    </div>
+
+                                    <!-- Business Glossary & CDEs -->
+                                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-6 border-l-4 border-green-500">
+                                        <h4 class="text-xl font-bold mb-4 text-green-700">
+                                            <i class="fas fa-book mr-2"></i>Business Glossary & CDEs
+                                            <span class="text-sm font-normal text-green-500 ml-2">(REUSABLE)</span>
+                                        </h4>
+                                        <div id="use-case-glossary">
+                                            <!-- Will be populated when use case is selected -->
+                                        </div>
+                                    </div>
+
+                                    <!-- Data Quality -->
+                                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-6 border-l-4 border-purple-500">
+                                        <h4 class="text-xl font-bold mb-4 text-purple-700">
+                                            <i class="fas fa-chart-line mr-2"></i>Data Quality Metrics
+                                            <span class="text-sm font-normal text-purple-500 ml-2">(INTEROPERABLE)</span>
+                                        </h4>
+                                        <div id="use-case-quality">
+                                            <!-- Will be populated when use case is selected -->
+                                        </div>
+                                    </div>
+
+                                    <!-- Workflow -->
+                                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-6 border-l-4 border-orange-500">
+                                        <h4 class="text-xl font-bold mb-4 text-orange-700">
+                                            <i class="fas fa-cogs mr-2"></i>Compliance Workflow
+                                            <span class="text-sm font-normal text-orange-500 ml-2">(ACCESSIBLE)</span>
+                                        </h4>
+                                        <div id="use-case-workflow">
+                                            <!-- Will be populated when use case is selected -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Use Case Governance Process -->
+                                <div class="bg-white rounded-lg shadow border p-6">
+                                    <h4 class="text-xl font-bold mb-4 text-gray-800">Run Governance Process for This Use Case</h4>
+                                    <div class="text-center">
+                                        <button onclick="runSelectedUseCaseProcess()" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all font-semibold shadow-lg">
+                                            🚀 Start Use Case Governance Process
+                                        </button>
+                                    </div>
+                                    <div id="selected-use-case-results" class="mt-6"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: AI Assistant -->
+                    <div id="ai-assistant-content" class="tab-content hidden">
+                        <div class="space-y-8">
+                            <!-- FAIR Principles & Persona Selection -->
+                            <div class="bg-white rounded-lg shadow border p-6">
+                                <div class="flex justify-between items-center mb-6">
+                                    <!-- FAIR Navigation -->
+                                    <div class="flex space-x-6">
+                                        <button onclick="highlightFAIR('findable')" id="fair-findable" class="fair-nav-btn px-4 py-2 rounded-lg text-blue-600 bg-blue-50 font-semibold">
+                                            🔍 FINDABLE
+                                        </button>
+                                        <button onclick="highlightFAIR('accessible')" id="fair-accessible" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
+                                            🔓 ACCESSIBLE
+                                        </button>
+                                        <button onclick="highlightFAIR('interoperable')" id="fair-interoperable" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
+                                            🔄 INTEROPERABLE
+                                        </button>
+                                        <button onclick="highlightFAIR('reusable')" id="fair-reusable" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
+                                            ♻️ REUSABLE
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Persona Selection -->
+                                    <div class="flex items-center space-x-4">
+                                        <span class="text-sm font-medium text-gray-700">View as:</span>
+                                        <select id="persona-selector" onchange="switchPersona()" class="px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                                            <option value="steward">🛡️ Data Steward</option>
+                                            <option value="owner">👑 Data Owner</option>
+                                            <option value="sme">🧠 SME</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <!-- Current Persona Description -->
+                                <div id="persona-description" class="p-3 bg-blue-50 rounded-lg">
+                                    <p class="text-sm text-blue-800">
+                                        <strong>Data Steward View:</strong> Focus on data quality, governance metrics, and regulatory compliance. Your goal: Ensure FAIR data foundation across tobacco regulatory landscape.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- AI-Powered Data Discovery -->
+                            <div class="bg-white rounded-lg shadow border p-6">
+                                <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                                    <i class="fas fa-search mr-2 text-blue-600"></i>AI-Powered Data Discovery
+                                </h3>
+                                <div class="flex gap-4 mb-6">
+                                    <input 
+                                        type="text" 
+                                        id="ai-search-input" 
+                                        placeholder="Ask AI: 'Where can I find nicotine data?' or 'Show me biomarker assets'" 
+                                        class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                                    >
+                                    <select id="ai-use-case-filter" class="p-3 border border-gray-300 rounded-lg">
+                                        <option value="">All Use Cases</option>
+                                        <option value="Product Description (Nonclinical)">Product Description (Nonclinical)</option>
+                                        <option value="Product Impact on Individual Health">Product Impact on Individual Health</option>
+                                        <option value="Product Impact on Population Health">Product Impact on Population Health</option>
+                                        <option value="Comprehensive Regulatory Compliance">Comprehensive Regulatory Compliance</option>
+                                    </select>
+                                    <button onclick="aiSearchData()" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                        <i class="fas fa-brain mr-2"></i>AI Search
+                                    </button>
+                                </div>
+
+                                <!-- Data Discovery Results -->
+                                <div id="ai-discovery-results" class="mb-6">
+                                    <div class="text-center text-gray-500 py-8">
+                                        <i class="fas fa-robot text-4xl mb-4"></i>
+                                        <p>Ask AI to discover and locate your tobacco data assets</p>
+                                    </div>
+                                </div>
+
+                                <!-- Where to Find Data Guide -->
+                                <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                                    <h4 class="font-bold text-blue-800 mb-3">🗺️ AI Data Location Guide</h4>
+                                    <div id="data-location-guide" class="text-sm text-blue-700">
+                                        <p>Use AI search above to get intelligent guidance on where to find specific data assets across your tobacco data landscape.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- AI Smart Suggestions -->
+                            <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-6 border-l-4 border-purple-500">
+                                <h3 class="text-2xl font-bold mb-6 text-purple-800">
+                                    <i class="fas fa-brain mr-2"></i>AI Smart Suggestions
+                                </h3>
+                                <div class="mb-4 text-sm text-purple-700">
+                                    <p>AI provides context-aware suggestions based on your persona, current FAIR principle focus, and selected use case.</p>
+                                </div>
+                                <div id="ai-smart-suggestions" class="space-y-3">
+                                    <!-- AI suggestions will appear here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- AI Suggestions Panel -->
-        <section class="mb-8" id="ai-suggestions-panel" style="display: none;">
-            <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-lg p-6 border-l-4 border-purple-500">
-                <h3 class="text-xl font-bold mb-4 text-purple-800">
-                    <i class="fas fa-brain mr-2"></i>AI Smart Suggestions
-                </h3>
-                <div id="ai-suggestions" class="space-y-3">
-                    <!-- AI suggestions will appear here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Results Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            
-            <!-- Data Inventory -->
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-bold mb-4 text-blue-600">
-                    <i class="fas fa-database mr-2"></i>Data Inventory
-                    <span class="text-sm font-normal text-gray-500 ml-2">(FINDABLE)</span>
-                </h3>
-                <div id="data-inventory">
-                    <p class="text-gray-600">Use search to discover tobacco data assets...</p>
-                </div>
-            </div>
-
-            <!-- Business Glossary -->
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-bold mb-4 text-green-600">
-                    <i class="fas fa-book mr-2"></i>Business Glossary & CDEs
-                    <span class="text-sm font-normal text-gray-500 ml-2">(REUSABLE)</span>
-                </h3>
-                <div id="business-glossary">
-                    <!-- Auto-loaded on page load -->
-                </div>
-            </div>
-
-            <!-- Data Quality -->
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-bold mb-4 text-purple-600">
-                    <i class="fas fa-chart-line mr-2"></i>Data Quality Metrics
-                    <span class="text-sm font-normal text-gray-500 ml-2">(INTEROPERABLE)</span>
-                </h3>
-                <div id="data-quality">
-                    <!-- Auto-loaded on page load -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Workflow Section -->
-        <section class="bg-white rounded-lg shadow-lg p-6">
-            <h3 class="text-xl font-bold mb-4 text-orange-600">
-                <i class="fas fa-cogs mr-2"></i>Tobacco Compliance Workflow
-                <span class="text-sm font-normal text-gray-500 ml-2">(ACCESSIBLE)</span>
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <select id="asset-selector" class="p-3 border border-gray-300 rounded-lg">
-                    <option value="">Select Data Asset...</option>
-                    <option value="DB001">Product Characterization DB</option>
-                    <option value="DB002">Biomarker Clinical DB</option>
-                    <option value="DB003">Population Surveillance DB</option>
-                    <option value="DB004">Regulatory Compliance DB</option>
-                    <option value="FILE001">Product Characterization Data</option>
-                    <option value="API001">FDA Submission API</option>
-                </select>
-                <select id="action-selector" class="p-3 border border-gray-300 rounded-lg">
-                    <option value="access_request">Request Data Access</option>
-                    <option value="compliance_check">Run Compliance Check</option>
-                    <option value="cde_validation">Validate CDEs</option>
-                    <option value="fda_submission">Prepare FDA Submission</option>
-                </select>
-                <button onclick="initiateWorkflow()" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700">
-                    <i class="fas fa-play mr-2"></i>Initiate Workflow
-                </button>
-            </div>
-            <div id="workflow-result" class="mt-4"></div>
         </section>
 
     </div>
@@ -1367,2113 +1354,421 @@
             return icons[type] || '💡';
         }
 
-        async function loadUseCases() {
-            try {
-                const response = await fetch('/api/use-cases');
-                const data = await response.json();
-                
-                const grid = document.getElementById('use-cases-grid');
-                grid.innerHTML = data.use_cases.map(useCase => `
-                    <div class="use-case-card text-white rounded-lg p-4 card-hover cursor-pointer" onclick="startUseCaseGovernanceProcess('${useCase.id}')">
-                        <h4 class="font-bold text-lg mb-2">${useCase.name}</h4>
-                        <p class="text-sm opacity-90 mb-3">${useCase.description}</p>
-                        <div class="text-xs">
-                            <div class="mb-1">📊 <strong>${useCase.assets}</strong> Assets | 🏷️ <strong>${useCase.cdes}</strong> CDEs</div>
-                            <div class="opacity-80">Standards: ${useCase.standards.join(', ')}</div>
-                        </div>
-                        <div class="mt-3 px-2 py-1 bg-white bg-opacity-20 rounded text-xs text-center">
-                            Click to start 5-step governance process
-                        </div>
-                    </div>
-                `).join('');
-            } catch (error) {
-                console.error('Error loading use cases:', error);
+        // Global variables
+        let useCases = [];
+        let selectedUseCase = null;
+        let currentGeneralStep = 1;
+
+        // Tab Management
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active state from all tabs
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+                button.classList.remove('border-blue-500', 'text-blue-600');
+                button.classList.add('border-transparent', 'text-gray-500');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-content').classList.remove('hidden');
+            
+            // Add active state to selected tab
+            const activeTab = document.getElementById(tabName + '-tab');
+            activeTab.classList.add('active', 'border-blue-500', 'text-blue-600');
+            activeTab.classList.remove('border-transparent', 'text-gray-500');
+
+            // Load tab-specific content
+            if (tabName === 'use-cases') {
+                loadUseCases();
+            } else if (tabName === 'ai-assistant') {
+                initializeAIAssistant();
             }
         }
 
-        async function startUseCaseGovernanceProcess(useCaseId) {
-            console.log('Starting governance process for:', useCaseId);
-            
-            // Map use case IDs to display names and demo functions
-            const useCaseMap = {
-                'product_description': {
-                    displayName: 'Product Description (Nonclinical)',
-                    title: '🧪 Product Description (Nonclinical) - FDA Section 2.8 Governance Process',
-                    demoData: 'product'
-                },
-                'individual_health': {
-                    displayName: 'Product Impact on Individual Health',
-                    title: '🩺 Individual Health Impact Assessment - FDA Sections 2.7 & 2.9 Governance Process',
-                    demoData: 'individual'
-                },
-                'population_health': {
-                    displayName: 'Product Impact on Population Health', 
-                    title: '👥 Population Health Impact Assessment - FDA Section 2.9 Governance Process',
-                    demoData: 'population'
-                },
-                'regulatory_compliance': {
-                    displayName: 'Comprehensive Regulatory Compliance',
-                    title: '📋 Comprehensive Regulatory Compliance - FDA Sections 2.7-2.10 Integration Governance Process',
-                    demoData: 'comprehensive'
-                }
-            };
+        // Load use cases for Tab 2
+        function loadUseCases() {
+            fetch('/api/use-cases')
+                .then(response => response.json())
+                .then(data => {
+                    useCases = data.use_cases; // Fix: access the use_cases property
+                    displayUseCases(data.use_cases);
+                })
+                .catch(error => console.error('Error loading use cases:', error));
+        }
 
-            const useCase = useCaseMap[useCaseId];
-            if (!useCase) {
-                console.error('Invalid use case ID:', useCaseId);
-                return;
-            }
-
-            console.log('Use case found:', useCase);
-
-            // Show demo container with governance process
-            try {
-                showDemoContainer();
-                const content = document.getElementById('demo-content');
-                
-                if (!content) {
-                    console.error('Demo content container not found');
-                    return;
-                }
-                
-                content.innerHTML = `
-                    <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
-                        ${useCase.title}
-                    </h3>
-                    
-                    <div id="${useCaseId}-process-flow" class="mb-8">
-                        ${createUseCaseProcessFlow(useCase.demoData)}
+        function displayUseCases(cases) {
+            const grid = document.getElementById('use-cases-grid');
+            grid.innerHTML = cases.map(useCase => `
+                <div class="use-case-card bg-white rounded-lg shadow-lg p-6 border-2 border-transparent hover:border-blue-300" 
+                     onclick="selectUseCase('${useCase.name}')">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-2">${useCase.icon}</div>
+                        <h3 class="text-lg font-bold text-gray-800">${useCase.name}</h3>
                     </div>
-                    
-                    <!-- Process Control Button -->
-                    <div class="mb-6 text-center">
-                        <button onclick="runUseCaseGovernanceSteps('${useCaseId}', '${useCase.displayName}')" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all font-semibold shadow-lg">
-                            🚀 Start Integrated Governance Process
-                        </button>
-                    </div>
-                    
-                    <!-- Individual Step Results -->
-                    <div id="${useCaseId}-demo-results" class="mt-6"></div>
-                    
-                    <!-- Integration Note -->
-                    <div class="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
-                        <div class="text-sm text-gray-700">
-                            <strong>💡 Integrated Process:</strong> This demonstration integrates with the Data Inventory, Business Glossary & CDEs, Quality Metrics, and Compliance Workflow sections above<br>
-                            <strong>🔍 Live Components:</strong> Each step updates the corresponding functional component in real-time
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <div class="flex justify-between">
+                            <span>Assets:</span>
+                            <span class="font-semibold text-blue-600">${useCase.assets}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>CDEs:</span>
+                            <span class="font-semibold text-green-600">${useCase.cdes}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>FDA Section:</span>
+                            <span class="font-semibold text-purple-600">${useCase.fda_section}</span>
                         </div>
                     </div>
-                `;
-                
-                console.log('Demo content set successfully');
-            } catch (error) {
-                console.error('Error setting up governance process:', error);
-            }
+                    <div class="mt-4 p-3 bg-gray-50 rounded text-xs text-gray-500">
+                        ${useCase.description}
+                    </div>
+                </div>
+            `).join('');
         }
 
-        async function runUseCaseGovernanceSteps(useCaseId, useCaseDisplayName) {
-            console.log('Running governance steps for:', useCaseId, useCaseDisplayName);
+        function selectUseCase(useCaseName) {
+            // Remove selection from all cards
+            document.querySelectorAll('.use-case-card').forEach(card => {
+                card.classList.remove('selected');
+            });
             
-            const steps = [
-                { step: 1, name: 'Data Discovery', component: 'data-inventory' },
-                { step: 2, name: 'CDE Standardization', component: 'business-glossary' }, 
-                { step: 3, name: 'Metadata Definition', component: 'business-glossary' },
-                { step: 4, name: 'Protection & Compliance', component: 'workflow' },
-                { step: 5, name: 'Governance Report', component: 'demo-results' }
-            ];
+            // Find and select the clicked card
+            const selectedCard = Array.from(document.querySelectorAll('.use-case-card'))
+                .find(card => card.textContent.includes(useCaseName));
+            if (selectedCard) {
+                selectedCard.classList.add('selected');
+            }
 
-            const resultContainer = document.getElementById(`${useCaseId}-demo-results`);
+            selectedUseCase = useCases.find(uc => uc.name === useCaseName);
             
-            if (!resultContainer) {
-                console.error('Result container not found:', `${useCaseId}-demo-results`);
-                return;
-            }
+            // Show use case details
+            document.getElementById('selected-use-case-details').classList.remove('hidden');
+            document.getElementById('selected-use-case-title').textContent = useCaseName + ' - Implementation Details';
             
-            // Clear previous results
-            resultContainer.innerHTML = '';
-            
-            console.log('Starting step execution...');
-            
-            // Show progress through each step
-            for (let i = 0; i < steps.length; i++) {
-                const currentStep = steps[i];
-                console.log(`Executing step ${currentStep.step}: ${currentStep.name}`);
-                
-                // Map useCaseId to demo data format for updateUseCaseIndicators
-                const useCaseMap = {
-                    'product_description': 'product',
-                    'individual_health': 'individual',
-                    'population_health': 'population',
-                    'regulatory_compliance': 'comprehensive'
-                };
-                
-                const demoUseCaseId = useCaseMap[useCaseId];
-                
-                // Update process flow indicator
-                if (demoUseCaseId) {
-                    updateUseCaseIndicators(demoUseCaseId, currentStep.step);
-                }
-                
-                // Execute step and update corresponding component
-                await executeGovernanceStep(useCaseId, currentStep, resultContainer, useCaseDisplayName);
-                
-                // Brief pause between steps
-                await new Promise(resolve => setTimeout(resolve, 1200));
-            }
-            
-            console.log('All steps completed, showing summary...');
-            
-            // Show final summary
-            showGovernanceProcessSummary(useCaseId, resultContainer);
+            // Load use case specific data
+            loadUseCaseDetails(selectedUseCase);
         }
 
-        async function executeGovernanceStep(useCaseId, stepInfo, container, useCaseDisplayName) {
-            const { step, name, component } = stepInfo;
-            
-            // Add step result to demo container
-            const stepResult = document.createElement('div');
-            stepResult.className = 'bg-white p-4 rounded-lg shadow border-l-4 border-blue-400 mt-4';
-            stepResult.innerHTML = `
-                <h4 class="text-lg font-bold text-blue-800 mb-3">Step ${step}: ${name} - Processing...</h4>
-                <div class="flex items-center">
-                    <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse mr-2"></div>
-                    <span class="text-sm text-gray-600">Integrating with ${component} component...</span>
+        function loadUseCaseDetails(useCase) {
+            // Load data inventory for this use case
+            document.getElementById('use-case-data-inventory').innerHTML = `
+                <div class="space-y-3">
+                    <div class="text-sm font-semibold text-blue-800">${useCase.assets} Data Assets Identified</div>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="bg-white p-2 rounded border">
+                            <div class="font-semibold">Primary Sources</div>
+                            <div class="text-gray-600">Clinical DBs, Product Data</div>
+                        </div>
+                        <div class="bg-white p-2 rounded border">
+                            <div class="font-semibold">Compliance Status</div>
+                            <div class="text-green-600">✓ FDA Ready</div>
+                        </div>
+                    </div>
                 </div>
             `;
-            container.appendChild(stepResult);
-            
-            // Execute actual component updates based on step
-            switch (step) {
-                case 1: // Data Discovery
-                    filterByUseCase(useCaseId);
-                    await new Promise(resolve => setTimeout(resolve, 1500));
-                    stepResult.innerHTML = `
-                        <h4 class="text-lg font-bold text-green-800 mb-3">✅ Step ${step}: ${name} Complete</h4>
-                        <div class="text-sm text-gray-600">
-                            Data Inventory updated with ${useCaseDisplayName} assets. Check the Data Inventory section above for filtered results.
-                        </div>
-                    `;
-                    break;
-                    
-                case 2: // CDE Standardization  
-                case 3: // Metadata Definition
-                    loadGlossary(useCaseDisplayName);
-                    await new Promise(resolve => setTimeout(resolve, 1500));
-                    stepResult.innerHTML = `
-                        <h4 class="text-lg font-bold text-green-800 mb-3">✅ Step ${step}: ${name} Complete</h4>
-                        <div class="text-sm text-gray-600">
-                            Business Glossary & CDEs updated with ${useCaseDisplayName} standards. Check the Business Glossary section above for updated terms.
-                        </div>
-                    `;
-                    break;
-                    
-                case 4: // Protection & Compliance
-                    loadQualityMetrics(useCaseDisplayName);
-                    await new Promise(resolve => setTimeout(resolve, 1500));
-                    stepResult.innerHTML = `
-                        <h4 class="text-lg font-bold text-green-800 mb-3">✅ Step ${step}: ${name} Complete</h4>
-                        <div class="text-sm text-gray-600">
-                            Data Quality Metrics updated and Compliance Workflow configured for ${useCaseDisplayName}. Check sections above for updated quality scores and workflow options.
-                        </div>
-                    `;
-                    break;
-                    
-                case 5: // Governance Report
-                    await generateUseCaseGovernanceReport(useCaseId, stepResult, useCaseDisplayName);
-                    break;
-            }
-        }
 
-        async function generateUseCaseGovernanceReport(useCaseId, stepElement, useCaseDisplayName) {
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            // Map useCaseId to demo data format
-            const useCaseDataMap = {
-                'product_description': 'product',
-                'individual_health': 'individual',
-                'population_health': 'population',
-                'regulatory_compliance': 'comprehensive'
-            };
-            
-            const demoUseCaseId = useCaseDataMap[useCaseId];
-            const useCaseData = getUseCaseData(demoUseCaseId);
-            
-            // Create comprehensive report with specific data for each use case
-            const reportData = {
-                'product_description': {
-                    assets: '3',
-                    cdes: '12',
-                    compliance: '98%',
-                    roi: '$800K',
-                    timeReduction: '85%',
-                    readinessStatus: 'Section 2.8 Ready'
-                },
-                'individual_health': {
-                    assets: '2', 
-                    cdes: '9',
-                    compliance: '97%',
-                    roi: '$1.2M',
-                    timeReduction: '91%',
-                    readinessStatus: 'Clinical Study Ready'
-                },
-                'population_health': {
-                    assets: '2',
-                    cdes: '8', 
-                    compliance: '95%',
-                    roi: '$600K',
-                    timeReduction: '83%',
-                    readinessStatus: 'Surveillance Ready'
-                },
-                'regulatory_compliance': {
-                    assets: '4',
-                    cdes: '15',
-                    compliance: '98%',
-                    roi: '$2.1M', 
-                    timeReduction: '94%',
-                    readinessStatus: 'PMTA Submission Ready'
-                }
-            };
-            
-            const currentData = reportData[useCaseId];
-            
-            stepElement.innerHTML = `
-                <h4 class="text-lg font-bold text-green-800 mb-3">✅ Step 5: Governance Report Complete</h4>
-                <div class="bg-gradient-to-r from-blue-50 to-green-50 p-4 rounded-lg">
-                    <h5 class="font-bold text-gray-800 mb-3">${useCaseDisplayName} - Governance Report</h5>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm mb-4">
-                        <div class="text-center">
-                            <div class="text-xl font-bold text-blue-600">${currentData.assets}</div>
-                            <div class="text-gray-600">Assets Discovered</div>
+            // Load glossary/CDEs for this use case
+            document.getElementById('use-case-glossary').innerHTML = `
+                <div class="space-y-3">
+                    <div class="text-sm font-semibold text-green-800">${useCase.cdes} CDEs Suggested</div>
+                    <div class="text-xs space-y-1">
+                        <div class="bg-white p-2 rounded border">
+                            <div class="font-semibold">Nicotine Content</div>
+                            <div class="text-gray-600">mg per cigarette, standardized measurement</div>
                         </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold text-green-600">${currentData.cdes}</div>
-                            <div class="text-gray-600">CDEs Standardized</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold text-purple-600">${currentData.compliance}</div>
-                            <div class="text-gray-600">Compliance Level</div>
+                        <div class="bg-white p-2 rounded border">
+                            <div class="font-semibold">Biomarker Level</div>
+                            <div class="text-gray-600">Individual health impact measurement</div>
                         </div>
                     </div>
-                    
-                    <!-- Additional Report Metrics -->
-                    <div class="border-t pt-3 mt-3">
-                        <h6 class="font-semibold text-gray-700 mb-2">📊 Process Impact & ROI</h6>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                            <div class="text-center">
-                                <div class="text-lg font-bold text-indigo-600">${currentData.timeReduction}</div>
-                                <div class="text-gray-600">Time Reduction</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-lg font-bold text-green-600">${currentData.roi}</div>
-                                <div class="text-gray-600">Estimated ROI</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-lg font-bold text-blue-600">${currentData.readinessStatus}</div>
-                                <div class="text-gray-600">Regulatory Status</div>
-                            </div>
+                </div>
+            `;
+
+            // Load quality metrics
+            document.getElementById('use-case-quality').innerHTML = `
+                <div class="space-y-3">
+                    <div class="text-sm font-semibold text-purple-800">Quality Assessment</div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs">
+                            <span>Completeness:</span>
+                            <span class="text-green-600 font-semibold">94%</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span>Accuracy:</span>
+                            <span class="text-green-600 font-semibold">97%</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span>Consistency:</span>
+                            <span class="text-yellow-600 font-semibold">89%</span>
                         </div>
                     </div>
-                    
-                    <div class="mt-3 text-xs text-center text-gray-600">
-                        All governance components successfully integrated and updated • Report generated in 90 seconds vs 2-3 weeks manual
+                </div>
+            `;
+
+            // Load workflow
+            document.getElementById('use-case-workflow').innerHTML = `
+                <div class="space-y-3">
+                    <div class="text-sm font-semibold text-orange-800">Compliance Workflow</div>
+                    <div class="text-xs space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>Data Collection ✓</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>Quality Check ✓</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                            <span>FDA Submission (In Progress)</span>
+                        </div>
                     </div>
                 </div>
             `;
         }
 
-        function showGovernanceProcessSummary(useCaseId, container) {
-            const summaryElement = document.createElement('div');
-            summaryElement.className = 'mt-6 bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border-2 border-green-200';
-            summaryElement.innerHTML = `
-                <h3 class="text-xl font-bold text-center text-gray-800 mb-4">
-                    🎉 Integrated Governance Process Complete!
-                </h3>
-                <div class="text-center text-sm text-gray-700">
-                    <p class="mb-2">All functional components have been updated with use case-specific data:</p>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-                        <div class="text-center">
-                            <div class="text-lg">📊</div>
-                            <div class="text-xs">Data Inventory</div>
+        function runSelectedUseCaseProcess() {
+            if (!selectedUseCase) {
+                alert('Please select a use case first');
+                return;
+            }
+
+            const resultsDiv = document.getElementById('selected-use-case-results');
+            resultsDiv.innerHTML = `
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <h5 class="font-bold text-blue-800 mb-3">Running Governance Process for: ${selectedUseCase.name}</h5>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>✓ Discovered ${selectedUseCase.assets} data assets</span>
                         </div>
-                        <div class="text-center">
-                            <div class="text-lg">🏷️</div>
-                            <div class="text-xs">Business Glossary</div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>✓ Identified ${selectedUseCase.cdes} high-priority CDEs</span>
                         </div>
-                        <div class="text-center">
-                            <div class="text-lg">📈</div>
-                            <div class="text-xs">Quality Metrics</div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>✓ Generated metadata catalog</span>
                         </div>
-                        <div class="text-center">
-                            <div class="text-lg">⚖️</div>
-                            <div class="text-xs">Compliance Workflow</div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>✓ Applied quality rules</span>
                         </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>✓ Generated compliance report for ${selectedUseCase.fda_section}</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-green-100 rounded text-sm">
+                        <span class="font-semibold text-green-800">Success!</span> Governance process completed for ${selectedUseCase.name} with 94% confidence score.
                     </div>
                 </div>
             `;
-            container.appendChild(summaryElement);
         }
 
-        function filterByUseCase(useCaseId) {
-            const searchInput = document.getElementById('search-input');
-            const useCaseFilter = document.getElementById('use-case-filter');
-            
-            // Set filter based on use case
-            const filterMap = {
-                'product_description': 'Product Description (Nonclinical)',
-                'individual_health': 'Product Impact on Individual Health', 
-                'population_health': 'Product Impact on Population Health',
-                'regulatory_compliance': 'Comprehensive Regulatory Compliance'
-            };
-            
-            const selectedUseCase = filterMap[useCaseId] || '';
-            useCaseFilter.value = selectedUseCase;
-            
-            // Show AI working
-            updateAIActivity(`AI filtering data for ${selectedUseCase}...`);
-            
-            // Reload all components with the selected use case
-            searchData();
-            loadGlossary(selectedUseCase);
-            loadQualityMetrics(selectedUseCase);
-            
-            // Update AI status after filtering
-            setTimeout(() => {
-                const persona = personas[currentPersona];
-                updateAIActivity(`${selectedUseCase} data ready for ${persona.name}`);
-            }, 1500);
+        // General Process Flow Functions
+        function startGeneralGovernanceProcess() {
+            currentGeneralStep = 1;
+            simulateGeneralProcess();
         }
 
-        async function searchData() {
-            const query = document.getElementById('search-input').value;
-            const useCase = document.getElementById('use-case-filter').value;
+        function simulateGeneralProcess() {
+            const maxSteps = 5;
+            const steps = ['Discover', 'Standardize', 'Define', 'Protect', 'Report'];
             
-            // Show AI activity
-            if (query) {
-                updateAIActivity(`AI searching for "${query}" across tobacco data sources...`);
-            } else if (useCase) {
-                updateAIActivity(`AI filtering data for ${useCase}...`);
-            }
-            
-            try {
-                const response = await fetch('/api/search', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({query, use_case: useCase})
-                });
-                const results = await response.json();
-                displayResults(results);
-                
-                // Update AI status with results
-                const totalResults = (results.databases?.length || 0) + (results.files?.length || 0) + (results.apis?.length || 0);
-                updateAIActivity(`Found ${totalResults} relevant data assets. Ready for ${personas[currentPersona].name}.`);
-                
-            } catch (error) {
-                console.error('Search error:', error);
-                updateAIActivity('Search error occurred. Please try again.');
-            }
-        }
-
-        function displayResults(results) {
-            const inventory = document.getElementById('data-inventory');
-            
-            let html = '';
-            
-            // Databases
-            if (results.databases && results.databases.length > 0) {
-                html += results.databases.map(db => `
-                    <div class="mb-4 p-3 bg-blue-50 rounded">
-                        <h4 class="font-bold text-blue-800">${db.name}</h4>
-                        <p class="text-sm text-gray-600">${db.description}</p>
-                        <div class="mt-2 text-xs text-blue-600">
-                            <div>${db.type} • Owner: ${db.owner}</div>
-                            <div>Use Case: ${db.use_case}</div>
-                            <div>CDEs: ${db.cde_count} | Quality: ${(db.quality_score * 100).toFixed(0)}%</div>
-                            <div class="mt-1 text-purple-600">Standards: ${db.standards.join(', ')}</div>
-                        </div>
-                    </div>
-                `).join('');
-            }
-            
-            // Files
-            if (results.files && results.files.length > 0) {
-                html += results.files.map(file => `
-                    <div class="mb-4 p-3 bg-green-50 rounded">
-                        <h4 class="font-bold text-green-800">${file.name}</h4>
-                        <p class="text-sm text-gray-600">${file.description}</p>
-                        <div class="mt-2 text-xs text-green-600">
-                            <div>${file.type} • Owner: ${file.owner}</div>
-                            <div>Use Case: ${file.use_case}</div>
-                            <div>Quality: ${(file.quality_score * 100).toFixed(0)}%</div>
-                            ${file.fields ? `<div class="mt-1">Key Fields: ${file.fields.join(', ')}</div>` : ''}
-                        </div>
-                    </div>
-                `).join('');
-            }
-            
-            // APIs
-            if (results.apis && results.apis.length > 0) {
-                html += results.apis.map(api => `
-                    <div class="mb-4 p-3 bg-orange-50 rounded">
-                        <h4 class="font-bold text-orange-800">${api.name}</h4>
-                        <p class="text-sm text-gray-600">${api.description}</p>
-                        <div class="mt-2 text-xs text-orange-600">
-                            <div>${api.type} • Owner: ${api.owner}</div>
-                            <div>Use Case: ${api.use_case}</div>
-                            <div>Quality: ${(api.quality_score * 100).toFixed(0)}%</div>
-                            ${api.endpoints ? `<div class="mt-1">Endpoints: ${api.endpoints.join(', ')}</div>` : ''}
-                        </div>
-                    </div>
-                `).join('');
-            }
-            
-            if (!html) {
-                html = '<p class="text-gray-600">No results found. Try searching for tobacco-specific terms.</p>';
-            }
-            
-            inventory.innerHTML = html;
-            
-            // Show AI suggestions when results are displayed
-            updateAISuggestionsForContext();
-        }
-
-        async function loadGlossary(useCase = '') {
-            try {
-                const url = useCase ? `/api/glossary?use_case=${encodeURIComponent(useCase)}` : '/api/glossary';
-                const response = await fetch(url);
-                const glossary = await response.json();
-                
-                const container = document.getElementById('business-glossary');
-                
-                if (Object.keys(glossary).length === 0) {
-                    container.innerHTML = '<p class="text-gray-600">No business terms found for this use case.</p>';
-                    return;
+            if (currentGeneralStep <= maxSteps) {
+                // Update step visualization
+                for (let i = 1; i <= maxSteps; i++) {
+                    const step = document.getElementById(`general-step-${i}`);
+                    if (i < currentGeneralStep) {
+                        step.classList.add('completed');
+                        step.classList.remove('active');
+                    } else if (i === currentGeneralStep) {
+                        step.classList.add('active');
+                        step.classList.remove('completed');
+                    } else {
+                        step.classList.remove('active', 'completed');
+                    }
                 }
-                
-                container.innerHTML = Object.entries(glossary).map(([term, data]) => `
-                    <div class="mb-4 p-3 bg-green-50 rounded">
-                        <h4 class="font-bold text-green-800">${term}</h4>
-                        <p class="text-sm text-gray-600">${data.definition}</p>
-                        <div class="mt-2 text-xs text-green-600">
-                            <div><span class="px-2 py-1 bg-green-200 rounded">${data.type}</span> • Domain: ${data.domain}</div>
-                            <div>Owner: ${data.owner}</div>
-                            <div class="text-purple-600 mt-1">Standards: ${data.standards.join(', ')}</div>
-                            <div class="text-red-600">Regulatory: ${data.regulatory_requirement}</div>
-                            ${data.use_cases ? `<div class="text-blue-600 mt-1">Use Cases: ${data.use_cases.join(', ')}</div>` : ''}
-                        </div>
-                    </div>
-                `).join('');
-            } catch (error) {
-                console.error('Error loading glossary:', error);
-            }
-        }
 
-        async function loadQualityMetrics(useCase = '') {
-            try {
-                const url = useCase ? `/api/quality?use_case=${encodeURIComponent(useCase)}` : '/api/quality';
-                const response = await fetch(url);
-                const quality = await response.json();
-                
-                const container = document.getElementById('data-quality');
-                container.innerHTML = `
-                    <div class="mb-4">
-                        <h4 class="font-bold text-purple-800 text-2xl">${(quality.overall_score * 100).toFixed(1)}%</h4>
-                        <p class="text-sm text-gray-600">Overall Quality Score</p>
-                        ${useCase ? `<p class="text-xs text-blue-600 mt-1">For: ${useCase}</p>` : ''}
-                    </div>
-                    
-                    <div class="space-y-2 mb-4">
-                        ${Object.entries(quality.metrics).map(([metric, score]) => `
-                            <div class="flex justify-between text-sm">
-                                <span class="capitalize">${metric.replace('_', ' ')}</span>
-                                <span class="font-semibold">${(score * 100).toFixed(0)}%</span>
+                // Show progress
+                const resultsDiv = document.getElementById('general-process-results');
+                const stepName = steps[currentGeneralStep - 1];
+                resultsDiv.innerHTML = `
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                                ${currentGeneralStep}
                             </div>
-                        `).join('')}
-                    </div>
-                    
-                    <div class="bg-purple-50 p-3 rounded">
-                        <h5 class="font-bold text-purple-800 mb-2">CDE Coverage</h5>
-                        <div class="text-xs space-y-1">
-                            <div>Total Fields: <strong>${quality.cde_coverage.total_fields}</strong></div>
-                            <div>Standardized: <strong>${quality.cde_coverage.standardized_fields}</strong></div>
-                            <div>CDEs Identified: <strong>${quality.cde_coverage.cde_identified}</strong></div>
-                            <div>Compliance Ready: <strong>${quality.cde_coverage.compliance_ready}</strong></div>
+                            <h4 class="font-bold text-blue-800">Step ${currentGeneralStep}: ${stepName}</h4>
                         </div>
-                    </div>
-                    
-                    ${quality.focus_areas ? `
-                        <div class="bg-blue-50 p-3 rounded mt-3">
-                            <h5 class="font-bold text-blue-800 mb-2">Focus Areas</h5>
-                            <div class="text-xs">
-                                ${quality.focus_areas.map(area => `
-                                    <span class="inline-block bg-blue-200 px-2 py-1 rounded mr-1 mb-1">${area}</span>
-                                `).join('')}
-                            </div>
-                        </div>
-                    ` : ''}
-                    
-                    <div class="bg-gray-50 p-3 rounded mt-3">
-                        <h5 class="font-bold text-gray-800 mb-2">Use Case Readiness</h5>
-                        <div class="text-xs space-y-1">
-                            ${Object.entries(quality.use_case_coverage).map(([useCaseKey, score]) => `
-                                <div class="flex justify-between">
-                                    <span class="capitalize">${useCaseKey.replace('_', ' ')}</span>
-                                    <span class="font-semibold">${(score * 100).toFixed(0)}%</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            } catch (error) {
-                console.error('Error loading quality metrics:', error);
-            }
-        }
-
-        async function initiateWorkflow() {
-            const assetId = document.getElementById('asset-selector').value;
-            const action = document.getElementById('action-selector').value;
-            const useCase = document.getElementById('use-case-filter').value;
-            
-            if (!assetId || !action) {
-                alert('Please select both an asset and an action');
-                return;
-            }
-            
-            try {
-                const response = await fetch('/api/workflow', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({asset_id: assetId, action, use_case: useCase})
-                });
-                const result = await response.json();
-                
-                document.getElementById('workflow-result').innerHTML = `
-                    <div class="bg-green-50 border border-green-200 rounded p-4 mt-4">
-                        <h4 class="font-bold text-green-800">Workflow Initiated Successfully</h4>
-                        <p class="text-sm text-gray-600">${result.message}</p>
-                        <div class="mt-2 text-xs">
-                            <div><strong>Workflow ID:</strong> ${result.workflow_id}</div>
-                            <div><strong>Status:</strong> ${result.status}</div>
-                            <div><strong>Estimated Completion:</strong> ${result.estimated_completion}</div>
-                        </div>
-                        ${result.compliance_checks && result.compliance_checks.length > 0 ? `
-                            <div class="mt-3">
-                                <strong class="text-sm">Compliance Checks:</strong>
-                                <ul class="text-xs mt-1 list-disc list-inside">
-                                    ${result.compliance_checks.map(check => `<li>${check}</li>`).join('')}
-                                </ul>
-                            </div>
-                        ` : ''}
-                        ${result.next_steps ? `
-                            <div class="mt-3">
-                                <strong class="text-sm">Next Steps:</strong>
-                                <ul class="text-xs mt-1 list-disc list-inside">
-                                    ${result.next_steps.map(step => `<li>${step}</li>`).join('')}
-                                </ul>
-                            </div>
-                        ` : ''}
-                    </div>
-                `;
-            } catch (error) {
-                console.error('Workflow error:', error);
-            }
-        }
-
-        // Allow search on Enter key
-        document.getElementById('search-input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchData();
-            }
-        });
-
-        function clearFilter() {
-            const searchInput = document.getElementById('search-input');
-            const useCaseFilter = document.getElementById('use-case-filter');
-            
-            searchInput.value = '';
-            useCaseFilter.value = '';
-            
-            // Reload all components without any filter
-            const inventory = document.getElementById('data-inventory');
-            inventory.innerHTML = '<p class="text-gray-600">Use search to discover tobacco data assets...</p>';
-            
-            loadGlossary();
-            loadQualityMetrics();
-        }
-
-        // Interactive Demo Functions
-        async function demoDataDiscovery() {
-            showDemoContainer();
-            const content = document.getElementById('demo-content');
-            
-            content.innerHTML = `
-                <h3 class="text-xl font-bold mb-4 text-blue-800">🔍 Data Discovery Transformation Demo</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
-                        <h4 class="font-bold text-red-800 mb-3">❌ Before: Manual Discovery</h4>
-                        <div id="manual-discovery" class="space-y-2 text-sm">
-                            <div class="flex items-center space-x-2">
-                                <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                                <span>Searching System 1...</span>
-                            </div>
-                        </div>
-                        <div class="mt-3 p-2 bg-red-100 rounded text-xs">
-                            <strong>Estimated Time:</strong> 3+ days<br>
-                            <strong>Manual Effort:</strong> High
-                        </div>
-                    </div>
-                    
-                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
-                        <h4 class="font-bold text-green-800 mb-3">✅ After: AI-Powered Discovery</h4>
-                        <div id="ai-discovery" class="space-y-2 text-sm">
-                            <div class="text-gray-600">Click "Start AI Discovery" to see the transformation...</div>
+                        <div class="text-sm text-blue-700">
+                            ${getStepDescription(currentGeneralStep)}
                         </div>
                         <div class="mt-3">
-                            <button onclick="startAIDiscovery()" class="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 text-xs">
-                                🚀 Start AI Discovery
-                            </button>
+                            <div class="bg-blue-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: ${(currentGeneralStep/maxSteps)*100}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                currentGeneralStep++;
+                
+                if (currentGeneralStep <= maxSteps) {
+                    setTimeout(simulateGeneralProcess, 2000);
+                } else {
+                    showGeneralCompletionResults();
+                }
+            }
+        }
+
+        function getStepDescription(step) {
+            const descriptions = {
+                1: "🔍 AI scanning 50+ data systems, identifying 127 tobacco-related data fields...",
+                2: "📋 Analyzing data standards, suggesting 44 high-priority CDEs with 94-96% confidence...", 
+                3: "📝 Generating metadata definitions, extracting business knowledge from documents...",
+                4: "🛡️ Applying quality rules, setting up data governance controls...",
+                5: "📊 Creating compliance reports for FDA Sections 2.7-2.10..."
+            };
+            return descriptions[step] || "";
+        }
+
+        function showGeneralCompletionResults() {
+            const resultsDiv = document.getElementById('general-process-results');
+            resultsDiv.innerHTML = `
+                <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                    <h4 class="font-bold text-green-800 mb-4 text-xl">🎉 Complete Governance Process Finished!</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div class="space-y-2">
+                            <div class="font-semibold text-green-700">Assets Processed:</div>
+                            <div>• 11 total data assets discovered</div>
+                            <div>• 127 data fields cataloged</div>
+                            <div>• 44 CDEs identified</div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="font-semibold text-green-700">Quality Metrics:</div>
+                            <div>• 91% overall quality score</div>
+                            <div>• 85% time reduction achieved</div>
+                            <div>• $2M+ annual ROI projected</div>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-green-100 rounded">
+                        <span class="font-semibold">Next Steps:</span> Review AI suggestions, validate CDEs with domain experts, proceed to FDA submission preparation.
+                    </div>
+                </div>
+            `;
+        }
+
+        function resetGeneralProcess() {
+            currentGeneralStep = 1;
+            document.querySelectorAll('[id^="general-step-"]').forEach(step => {
+                step.classList.remove('active', 'completed');
+            });
+            document.getElementById('general-step-1').classList.add('active');
+            document.getElementById('general-process-results').innerHTML = '';
+        }
+
+        // AI Assistant Functions (Tab 3)
+        function initializeAIAssistant() {
+            // Load initial AI suggestions
+            loadAISmartSuggestions();
+        }
+
+        function aiSearchData() {
+            const query = document.getElementById('ai-search-input').value;
+            const useCase = document.getElementById('ai-use-case-filter').value;
+            
+            if (!query.trim()) {
+                alert('Please enter a search query');
+                return;
+            }
+
+            // Simulate AI search
+            const resultsDiv = document.getElementById('ai-discovery-results');
+            resultsDiv.innerHTML = `
+                <div class="bg-white border rounded-lg p-4">
+                    <h4 class="font-bold text-gray-800 mb-3">🤖 AI Search Results for: "${query}"</h4>
+                    <div class="space-y-3">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <div class="font-semibold text-blue-700">Nicotine Content Database (DB001)</div>
+                            <div class="text-sm text-gray-600">Location: Clinical Data Warehouse → Product Characterization</div>
+                            <div class="text-xs text-blue-600">Confidence: 96% | Use Case: Product Description</div>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <div class="font-semibold text-green-700">Biomarker Analysis Files (FILE002)</div>
+                            <div class="text-sm text-gray-600">Location: Research Repository → Individual Health Studies</div>
+                            <div class="text-xs text-green-600">Confidence: 94% | Use Case: Individual Health Impact</div>
                         </div>
                     </div>
                 </div>
             `;
-            
-            // Start manual discovery simulation
-            simulateManualDiscovery();
+
+            // Update location guide
+            updateDataLocationGuide(query);
         }
 
-        function simulateManualDiscovery() {
-            const container = document.getElementById('manual-discovery');
-            const systems = [
-                'Searching System 1... (Product Database)',
-                'Searching System 2... (Clinical Database)', 
-                'Searching System 3... (Regulatory Database)',
-                'Searching Email Archives...',
-                'Searching SharePoint...',
-                'Reviewing Excel Files...',
-                'Contacting SMEs...',
-                'Still searching...'
+        function updateDataLocationGuide(query) {
+            const guideDiv = document.getElementById('data-location-guide');
+            guideDiv.innerHTML = `
+                <div class="space-y-2">
+                    <div><strong>Primary Locations for "${query}":</strong></div>
+                    <div>• Clinical Data Warehouse → Product Characterization section</div>
+                    <div>• Research Repository → Health Impact studies</div>
+                    <div>• Regulatory Database → FDA submission files</div>
+                    <div class="mt-2 text-blue-600">💡 <strong>AI Tip:</strong> Most ${query} data is centralized in the Clinical Data Warehouse with backup copies in Research Repository.</div>
+                </div>
+            `;
+        }
+
+        function loadAISmartSuggestions() {
+            const suggestionsDiv = document.getElementById('ai-smart-suggestions');
+            const suggestions = [
+                {
+                    icon: "🎯",
+                    title: "Focus on Population Health Use Case",
+                    description: "Based on current regulatory trends, prioritize Population Health compliance data.",
+                    action: "View Use Case"
+                },
+                {
+                    icon: "📊", 
+                    title: "Validate High-Priority CDEs",
+                    description: "44 CDEs identified with >94% confidence. Review with domain experts.",
+                    action: "Review CDEs"
+                },
+                {
+                    icon: "🔍",
+                    title: "Discover Missing Biomarker Data",
+                    description: "AI detected potential gaps in biomarker data for FDA Section 2.8.",
+                    action: "Search Data"
+                }
             ];
-            
-            let index = 0;
-            const interval = setInterval(() => {
-                if (index < systems.length) {
-                    container.innerHTML += `
-                        <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                            <span>${systems[index]}</span>
-                        </div>
-                    `;
-                    index++;
-                } else {
-                    container.innerHTML += `
-                        <div class="flex items-center space-x-2 text-red-700">
-                            <div class="w-2 h-2 bg-red-700 rounded-full"></div>
-                            <span><strong>Day 1 Complete</strong> - 12 assets found</span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-red-600 mt-1">
-                            <div class="w-2 h-2 bg-red-600 rounded-full animate-pulse"></div>
-                            <span>Continuing manual search...</span>
-                        </div>
-                    `;
-                    clearInterval(interval);
-                }
-            }, 800);
-        }
 
-        async function startAIDiscovery() {
-            const container = document.getElementById('ai-discovery');
-            
-            container.innerHTML = `
-                <div class="flex items-center space-x-2">
-                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span>AI scanning all systems simultaneously...</span>
-                </div>
-            `;
-            
-            // Simulate AI progress
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            container.innerHTML = `
-                <div class="space-y-2">
-                    <div class="flex items-center space-x-2">
-                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span>✅ Scanned 8 databases in 15 seconds</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span>✅ Indexed 127 fields across all sources</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span>✅ Generated metadata catalog</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span>✅ Identified relationships and dependencies</span>
-                    </div>
-                </div>
-                <div class="mt-3 p-2 bg-green-100 rounded text-xs">
-                    <strong>Total Time:</strong> 30 minutes<br>
-                    <strong>Results:</strong> 127 fields cataloged<br>
-                    <strong>Time Saved:</strong> 85% reduction
-                </div>
-            `;
-        }
-
-        async function demoCDEIdentification() {
-            showDemoContainer();
-            const content = document.getElementById('demo-content');
-            
-            content.innerHTML = `
-                <h3 class="text-xl font-bold mb-4 text-green-800">🏷️ CDE Identification Demo</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
-                        <h4 class="font-bold text-red-800 mb-3">❌ Before: Manual CDE Review</h4>
-                        <div class="space-y-2 text-sm">
-                            <div>📋 Review 127 fields manually</div>
-                            <div>📚 Check against standards documents</div>
-                            <div>👥 Consult with multiple SMEs</div>
-                            <div>📝 Document findings in spreadsheets</div>
-                            <div class="text-red-700">⏱️ <strong>Estimated: 3-4 weeks</strong></div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
-                        <h4 class="font-bold text-green-800 mb-3">✅ After: AI CDE Identification</h4>
-                        <div id="cde-results" class="space-y-2 text-sm">
-                            <button onclick="startCDEIdentification()" class="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 text-xs">
-                                🚀 Start AI CDE Analysis
+            suggestionsDiv.innerHTML = suggestions.map(suggestion => `
+                <div class="bg-white border border-purple-200 rounded-lg p-4 hover:shadow-md transition-all">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-2xl">${suggestion.icon}</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-purple-800">${suggestion.title}</div>
+                            <div class="text-sm text-gray-600 mt-1">${suggestion.description}</div>
+                            <button class="mt-2 px-3 py-1 bg-purple-100 text-purple-700 rounded text-xs hover:bg-purple-200">
+                                ${suggestion.action}
                             </button>
                         </div>
                     </div>
                 </div>
-            `;
+            `).join('');
         }
 
-        async function startCDEIdentification() {
-            const container = document.getElementById('cde-results');
-            
-            container.innerHTML = `
-                <div class="flex items-center space-x-2">
-                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span>AI analyzing field patterns...</span>
-                </div>
-            `;
-            
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            container.innerHTML = `
-                <div class="space-y-2">
-                    <div class="p-2 bg-green-100 rounded">
-                        <strong>High Priority CDEs (96% confidence):</strong>
-                        <div class="text-xs mt-1">
-                            • Patient_ID → CDE_PATIENT_IDENTIFIER<br>
-                            • Cotinine_Level → CDE_COTININE_CONCENTRATION<br>
-                            • Product_Type → CDE_TOBACCO_PRODUCT_CATEGORY
-                        </div>
-                    </div>
-                    <div class="p-2 bg-yellow-100 rounded">
-                        <strong>Medium Priority (85% confidence):</strong>
-                        <div class="text-xs mt-1">
-                            • Age_Group → CDE_AGE_CATEGORY<br>
-                            • Smoking_Status → CDE_TOBACCO_USE_STATUS
-                        </div>
-                    </div>
-                    <div class="mt-3 p-2 bg-green-200 rounded text-xs">
-                        <strong>Results:</strong> 44 CDEs identified in 5 minutes<br>
-                        <strong>SME Review:</strong> Only validation needed<br>
-                        <strong>Time Saved:</strong> 95% reduction
-                    </div>
-                </div>
-            `;
-        }
-
-        async function demoMetadataGeneration() {
-            showDemoContainer();
-            const content = document.getElementById('demo-content');
-            
-            content.innerHTML = `
-                <h3 class="text-xl font-bold mb-4 text-purple-800">📝 Metadata Generation Demo</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
-                        <h4 class="font-bold text-red-800 mb-3">❌ Before: Manual Documentation</h4>
-                        <div class="bg-red-100 p-3 rounded text-sm">
-                            <div class="mb-2"><strong>Field:</strong> COT_LEVEL</div>
-                            <div class="mb-2"><strong>Definition:</strong> <em class="text-red-600">[Empty - needs manual entry]</em></div>
-                            <div class="mb-2"><strong>Data Type:</strong> <em class="text-red-600">[Unknown]</em></div>
-                            <div class="mb-2"><strong>Business Rules:</strong> <em class="text-red-600">[TBD]</em></div>
-                            <div class="mb-2"><strong>Data Owner:</strong> <em class="text-red-600">[TBD]</em></div>
-                            <div class="text-red-700 text-xs">⏱️ Manual completion: 2-3 hours per field</div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
-                        <h4 class="font-bold text-green-800 mb-3">✅ After: AI-Generated Metadata</h4>
-                        <div id="metadata-results">
-                            <button onclick="generateMetadata()" class="px-3 py-1 bg-purple-600 text-white rounded hover:bg-purple-700 text-xs">
-                                🚀 Generate AI Metadata
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        async function generateMetadata() {
-            const container = document.getElementById('metadata-results');
-            
-            container.innerHTML = `
-                <div class="flex items-center space-x-2">
-                    <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
-                    <span>AI analyzing field context...</span>
-                </div>
-            `;
-            
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            container.innerHTML = `
-                <div class="bg-green-100 p-3 rounded text-sm">
-                    <div class="mb-2"><strong>Field:</strong> COT_LEVEL</div>
-                    <div class="mb-2"><strong>Definition:</strong> <span class="text-green-700">Cotinine concentration in biological samples, measured as biomarker of tobacco exposure per FDA Section 2.7 guidelines</span></div>
-                    <div class="mb-2"><strong>Data Type:</strong> <span class="text-green-700">Numeric (ng/mL)</span></div>
-                    <div class="mb-2"><strong>Business Rules:</strong> <span class="text-green-700">Range: 0-500 ng/mL; Required for exposure assessment studies; Must follow ICH bioanalytical validation</span></div>
-                    <div class="mb-2"><strong>Data Owner:</strong> <span class="text-green-700">Clinical Biomarker Team</span></div>
-                    <div class="mb-2"><strong>Related CDEs:</strong> <span class="text-green-700">CDE_COTININE_CONCENTRATION, CDE_EXPOSURE_BIOMARKER</span></div>
-                    <div class="text-green-700 text-xs">✅ AI completion: 30 seconds with 94% accuracy</div>
-                </div>
-                <div class="mt-2 text-xs text-purple-600">
-                    💡 SME review recommended for regulatory accuracy
-                </div>
-            `;
-        }
-
-        async function demoComplianceCheck() {
-            showDemoContainer();
-            const content = document.getElementById('demo-content');
-            
-            content.innerHTML = `
-                <h3 class="text-xl font-bold mb-4 text-orange-800">✅ Compliance Check Demo</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
-                        <h4 class="font-bold text-red-800 mb-3">❌ Before: Manual Compliance</h4>
-                        <div class="space-y-2 text-sm">
-                            <div>📋 Manual checklist review</div>
-                            <div>📄 Document-by-document validation</div>
-                            <div>👥 Multiple stakeholder reviews</div>
-                            <div>📊 Spreadsheet tracking</div>
-                            <div class="text-red-700">⏱️ <strong>3+ weeks for full audit</strong></div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
-                        <h4 class="font-bold text-green-800 mb-3">✅ After: AI Compliance Automation</h4>
-                        <div id="compliance-results">
-                            <button onclick="runComplianceCheck()" class="px-3 py-1 bg-orange-600 text-white rounded hover:bg-orange-700 text-xs">
-                                🚀 Run AI Compliance Check
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        async function runComplianceCheck() {
-            const container = document.getElementById('compliance-results');
-            
-            container.innerHTML = `
-                <div class="flex items-center space-x-2">
-                    <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-                    <span>AI scanning regulatory requirements...</span>
-                </div>
-            `;
-            
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            container.innerHTML = `
-                <div class="space-y-3">
-                    <div class="p-2 bg-green-100 rounded border-l-4 border-green-400">
-                        <div class="text-xs font-bold text-green-800">✅ FDA Section 2.7 Compliance</div>
-                        <div class="text-xs">Clinical data collection standards: PASSED</div>
-                    </div>
-                    <div class="p-2 bg-green-100 rounded border-l-4 border-green-400">
-                        <div class="text-xs font-bold text-green-800">✅ Section 2.8 Compliance</div>
-                        <div class="text-xs">Nonclinical data tabulation: PASSED</div>
-                    </div>
-                    <div class="p-2 bg-yellow-100 rounded border-l-4 border-yellow-400">
-                        <div class="text-xs font-bold text-yellow-800">⚠️ Section 2.9 Compliance</div>
-                        <div class="text-xs">Population health data: 3 minor gaps identified</div>
-                    </div>
-                    <div class="p-2 bg-green-100 rounded border-l-4 border-green-400">
-                        <div class="text-xs font-bold text-green-800">✅ ICH Guidelines</div>
-                        <div class="text-xs">Bioanalytical validation: COMPLIANT</div>
-                    </div>
-                    <div class="mt-3 p-2 bg-green-200 rounded text-xs">
-                        <strong>Overall Score:</strong> 98% compliant<br>
-                        <strong>Audit Ready:</strong> Yes (2 days prep)<br>
-                        <strong>Action Items:</strong> 3 minor corrections needed
-                    </div>
-                </div>
-            `;
-        }
-
-        async function demoQualityRules() {
-            showDemoContainer();
-            const content = document.getElementById('demo-content');
-            
-            content.innerHTML = `
-                <h3 class="text-xl font-bold mb-4 text-red-800">🛡️ Data Protection & Governance Controls Demo</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
-                        <h4 class="font-bold text-red-800 mb-3">❌ Before: Manual Protection</h4>
-                        <div class="space-y-2 text-sm">
-                            <div>📋 Generic spreadsheet rules</div>
-                            <div>👥 Manual access approval processes</div>
-                            <div>📝 Inconsistent data classification</div>
-                            <div>🔐 Ad-hoc privacy controls</div>
-                            <div>📊 No systematic retention policies</div>
-                            <div class="text-red-700">⏱️ <strong>Weeks to implement comprehensive protection</strong></div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
-                        <h4 class="font-bold text-green-800 mb-3">✅ After: AI-Powered Protection Framework</h4>
-                        <div id="quality-rules-results">
-                            <button onclick="generateProtectionFramework()" class="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-xs">
-                                🚀 Generate Comprehensive Protection Controls
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        async function generateProtectionFramework() {
-            const container = document.getElementById('quality-rules-results');
-            
-            container.innerHTML = `
-                <div class="flex items-center space-x-2">
-                    <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                    <span>AI analyzing data patterns for comprehensive protection...</span>
-                </div>
-            `;
-            
-            await new Promise(resolve => setTimeout(resolve, 3000));
-            
-            container.innerHTML = `
-                <div class="space-y-4 max-h-96 overflow-y-auto">
-                    <!-- Data Quality Rules -->
-                    <div class="p-3 bg-blue-100 rounded border-l-4 border-blue-400">
-                        <div class="text-xs font-bold text-blue-800 mb-2">📊 Data Quality Rules</div>
-                        <div class="text-xs space-y-1">
-                            • <strong>Cotinine_Level:</strong> Range 0-500 ng/mL, 2 decimals max, outlier detection<br>
-                            • <strong>Sample_Date:</strong> ISO format, study period validation, chronological checks<br>
-                            • <strong>Product_Type:</strong> Controlled vocabulary, referential integrity<br>
-                            • <strong>Patient_ID:</strong> Format validation, uniqueness, cross-reference checks
-                        </div>
-                    </div>
-                    
-                    <!-- Data Classification -->
-                    <div class="p-3 bg-purple-100 rounded border-l-4 border-purple-400">
-                        <div class="text-xs font-bold text-purple-800 mb-2">🏷️ Automated Data Classification</div>
-                        <div class="text-xs space-y-1">
-                            • <strong>Highly Sensitive:</strong> Patient_ID, Personal_Data (PII masking required)<br>
-                            • <strong>Confidential:</strong> Clinical_Results, Biomarker_Data (authorized access only)<br>
-                            • <strong>Internal:</strong> Product_Formulation, Study_Protocols (employee access)<br>
-                            • <strong>Public:</strong> Aggregate_Statistics, Published_Findings (open access)
-                        </div>
-                    </div>
-                    
-                    <!-- Access Controls -->
-                    <div class="p-3 bg-green-100 rounded border-l-4 border-green-400">
-                        <div class="text-xs font-bold text-green-800 mb-2">🔐 Access Control Framework</div>
-                        <div class="text-xs space-y-1">
-                            • <strong>Role-Based Access:</strong> Clinical_Researcher → biomarker data only<br>
-                            • <strong>Attribute-Based:</strong> Study_ID + Department + Clearance_Level<br>
-                            • <strong>Time-Limited:</strong> Project access expires with study completion<br>
-                            • <strong>Audit Trail:</strong> All access logged with purpose justification
-                        </div>
-                    </div>
-                    
-                    <!-- Privacy Controls -->
-                    <div class="p-3 bg-yellow-100 rounded border-l-4 border-yellow-400">
-                        <div class="text-xs font-bold text-yellow-800 mb-2">🔒 Privacy & Compliance Controls</div>
-                        <div class="text-xs space-y-1">
-                            • <strong>Data Masking:</strong> PII auto-masked in non-prod environments<br>
-                            • <strong>Consent Tracking:</strong> Participant consent status linked to data usage<br>
-                            • <strong>Right to Erasure:</strong> Automated removal upon participant request<br>
-                            • <strong>Cross-Border:</strong> Geographic restrictions for international studies
-                        </div>
-                    </div>
-                    
-                    <!-- Retention & Lifecycle -->
-                    <div class="p-3 bg-orange-100 rounded border-l-4 border-orange-400">
-                        <div class="text-xs font-bold text-orange-800 mb-2">📅 Data Lifecycle Management</div>
-                        <div class="text-xs space-y-1">
-                            • <strong>Retention Policy:</strong> Clinical data 25 years, operational data 7 years<br>
-                            • <strong>Archival Rules:</strong> Automatic cold storage after active study period<br>
-                            • <strong>Destruction Schedule:</strong> Secure deletion post-retention period<br>
-                            • <strong>Legal Hold:</strong> Automatic suspension during litigation/audit
-                        </div>
-                    </div>
-                    
-                    <!-- Compliance Monitoring -->
-                    <div class="p-3 bg-red-100 rounded border-l-4 border-red-400">
-                        <div class="text-xs font-bold text-red-800 mb-2">⚖️ Compliance Monitoring</div>
-                        <div class="text-xs space-y-1">
-                            • <strong>FDA 21 CFR Part 11:</strong> Electronic signature validation<br>
-                            • <strong>ICH GCP:</strong> Clinical trial data integrity checks<br>
-                            • <strong>GDPR Article 25:</strong> Privacy by design validation<br>
-                            • <strong>SOX Controls:</strong> Financial impact data protection
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 p-3 bg-green-200 rounded text-xs">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <strong>Protection Controls:</strong> 127 comprehensive rules<br>
-                                <strong>Classification Coverage:</strong> 100% of data assets<br>
-                                <strong>Access Policies:</strong> 23 role-based controls
-                            </div>
-                            <div>
-                                <strong>Privacy Compliance:</strong> GDPR + FDA validated<br>
-                                <strong>Retention Automation:</strong> Lifecycle managed<br>
-                                <strong>Audit Readiness:</strong> Real-time compliance monitoring
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        async function demoGovernanceReport() {
-            showDemoContainer();
-            const content = document.getElementById('demo-content');
-            
-            content.innerHTML = `
-                <h3 class="text-xl font-bold mb-4 text-indigo-800">📋 Governance Report Auto-Generation Demo</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
-                        <h4 class="font-bold text-red-800 mb-3">❌ Before: Manual Reporting</h4>
-                        <div class="space-y-2 text-sm">
-                            <div>📊 Data scattered across teams</div>
-                            <div>📝 Manual PowerPoint assembly</div>
-                            <div>🔄 Inconsistent metrics and KPIs</div>
-                            <div>👥 Multiple stakeholder interviews</div>
-                            <div>📋 Outdated templates and formats</div>
-                            <div class="text-red-700">⏱️ <strong>2-3 weeks for comprehensive report</strong></div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
-                        <h4 class="font-bold text-green-800 mb-3">✅ After: AI-Generated Executive Report</h4>
-                        <div id="governance-report-results">
-                            <button onclick="generateGovernanceReport()" class="px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700 text-xs">
-                                🚀 Generate Executive Governance Report
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        async function generateGovernanceReport() {
-            const container = document.getElementById('governance-report-results');
-            
-            container.innerHTML = `
-                <div class="flex items-center space-x-2">
-                    <div class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
-                    <span>AI compiling governance insights and metrics...</span>
-                </div>
-            `;
-            
-            await new Promise(resolve => setTimeout(resolve, 3000));
-            
-            container.innerHTML = `
-                <div class="space-y-4 max-h-96 overflow-y-auto">
-                    <div class="p-4 bg-white rounded-lg shadow border">
-                        <h4 class="font-bold text-indigo-800 mb-2">📊 Executive Summary</h4>
-                        <div class="text-xs space-y-2">
-                            <p><strong>Current State:</strong> Data governance maturity has improved from 23% to 78% over 6 months through AI-assisted standardization across Life Sciences functions.</p>
-                            <p><strong>Key Achievement:</strong> 127 critical data assets cataloged with 94% metadata completeness, 44 CDEs standardized, and 98% regulatory compliance achieved.</p>
-                            <p><strong>Business Impact:</strong> $2.1M annual value realized through 85% reduction in data discovery time and 91% improvement in data quality scores.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 bg-red-50 rounded-lg border-l-4 border-red-400">
-                        <h4 class="font-bold text-red-800 mb-2">🔍 Pain Points Identified</h4>
-                        <div class="text-xs space-y-1">
-                            • <strong>Data Silos:</strong> 8 disconnected systems with inconsistent definitions<br>
-                            • <strong>Manual Processes:</strong> 60% of governance tasks still manual<br>
-                            • <strong>Compliance Gaps:</strong> 3 minor FDA validation requirements need attention<br>
-                            • <strong>Resource Constraints:</strong> SME bandwidth limited for validation workflows
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
-                        <h4 class="font-bold text-green-800 mb-2">✅ Current Achievements</h4>
-                        <div class="text-xs grid grid-cols-2 gap-2">
-                            <div>• 127 assets cataloged</div>
-                            <div>• 44 CDEs standardized</div>
-                            <div>• 94% metadata quality</div>
-                            <div>• 98% compliance score</div>
-                            <div>• 85% time reduction</div>
-                            <div>• $2.1M annual ROI</div>
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
-                        <h4 class="font-bold text-blue-800 mb-2">🎯 Next 90 Days Roadmap</h4>
-                        <div class="text-xs space-y-1">
-                            <div><strong>Month 1:</strong> Extend AI agent to Population Health data (Section 2.9)</div>
-                            <div><strong>Month 2:</strong> Implement automated quality monitoring dashboard</div>
-                            <div><strong>Month 3:</strong> Deploy cross-functional FAIR governance workflows</div>
-                            <div><strong>Success Metrics:</strong> 95% compliance, 150+ assets, 50% automation</div>
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-400">
-                        <h4 class="font-bold text-purple-800 mb-2">💼 Resource Requirements</h4>
-                        <div class="text-xs space-y-1">
-                            <div><strong>Technology:</strong> AI platform scaling for additional use cases</div>
-                            <div><strong>People:</strong> 2 SME hours/week for validation (vs 40 hours previously)</div>
-                            <div><strong>Budget:</strong> $150K technology investment → $2.1M annual return</div>
-                            <div><strong>Timeline:</strong> 3-month incremental deployment approach</div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 p-3 bg-indigo-100 rounded text-xs text-center">
-                        <strong>📋 Report Status:</strong> Generated in 30 seconds with real-time data<br>
-                        <strong>📤 Export Ready:</strong> PDF, PowerPoint, Executive Dashboard formats available<br>
-                        <strong>🔄 Auto-Update:</strong> Refreshes weekly with latest governance metrics
-                    </div>
-                </div>
-            `;
-        }
-
-        function showDemoContainer() {
-            document.getElementById('demo-container').style.display = 'block';
-            document.getElementById('demo-container').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Process Flow Management
-        let currentStep = 0;
-        let processRunning = false;
-        let processResults = {};
-
-        async function startGovernanceProcess() {
-            if (processRunning) return;
-            
-            processRunning = true;
-            currentStep = 0;
-            processResults = {};
-            
-            // Show status
-            const statusDiv = document.getElementById('process-status');
-            const statusText = document.getElementById('status-text');
-            statusDiv.style.display = 'block';
-            statusText.textContent = 'Starting comprehensive governance transformation...';
-            
-            // Reset all indicators
-            resetProcess();
-            
-            // Run all steps sequentially
-            for (let step = 1; step <= 5; step++) {
-                await runStep(step);
-                await new Promise(resolve => setTimeout(resolve, 1000)); // Pause between steps
-            }
-            
-            // Show final summary
-            showProcessSummary();
-            processRunning = false;
-        }
-
-        function resetProcess() {
-            currentStep = 0;
-            processResults = {};
-            
-            // Reset all indicators
-            for (let i = 1; i <= 5; i++) {
-                const indicator = document.getElementById(`step${i}-indicator`);
-                const btn = document.getElementById(`step${i}-btn`);
-                
-                if (i === 1) {
-                    indicator.className = 'w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2 border-2 border-blue-300';
-                    indicator.innerHTML = '<span class="text-blue-600 font-bold">1</span>';
-                    btn.disabled = false;
-                    btn.className = 'px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all';
-                } else {
-                    indicator.className = 'w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-2 border-2 border-gray-300';
-                    indicator.innerHTML = `<span class="text-gray-400 font-bold">${i}</span>`;
-                    btn.disabled = true;
-                    btn.className = 'px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed';
-                }
-            }
-            
-            // Hide status
-            document.getElementById('process-status').style.display = 'none';
-            document.getElementById('demo-container').style.display = 'none';
-        }
-
-        async function runStep(step) {
-            if (step > currentStep + 1 && !processRunning) return; // Can't skip steps unless in auto mode
-            
-            currentStep = step;
-            updateProcessIndicators(step);
-            updateProcessStatus(step);
-            
-            // Execute the appropriate demo
-            switch (step) {
-                case 1:
-                    await demoDataDiscovery();
-                    processResults.discovery = "127 data assets discovered in 30 minutes";
-                    break;
-                case 2:
-                    await demoCDEIdentification();  
-                    processResults.cdes = "44 CDEs identified with 96% confidence";
-                    break;
-                case 3:
-                    await demoMetadataGeneration();
-                    processResults.metadata = "Rich metadata generated with 94% accuracy";
-                    break;
-                case 4:
-                    await demoQualityRules();
-                    processResults.quality = "127 protection controls & governance rules deployed";
-                    break;
-                case 5:
-                    await demoGovernanceReport();
-                    processResults.report = "Executive governance report generated";
-                    break;
-            }
-            
-            // Enable next step
-            if (step < 5) {
-                const nextBtn = document.getElementById(`step${step + 1}-btn`);
-                nextBtn.disabled = false;
-                nextBtn.className = getButtonClass(step + 1);
-            }
-        }
-
-        function updateProcessIndicators(currentStep) {
-            for (let i = 1; i <= 5; i++) {
-                const indicator = document.getElementById(`step${i}-indicator`);
-                
-                if (i < currentStep) {
-                    // Completed step
-                    indicator.className = 'w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-2 border-2 border-green-400';
-                    indicator.innerHTML = '<span class="text-green-600 font-bold">✓</span>';
-                } else if (i === currentStep) {
-                    // Current step
-                    indicator.className = 'w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2 border-2 border-blue-400 animate-pulse';
-                    indicator.innerHTML = `<span class="text-blue-600 font-bold">${i}</span>`;
-                } else {
-                    // Future step
-                    indicator.className = 'w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-2 border-2 border-gray-300';
-                    indicator.innerHTML = `<span class="text-gray-400 font-bold">${i}</span>`;
-                }
-            }
-        }
-
-        function updateProcessStatus(step) {
-            const statusText = document.getElementById('status-text');
-            const statusDiv = document.getElementById('process-status');
-            statusDiv.style.display = 'block';
-            
-            const messages = {
-                1: "Step 1: Discovering data assets across all systems...",
-                2: "Step 2: Standardizing with CDE identification...", 
-                3: "Step 3: Defining rich metadata with regulatory context...",
-                4: "Step 4: Protecting data with comprehensive governance controls...",
-                5: "Step 5: Generating executive governance insights..."
-            };
-            
-            statusText.textContent = messages[step];
-        }
-
-        function getButtonClass(step) {
-            const classes = {
-                1: 'px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all',
-                2: 'px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all',
-                3: 'px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all',
-                4: 'px-4 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all',
-                5: 'px-4 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all'
-            };
-            return classes[step];
-        }
-
-        function showProcessSummary() {
-            showDemoContainer();
-            const content = document.getElementById('demo-content');
-            
-            content.innerHTML = `
-                <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
-                        🎉 Complete Data Governance Process - SUCCESS!
-                    </h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
-                        <div class="bg-white p-4 rounded-lg shadow border-l-4 border-blue-400">
-                            <div class="text-center">
-                                <div class="text-2xl mb-2">🔍</div>
-                                <div class="font-semibold text-blue-800">Step 1: Discover</div>
-                                <div class="text-xs text-blue-600 mt-1">127 assets found</div>
-                                <div class="text-xs text-green-600">✓ Complete</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-lg shadow border-l-4 border-green-400">
-                            <div class="text-center">
-                                <div class="text-2xl mb-2">🏷️</div>
-                                <div class="font-semibold text-green-800">Step 2: Standardize</div>
-                                <div class="text-xs text-green-600 mt-1">44 CDEs identified</div>
-                                <div class="text-xs text-green-600">✓ Complete</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-lg shadow border-l-4 border-purple-400">
-                            <div class="text-center">
-                                <div class="text-2xl mb-2">📝</div>
-                                <div class="font-semibold text-purple-800">Step 3: Define</div>
-                                <div class="text-xs text-purple-600 mt-1">94% metadata accuracy</div>
-                                <div class="text-xs text-green-600">✓ Complete</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-lg shadow border-l-4 border-red-400">
-                            <div class="text-center">
-                                <div class="text-2xl mb-2">🛡️</div>
-                                <div class="font-semibold text-red-800">Step 4: Protect</div>
-                                <div class="text-xs text-red-600 mt-1">127 protection controls</div>
-                                <div class="text-xs text-green-600">✓ Complete</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-lg shadow border-l-4 border-indigo-400">
-                            <div class="text-center">
-                                <div class="text-2xl mb-2">📋</div>
-                                <div class="font-semibold text-indigo-800">Step 5: Report</div>
-                                <div class="text-xs text-indigo-600 mt-1">Executive insights</div>
-                                <div class="text-xs text-green-600">✓ Complete</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h4 class="text-xl font-bold text-center text-gray-800 mb-4">
-                            🚀 Governance Transformation Results
-                        </h4>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="text-center">
-                                <div class="text-3xl font-bold text-blue-600">85%</div>
-                                <div class="text-sm text-gray-600">Time Reduction</div>
-                                <div class="text-xs text-gray-500">3 days → 30 minutes</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-3xl font-bold text-green-600">$2.1M</div>
-                                <div class="text-sm text-gray-600">Annual ROI</div>
-                                <div class="text-xs text-gray-500">Quantified business value</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-3xl font-bold text-purple-600">98%</div>
-                                <div class="text-sm text-gray-600">Compliance Ready</div>
-                                <div class="text-xs text-gray-500">FDA/ICH standards</div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg text-center">
-                            <div class="font-bold text-gray-800">Complete End-to-End Transformation:</div>
-                            <div class="text-sm text-gray-600 mt-1">
-                                From scattered data chaos → Systematic AI-powered governance excellence
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            // Update final status
-            const statusText = document.getElementById('status-text');
-            statusText.textContent = 'Complete governance process successfully executed! Ready for enterprise deployment.';
-        }
-
-        // Load use cases on page load
-        window.onload = function() {
-            loadUseCases();
-            loadGlossary();
-            loadQualityMetrics();
-            highlightFAIR('findable'); // Start with FINDABLE principle
-            // Initial suggestions will be loaded by highlightFAIR
-        }
-
-        // Use Case-Specific Demo Functions
-        async function demoProductDescriptionProcess() {
-            showDemoContainer();
-            const content = document.getElementById('demo-content');
-            
-            content.innerHTML = `
-                <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
-                    🧪 Product Description (Nonclinical) - FDA Section 2.8 Governance Process
-                </h3>
-                
-                <div id="product-process-flow" class="mb-8">
-                    ${createUseCaseProcessFlow('product')}
-                </div>
-                
-                <!-- Process Control Buttons -->
-                <div class="mb-6 text-center">
-                    <button onclick="startUseCaseProcess('product')" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all font-semibold shadow-lg">
-                        🚀 Start Product Characterization Process
-                    </button>
-                </div>
-                
-                <!-- Individual Step Buttons -->
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                    <button id="product-step1-btn" onclick="runUseCaseStep('product', 1)" class="px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all">
-                        <div class="font-semibold">Discover</div>
-                        <div class="text-xs">🔍 Lab Data</div>
-                    </button>
-                    <button id="product-step2-btn" onclick="runUseCaseStep('product', 2)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Standardize</div>
-                        <div class="text-xs">🏷️ Lab CDEs</div>
-                    </button>
-                    <button id="product-step3-btn" onclick="runUseCaseStep('product', 3)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Define</div>
-                        <div class="text-xs">📝 FDA Metadata</div>
-                    </button>
-                    <button id="product-step4-btn" onclick="runUseCaseStep('product', 4)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Protect</div>
-                        <div class="text-xs">🛡️ Lab Controls</div>
-                    </button>
-                    <button id="product-step5-btn" onclick="runUseCaseStep('product', 5)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Report</div>
-                        <div class="text-xs">📋 Section 2.8</div>
-                    </button>
-                </div>
-                
-                <div id="product-demo-results" class="mt-6"></div>
-            `;
-        }
-
-        async function demoIndividualHealthProcess() {
-            showDemoContainer();
-            const content = document.getElementById('demo-content');
-            
-            content.innerHTML = `
-                <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
-                    🩺 Individual Health Impact Assessment - FDA Sections 2.7 & 2.9 Governance Process
-                </h3>
-                
-                <div id="individual-process-flow" class="mb-8">
-                    ${createUseCaseProcessFlow('individual')}
-                </div>
-                
-                <div class="mb-6 text-center">
-                    <button onclick="startUseCaseProcess('individual')" class="px-6 py-3 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-lg hover:from-green-700 hover:to-teal-700 transition-all font-semibold shadow-lg">
-                        🚀 Start Clinical Biomarker Process
-                    </button>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                    <button id="individual-step1-btn" onclick="runUseCaseStep('individual', 1)" class="px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all">
-                        <div class="font-semibold">Discover</div>
-                        <div class="text-xs">🔍 Clinical Data</div>
-                    </button>
-                    <button id="individual-step2-btn" onclick="runUseCaseStep('individual', 2)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Standardize</div>
-                        <div class="text-xs">🏷️ Biomarker CDEs</div>
-                    </button>
-                    <button id="individual-step3-btn" onclick="runUseCaseStep('individual', 3)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Define</div>
-                        <div class="text-xs">📝 ICH Metadata</div>
-                    </button>
-                    <button id="individual-step4-btn" onclick="runUseCaseStep('individual', 4)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Protect</div>
-                        <div class="text-xs">🛡️ GCP Controls</div>
-                    </button>
-                    <button id="individual-step5-btn" onclick="runUseCaseStep('individual', 5)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Report</div>
-                        <div class="text-xs">📋 Clinical Report</div>
-                    </button>
-                </div>
-                
-                <div id="individual-demo-results" class="mt-6"></div>
-            `;
-        }
-
-        async function demoPopulationHealthProcess() {
-            showDemoContainer();
-            const content = document.getElementById('demo-content');
-            
-            content.innerHTML = `
-                <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
-                    👥 Population Health Impact Assessment - FDA Section 2.9 Governance Process
-                </h3>
-                
-                <div id="population-process-flow" class="mb-8">
-                    ${createUseCaseProcessFlow('population')}
-                </div>
-                
-                <div class="mb-6 text-center">
-                    <button onclick="startUseCaseProcess('population')" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all font-semibold shadow-lg">
-                        🚀 Start Surveillance Data Process
-                    </button>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                    <button id="population-step1-btn" onclick="runUseCaseStep('population', 1)" class="px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all">
-                        <div class="font-semibold">Discover</div>
-                        <div class="text-xs">🔍 Survey Data</div>
-                    </button>
-                    <button id="population-step2-btn" onclick="runUseCaseStep('population', 2)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Standardize</div>
-                        <div class="text-xs">🏷️ Survey CDEs</div>
-                    </button>
-                    <button id="population-step3-btn" onclick="runUseCaseStep('population', 3)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Define</div>
-                        <div class="text-xs">📝 WHO Metadata</div>
-                    </button>
-                    <button id="population-step4-btn" onclick="runUseCaseStep('population', 4)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Protect</div>
-                        <div class="text-xs">🛡️ Privacy Controls</div>
-                    </button>
-                    <button id="population-step5-btn" onclick="runUseCaseStep('population', 5)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Report</div>
-                        <div class="text-xs">📋 Surveillance</div>
-                    </button>
-                </div>
-                
-                <div id="population-demo-results" class="mt-6"></div>
-            `;
-        }
-
-        async function demoComprehensiveProcess() {
-            showDemoContainer();
-            const content = document.getElementById('demo-content');
-            
-            content.innerHTML = `
-                <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
-                    📋 Comprehensive Regulatory Compliance - FDA Sections 2.7-2.10 Integration Governance Process
-                </h3>
-                
-                <div id="comprehensive-process-flow" class="mb-8">
-                    ${createUseCaseProcessFlow('comprehensive')}
-                </div>
-                
-                <div class="mb-6 text-center">
-                    <button onclick="startUseCaseProcess('comprehensive')" class="px-6 py-3 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg hover:from-red-700 hover:to-orange-700 transition-all font-semibold shadow-lg">
-                        🚀 Start Complete PMTA Process
-                    </button>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                    <button id="comprehensive-step1-btn" onclick="runUseCaseStep('comprehensive', 1)" class="px-4 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all">
-                        <div class="font-semibold">Discover</div>
-                        <div class="text-xs">🔍 All PMTA Data</div>
-                    </button>
-                    <button id="comprehensive-step2-btn" onclick="runUseCaseStep('comprehensive', 2)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Standardize</div>
-                        <div class="text-xs">🏷️ Multi-Section CDEs</div>
-                    </button>
-                    <button id="comprehensive-step3-btn" onclick="runUseCaseStep('comprehensive', 3)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Define</div>
-                        <div class="text-xs">📝 FDA Metadata</div>
-                    </button>
-                    <button id="comprehensive-step4-btn" onclick="runUseCaseStep('comprehensive', 4)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Protect</div>
-                        <div class="text-xs">🛡️ Full Controls</div>
-                    </button>
-                    <button id="comprehensive-step5-btn" onclick="runUseCaseStep('comprehensive', 5)" class="px-4 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed" disabled>
-                        <div class="font-semibold">Report</div>
-                        <div class="text-xs">📋 PMTA Ready</div>
-                    </button>
-                </div>
-                
-                <div id="comprehensive-demo-results" class="mt-6"></div>
-            `;
-        }
-
-        function createUseCaseProcessFlow(useCase) {
-            const colors = {
-                'product': 'blue',
-                'individual': 'green', 
-                'population': 'purple',
-                'comprehensive': 'red'
-            };
-            const color = colors[useCase];
-            
-            return `
-                <div class="flex justify-center">
-                    <div class="bg-white rounded-lg shadow-lg p-6 max-w-4xl">
-                        <div class="flex items-center justify-between space-x-4">
-                            <div class="flex flex-col items-center">
-                                <div id="${useCase}-step1-indicator" class="w-12 h-12 bg-${color}-100 rounded-full flex items-center justify-center mb-2 border-2 border-${color}-300">
-                                    <span class="text-${color}-600 font-bold">1</span>
-                                </div>
-                                <div class="text-xs text-center">
-                                    <div class="font-semibold">Discover</div>
-                                    <div class="text-gray-600">Find Assets</div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex-1 h-0.5 bg-gray-300"></div>
-                            
-                            <div class="flex flex-col items-center">
-                                <div id="${useCase}-step2-indicator" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-2 border-2 border-gray-300">
-                                    <span class="text-gray-400 font-bold">2</span>
-                                </div>
-                                <div class="text-xs text-center">
-                                    <div class="font-semibold">Standardize</div>
-                                    <div class="text-gray-600">CDEs</div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex-1 h-0.5 bg-gray-300"></div>
-                            
-                            <div class="flex flex-col items-center">
-                                <div id="${useCase}-step3-indicator" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-2 border-2 border-gray-300">
-                                    <span class="text-gray-400 font-bold">3</span>
-                                </div>
-                                <div class="text-xs text-center">
-                                    <div class="font-semibold">Define</div>
-                                    <div class="text-gray-600">Metadata</div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex-1 h-0.5 bg-gray-300"></div>
-                            
-                            <div class="flex flex-col items-center">
-                                <div id="${useCase}-step4-indicator" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-2 border-2 border-gray-300">
-                                    <span class="text-gray-400 font-bold">4</span>
-                                </div>
-                                <div class="text-xs text-center">
-                                    <div class="font-semibold">Protect</div>
-                                    <div class="text-gray-600">Controls</div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex-1 h-0.5 bg-gray-300"></div>
-                            
-                            <div class="flex flex-col items-center">
-                                <div id="${useCase}-step5-indicator" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-2 border-2 border-gray-300">
-                                    <span class="text-gray-400 font-bold">5</span>
-                                </div>
-                                <div class="text-xs text-center">
-                                    <div class="font-semibold">Report</div>
-                                    <div class="text-gray-600">Insights</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Use Case Process Control Functions
-        let useCaseState = {
-            currentStep: 0,
-            processRunning: false,
-            results: {}
-        };
-
-        async function startUseCaseProcess(useCase) {
-            useCaseState.processRunning = true;
-            useCaseState.currentStep = 0;
-            useCaseState.results = {};
-            
-            // Run all steps sequentially for the specific use case
-            for (let step = 1; step <= 5; step++) {
-                await runUseCaseStep(useCase, step);
-                await new Promise(resolve => setTimeout(resolve, 1000)); // Brief pause between steps
-            }
-            
-            showUseCaseSummary(useCase);
-            useCaseState.processRunning = false;
-        }
-
-        async function runUseCaseStep(useCase, step) {
-            if (step > useCaseState.currentStep + 1 && !useCaseState.processRunning) return;
-            
-            useCaseState.currentStep = step;
-            updateUseCaseIndicators(useCase, step);
-            
-            const resultContainer = document.getElementById(`${useCase}-demo-results`);
-            
-            // Execute use case-specific step content
-            switch (step) {
-                case 1:
-                    await showUseCaseDiscovery(useCase);
-                    break;
-                case 2:
-                    await showUseCaseStandardization(useCase);
-                    break;
-                case 3:
-                    await showUseCaseDefinition(useCase);
-                    break;
-                case 4:
-                    await showUseCaseProtection(useCase);
-                    break;
-                case 5:
-                    await showUseCaseReport(useCase);
-                    break;
-            }
-            
-            // Enable next step button
-            if (step < 5) {
-                const nextBtn = document.getElementById(`${useCase}-step${step + 1}-btn`);
-                nextBtn.disabled = false;
-                nextBtn.className = getUseCaseButtonClass(useCase, step + 1);
-            }
-        }
-
-        function updateUseCaseIndicators(useCase, currentStep) {
-            const colors = {
-                'product': 'blue',
-                'individual': 'green',
-                'population': 'purple', 
-                'comprehensive': 'red'
-            };
-            const color = colors[useCase];
-            
-            for (let i = 1; i <= 5; i++) {
-                const indicator = document.getElementById(`${useCase}-step${i}-indicator`);
-                
-                if (i < currentStep) {
-                    // Completed step
-                    indicator.className = `w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-2 border-2 border-green-400`;
-                    indicator.innerHTML = '<span class="text-green-600 font-bold">✓</span>';
-                } else if (i === currentStep) {
-                    // Current step
-                    indicator.className = `w-12 h-12 bg-${color}-100 rounded-full flex items-center justify-center mb-2 border-2 border-${color}-400 animate-pulse`;
-                    indicator.innerHTML = `<span class="text-${color}-600 font-bold">${i}</span>`;
-                } else {
-                    // Future step
-                    indicator.className = 'w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-2 border-2 border-gray-300';
-                    indicator.innerHTML = `<span class="text-gray-400 font-bold">${i}</span>`;
-                }
-            }
-        }
-
-        function getUseCaseButtonClass(useCase, step) {
-            const colors = {
-                'product': 'blue',
-                'individual': 'green',
-                'population': 'purple',
-                'comprehensive': 'red'
-            };
-            const color = colors[useCase];
-            return `px-4 py-3 bg-${color}-600 text-white rounded-lg hover:bg-${color}-700 transition-all`;
-        }
-
-        async function showUseCaseDiscovery(useCase) {
-            const useCaseData = getUseCaseData(useCase);
-            const container = document.getElementById(`${useCase}-demo-results`);
-            
-            container.innerHTML = `
-                <div class="bg-white p-4 rounded-lg shadow border-l-4 border-blue-400">
-                    <h4 class="text-lg font-bold text-blue-800 mb-3">🔍 Step 1: Data Discovery Complete</h4>
-                    <div class="flex items-center justify-between">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-blue-600">${useCaseData.discovery.assets}</div>
-                            <div class="text-sm text-blue-700">${useCaseData.discovery.description}</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-green-600">${useCaseData.discovery.timeReduction}</div>
-                            <div class="text-sm text-green-700">Time Reduction</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold text-purple-600">✅</div>
-                            <div class="text-sm text-purple-700">Process Complete</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            await new Promise(resolve => setTimeout(resolve, 1200));
-        }
-
-        async function showUseCaseStandardization(useCase) {
-            const useCaseData = getUseCaseData(useCase);
-            const container = document.getElementById(`${useCase}-demo-results`);
-            
-            container.innerHTML += `
-                <div class="bg-white p-4 rounded-lg shadow border-l-4 border-green-400 mt-4">
-                    <h4 class="text-lg font-bold text-green-800 mb-3">🏷️ Step 2: CDE Standardization Complete</h4>
-                    <div class="flex items-center justify-between">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-green-600">${useCaseData.standardization.cdes}</div>
-                            <div class="text-sm text-green-700">${useCaseData.standardization.description}</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-purple-600">${useCaseData.standardization.confidence}</div>
-                            <div class="text-sm text-purple-700">AI Confidence</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold text-green-600">✅</div>
-                            <div class="text-sm text-green-700">Process Complete</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            await new Promise(resolve => setTimeout(resolve, 1200));
-        }
-
-        async function showUseCaseDefinition(useCase) {
-            const useCaseData = getUseCaseData(useCase);
-            const container = document.getElementById(`${useCase}-demo-results`);
-            
-            container.innerHTML += `
-                <div class="bg-white p-4 rounded-lg shadow border-l-4 border-purple-400 mt-4">
-                    <h4 class="text-lg font-bold text-purple-800 mb-3">📝 Step 3: Metadata Definition Complete</h4>
-                    <div class="flex items-center justify-between">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-purple-600">${useCaseData.definition.accuracy}</div>
-                            <div class="text-sm text-purple-700">Metadata Accuracy</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-indigo-600">${useCaseData.definition.coverage}</div>
-                            <div class="text-sm text-indigo-700">${useCaseData.definition.description}</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold text-purple-600">✅</div>
-                            <div class="text-sm text-purple-700">Process Complete</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            await new Promise(resolve => setTimeout(resolve, 1200));
-        }
-
-        async function showUseCaseProtection(useCase) {
-            const useCaseData = getUseCaseData(useCase);
-            const container = document.getElementById(`${useCase}-demo-results`);
-            
-            container.innerHTML += `
-                <div class="bg-white p-4 rounded-lg shadow border-l-4 border-red-400 mt-4">
-                    <h4 class="text-lg font-bold text-red-800 mb-3">🛡️ Step 4: Protection & Governance Complete</h4>
-                    <div class="flex items-center justify-between">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-red-600">${useCaseData.protection.controls}</div>
-                            <div class="text-sm text-red-700">Protection Controls</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-orange-600">${useCaseData.protection.compliance}</div>
-                            <div class="text-sm text-orange-700">${useCaseData.protection.description}</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold text-red-600">✅</div>
-                            <div class="text-sm text-red-700">Process Complete</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            await new Promise(resolve => setTimeout(resolve, 1200));
-        }
-
-        async function showUseCaseReport(useCase) {
-            const useCaseData = getUseCaseData(useCase);
-            const container = document.getElementById(`${useCase}-demo-results`);
-            
-            container.innerHTML += `
-                <div class="bg-white p-4 rounded-lg shadow border-l-4 border-indigo-400 mt-4">
-                    <h4 class="text-lg font-bold text-indigo-800 mb-3">📋 Step 5: Governance Report Complete</h4>
-                    <div class="flex items-center justify-between">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-indigo-600">${useCaseData.report.timeframe}</div>
-                            <div class="text-sm text-indigo-700">Report Generation</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-blue-600">${useCaseData.report.readiness}</div>
-                            <div class="text-sm text-blue-700">${useCaseData.report.description}</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold text-indigo-600">✅</div>
-                            <div class="text-sm text-indigo-700">Process Complete</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            await new Promise(resolve => setTimeout(resolve, 1200));
-        }
-
-        function getUseCaseData(useCase) {
-            const data = {
-                'product': {
-                    discovery: {
-                        assets: '89 assets',
-                        description: 'Product characterization data found',
-                        timeReduction: '87%',
-                        details: 'Laboratory data, formulation specs, chemical analyses, physical properties - all Section 2.8 requirements covered'
-                    },
-                    standardization: {
-                        cdes: '32 CDEs',
-                        description: 'Laboratory testing standards',
-                        confidence: '97%',
-                        details: 'Product formulation, chemical composition, physical properties, manufacturing specs aligned with FDA nonclinical standards'
-                    },
-                    definition: {
-                        accuracy: '96%',
-                        coverage: '100%',
-                        description: 'FDA Section 2.8 compliance',
-                        details: 'Rich metadata with regulatory context, testing methodologies, quality specifications, and manufacturing standards'
-                    },
-                    protection: {
-                        controls: '78 controls',
-                        compliance: '98%',
-                        description: 'Lab standard compliance',
-                        details: 'Quality rules for lab testing, formulation controls, batch tracking, manufacturing compliance, and audit readiness'
-                    },
-                    report: {
-                        timeframe: '45 seconds',
-                        readiness: '100%',
-                        description: 'Section 2.8 ready',
-                        details: 'Complete product characterization report with all nonclinical data ready for FDA submission'
-                    }
-                },
-                'individual': {
-                    discovery: {
-                        assets: '104 assets',
-                        description: 'Clinical biomarker data found',
-                        timeReduction: '91%',
-                        details: 'Subject demographics, biomarker measurements, exposure data, safety parameters - Sections 2.7/2.9 coverage'
-                    },
-                    standardization: {
-                        cdes: '41 CDEs',
-                        description: 'Clinical research standards',
-                        confidence: '95%',
-                        details: 'Biomarker data, exposure metrics, subject demographics, safety parameters aligned with ICH GCP guidelines'
-                    },
-                    definition: {
-                        accuracy: '94%',
-                        coverage: '100%',
-                        description: 'ICH GCP compliance',
-                        details: 'Clinical metadata with regulatory context, study protocols, biomarker methodologies, and safety monitoring'
-                    },
-                    protection: {
-                        controls: '92 controls',
-                        compliance: '97%',
-                        description: 'GCP standard compliance',
-                        details: 'Clinical data protection, subject privacy, biomarker validation, safety monitoring, and regulatory compliance'
-                    },
-                    report: {
-                        timeframe: '60 seconds',
-                        readiness: '100%',
-                        description: 'Clinical study ready',
-                        details: 'Complete individual health assessment with biomarker analysis ready for regulatory submission'
-                    }
-                },
-                'population': {
-                    discovery: {
-                        assets: '76 assets',
-                        description: 'Population surveillance data found',
-                        timeReduction: '83%',
-                        details: 'Survey responses, demographic patterns, health outcomes, behavioral data - Section 2.9 surveillance requirements'
-                    },
-                    standardization: {
-                        cdes: '28 CDEs',
-                        description: 'Epidemiological standards',
-                        confidence: '92%',
-                        details: 'Population demographics, health outcomes, tobacco use patterns, survey responses aligned with WHO surveillance standards'
-                    },
-                    definition: {
-                        accuracy: '93%',
-                        coverage: '100%',
-                        description: 'WHO surveillance compliance',
-                        details: 'Population health metadata with epidemiological context, survey methodologies, and statistical frameworks'
-                    },
-                    protection: {
-                        controls: '85 controls',
-                        compliance: '95%',
-                        description: 'Privacy standard compliance',
-                        details: 'Population data protection, privacy controls, anonymization, statistical disclosure control, and ethical compliance'
-                    },
-                    report: {
-                        timeframe: '40 seconds',
-                        readiness: '100%',
-                        description: 'Surveillance ready',
-                        details: 'Complete population health impact assessment ready for public health authorities'
-                    }
-                },
-                'comprehensive': {
-                    discovery: {
-                        assets: '127 assets',
-                        description: 'Complete PMTA data found',
-                        timeReduction: '94%',
-                        details: 'All sections 2.7-2.10: nonclinical, clinical, population health, and comprehensive regulatory data'
-                    },
-                    standardization: {
-                        cdes: '44 CDEs',
-                        description: 'Multi-section standards',
-                        confidence: '96%',
-                        details: 'Comprehensive CDEs spanning all regulatory sections with full FDA PMTA alignment and cross-section integration'
-                    },
-                    definition: {
-                        accuracy: '95%',
-                        coverage: '100%',
-                        description: 'Full FDA PMTA compliance',
-                        details: 'Complete regulatory metadata with cross-section integration, submission readiness, and comprehensive compliance'
-                    },
-                    protection: {
-                        controls: '127 controls',
-                        compliance: '98%',
-                        description: 'Full regulatory compliance',
-                        details: 'Comprehensive protection across all data types, complete audit trail, multi-regulatory compliance, and submission security'
-                    },
-                    report: {
-                        timeframe: '90 seconds',
-                        readiness: '100%',
-                        description: 'PMTA submission ready',
-                        details: 'Complete PMTA package with all sections integrated, cross-references validated, and submission-ready documentation'
-                    }
-                }
-            };
-            
-            return data[useCase];
-        }
-
-        function showUseCaseSummary(useCase) {
-            const useCaseData = getUseCaseData(useCase);
-            const container = document.getElementById(`${useCase}-demo-results`);
-            
-            const summaryData = {
-                'product': { title: '🧪 Product Characterization Complete', color: 'blue', roi: '$800K', time: '85%' },
-                'individual': { title: '🩺 Clinical Assessment Complete', color: 'green', roi: '$1.2M', time: '91%' },
-                'population': { title: '👥 Population Analysis Complete', color: 'purple', roi: '$600K', time: '83%' },
-                'comprehensive': { title: '📋 PMTA Submission Complete', color: 'red', roi: '$2.1M', time: '94%' }
-            };
-            
-            const summary = summaryData[useCase];
-            
-            container.innerHTML += `
-                <div class="mt-6 bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border-2 border-green-200">
-                    <h3 class="text-xl font-bold text-center text-gray-800 mb-4">
-                        🎉 ${summary.title}
-                    </h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-${summary.color}-600">${summary.time}</div>
-                            <div class="text-sm text-gray-600">Time Reduction</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-green-600">${summary.roi}</div>
-                            <div class="text-sm text-gray-600">Annual ROI</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-purple-600">98%</div>
-                            <div class="text-sm text-gray-600">Compliance Ready</div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 p-4 bg-white rounded-lg text-center">
-                        <div class="font-bold text-gray-800">End-to-End Transformation Complete!</div>
-                        <div class="text-sm text-gray-600 mt-1">
-                            From manual processes → AI-powered governance excellence
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start with the first tab active
+            switchTab('process');
+        });
     </script>
 </body>
 </html> 
