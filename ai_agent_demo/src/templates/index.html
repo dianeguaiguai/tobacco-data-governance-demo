@@ -247,216 +247,484 @@
                                     <i class="fas fa-project-diagram mr-2"></i>Complete Data Governance Process Flow
                                 </h3>
                                 
-                                <!-- Process Steps -->
-                                <div class="flex justify-center mb-8">
-                                    <div class="flex space-x-6">
-                                        <div class="process-step active" id="general-step-1">
-                                            <div class="step-number">1</div>
-                                            <div class="step-label">Discover<br><span class="text-xs">Find Assets</span></div>
+                                <!-- RACI Legend -->
+                                <div class="bg-white rounded-lg p-4 mb-6 border">
+                                    <h4 class="font-bold text-gray-800 mb-3">RACI Matrix Legend</h4>
+                                    <div class="grid grid-cols-4 gap-4 text-sm">
+                                        <div class="flex items-center">
+                                            <span class="w-6 h-6 bg-blue-500 text-white rounded-full text-xs flex items-center justify-center mr-2">R</span>
+                                            <span>Responsible (Execute)</span>
                                         </div>
-                                        <div class="process-step" id="general-step-2">
-                                            <div class="step-number">2</div>
-                                            <div class="step-label">Standardize<br><span class="text-xs">CDEs</span></div>
+                                        <div class="flex items-center">
+                                            <span class="w-6 h-6 bg-green-500 text-white rounded-full text-xs flex items-center justify-center mr-2">A</span>
+                                            <span>Accountable (Approve)</span>
                                         </div>
-                                        <div class="process-step" id="general-step-3">
-                                            <div class="step-number">3</div>
-                                            <div class="step-label">Define<br><span class="text-xs">Metadata</span></div>
+                                        <div class="flex items-center">
+                                            <span class="w-6 h-6 bg-yellow-500 text-white rounded-full text-xs flex items-center justify-center mr-2">C</span>
+                                            <span>Consulted (Input)</span>
                                         </div>
-                                        <div class="process-step" id="general-step-4">
-                                            <div class="step-number">4</div>
-                                            <div class="step-label">Protect<br><span class="text-xs">Quality Rules</span></div>
+                                        <div class="flex items-center">
+                                            <span class="w-6 h-6 bg-gray-400 text-white rounded-full text-xs flex items-center justify-center mr-2">I</span>
+                                            <span>Informed (Notified)</span>
                                         </div>
-                                        <div class="process-step" id="general-step-5">
-                                            <div class="step-number">5</div>
-                                            <div class="step-label">Report<br><span class="text-xs">Governance</span></div>
+                                    </div>
+                                </div>
+
+                                <!-- Enhanced Process Steps -->
+                                <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-8">
+                                    <!-- Step 1: Discover -->
+                                    <div class="process-step-enhanced active bg-white rounded-lg shadow-md border-2 border-blue-500 p-4 hover:shadow-lg transition-all cursor-pointer" id="enhanced-step-1" onclick="selectProcessStep(1)">
+                                        <div class="text-center mb-3">
+                                            <div class="w-12 h-12 bg-blue-500 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-2 font-bold">1</div>
+                                            <h4 class="font-bold text-gray-800">Discover</h4>
+                                            <p class="text-xs text-gray-600">Scan Systems & Data Assets</p>
+                                        </div>
+                                        
+                                        <!-- Key Deliverables -->
+                                        <div class="mb-3">
+                                            <div class="text-xs font-semibold text-blue-700 mb-1">Key Outputs:</div>
+                                            <ul class="text-xs text-gray-600 space-y-1">
+                                                <li>• Initial data asset inventory</li>
+                                                <li>• System-table-field mapping</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <!-- RACI Roles -->
+                                        <div class="border-t pt-2">
+                                            <div class="text-xs font-semibold text-gray-700 mb-2">Roles:</div>
+                                            <div class="flex justify-between text-xs">
+                                                <div class="flex items-center">
+                                                    <span class="w-4 h-4 bg-blue-500 text-white rounded-full text-xs flex items-center justify-center mr-1">R</span>
+                                                    <span>Data Architect</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="w-4 h-4 bg-green-500 text-white rounded-full text-xs flex items-center justify-center mr-1">A</span>
+                                                    <span>System Admin</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Progress Indicator -->
+                                        <div class="mt-3">
+                                            <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                                <span>Progress</span>
+                                                <span id="step-1-progress">0%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                                <div id="step-1-bar" class="bg-blue-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 2: Standardize -->
+                                    <div class="process-step-enhanced bg-white rounded-lg shadow-md border-2 border-gray-200 p-4 hover:shadow-lg transition-all cursor-pointer" id="enhanced-step-2" onclick="selectProcessStep(2)">
+                                        <div class="text-center mb-3">
+                                            <div class="w-12 h-12 bg-gray-400 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-2 font-bold">2</div>
+                                            <h4 class="font-bold text-gray-800">Standardize</h4>
+                                            <p class="text-xs text-gray-600">Define CDEs with Business</p>
+                                        </div>
+                                        
+                                        <!-- Key Deliverables -->
+                                        <div class="mb-3">
+                                            <div class="text-xs font-semibold text-green-700 mb-1">Key Outputs:</div>
+                                            <ul class="text-xs text-gray-600 space-y-1">
+                                                <li>• CDE catalog</li>
+                                                <li>• Standard mapping tables</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <!-- RACI Roles -->
+                                        <div class="border-t pt-2">
+                                            <div class="text-xs font-semibold text-gray-700 mb-2">Roles:</div>
+                                            <div class="flex justify-between text-xs">
+                                                <div class="flex items-center">
+                                                    <span class="w-4 h-4 bg-blue-500 text-white rounded-full text-xs flex items-center justify-center mr-1">R</span>
+                                                    <span>Data Governance</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="w-4 h-4 bg-green-500 text-white rounded-full text-xs flex items-center justify-center mr-1">A</span>
+                                                    <span>Business SME</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Progress Indicator -->
+                                        <div class="mt-3">
+                                            <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                                <span>Progress</span>
+                                                <span id="step-2-progress">0%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                                <div id="step-2-bar" class="bg-green-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 3: Define -->
+                                    <div class="process-step-enhanced bg-white rounded-lg shadow-md border-2 border-gray-200 p-4 hover:shadow-lg transition-all cursor-pointer" id="enhanced-step-3" onclick="selectProcessStep(3)">
+                                        <div class="text-center mb-3">
+                                            <div class="w-12 h-12 bg-gray-400 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-2 font-bold">3</div>
+                                            <h4 class="font-bold text-gray-800">Define</h4>
+                                            <p class="text-xs text-gray-600">Add Business & Technical Metadata</p>
+                                        </div>
+                                        
+                                        <!-- Key Deliverables -->
+                                        <div class="mb-3">
+                                            <div class="text-xs font-semibold text-purple-700 mb-1">Key Outputs:</div>
+                                            <ul class="text-xs text-gray-600 space-y-1">
+                                                <li>• Metadata dictionary</li>
+                                                <li>• Field definition cards</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <!-- RACI Roles -->
+                                        <div class="border-t pt-2">
+                                            <div class="text-xs font-semibold text-gray-700 mb-2">Roles:</div>
+                                            <div class="flex justify-between text-xs">
+                                                <div class="flex items-center">
+                                                    <span class="w-4 h-4 bg-blue-500 text-white rounded-full text-xs flex items-center justify-center mr-1">R</span>
+                                                    <span>Domain Lead</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="w-4 h-4 bg-green-500 text-white rounded-full text-xs flex items-center justify-center mr-1">A</span>
+                                                    <span>Data Analyst</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Progress Indicator -->
+                                        <div class="mt-3">
+                                            <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                                <span>Progress</span>
+                                                <span id="step-3-progress">0%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                                <div id="step-3-bar" class="bg-purple-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 4: Protect -->
+                                    <div class="process-step-enhanced bg-white rounded-lg shadow-md border-2 border-gray-200 p-4 hover:shadow-lg transition-all cursor-pointer" id="enhanced-step-4" onclick="selectProcessStep(4)">
+                                        <div class="text-center mb-3">
+                                            <div class="w-12 h-12 bg-gray-400 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-2 font-bold">4</div>
+                                            <h4 class="font-bold text-gray-800">Protect</h4>
+                                            <p class="text-xs text-gray-600">Configure Quality Rules for CDEs</p>
+                                        </div>
+                                        
+                                        <!-- Key Deliverables -->
+                                        <div class="mb-3">
+                                            <div class="text-xs font-semibold text-orange-700 mb-1">Key Outputs:</div>
+                                            <ul class="text-xs text-gray-600 space-y-1">
+                                                <li>• Quality rules library</li>
+                                                <li>• Quality dashboard & alerts</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <!-- RACI Roles -->
+                                        <div class="border-t pt-2">
+                                            <div class="text-xs font-semibold text-gray-700 mb-2">Roles:</div>
+                                            <div class="flex justify-between text-xs">
+                                                <div class="flex items-center">
+                                                    <span class="w-4 h-4 bg-blue-500 text-white rounded-full text-xs flex items-center justify-center mr-1">R</span>
+                                                    <span>Data Quality Eng</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="w-4 h-4 bg-green-500 text-white rounded-full text-xs flex items-center justify-center mr-1">A</span>
+                                                    <span>IT Ops</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Progress Indicator -->
+                                        <div class="mt-3">
+                                            <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                                <span>Progress</span>
+                                                <span id="step-4-progress">0%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                                <div id="step-4-bar" class="bg-orange-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 5: Report -->
+                                    <div class="process-step-enhanced bg-white rounded-lg shadow-md border-2 border-gray-200 p-4 hover:shadow-lg transition-all cursor-pointer" id="enhanced-step-5" onclick="selectProcessStep(5)">
+                                        <div class="text-center mb-3">
+                                            <div class="w-12 h-12 bg-gray-400 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-2 font-bold">5</div>
+                                            <h4 class="font-bold text-gray-800">Report</h4>
+                                            <p class="text-xs text-gray-600">Summarize Coverage & Quality Scores</p>
+                                        </div>
+                                        
+                                        <!-- Key Deliverables -->
+                                        <div class="mb-3">
+                                            <div class="text-xs font-semibold text-indigo-700 mb-1">Key Outputs:</div>
+                                            <ul class="text-xs text-gray-600 space-y-1">
+                                                <li>• Data Governance Report</li>
+                                                <li>• Improvement action plan</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <!-- RACI Roles -->
+                                        <div class="border-t pt-2">
+                                            <div class="text-xs font-semibold text-gray-700 mb-2">Roles:</div>
+                                            <div class="flex justify-between text-xs">
+                                                <div class="flex items-center">
+                                                    <span class="w-4 h-4 bg-blue-500 text-white rounded-full text-xs flex items-center justify-center mr-1">R</span>
+                                                    <span>Governance PMO</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="w-4 h-4 bg-green-500 text-white rounded-full text-xs flex items-center justify-center mr-1">A</span>
+                                                    <span>Management</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Progress Indicator -->
+                                        <div class="mt-3">
+                                            <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                                <span>Progress</span>
+                                                <span id="step-5-progress">0%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                                <div id="step-5-bar" class="bg-indigo-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Overall Progress Tracker -->
+                                <div class="bg-white rounded-lg p-4 mb-6 border">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <h4 class="font-bold text-gray-800">Overall Project Progress</h4>
+                                        <span id="overall-progress-text" class="text-sm text-gray-600">Not Started</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                        <div id="overall-progress-bar" class="bg-gradient-to-r from-blue-500 to-indigo-500 h-4 rounded-full transition-all duration-1000" style="width: 0%">
+                                            <div class="h-full bg-white bg-opacity-30 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-gray-500">
+                                        <span>Start</span>
+                                        <span>25%</span>
+                                        <span>50%</span>
+                                        <span>75%</span>
+                                        <span>Complete</span>
+                                    </div>
+                                </div>
+
+                                <!-- Selected Step Details -->
+                                <div id="step-details" class="bg-white rounded-lg p-6 border mb-6">
+                                    <h4 class="text-xl font-bold mb-4 text-gray-800">Step 1: Discover - Detailed Information</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <h5 class="font-semibold text-gray-700 mb-2">Key Activities:</h5>
+                                            <ul class="text-sm text-gray-600 space-y-1">
+                                                <li>• Scan systems/data lakes/folders horizontally</li>
+                                                <li>• Inventory \"what tables and fields exist\"</li>
+                                                <li>• Create system-table-field mapping</li>
+                                                <li>• AI-powered identification and classification</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-semibold text-gray-700 mb-2">Success Criteria:</h5>
+                                            <ul class="text-sm text-gray-600 space-y-1">
+                                                <li>• 95%+ system coverage rate</li>
+                                                <li>• Complete asset inventory</li>
+                                                <li>• Data lineage foundation established</li>
+                                                <li>• Initial quality assessment completed</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Process Control -->
                                 <div class="text-center mb-6">
-                                    <button onclick="startGeneralGovernanceProcess()" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold shadow-lg text-lg">
+                                    <button onclick="startEnhancedGovernanceProcess()" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold shadow-lg text-lg">
                                         🚀 Start Complete Governance Process
                                     </button>
-                                    <button onclick="resetGeneralProcess()" class="ml-4 px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-all">
+                                    <button onclick="pauseProcess()" class="ml-4 px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-all" id="pause-btn" style="display:none;">
+                                        <i class="fas fa-pause mr-2"></i>Pause
+                                    </button>
+                                    <button onclick="resetEnhancedProcess()" class="ml-4 px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-all">
                                         <i class="fas fa-undo mr-2"></i>Reset Process
                                     </button>
                                 </div>
 
                                 <!-- Process Results -->
-                                <div id="general-process-results" class="mt-6"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tab 2: Use Cases & Implementation -->
-                    <div id="use-cases-content" class="tab-content hidden">
-                        <div class="space-y-8">
-                            <!-- Use Cases Overview -->
-                            <div>
-                                <h3 class="text-2xl font-bold mb-6 text-gray-800">🎯 Data Governance Use Cases</h3>
-                                <div id="use-cases-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                    <!-- Use cases will be loaded here -->
-                                </div>
+                                <div id="enhanced-process-results" class="mt-6"></div>
                             </div>
 
-                            <!-- Selected Use Case Details -->
-                            <div id="selected-use-case-details" class="hidden">
-                                <h3 class="text-2xl font-bold mb-6 text-gray-800" id="selected-use-case-title">Use Case Implementation</h3>
-                                
-                                <!-- Implementation Components Grid -->
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                                    <!-- Data Inventory -->
-                                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6 border-l-4 border-blue-500">
-                                        <h4 class="text-xl font-bold mb-4 text-blue-700">
-                                            <i class="fas fa-database mr-2"></i>Data Inventory
-                                            <span class="text-sm font-normal text-blue-500 ml-2">(FINDABLE)</span>
-                                        </h4>
-                                        <div id="use-case-data-inventory">
-                                            <!-- Will be populated when use case is selected -->
+                            <!-- Tab 2: Use Cases & Implementation -->
+                            <div id="use-cases-content" class="tab-content hidden">
+                                <div class="space-y-8">
+                                    <!-- Use Cases Overview -->
+                                    <div>
+                                        <h3 class="text-2xl font-bold mb-6 text-gray-800">🎯 Data Governance Use Cases</h3>
+                                        <div id="use-cases-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                            <!-- Use cases will be loaded here -->
                                         </div>
                                     </div>
 
-                                    <!-- Business Glossary & CDEs -->
-                                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-6 border-l-4 border-green-500">
-                                        <h4 class="text-xl font-bold mb-4 text-green-700">
-                                            <i class="fas fa-book mr-2"></i>Business Glossary & CDEs
-                                            <span class="text-sm font-normal text-green-500 ml-2">(REUSABLE)</span>
-                                        </h4>
-                                        <div id="use-case-glossary">
-                                            <!-- Will be populated when use case is selected -->
+                                    <!-- Selected Use Case Details -->
+                                    <div id="selected-use-case-details" class="hidden">
+                                        <h3 class="text-2xl font-bold mb-6 text-gray-800" id="selected-use-case-title">Use Case Implementation</h3>
+                                        
+                                        <!-- Implementation Components Grid -->
+                                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                                            <!-- Data Inventory -->
+                                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6 border-l-4 border-blue-500">
+                                                <h4 class="text-xl font-bold mb-4 text-blue-700">
+                                                    <i class="fas fa-database mr-2"></i>Data Inventory
+                                                    <span class="text-sm font-normal text-blue-500 ml-2">(FINDABLE)</span>
+                                                </h4>
+                                                <div id="use-case-data-inventory">
+                                                    <!-- Will be populated when use case is selected -->
+                                                </div>
+                                            </div>
+
+                                            <!-- Business Glossary & CDEs -->
+                                            <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-6 border-l-4 border-green-500">
+                                                <h4 class="text-xl font-bold mb-4 text-green-700">
+                                                    <i class="fas fa-book mr-2"></i>Business Glossary & CDEs
+                                                    <span class="text-sm font-normal text-green-500 ml-2">(REUSABLE)</span>
+                                                </h4>
+                                                <div id="use-case-glossary">
+                                                    <!-- Will be populated when use case is selected -->
+                                                </div>
+                                            </div>
+
+                                            <!-- Data Quality -->
+                                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-6 border-l-4 border-purple-500">
+                                                <h4 class="text-xl font-bold mb-4 text-purple-700">
+                                                    <i class="fas fa-chart-line mr-2"></i>Data Quality Metrics
+                                                    <span class="text-sm font-normal text-purple-500 ml-2">(INTEROPERABLE)</span>
+                                                </h4>
+                                                <div id="use-case-quality">
+                                                    <!-- Will be populated when use case is selected -->
+                                                </div>
+                                            </div>
+
+                                            <!-- Workflow -->
+                                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-6 border-l-4 border-orange-500">
+                                                <h4 class="text-xl font-bold mb-4 text-orange-700">
+                                                    <i class="fas fa-cogs mr-2"></i>Compliance Workflow
+                                                    <span class="text-sm font-normal text-orange-500 ml-2">(ACCESSIBLE)</span>
+                                                </h4>
+                                                <div id="use-case-workflow">
+                                                    <!-- Will be populated when use case is selected -->
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Data Quality -->
-                                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-6 border-l-4 border-purple-500">
-                                        <h4 class="text-xl font-bold mb-4 text-purple-700">
-                                            <i class="fas fa-chart-line mr-2"></i>Data Quality Metrics
-                                            <span class="text-sm font-normal text-purple-500 ml-2">(INTEROPERABLE)</span>
-                                        </h4>
-                                        <div id="use-case-quality">
-                                            <!-- Will be populated when use case is selected -->
+                                        <!-- Use Case Governance Process -->
+                                        <div class="bg-white rounded-lg shadow border p-6">
+                                            <h4 class="text-xl font-bold mb-4 text-gray-800">Run Governance Process for This Use Case</h4>
+                                            <div class="text-center">
+                                                <button onclick="runSelectedUseCaseProcess()" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all font-semibold shadow-lg">
+                                                    🚀 Start Use Case Governance Process
+                                                </button>
+                                            </div>
+                                            <div id="selected-use-case-results" class="mt-6"></div>
                                         </div>
-                                    </div>
-
-                                    <!-- Workflow -->
-                                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-6 border-l-4 border-orange-500">
-                                        <h4 class="text-xl font-bold mb-4 text-orange-700">
-                                            <i class="fas fa-cogs mr-2"></i>Compliance Workflow
-                                            <span class="text-sm font-normal text-orange-500 ml-2">(ACCESSIBLE)</span>
-                                        </h4>
-                                        <div id="use-case-workflow">
-                                            <!-- Will be populated when use case is selected -->
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Use Case Governance Process -->
-                                <div class="bg-white rounded-lg shadow border p-6">
-                                    <h4 class="text-xl font-bold mb-4 text-gray-800">Run Governance Process for This Use Case</h4>
-                                    <div class="text-center">
-                                        <button onclick="runSelectedUseCaseProcess()" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all font-semibold shadow-lg">
-                                            🚀 Start Use Case Governance Process
-                                        </button>
-                                    </div>
-                                    <div id="selected-use-case-results" class="mt-6"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tab 3: AI Assistant -->
-                    <div id="ai-assistant-content" class="tab-content hidden">
-                        <div class="space-y-8">
-                            <!-- FAIR Principles & Persona Selection -->
-                            <div class="bg-white rounded-lg shadow border p-6">
-                                <div class="flex justify-between items-center mb-6">
-                                    <!-- FAIR Navigation -->
-                                    <div class="flex space-x-6">
-                                        <button onclick="highlightFAIR('findable')" id="fair-findable" class="fair-nav-btn px-4 py-2 rounded-lg text-blue-600 bg-blue-50 font-semibold">
-                                            🔍 FINDABLE
-                                        </button>
-                                        <button onclick="highlightFAIR('accessible')" id="fair-accessible" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
-                                            🔓 ACCESSIBLE
-                                        </button>
-                                        <button onclick="highlightFAIR('interoperable')" id="fair-interoperable" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
-                                            🔄 INTEROPERABLE
-                                        </button>
-                                        <button onclick="highlightFAIR('reusable')" id="fair-reusable" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
-                                            ♻️ REUSABLE
-                                        </button>
-                                    </div>
-                                    
-                                    <!-- Persona Selection -->
-                                    <div class="flex items-center space-x-4">
-                                        <span class="text-sm font-medium text-gray-700">View as:</span>
-                                        <select id="persona-selector" onchange="switchPersona()" class="px-3 py-2 border border-gray-300 rounded-lg text-sm">
-                                            <option value="steward">🛡️ Data Steward</option>
-                                            <option value="owner">👑 Data Owner</option>
-                                            <option value="sme">🧠 SME</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <!-- Current Persona Description -->
-                                <div id="persona-description" class="p-3 bg-blue-50 rounded-lg">
-                                    <p class="text-sm text-blue-800">
-                                        <strong>Data Steward View:</strong> Focus on data quality, governance metrics, and regulatory compliance. Your goal: Ensure FAIR data foundation across regulatory landscape.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- AI-Powered Data Discovery -->
-                            <div class="bg-white rounded-lg shadow border p-6">
-                                <h3 class="text-2xl font-bold mb-6 text-gray-800">
-                                    <i class="fas fa-search mr-2 text-blue-600"></i>AI-Powered Data Discovery
-                                </h3>
-                                <div class="flex gap-4 mb-6">
-                                    <input 
-                                        type="text" 
-                                        id="ai-search-input" 
-                                        placeholder="Ask AI: 'Where can I find nicotine data?' or 'Show me biomarker assets'" 
-                                        class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                                    >
-                                    <select id="ai-use-case-filter" class="p-3 border border-gray-300 rounded-lg">
-                                        <option value="">All Use Cases</option>
-                                        <option value="Product Description (Nonclinical)">Product Description (Nonclinical)</option>
-                                        <option value="Product Impact on Individual Health">Product Impact on Individual Health</option>
-                                        <option value="Product Impact on Population Health">Product Impact on Population Health</option>
-                                        <option value="Comprehensive Regulatory Compliance">Comprehensive Regulatory Compliance</option>
-                                    </select>
-                                    <button onclick="aiSearchData()" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                                        <i class="fas fa-brain mr-2"></i>AI Search
-                                    </button>
-                                </div>
-
-                                <!-- Data Discovery Results -->
-                                <div id="ai-discovery-results" class="mb-6">
-                                    <div class="text-center text-gray-500 py-8">
-                                        <i class="fas fa-robot text-4xl mb-4"></i>
-                                        <p>Ask AI to discover and locate your data assets</p>
-                                    </div>
-                                </div>
-
-                                <!-- Where to Find Data Guide -->
-                                <div class="bg-blue-50 rounded-lg p-4 mb-6">
-                                    <h4 class="font-bold text-blue-800 mb-3">🗺️ AI Data Location Guide</h4>
-                                    <div id="data-location-guide" class="text-sm text-blue-700">
-                                        <p>Use AI search above to get intelligent guidance on where to find specific data assets across your data landscape.</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- AI Smart Suggestions -->
-                            <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-6 border-l-4 border-purple-500">
-                                <h3 class="text-2xl font-bold mb-6 text-purple-800">
-                                    <i class="fas fa-brain mr-2"></i>AI Smart Suggestions
-                                </h3>
-                                <div class="mb-4 text-sm text-purple-700">
-                                    <p>AI provides context-aware suggestions based on your persona, current FAIR principle focus, and selected use case.</p>
-                                </div>
-                                <div id="ai-smart-suggestions" class="space-y-3">
-                                    <!-- AI suggestions will appear here -->
+                            <!-- Tab 3: AI Assistant -->
+                            <div id="ai-assistant-content" class="tab-content hidden">
+                                <div class="space-y-8">
+                                    <!-- FAIR Principles & Persona Selection -->
+                                    <div class="bg-white rounded-lg shadow border p-6">
+                                        <div class="flex justify-between items-center mb-6">
+                                            <!-- FAIR Navigation -->
+                                            <div class="flex space-x-6">
+                                                <button onclick="highlightFAIR('findable')" id="fair-findable" class="fair-nav-btn px-4 py-2 rounded-lg text-blue-600 bg-blue-50 font-semibold">
+                                                    🔍 FINDABLE
+                                                </button>
+                                                <button onclick="highlightFAIR('accessible')" id="fair-accessible" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
+                                                    🔓 ACCESSIBLE
+                                                </button>
+                                                <button onclick="highlightFAIR('interoperable')" id="fair-interoperable" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
+                                                    🔄 INTEROPERABLE
+                                                </button>
+                                                <button onclick="highlightFAIR('reusable')" id="fair-reusable" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
+                                                    ♻️ REUSABLE
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Persona Selection -->
+                                            <div class="flex items-center space-x-4">
+                                                <span class="text-sm font-medium text-gray-700">View as:</span>
+                                                <select id="persona-selector" onchange="switchPersona()" class="px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                                                    <option value="steward">🛡️ Data Steward</option>
+                                                    <option value="owner">👑 Data Owner</option>
+                                                    <option value="sme">🧠 SME</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Current Persona Description -->
+                                        <div id="persona-description" class="p-3 bg-blue-50 rounded-lg">
+                                            <p class="text-sm text-blue-800">
+                                                <strong>Data Steward View:</strong> Focus on data quality, governance metrics, and regulatory compliance. Your goal: Ensure FAIR data foundation across regulatory landscape.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- AI-Powered Data Discovery -->
+                                    <div class="bg-white rounded-lg shadow border p-6">
+                                        <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                                            <i class="fas fa-search mr-2 text-blue-600"></i>AI-Powered Data Discovery
+                                        </h3>
+                                        <div class="flex gap-4 mb-6">
+                                            <input 
+                                                type="text" 
+                                                id="ai-search-input" 
+                                                placeholder="Ask AI: 'Where can I find nicotine data?' or 'Show me biomarker assets'" 
+                                                class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                                            >
+                                            <select id="ai-use-case-filter" class="p-3 border border-gray-300 rounded-lg">
+                                                <option value="">All Use Cases</option>
+                                                <option value="Product Description (Nonclinical)">Product Description (Nonclinical)</option>
+                                                <option value="Product Impact on Individual Health">Product Impact on Individual Health</option>
+                                                <option value="Product Impact on Population Health">Product Impact on Population Health</option>
+                                                <option value="Comprehensive Regulatory Compliance">Comprehensive Regulatory Compliance</option>
+                                            </select>
+                                            <button onclick="aiSearchData()" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                                <i class="fas fa-brain mr-2"></i>AI Search
+                                            </button>
+                                        </div>
+
+                                        <!-- Data Discovery Results -->
+                                        <div id="ai-discovery-results" class="mb-6">
+                                            <div class="text-center text-gray-500 py-8">
+                                                <i class="fas fa-robot text-4xl mb-4"></i>
+                                                <p>Ask AI to discover and locate your data assets</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Where to Find Data Guide -->
+                                        <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                                            <h4 class="font-bold text-blue-800 mb-3">🗺️ AI Data Location Guide</h4>
+                                            <div id="data-location-guide" class="text-sm text-blue-700">
+                                                <p>Use AI search above to get intelligent guidance on where to find specific data assets across your data landscape.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- AI Smart Suggestions -->
+                                    <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-6 border-l-4 border-purple-500">
+                                        <h3 class="text-2xl font-bold mb-6 text-purple-800">
+                                            <i class="fas fa-brain mr-2"></i>AI Smart Suggestions
+                                        </h3>
+                                        <div class="mb-4 text-sm text-purple-700">
+                                            <p>AI provides context-aware suggestions based on your persona, current FAIR principle focus, and selected use case.</p>
+                                        </div>
+                                        <div id="ai-smart-suggestions" class="space-y-3">
+                                            <!-- AI suggestions will appear here -->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2041,6 +2309,344 @@
             // Start with the first tab active
             switchTab('process');
         });
+
+        // Enhanced Process Navigation Functions
+        let currentEnhancedStep = 1;
+        let processRunning = false;
+        let processPaused = false;
+        
+        function selectProcessStep(stepNumber) {
+            // Update visual selection
+            for (let i = 1; i <= 5; i++) {
+                const step = document.getElementById(`enhanced-step-${i}`);
+                if (i === stepNumber) {
+                    if (!step.classList.contains('border-blue-500')) {
+                        step.classList.remove('border-gray-200');
+                        step.classList.add('border-blue-500');
+                        step.querySelector('.w-12').classList.remove('bg-gray-400');
+                        step.querySelector('.w-12').classList.add('bg-blue-500');
+                    }
+                } else {
+                    if (step.classList.contains('border-blue-500') && !processRunning) {
+                        step.classList.remove('border-blue-500');
+                        step.classList.add('border-gray-200');
+                        step.querySelector('.w-12').classList.remove('bg-blue-500');
+                        step.querySelector('.w-12').classList.add('bg-gray-400');
+                    }
+                }
+            }
+            
+            // Update step details
+            updateStepDetails(stepNumber);
+        }
+        
+        function updateStepDetails(stepNumber) {
+            const stepData = {
+                1: {
+                    title: "Step 1: Discover - Detailed Information",
+                    activities: [
+                        "• Scan systems/data lakes/folders horizontally",
+                        "• Inventory \"what tables and fields exist\"",
+                        "• Create system-table-field mapping",
+                        "• AI-powered identification and classification"
+                    ],
+                    success: [
+                        "• 95%+ system coverage rate",
+                        "• Complete asset inventory",
+                        "• Data lineage foundation established",
+                        "• Initial quality assessment completed"
+                    ]
+                },
+                2: {
+                    title: "Step 2: Standardize - Detailed Information",
+                    activities: [
+                        "• Collaborate with business SMEs to filter CDEs",
+                        "• Establish standardized mapping rules",
+                        "• Define data transformation logic",
+                        "• Verify CDE coverage"
+                    ],
+                    success: [
+                        "• 90%+ CDE coverage rate",
+                        "• Standard mapping tables completed",
+                        "• Business validation passed",
+                        "• Transformation logic tested"
+                    ]
+                },
+                3: {
+                    title: "Step 3: Define - Detailed Information",
+                    activities: [
+                        "• Add business metadata definitions",
+                        "• Create technical documentation",
+                        "• Build field definition cards",
+                        "• Complete data dictionary"
+                    ],
+                    success: [
+                        "• 100% fields have business definitions",
+                        "• Technical documentation complete",
+                        "• Data dictionary published",
+                        "• Metadata quality >95%"
+                    ]
+                },
+                4: {
+                    title: "Step 4: Protect - Detailed Information",
+                    activities: [
+                        "• Configure quality rules for CDEs",
+                        "• Establish quality monitoring mechanisms",
+                        "• Set up data quality alerts",
+                        "• Create quality dashboard"
+                    ],
+                    success: [
+                        "• Quality rules cover all CDEs",
+                        "• Real-time monitoring enabled",
+                        "• Alert mechanisms operational",
+                        "• Quality score >90%"
+                    ]
+                },
+                5: {
+                    title: "Step 5: Report - Detailed Information",
+                    activities: [
+                        "• Summarize asset coverage statistics",
+                        "• Generate quality score reports",
+                        "• Create visualization dashboard",
+                        "• Develop improvement action plans"
+                    ],
+                    success: [
+                        "• Complete governance report",
+                        "• Visualization dashboard online",
+                        "• Improvement plans developed",
+                        "• Management reporting completed"
+                    ]
+                }
+            };
+            
+            const data = stepData[stepNumber];
+            document.getElementById('step-details').innerHTML = `
+                <h4 class="text-xl font-bold mb-4 text-gray-800">${data.title}</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h5 class="font-semibold text-gray-700 mb-2">Key Activities:</h5>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            ${data.activities.map(activity => `<li>${activity}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold text-gray-700 mb-2">Success Criteria:</h5>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            ${data.success.map(criterion => `<li>${criterion}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function startEnhancedGovernanceProcess() {
+            if (processRunning) return;
+            
+            processRunning = true;
+            processPaused = false;
+            currentEnhancedStep = 1;
+            
+            // Show pause button
+            document.getElementById('pause-btn').style.display = 'inline-block';
+            
+            // Reset all progress
+            for (let i = 1; i <= 5; i++) {
+                updateStepProgress(i, 0);
+            }
+            updateOverallProgress(0, "In Progress...");
+            
+            // Start the process
+            runEnhancedStep(1);
+        }
+        
+        function runEnhancedStep(stepNumber) {
+            if (!processRunning || processPaused) return;
+            
+            const colors = ['blue', 'green', 'purple', 'orange', 'indigo'];
+            const stepColor = colors[stepNumber - 1];
+            
+            // Update step visual state
+            const stepEl = document.getElementById(`enhanced-step-${stepNumber}`);
+            stepEl.classList.remove('border-gray-200');
+            stepEl.classList.add(`border-${stepColor}-500`);
+            stepEl.querySelector('.w-12').classList.remove('bg-gray-400');
+            stepEl.querySelector('.w-12').classList.add(`bg-${stepColor}-500`);
+            
+            // Select this step
+            selectProcessStep(stepNumber);
+            
+            // Simulate progress
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                if (!processRunning || processPaused) {
+                    clearInterval(progressInterval);
+                    return;
+                }
+                
+                progress += 5;
+                updateStepProgress(stepNumber, progress);
+                updateOverallProgress((stepNumber - 1) * 20 + (progress / 5), "In Progress...");
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    
+                    // Mark as completed
+                    stepEl.classList.add('completed');
+                    
+                    // Show step results
+                    showStepResults(stepNumber);
+                    
+                    // Move to next step or complete
+                    if (stepNumber < 5) {
+                        setTimeout(() => {
+                            runEnhancedStep(stepNumber + 1);
+                        }, 1000);
+                    } else {
+                        completeEnhancedProcess();
+                    }
+                }
+            }, 200);
+        }
+        
+        function updateStepProgress(stepNumber, percentage) {
+            const progressEl = document.getElementById(`step-${stepNumber}-progress`);
+            const barEl = document.getElementById(`step-${stepNumber}-bar`);
+            
+            if (progressEl && barEl) {
+                progressEl.textContent = `${percentage}%`;
+                barEl.style.width = `${percentage}%`;
+            }
+        }
+        
+        function updateOverallProgress(percentage, status) {
+            const progressEl = document.getElementById('overall-progress-text');
+            const barEl = document.getElementById('overall-progress-bar');
+            
+            if (progressEl && barEl) {
+                progressEl.textContent = status;
+                barEl.style.width = `${percentage}%`;
+            }
+        }
+        
+        function showStepResults(stepNumber) {
+            const stepNames = ['Discovery', 'Standardization', 'Definition', 'Protection', 'Reporting'];
+            const resultsDiv = document.getElementById('enhanced-process-results');
+            
+            const currentResults = resultsDiv.innerHTML;
+            const newResult = `
+                <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">
+                            ✓
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-green-800">Step ${stepNumber}: ${stepNames[stepNumber - 1]} - Completed</h5>
+                            <p class="text-sm text-green-700">${getStepCompletionMessage(stepNumber)}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            resultsDiv.innerHTML = currentResults + newResult;
+        }
+        
+        function getStepCompletionMessage(stepNumber) {
+            const messages = {
+                1: "Discovered 127 data fields, scanned 50+ systems, established initial asset inventory",
+                2: "Identified 44 high-priority CDEs, achieved 96% standardization coverage",
+                3: "Completed metadata definitions, established business terminology library",
+                4: "Quality rules configuration completed, real-time monitoring mechanisms enabled",
+                5: "Governance report generated, project summary and improvement plans developed"
+            };
+            return messages[stepNumber] || "";
+        }
+        
+        function completeEnhancedProcess() {
+            processRunning = false;
+            document.getElementById('pause-btn').style.display = 'none';
+            updateOverallProgress(100, "Completed");
+            
+            // Show final completion message
+            const resultsDiv = document.getElementById('enhanced-process-results');
+            resultsDiv.innerHTML += `
+                <div class="bg-gradient-to-r from-green-50 to-blue-50 border border-green-300 rounded-lg p-6 mt-4">
+                    <h4 class="text-xl font-bold text-green-800 mb-4">🎉 Complete Data Governance Process Finished!</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                        <div class="space-y-2">
+                            <div class="font-semibold text-green-700">Processing Statistics:</div>
+                            <div>• 11 data assets</div>
+                            <div>• 127 data fields</div>
+                            <div>• 44 CDEs</div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="font-semibold text-green-700">Quality Metrics:</div>
+                            <div>• 91% overall quality score</div>
+                            <div>• 85% time savings</div>
+                            <div>• 96% standardization coverage</div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="font-semibold text-green-700">Business Value:</div>
+                            <div>• $2M+ annual ROI</div>
+                            <div>• 2-3 weeks time to value</div>
+                            <div>• 98% compliance readiness</div>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-white rounded border">
+                        <span class="font-semibold text-gray-800">Next Steps:</span> 
+                        <span class="text-gray-600">Review AI suggestions, validate CDEs with domain experts, prepare FDA submission materials</span>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function pauseProcess() {
+            processPaused = !processPaused;
+            const pauseBtn = document.getElementById('pause-btn');
+            
+            if (processPaused) {
+                pauseBtn.innerHTML = '<i class="fas fa-play mr-2"></i>Resume';
+                pauseBtn.classList.remove('bg-yellow-500', 'hover:bg-yellow-600');
+                pauseBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+            } else {
+                pauseBtn.innerHTML = '<i class="fas fa-pause mr-2"></i>Pause';
+                pauseBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                pauseBtn.classList.add('bg-yellow-500', 'hover:bg-yellow-600');
+                
+                // Resume process
+                if (currentEnhancedStep <= 5) {
+                    runEnhancedStep(currentEnhancedStep);
+                }
+            }
+        }
+        
+        function resetEnhancedProcess() {
+            processRunning = false;
+            processPaused = false;
+            currentEnhancedStep = 1;
+            
+            // Hide pause button
+            document.getElementById('pause-btn').style.display = 'none';
+            
+            // Reset all steps
+            for (let i = 1; i <= 5; i++) {
+                const stepEl = document.getElementById(`enhanced-step-${i}`);
+                stepEl.classList.remove('completed', 'border-blue-500', 'border-green-500', 'border-purple-500', 'border-orange-500', 'border-indigo-500');
+                stepEl.classList.add('border-gray-200');
+                
+                const stepCircle = stepEl.querySelector('.w-12');
+                stepCircle.classList.remove('bg-blue-500', 'bg-green-500', 'bg-purple-500', 'bg-orange-500', 'bg-indigo-500');
+                stepCircle.classList.add('bg-gray-400');
+                
+                updateStepProgress(i, 0);
+            }
+            
+            // Reset first step to active
+            selectProcessStep(1);
+            updateOverallProgress(0, "Not Started");
+            
+            // Clear results
+            document.getElementById('enhanced-process-results').innerHTML = '';
+        }
     </script>
 </body>
 </html> 
