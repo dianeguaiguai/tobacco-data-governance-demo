@@ -1265,486 +1265,188 @@
                     </div>
 
                     <!-- Tab 3: AI Assistant -->
-                    <div id="ai-assistant-content" class="tab-content hidden">
-                        <div class="space-y-8">
-                                    <!-- Workflow Status Bar & Progress Tracking -->
-                                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-lg p-6">
-                                        <div class="flex items-center justify-between mb-4">
-                                            <div class="flex items-center space-x-4">
-                                                <i class="fas fa-route text-2xl"></i>
-                                                <div>
-                                                    <h3 class="text-xl font-bold">Data Governance Workflow</h3>
-                                                    <p class="text-blue-100 text-sm">Product Impact on Individual Health</p>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center space-x-6">
-                                                <div class="text-right">
-                                                    <div class="text-lg font-bold">73%</div>
-                                                    <div class="text-xs text-blue-100">Overall Progress</div>
-                                                </div>
-                                                <div class="text-right">
-                                                    <div class="text-lg font-bold">2.5 days</div>
-                                                    <div class="text-xs text-blue-100">Est. Remaining</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Progress Steps -->
-                                        <div class="flex items-center justify-between mb-4">
-                                            <div class="flex items-center text-center">
-                                                <div class="flex items-center justify-center w-8 h-8 bg-green-500 rounded-full text-white text-sm font-bold">✓</div>
-                                                <div class="ml-2 text-sm">
-                                                    <div class="font-semibold">Discover</div>
-                                                    <div class="text-xs text-green-200">Complete</div>
-                                                </div>
-                                            </div>
-                                            <div class="flex-1 h-1 bg-green-400 mx-2"></div>
-                                            
-                                            <div class="flex items-center text-center">
-                                                <div class="flex items-center justify-center w-8 h-8 bg-green-500 rounded-full text-white text-sm font-bold">✓</div>
-                                                <div class="ml-2 text-sm">
-                                                    <div class="font-semibold">Define</div>
-                                                    <div class="text-xs text-green-200">Complete</div>
-                                                </div>
-                                            </div>
-                                            <div class="flex-1 h-1 bg-green-400 mx-2"></div>
-                                            
-                                            <div class="flex items-center text-center">
-                                                <div class="flex items-center justify-center w-8 h-8 bg-yellow-500 rounded-full text-white text-sm font-bold">3</div>
-                                                <div class="ml-2 text-sm">
-                                                    <div class="font-semibold">Standardize</div>
-                                                    <div class="text-xs text-yellow-200">In Progress (67%)</div>
-                                                </div>
-                                            </div>
-                                            <div class="flex-1 h-1 bg-yellow-300 mx-2"></div>
-                                            
-                                            <div class="flex items-center text-center">
-                                                <div class="flex items-center justify-center w-8 h-8 bg-gray-400 rounded-full text-white text-sm font-bold">4</div>
-                                                <div class="ml-2 text-sm">
-                                                    <div class="font-semibold">Protect</div>
-                                                    <div class="text-xs text-gray-300">Pending</div>
-                                                </div>
-                                            </div>
-                                            <div class="flex-1 h-1 bg-gray-400 mx-2"></div>
-                                            
-                                            <div class="flex items-center text-center">
-                                                <div class="flex items-center justify-center w-8 h-8 bg-gray-400 rounded-full text-white text-sm font-bold">5</div>
-                                                <div class="ml-2 text-sm">
-                                                    <div class="font-semibold">Report</div>
-                                                    <div class="text-xs text-gray-300">Pending</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Current Step Details -->
-                                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
-                                            <div class="flex items-center justify-between">
-                                                <div class="flex items-center space-x-3">
-                                                    <div class="flex items-center justify-center w-10 h-10 bg-yellow-500 rounded-full text-white font-bold">
-                                                        <i class="fas fa-cogs"></i>
-                                                    </div>
-                                                    <div>
-                                                        <div class="font-bold">Current: Step 3 - Standardize Clinical CDEs</div>
-                                                        <div class="text-sm text-blue-100">9 biomarker CDEs being harmonized • 6 approved, 2 pending review, 1 in discussion</div>
-                                                    </div>
-                                                </div>
-                                                <div class="flex space-x-2">
-                                                    <button onclick="jumpToWorkflowStep(3)" class="px-4 py-2 bg-white bg-opacity-30 hover:bg-opacity-40 rounded-lg text-sm font-medium transition-colors">
-                                                        <i class="fas fa-external-link-alt mr-1"></i>View Details
-                                                    </button>
-                                                    <button onclick="markStepComplete(3)" class="px-4 py-2 bg-green-500 hover:bg-green-600 rounded-lg text-sm font-medium transition-colors">
-                                                        <i class="fas fa-check mr-1"></i>Mark Complete
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- AI Contextual Alerts -->
-                                        <div id="workflow-ai-alerts" class="mt-4 space-y-2">
-                                            <div class="bg-yellow-500 bg-opacity-30 border border-yellow-400 rounded-lg p-3 flex items-center">
-                                                <i class="fas fa-lightbulb text-yellow-200 mr-3"></i>
-                                                <div class="text-sm">
-                                                    <strong>AI Suggestion:</strong> CDE Clinical_Endpoint needs SME approval from Dr. Sarah Chen. Schedule review for optimal progress.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- FAIR Principles & Persona Selection (Enhanced) -->
-                            <div class="bg-white rounded-lg shadow border p-6">
-                                <div class="flex justify-between items-center mb-6">
-                                            <!-- FAIR Navigation with Workflow Context -->
-                                    <div class="flex space-x-6">
-                                        <button onclick="highlightFAIR('findable')" id="fair-findable" class="fair-nav-btn px-4 py-2 rounded-lg text-blue-600 bg-blue-50 font-semibold">
-                                            🔍 FINDABLE
-                                                    <span class="text-xs block text-gray-500">Step 1 Context</span>
-                                        </button>
-                                        <button onclick="highlightFAIR('accessible')" id="fair-accessible" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
-                                            🔓 ACCESSIBLE
-                                                    <span class="text-xs block text-gray-500">Step 2 Context</span>
-                                        </button>
-                                                <button onclick="highlightFAIR('interoperable')" id="fair-interoperable" class="fair-nav-btn px-4 py-2 rounded-lg text-yellow-600 bg-yellow-50 border border-yellow-300">
-                                            🔄 INTEROPERABLE
-                                                    <span class="text-xs block text-yellow-600">Current Step Focus</span>
-                                        </button>
-                                        <button onclick="highlightFAIR('reusable')" id="fair-reusable" class="fair-nav-btn px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
-                                            ♻️ REUSABLE
-                                                    <span class="text-xs block text-gray-500">Steps 4-5 Context</span>
-                                        </button>
-                                    </div>
-                                    
-                                    <!-- Persona Selection -->
-                                    <div class="flex items-center space-x-4">
-                                        <span class="text-sm font-medium text-gray-700">View as:</span>
-                                        <select id="persona-selector" onchange="switchPersona()" class="px-3 py-2 border border-gray-300 rounded-lg text-sm">
-                                            <option value="steward">🛡️ Data Steward</option>
-                                            <option value="owner">👑 Data Owner</option>
-                                            <option value="sme">🧠 SME</option>
-                                        </select>
-                                    </div>
+                    <div id="ai-assistant-content" class="tab-content" style="display: none;">
+                        <!-- AI Governance Copilot Header -->
+                        <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-lg mb-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h2 class="text-2xl font-bold mb-2">🤖 AI Governance Copilot</h2>
+                                    <p class="text-purple-100">Your intelligent assistant for data governance workflows</p>
                                 </div>
-                                
-                                <!-- Current Persona Description -->
-                                <div id="persona-description" class="p-3 bg-blue-50 rounded-lg">
-                                    <p class="text-sm text-blue-800">
-                                                <strong>Data Steward View:</strong> Focus on data quality, governance metrics, and regulatory compliance. Your goal: Ensure FAIR data foundation across regulatory landscape.
-                                    </p>
+                                <div class="text-right">
+                                    <div class="text-sm text-purple-200">Context: Individual Health Workflow</div>
+                                    <div class="text-lg font-semibold">Step 3 - Standardize Clinical CDEs</div>
                                 </div>
-                            </div>
-
-                                    <!-- AI-Powered Data Discovery (Enhanced with Context & Collaboration) -->
-                            <div class="bg-white rounded-lg shadow border p-6">
-                                <h3 class="text-2xl font-bold mb-6 text-gray-800">
-                                    <i class="fas fa-search mr-2 text-blue-600"></i>AI-Powered Data Discovery
-                                </h3>
-                                        
-                                        <!-- Main Search Bar -->
-                                <div class="flex gap-4 mb-6">
-                                    <input 
-                                        type="text" 
-                                        id="ai-search-input" 
-                                                placeholder="Ask AI: 'Show me pending CDE approvals' or 'Where are cotinine biomarkers?'" 
-                                        class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                                    >
-                                    <select id="ai-use-case-filter" class="p-3 border border-gray-300 rounded-lg">
-                                        <option value="">All Use Cases</option>
-                                        <option value="Product Description (Nonclinical)">Product Description (Nonclinical)</option>
-                                                <option value="Product Impact on Individual Health" selected>Product Impact on Individual Health</option>
-                                        <option value="Product Impact on Population Health">Product Impact on Population Health</option>
-                                        <option value="Comprehensive Regulatory Compliance">Comprehensive Regulatory Compliance</option>
-                                    </select>
-                                    <button onclick="aiSearchData()" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                                        <i class="fas fa-brain mr-2"></i>AI Search
-                                    </button>
-                                </div>
-
-                                        <!-- Three Column Layout: Context Suggestions | Main Results | Collaboration Tools -->
-                                        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                                            <!-- Left: Contextual AI Suggestions -->
-                                            <div class="lg:col-span-1 space-y-4">
-                                                <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                                                    <h5 class="font-bold text-blue-800 mb-3">
-                                                        <i class="fas fa-lightbulb mr-2"></i>Step 3 Context Help
-                                                    </h5>
-                                                    <div class="space-y-3 text-sm">
-                                                        <button onclick="aiContextSearch('show me pending CDE approvals')" class="w-full text-left p-2 bg-white rounded border hover:bg-blue-50 transition-colors">
-                                                            <i class="fas fa-clock text-yellow-600 mr-2"></i>Show pending CDE approvals
-                                                        </button>
-                                                        <button onclick="aiContextSearch('cotinine standardization rules')" class="w-full text-left p-2 bg-white rounded border hover:bg-blue-50 transition-colors">
-                                                            <i class="fas fa-rules text-purple-600 mr-2"></i>View standardization rules
-                                                        </button>
-                                                        <button onclick="aiContextSearch('SME review schedule')" class="w-full text-left p-2 bg-white rounded border hover:bg-blue-50 transition-colors">
-                                                            <i class="fas fa-calendar text-green-600 mr-2"></i>Check SME review schedule
-                                                        </button>
-                                                        <button onclick="aiContextSearch('biomarker harmonization')" class="w-full text-left p-2 bg-white rounded border hover:bg-blue-50 transition-colors">
-                                                            <i class="fas fa-sync text-orange-600 mr-2"></i>Harmonization status
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- AI Quality Insights -->
-                                                <div class="bg-green-50 rounded-lg p-4 border border-green-200">
-                                                    <h6 class="font-bold text-green-800 mb-2">
-                                                        <i class="fas fa-chart-line mr-1"></i>AI Quality Insights
-                                                    </h6>
-                                                    <div class="text-xs space-y-2">
-                                                        <div class="bg-white p-2 rounded border">
-                                                            <div class="font-medium text-green-700">Data Quality: 94.7%</div>
-                                                            <div class="text-gray-600">↑ 2.3% from last week</div>
-                                                        </div>
-                                                        <div class="bg-white p-2 rounded border">
-                                                            <div class="font-medium text-blue-700">CDE Progress: 67%</div>
-                                                            <div class="text-gray-600">6 of 9 approved</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <!-- Center: Main Discovery Results -->
-                                            <div class="lg:col-span-2">
-                                <div id="ai-discovery-results" class="mb-6">
-                                    <div class="text-center text-gray-500 py-8">
-                                        <i class="fas fa-robot text-4xl mb-4"></i>
-                                                        <p class="mb-2">Ask AI to discover and locate your data assets</p>
-                                                        <p class="text-sm text-gray-400">Try: "Show me pending CDE approvals" or "Where are cotinine biomarkers?"</p>
-                                    </div>
-                                </div>
-
-                                                <!-- AI Data Location Guide -->
-                                                <div class="bg-blue-50 rounded-lg p-4">
-                                    <h4 class="font-bold text-blue-800 mb-3">🗺️ AI Data Location Guide</h4>
-                                    <div id="data-location-guide" class="text-sm text-blue-700">
-                                                        <p>Use AI search above to get intelligent guidance on where to find specific data assets across your clinical data landscape.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                                            <!-- Right: Collaboration Tools -->
-                                            <div class="lg:col-span-1 space-y-4">
-                                                <div class="bg-purple-50 rounded-lg p-4 border border-purple-200">
-                                                    <h5 class="font-bold text-purple-800 mb-3">
-                                                        <i class="fas fa-users mr-2"></i>Team Collaboration
-                                                    </h5>
-                                                    
-                                                    <!-- Team Status -->
-                                                    <div class="space-y-2 text-sm">
-                                                        <div class="flex items-center space-x-2 p-2 bg-white rounded border">
-                                                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                                                            <div class="flex-1">
-                                                                <div class="font-medium">Dr. Sarah Chen</div>
-                                                                <div class="text-xs text-gray-600">Data Steward • Online</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex items-center space-x-2 p-2 bg-white rounded border">
-                                                            <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                                            <div class="flex-1">
-                                                                <div class="font-medium">Mike Johnson</div>
-                                                                <div class="text-xs text-gray-600">Data Steward • Away</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex items-center space-x-2 p-2 bg-white rounded border">
-                                                            <div class="w-2 h-2 bg-red-500 rounded-full"></div>
-                                                            <div class="flex-1">
-                                                                <div class="font-medium">Lisa Park</div>
-                                                                <div class="text-xs text-gray-600">Data Owner • Offline</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <!-- Quick Actions -->
-                                                    <div class="mt-4 space-y-2">
-                                                        <button onclick="mentionTeamMember('sarah')" class="w-full px-3 py-2 bg-green-500 text-white rounded text-sm hover:bg-green-600 transition-colors">
-                                                            <i class="fas fa-at mr-1"></i>@Dr. Sarah Chen
-                                                        </button>
-                                                        <button onclick="scheduleReview()" class="w-full px-3 py-2 bg-blue-500 text-white rounded text-sm hover:bg-blue-600 transition-colors">
-                                                            <i class="fas fa-calendar mr-1"></i>Schedule Review
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Active Notifications -->
-                                                <div class="bg-orange-50 rounded-lg p-4 border border-orange-200">
-                                                    <h6 class="font-bold text-orange-800 mb-2">
-                                                        <i class="fas fa-bell mr-1"></i>Active Notifications
-                                                    </h6>
-                                                    <div class="space-y-2 text-xs">
-                                                        <div class="bg-white p-2 rounded border border-orange-200">
-                                                            <div class="font-medium text-orange-700">CDE Review Pending</div>
-                                                            <div class="text-gray-600">Clinical_Endpoint awaiting approval</div>
-                                                            <div class="text-orange-600 mt-1">2 hours ago</div>
-                                                        </div>
-                                                        <div class="bg-white p-2 rounded border border-green-200">
-                                                            <div class="font-medium text-green-700">SME Available</div>
-                                                            <div class="text-gray-600">Dr. Sarah Chen is online</div>
-                                                            <div class="text-green-600 mt-1">Just now</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- AI Smart Suggestions (Enhanced with Workflow Collaboration) -->
-                            <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-6 border-l-4 border-purple-500">
-                                <h3 class="text-2xl font-bold mb-6 text-purple-800">
-                                            <i class="fas fa-brain mr-2"></i>AI Smart Suggestions & Workflow Collaboration
-                                </h3>
-                                        <div class="mb-6 text-sm text-purple-700">
-                                            <p>AI provides context-aware suggestions based on your persona, current workflow step, and team collaboration needs.</p>
-                                </div>
-                                        
-                                        <!-- Enhanced Smart Suggestions with Collaboration -->
-                                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                                            <!-- Left: Workflow-Aware AI Suggestions -->
-                                            <div class="space-y-4">
-                                                <h4 class="font-bold text-purple-800">🎯 Step 3 Focused Suggestions</h4>
-                                <div id="ai-smart-suggestions" class="space-y-3">
-                                                    <div class="bg-white p-4 rounded-lg border border-purple-200 shadow-sm">
-                                                        <div class="flex items-center justify-between mb-2">
-                                                            <span class="font-semibold text-purple-700">🎯 Focus on Population Health Use Case</span>
-                                                            <button onclick="viewUseCaseSuggestion('population')" class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded hover:bg-purple-200">
-                                                                View Use Case
-                                                            </button>
-                                </div>
-                                                        <p class="text-sm text-gray-600 mb-3">Based on current regulatory trends, prioritize Population Health compliance data.</p>
-                                                        <div class="flex items-center text-xs text-purple-600">
-                                                            <i class="fas fa-lightbulb mr-1"></i>AI confidence: 94%
                             </div>
                         </div>
-                                                    
-                                                    <div class="bg-white p-4 rounded-lg border border-green-200 shadow-sm">
-                                                        <div class="flex items-center justify-between mb-2">
-                                                            <span class="font-semibold text-green-700">📊 Validate High-Priority CDEs</span>
-                                                            <button onclick="reviewCDESuggestion()" class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded hover:bg-green-200">
-                                                                Review CDEs
-                                                            </button>
-                                                        </div>
-                                                        <p class="text-sm text-gray-600 mb-3">44 CDEs identified with >94% confidence. Review with domain experts.</p>
-                                                        <div class="flex items-center text-xs text-green-600">
-                                                            <i class="fas fa-users mr-1"></i>Requires SME approval
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="bg-white p-4 rounded-lg border border-orange-200 shadow-sm">
-                                                        <div class="flex items-center justify-between mb-2">
-                                                            <span class="font-semibold text-orange-700">🔍 Discover Missing Biomarker Data</span>
-                                                            <button onclick="discoverMissingData()" class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded hover:bg-orange-200">
-                                                                Discover
-                                                            </button>
-                                                        </div>
-                                                        <p class="text-sm text-gray-600 mb-3">AI detected potential gaps in biomarker data for FDA Section 2.8.</p>
-                                                        <div class="flex items-center text-xs text-orange-600">
-                                                            <i class="fas fa-search mr-1"></i>Auto-discovery ready
-                                                        </div>
-                                                    </div>
-                                                </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <!-- Left Column: Smart Chat Interface -->
+                            <div class="lg:col-span-2">
+                                <div class="bg-white rounded-lg shadow-lg h-96 flex flex-col">
+                                    <!-- Chat Header -->
+                                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 rounded-t-lg">
+                                        <div class="flex items-center justify-between">
+                                            <h3 class="text-lg font-semibold text-gray-800">💬 Conversation</h3>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                                    <span class="w-2 h-2 bg-green-400 rounded-full mr-1"></span>
+                                                    Online
+                                                </span>
+                                                <button class="text-gray-400 hover:text-gray-600" onclick="clearChat()">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                    </svg>
+                                                </button>
                                             </div>
-                                            
-                                            <!-- Center: Team Collaboration & Communication -->
-                                            <div class="space-y-4">
-                                                <h4 class="font-bold text-purple-800">💬 Team Communication Hub</h4>
-                                                
-                                                <!-- Recent Activity Feed -->
-                                                <div class="bg-white rounded-lg p-4 border border-blue-200">
-                                                    <h5 class="font-semibold text-blue-800 mb-3">
-                                                        <i class="fas fa-comments mr-2"></i>Recent Activity
-                                                    </h5>
-                                                    <div class="space-y-3 text-sm">
-                                                        <div class="flex items-start space-x-3 p-2 bg-blue-50 rounded">
-                                                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold">SC</div>
-                                                            <div class="flex-1">
-                                                                <div class="font-medium">Dr. Sarah Chen</div>
-                                                                <div class="text-gray-600">"Approved CDE Clinical_Endpoint with minor revisions"</div>
-                                                                <div class="text-xs text-blue-600 mt-1">15 minutes ago</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex items-start space-x-3 p-2 bg-gray-50 rounded">
-                                                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">MJ</div>
-                                                            <div class="flex-1">
-                                                                <div class="font-medium">Mike Johnson</div>
-                                                                <div class="text-gray-600">"Quality score improved to 94.7% after latest updates"</div>
-                                                                <div class="text-xs text-gray-600 mt-1">1 hour ago</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- AI Collaboration Suggestions -->
-                                                <div class="bg-white rounded-lg p-4 border border-purple-200">
-                                                    <h5 class="font-semibold text-purple-800 mb-3">
-                                                        <i class="fas fa-robot mr-2"></i>AI Collaboration Tips
-                                                    </h5>
-                                                    <div class="space-y-2 text-sm">
-                                                        <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-400">
-                                                            <div class="font-medium text-yellow-800">💡 Optimal Timing</div>
-                                                            <div class="text-yellow-700">Dr. Sarah Chen typically reviews CDEs between 2-4 PM. Schedule now for faster approval.</div>
-                                                            <button onclick="scheduleOptimalReview()" class="mt-2 text-xs bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600">
-                                                                Schedule Now
-                                                            </button>
-                                                        </div>
-                                                        <div class="bg-green-50 p-3 rounded border-l-4 border-green-400">
-                                                            <div class="font-medium text-green-800">🚀 Workflow Acceleration</div>
-                                                            <div class="text-green-700">Batch review of remaining 3 CDEs could complete Step 3 by tomorrow.</div>
-                                                            <button onclick="batchReviewCDEs()" class="mt-2 text-xs bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">
-                                                                Batch Review
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Chat Messages Container -->
+                                    <div id="chat-messages" class="flex-1 p-6 overflow-y-auto space-y-4">
+                                        <!-- Welcome Message -->
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                                                <span class="text-white text-sm font-bold">AI</span>
                                             </div>
-                                            
-                                            <!-- Right: Progress Tracking & Milestones -->
-                                            <div class="space-y-4">
-                                                <h4 class="font-bold text-purple-800">📈 Progress & Milestones</h4>
-                                                
-                                                <!-- Milestone Tracker -->
-                                                <div class="bg-white rounded-lg p-4 border border-green-200">
-                                                    <h5 class="font-semibold text-green-800 mb-3">
-                                                        <i class="fas fa-flag-checkered mr-2"></i>Milestone Progress
-                                                    </h5>
-                                                    <div class="space-y-3">
-                                                        <div class="flex items-center justify-between">
-                                                            <span class="text-sm font-medium">Clinical CDEs (Step 3)</span>
-                                                            <span class="text-sm text-green-600 font-bold">67%</span>
-                                                        </div>
-                                                        <div class="w-full bg-gray-200 rounded-full h-2">
-                                                            <div class="bg-green-500 h-2 rounded-full" style="width: 67%"></div>
-                                                        </div>
-                                                        <div class="text-xs text-gray-600">6 of 9 CDEs approved • Est. completion: Tomorrow</div>
-                                                        
-                                                        <div class="mt-4 flex items-center justify-between">
-                                                            <span class="text-sm font-medium">Overall Project</span>
-                                                            <span class="text-sm text-blue-600 font-bold">73%</span>
-                                                        </div>
-                                                        <div class="w-full bg-gray-200 rounded-full h-2">
-                                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 73%"></div>
-                                                        </div>
-                                                        <div class="text-xs text-gray-600">3 of 5 steps complete • Est. completion: 2.5 days</div>
-                                                    </div>
+                                            <div class="flex-1">
+                                                <div class="bg-gray-100 rounded-lg p-3">
+                                                    <p class="text-gray-800">👋 Hi! I'm your AI Governance Copilot. I can see you're working on <strong>Step 3 - Standardizing Clinical CDEs</strong> for the Individual Health workflow.</p>
+                                                    <p class="text-gray-800 mt-2">I notice you have 2 CDEs pending review and 1 in discussion. How can I help you today?</p>
                                                 </div>
-                                                
-                                                <!-- AI Predictions & Recommendations -->
-                                                <div class="bg-white rounded-lg p-4 border border-indigo-200">
-                                                    <h5 class="font-semibold text-indigo-800 mb-3">
-                                                        <i class="fas fa-crystal-ball mr-2"></i>AI Predictions
-                                                    </h5>
-                                                    <div class="space-y-3 text-sm">
-                                                        <div class="bg-indigo-50 p-3 rounded">
-                                                            <div class="font-medium text-indigo-700">📊 Project Velocity</div>
-                                                            <div class="text-indigo-600">Current pace: 12% faster than average</div>
-                                                            <div class="text-xs text-gray-600 mt-1">Based on similar biomarker projects</div>
-                                                        </div>
-                                                        <div class="bg-blue-50 p-3 rounded">
-                                                            <div class="font-medium text-blue-700">⚠️ Risk Assessment</div>
-                                                            <div class="text-blue-600">Low risk of delays if SME availability maintained</div>
-                                                            <div class="text-xs text-gray-600 mt-1">95% confidence level</div>
-                                                        </div>
-                                                        <div class="bg-green-50 p-3 rounded">
-                                                            <div class="font-medium text-green-700">💰 ROI Forecast</div>
-                                                            <div class="text-green-600">On track for $850K annual savings</div>
-                                                            <div class="text-xs text-gray-600 mt-1">40% faster biomarker analysis expected</div>
-                                                        </div>
-                                                    </div>
+                                                <div class="text-xs text-gray-500 mt-1">Just now</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Chat Input -->
+                                    <div class="border-t border-gray-200 p-4">
+                                        <div class="flex space-x-3">
+                                            <input 
+                                                type="text" 
+                                                id="chat-input" 
+                                                placeholder="Ask me anything about your workflow, CDEs, or governance process..."
+                                                class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                                onkeypress="if(event.key==='Enter') sendMessage()"
+                                            >
+                                            <button 
+                                                onclick="sendMessage()" 
+                                                class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-200 flex items-center space-x-2"
+                                            >
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                                </svg>
+                                                <span>Send</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Contextual Intelligence -->
+                            <div class="space-y-6">
+                                <!-- Proactive Suggestions -->
+                                <div class="bg-white rounded-lg shadow-lg p-6">
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                        <span class="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center mr-2">
+                                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </span>
+                                        Smart Alerts
+                                    </h3>
+                                    <div class="space-y-3">
+                                        <div class="bg-red-50 border-l-4 border-red-400 p-3 rounded">
+                                            <div class="flex items-center">
+                                                <div class="ml-3">
+                                                    <p class="text-sm text-red-700">
+                                                        <strong>Urgent:</strong> CDE "Clinical_Endpoint" needs SME approval from Dr. Sarah Chen
+                                                    </p>
+                                                    <button class="text-red-600 hover:text-red-800 text-xs underline mt-1" onclick="scheduleReview()">
+                                                        Schedule Review →
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                         
-                                        <!-- Bottom: Quick Actions Bar -->
-                                        <div class="mt-6 bg-white bg-opacity-60 rounded-lg p-4 border border-purple-300">
-                                            <div class="flex items-center justify-between">
-                                                <div class="text-sm font-medium text-purple-800">🚀 Quick Actions</div>
-                                                <div class="flex space-x-3">
-                                                    <button onclick="generateProgressReport()" class="px-4 py-2 bg-purple-500 text-white rounded-lg text-sm hover:bg-purple-600 transition-colors">
-                                                        <i class="fas fa-file-alt mr-1"></i>Generate Report
-                                                    </button>
-                                                    <button onclick="escalateToManager()" class="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm hover:bg-orange-600 transition-colors">
-                                                        <i class="fas fa-exclamation-triangle mr-1"></i>Escalate Issue
-                                                    </button>
-                                                    <button onclick="scheduleTeamMeeting()" class="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-600 transition-colors">
-                                                        <i class="fas fa-video mr-1"></i>Team Meeting
+                                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded">
+                                            <div class="flex items-center">
+                                                <div class="ml-3">
+                                                    <p class="text-sm text-yellow-700">
+                                                        <strong>Suggestion:</strong> 3 similar CDEs found in cardiovascular domain
+                                                    </p>
+                                                    <button class="text-yellow-600 hover:text-yellow-800 text-xs underline mt-1" onclick="showSimilarCDEs()">
+                                                        View Matches →
                                                     </button>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Quick Actions -->
+                                <div class="bg-white rounded-lg shadow-lg p-6">
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                        <span class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center mr-2">
+                                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </span>
+                                        Quick Actions
+                                    </h3>
+                                    <div class="space-y-2">
+                                        <button class="w-full text-left p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors duration-200" onclick="approveSelectedCDEs()">
+                                            <div class="font-medium text-blue-900">✅ Bulk Approve CDEs</div>
+                                            <div class="text-sm text-blue-700">Approve all 6 ready CDEs</div>
+                                        </button>
+                                        
+                                        <button class="w-full text-left p-3 bg-green-50 hover:bg-green-100 rounded-lg transition-colors duration-200" onclick="generateReport()">
+                                            <div class="font-medium text-green-900">📊 Generate Progress Report</div>
+                                            <div class="text-sm text-green-700">Current status summary</div>
+                                        </button>
+                                        
+                                        <button class="w-full text-left p-3 bg-purple-50 hover:bg-purple-100 rounded-lg transition-colors duration-200" onclick="suggestNextSteps()">
+                                            <div class="font-medium text-purple-900">🎯 Suggest Next Steps</div>
+                                            <div class="text-sm text-purple-700">AI-powered recommendations</div>
+                                        </button>
+                                        
+                                        <button class="w-full text-left p-3 bg-orange-50 hover:bg-orange-100 rounded-lg transition-colors duration-200" onclick="findExperts()">
+                                            <div class="font-medium text-orange-900">👥 Find Domain Experts</div>
+                                            <div class="text-sm text-orange-700">Get SME recommendations</div>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Workflow Context -->
+                                <div class="bg-white rounded-lg shadow-lg p-6">
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                        <span class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-2">
+                                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </span>
+                                        Context Awareness
+                                    </h3>
+                                    <div class="space-y-3 text-sm">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Current Step:</span>
+                                            <span class="font-medium">3 of 5</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Progress:</span>
+                                            <span class="font-medium text-green-600">67%</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Time Remaining:</span>
+                                            <span class="font-medium text-orange-600">2.5 days</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">CDEs Processed:</span>
+                                            <span class="font-medium">6/9</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Next Milestone:</span>
+                                            <span class="font-medium text-blue-600">Step 4 Start</span>
                                         </div>
                                     </div>
                                 </div>
@@ -4761,6 +4463,142 @@
                     <p class="text-sm text-gray-600">${insight.description}</p>
                 </div>
             `).join('');
+        }
+
+        // AI Governance Copilot Functions
+        let chatHistory = [];
+        
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            // Add user message
+            addChatMessage('user', message);
+            input.value = '';
+            
+            // Simulate AI response
+            setTimeout(() => {
+                const response = generateAIResponse(message);
+                addChatMessage('ai', response);
+            }, 1000);
+        }
+        
+        function addChatMessage(sender, message) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex items-start space-x-3';
+            
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm font-bold">You</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-blue-100 rounded-lg p-3">
+                            <p class="text-gray-800">${message}</p>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">Just now</div>
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm font-bold">AI</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-gray-100 rounded-lg p-3">
+                            <p class="text-gray-800">${message}</p>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">Just now</div>
+                    </div>
+                `;
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function generateAIResponse(userMessage) {
+            const lowerMessage = userMessage.toLowerCase();
+            
+            // Context-aware responses based on current workflow
+            if (lowerMessage.includes('cde') || lowerMessage.includes('clinical')) {
+                if (lowerMessage.includes('approve') || lowerMessage.includes('approval')) {
+                    return "I can help you with CDE approvals! Currently, you have 6 CDEs that are ready for approval and 2 pending review. The 'Clinical_Endpoint' CDE specifically needs Dr. Sarah Chen's approval. Would you like me to schedule a review session or show you the detailed CDE status?";
+                }
+                if (lowerMessage.includes('status') || lowerMessage.includes('progress')) {
+                    return "Here's your current CDE standardization status:<br/><br/>✅ <strong>Approved (6):</strong> Blood_Pressure, Heart_Rate, Glucose_Level, Cholesterol_Total, BMI, Temperature<br/>⏳ <strong>Pending Review (2):</strong> Clinical_Endpoint, Biomarker_Panel<br/>💬 <strong>In Discussion (1):</strong> Cotinine_Level<br/><br/>You're at 67% completion for Step 3. Great progress!";
+                }
+                return "I can help you with Clinical Data Elements (CDEs) for your Individual Health workflow. What specific aspect would you like to know about - approval status, standardization rules, or something else?";
+            }
+            
+            if (lowerMessage.includes('workflow') || lowerMessage.includes('step')) {
+                return "You're currently on <strong>Step 3 - Standardize Clinical CDEs</strong> of the Individual Health workflow. This step is 67% complete with an estimated 2.5 days remaining. Next up is Step 4 (Protect) which focuses on data security and privacy controls. Would you like me to prepare the transition checklist?";
+            }
+            
+            if (lowerMessage.includes('help') || lowerMessage.includes('what can you')) {
+                return "I'm your AI Governance Copilot! I can help you with:<br/><br/>🔍 <strong>Workflow Navigation:</strong> Track progress, check status, suggest next steps<br/>📋 <strong>CDE Management:</strong> Review approvals, find similar CDEs, check quality scores<br/>👥 <strong>Team Coordination:</strong> Schedule reviews, find experts, notify stakeholders<br/>📊 <strong>Smart Insights:</strong> Generate reports, predict timelines, identify risks<br/><br/>Just ask me anything about your data governance process!";
+            }
+            
+            if (lowerMessage.includes('expert') || lowerMessage.includes('sme')) {
+                return "Based on your current CDEs, I recommend these domain experts:<br/><br/>👩‍⚕️ <strong>Dr. Sarah Chen</strong> - Clinical Endpoints (Available now)<br/>🧬 <strong>Dr. Michael Rodriguez</strong> - Biomarker Standards (Available 2-4 PM)<br/>📊 <strong>Dr. Lisa Wang</strong> - Data Quality Metrics (Available tomorrow)<br/><br/>Would you like me to schedule a review session with any of them?";
+            }
+            
+            if (lowerMessage.includes('schedule') || lowerMessage.includes('meeting')) {
+                return "I'll help you schedule efficiently! Dr. Sarah Chen is typically available for CDE reviews between 2-4 PM with 95% response rate. I can:<br/><br/>📅 Schedule immediate review for urgent CDEs<br/>⏰ Set up batch review session for remaining 3 CDEs<br/>🔄 Create recurring review checkpoints<br/><br/>Which option works best for you?";
+            }
+            
+            if (lowerMessage.includes('report') || lowerMessage.includes('summary')) {
+                return "I'll generate a comprehensive progress report including:<br/><br/>📈 Workflow completion (73% overall)<br/>✅ CDE approval status (6/9 complete)<br/>⏱️ Timeline analysis (on track, 2.5 days remaining)<br/>🎯 Quality metrics (94.7% data quality score)<br/>🚨 Risk assessment (low risk of delays)<br/><br/>Would you like me to create this report now and share it with your team?";
+            }
+            
+            // Default contextual response
+            return "I understand you're asking about '" + userMessage + "'. As your AI Governance Copilot, I have full context of your Individual Health workflow. Could you be more specific about what you'd like to know? I can help with CDEs, workflow steps, team coordination, or generating reports.";
+        }
+        
+        function clearChat() {
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.innerHTML = `
+                <!-- Welcome Message -->
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm font-bold">AI</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-gray-100 rounded-lg p-3">
+                            <p class="text-gray-800">👋 Hi! I'm your AI Governance Copilot. I can see you're working on <strong>Step 3 - Standardizing Clinical CDEs</strong> for the Individual Health workflow.</p>
+                            <p class="text-gray-800 mt-2">I notice you have 2 CDEs pending review and 1 in discussion. How can I help you today?</p>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">Just now</div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Quick Action Functions
+        function scheduleReview() {
+            addChatMessage('ai', "🗓️ I've identified the optimal time slot for Dr. Sarah Chen to review the 'Clinical_Endpoint' CDE. Based on her schedule and typical response patterns:<br/><br/>📅 <strong>Recommended Time:</strong> Today at 3:00 PM<br/>⏱️ <strong>Duration:</strong> 30 minutes<br/>✅ <strong>Success Rate:</strong> 95% approval rate at this time<br/><br/>I can send the calendar invite now and include all relevant CDE documentation. Shall I proceed?");
+        }
+        
+        function showSimilarCDEs() {
+            addChatMessage('ai', "🔍 I found 3 similar CDEs in the cardiovascular domain that might help with standardization:<br/><br/>1. <strong>Cardiac_Biomarker_Panel</strong> (Cardiology Study 2023)<br/>   - 94% match to your Biomarker_Panel<br/>   - Already FDA-approved<br/><br/>2. <strong>Clinical_Endpoint_CVD</strong> (Heart Health Initiative)<br/>   - 89% match to your Clinical_Endpoint<br/>   - Dr. Sarah Chen was the approving SME<br/><br/>3. <strong>Cotinine_Smoking_Study</strong> (Tobacco Research)<br/>   - 87% match to your Cotinine_Level<br/>   - Includes standardized measurement units<br/><br/>Would you like me to import these standards or schedule a review with the original SMEs?");
+        }
+        
+        function approveSelectedCDEs() {
+            addChatMessage('ai', "✅ I can help you bulk approve the 6 ready CDEs. Here's what I found:<br/><br/><strong>Ready for Approval:</strong><br/>• Blood_Pressure (Quality: 98.2%)<br/>• Heart_Rate (Quality: 97.8%)<br/>• Glucose_Level (Quality: 96.5%)<br/>• Cholesterol_Total (Quality: 95.9%)<br/>• BMI (Quality: 97.1%)<br/>• Temperature (Quality: 98.7%)<br/><br/>All quality scores exceed the 95% threshold. As a Data Steward, you have authority to approve these. This would advance your Step 3 progress to 89%. Shall I proceed with the bulk approval?");
+        }
+        
+        function generateReport() {
+            addChatMessage('ai', "📊 Generating comprehensive progress report...<br/><br/><strong>Individual Health Workflow - Status Report</strong><br/><br/>📈 <strong>Overall Progress:</strong> 73% (Step 3 of 5)<br/>⏱️ <strong>Timeline:</strong> On track, 2.5 days remaining<br/>✅ <strong>Step 3 Progress:</strong> 67% complete (6/9 CDEs approved)<br/>🎯 <strong>Quality Score:</strong> 94.7% (↑2.3% from last week)<br/>⚠️ <strong>Blockers:</strong> 1 CDE pending SME approval<br/>👥 <strong>Team Status:</strong> Dr. Sarah Chen available, high velocity<br/>💰 <strong>ROI Forecast:</strong> $850K annual savings on track<br/><br/>📋 <strong>Recommendations:</strong><br/>1. Schedule Dr. Chen review for Clinical_Endpoint<br/>2. Batch approve 6 ready CDEs<br/>3. Prep Step 4 transition checklist<br/><br/>Would you like me to email this report to stakeholders?");
+        }
+        
+        function suggestNextSteps() {
+            addChatMessage('ai', "🎯 Based on AI analysis of your workflow patterns and current progress, here are my smart recommendations:<br/><br/><strong>Immediate Actions (Today):</strong><br/>1. ✅ Bulk approve 6 ready CDEs (30 mins)<br/>2. 📅 Schedule Dr. Chen review for Clinical_Endpoint (15 mins)<br/>3. 🔄 Follow up on Cotinine_Level discussion<br/><br/><strong>This Week:</strong><br/>4. 📋 Prepare Step 4 security checklist<br/>5. 👥 Brief data protection team on transition<br/>6. 🎯 Set up Step 5 reporting framework<br/><br/><strong>AI Insights:</strong><br/>• Completing actions 1-3 will boost progress to 89%<br/>• Current velocity suggests Step 3 completion by tomorrow<br/>• Step 4 can start 1 day early with proper prep<br/><br/>Would you like me to create a task list and set reminders?");
+        }
+        
+        function findExperts() {
+            addChatMessage('ai', "👥 I've analyzed your CDEs and found the perfect domain experts:<br/><br/><strong>For Clinical_Endpoint:</strong><br/>🥇 <strong>Dr. Sarah Chen</strong> - Clinical Data Specialist<br/>   📊 98% approval rate, 2.3 day avg response<br/>   🟢 Available now (high confidence)<br/><br/><strong>For Biomarker_Panel:</strong><br/>🥈 <strong>Dr. Michael Rodriguez</strong> - Biomarker Standards<br/>   📊 95% approval rate, FDA liaison experience<br/>   🟡 Available 2-4 PM today<br/><br/><strong>For Cotinine_Level:</strong><br/>🥉 <strong>Dr. Lisa Wang</strong> - Tobacco Research SME<br/>   📊 Expert in cotinine standardization<br/>   🔴 Available tomorrow morning<br/><br/><strong>Cross-Domain Support:</strong><br/>🔧 <strong>Jennifer Adams</strong> - Data Standards Architect<br/>   📊 Process optimization specialist<br/>   🟢 Available for batch reviews<br/><br/>Shall I reach out to any of these experts or schedule a review session?");
         }
     </script>
 </body>
