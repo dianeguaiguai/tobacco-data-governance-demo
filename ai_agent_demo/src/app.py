@@ -537,5 +537,10 @@ def get_use_cases():
         ]
     })
 
+@app.route('/simple')
+def simple_demo():
+    """Serve the simplified version of the demo"""
+    return render_template('simplified.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=5001) 

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Governance Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Simple Header -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-6 py-4">
+            <h1 class="text-2xl font-bold text-gray-800">🤖 AI Data Governance Assistant</h1>
+            <p class="text-gray-600 mt-1">Start with a simple question, get comprehensive governance</p>
+        </div>
+    </header>
+
+    <!-- Main Content - Single Focus -->
+    <div class="container mx-auto px-6 py-8 max-w-4xl">
+        
+        <!-- Step 1: Simple Question Input -->
+        <div id="step-1" class="bg-white rounded-lg shadow-sm p-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">What data do you need help with?</h2>
+            <p class="text-gray-600 mb-8">Describe your project or ask a question</p>
+            
+            <div class="space-y-4">
+                <input 
+                    type="text" 
+                    id="user-query"
+                    placeholder="e.g., 'I need to prepare biomarker data for FDA submission'"
+                    class="w-full p-4 border-2 border-gray-200 rounded-lg text-lg focus:border-blue-500 focus:outline-none"
+                >
+                <button 
+                    onclick="analyzeQuery()"
+                    class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
+                >
+                    Get AI Guidance
+                </button>
+            </div>
+
+            <!-- Quick Examples -->
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button onclick="setExample('biomarker')" class="p-4 border-2 border-gray-200 rounded-lg hover:border-blue-300 transition-colors">
+                    <div class="font-semibold text-gray-800">Biomarker Analysis</div>
+                    <div class="text-sm text-gray-600">FDA submission prep</div>
+                </button>
+                <button onclick="setExample('clinical')" class="p-4 border-2 border-gray-200 rounded-lg hover:border-blue-300 transition-colors">
+                    <div class="font-semibold text-gray-800">Clinical Data</div>
+                    <div class="text-sm text-gray-600">Quality standardization</div>
+                </button>
+                <button onclick="setExample('population')" class="p-4 border-2 border-gray-200 rounded-lg hover:border-blue-300 transition-colors">
+                    <div class="font-semibold text-gray-800">Population Health</div>
+                    <div class="text-sm text-gray-600">Compliance monitoring</div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: AI Analysis Results (Hidden initially) -->
+        <div id="step-2" class="hidden bg-white rounded-lg shadow-sm p-8 mt-6 fade-in">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">AI Analysis Results</h3>
+                <button onclick="goBack()" class="text-blue-600 hover:text-blue-800">← Start Over</button>
+            </div>
+
+            <!-- Simple Progress -->
+            <div class="mb-8">
+                <div class="flex items-center justify-between text-sm text-gray-600 mb-2">
+                    <span>Analysis Progress</span>
+                    <span id="progress-text">Analyzing...</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-1000" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Key Findings (Revealed progressively) -->
+            <div id="findings" class="space-y-6"></div>
+
+            <!-- Next Steps -->
+            <div id="next-steps" class="hidden mt-8 p-6 bg-blue-50 rounded-lg">
+                <h4 class="font-bold text-blue-800 mb-3">Recommended Next Steps</h4>
+                <div class="space-y-2" id="recommendations"></div>
+                <button onclick="startWorkflow()" class="mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                    Start Governance Workflow
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 3: Simplified Workflow (Hidden initially) -->
+        <div id="step-3" class="hidden bg-white rounded-lg shadow-sm p-8 mt-6 fade-in">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">Governance Workflow</h3>
+                <button onclick="goBackToResults()" class="text-blue-600 hover:text-blue-800">← Back to Results</button>
+            </div>
+
+            <!-- Simple 3-Step Process -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div id="workflow-step-1" class="text-center p-6 rounded-lg border-2 border-blue-500 bg-blue-50">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-3 font-bold">1</div>
+                    <h4 class="font-bold text-gray-800 mb-2">Discover Data</h4>
+                    <p class="text-sm text-gray-600">AI scans and catalogs your data</p>
+                </div>
+                <div id="workflow-step-2" class="text-center p-6 rounded-lg border-2 border-gray-200">
+                    <div class="w-12 h-12 bg-gray-400 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-3 font-bold">2</div>
+                    <h4 class="font-bold text-gray-800 mb-2">Standardize</h4>
+                    <p class="text-sm text-gray-600">Create consistent definitions</p>
+                </div>
+                <div id="workflow-step-3" class="text-center p-6 rounded-lg border-2 border-gray-200">
+                    <div class="w-12 h-12 bg-gray-400 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-3 font-bold">3</div>
+                    <h4 class="font-bold text-gray-800 mb-2">Generate Reports</h4>
+                    <p class="text-sm text-gray-600">Compliance-ready outputs</p>
+                </div>
+            </div>
+
+            <!-- Current Step Details -->
+            <div id="current-step-details" class="p-6 bg-gray-50 rounded-lg">
+                <h4 class="font-bold text-gray-800 mb-3">Step 1: Discovering Data Assets</h4>
+                <div class="space-y-2 text-sm">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span>✓ Scanned 50+ data systems</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span>✓ Found 127 biomarker fields</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+                        <span>🔄 Analyzing field relationships...</span>
+                    </div>
+                </div>
+                
+                <div class="mt-4 flex space-x-3">
+                    <button onclick="continueWorkflow()" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition-colors">
+                        Continue to Next Step
+                    </button>
+                    <button onclick="viewDetails()" class="border border-gray-300 text-gray-700 px-6 py-2 rounded hover:bg-gray-50 transition-colors">
+                        View Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        let selectedExample = null;
+
+        function setExample(type) {
+            const examples = {
+                'biomarker': 'I need to prepare biomarker data for FDA submission',
+                'clinical': 'How can I standardize clinical trial data quality?',
+                'population': 'I need to ensure population health data compliance'
+            };
+            document.getElementById('user-query').value = examples[type];
+            selectedExample = type;
+        }
+
+        function analyzeQuery() {
+            const query = document.getElementById('user-query').value;
+            if (!query.trim()) {
+                alert('Please enter a question or select an example');
+                return;
+            }
+
+            // Hide step 1, show step 2
+            document.getElementById('step-1').style.display = 'none';
+            document.getElementById('step-2').classList.remove('hidden');
+            
+            // Simulate AI analysis
+            simulateAnalysis();
+        }
+
+        function simulateAnalysis() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const findings = document.getElementById('findings');
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 20;
+                progressBar.style.width = progress + '%';
+                
+                if (progress === 20) {
+                    progressText.textContent = 'Scanning data systems...';
+                    addFinding('🔍 Found 127 biomarker fields across 11 data systems');
+                } else if (progress === 40) {
+                    progressText.textContent = 'Identifying standards...';
+                    addFinding('📋 Identified 44 high-priority CDEs for FDA Section 2.8');
+                } else if (progress === 60) {
+                    progressText.textContent = 'Analyzing compliance gaps...';
+                    addFinding('⚠️ Found 3 missing required biomarker definitions');
+                } else if (progress === 80) {
+                    progressText.textContent = 'Generating recommendations...';
+                    addFinding('💡 AI suggests 6 specific actions for compliance');
+                } else if (progress === 100) {
+                    progressText.textContent = 'Analysis complete!';
+                    showRecommendations();
+                    clearInterval(interval);
+                }
+            }, 1000);
+        }
+
+        function addFinding(text) {
+            const findings = document.getElementById('findings');
+            const div = document.createElement('div');
+            div.className = 'p-4 bg-gray-50 rounded-lg fade-in';
+            div.textContent = text;
+            findings.appendChild(div);
+        }
+
+        function showRecommendations() {
+            const recommendations = [
+                'Review and approve 44 identified CDEs',
+                'Define 3 missing biomarker standards',
+                'Set up automated quality monitoring',
+                'Generate FDA submission package'
+            ];
+
+            const container = document.getElementById('recommendations');
+            recommendations.forEach(rec => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center space-x-2';
+                div.innerHTML = `<span class="w-2 h-2 bg-blue-500 rounded-full"></span><span>${rec}</span>`;
+                container.appendChild(div);
+            });
+
+            document.getElementById('next-steps').classList.remove('hidden');
+        }
+
+        function startWorkflow() {
+            document.getElementById('step-2').style.display = 'none';
+            document.getElementById('step-3').classList.remove('hidden');
+        }
+
+        function continueWorkflow() {
+            // Update workflow steps
+            document.getElementById('workflow-step-1').className = 'text-center p-6 rounded-lg border-2 border-green-500 bg-green-50';
+            document.getElementById('workflow-step-1').querySelector('.bg-blue-600').className = 'w-12 h-12 bg-green-600 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-3 font-bold';
+            
+            document.getElementById('workflow-step-2').className = 'text-center p-6 rounded-lg border-2 border-blue-500 bg-blue-50';
+            document.getElementById('workflow-step-2').querySelector('.bg-gray-400').className = 'w-12 h-12 bg-blue-600 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-3 font-bold';
+
+            // Update current step details
+            document.getElementById('current-step-details').innerHTML = `
+                <h4 class="font-bold text-gray-800 mb-3">Step 2: Standardizing Data Elements</h4>
+                <div class="space-y-2 text-sm">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span>✓ Created metadata definitions for 44 CDEs</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+                        <span>🔄 Harmonizing biomarker units and ranges...</span>
+                    </div>
+                </div>
+                
+                <div class="mt-4 flex space-x-3">
+                    <button onclick="finishWorkflow()" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition-colors">
+                        Generate Final Report
+                    </button>
+                </div>
+            `;
+        }
+
+        function finishWorkflow() {
+            document.getElementById('current-step-details').innerHTML = `
+                <div class="text-center p-8">
+                    <h4 class="text-2xl font-bold text-green-800 mb-4">🎉 Governance Complete!</h4>
+                    <p class="text-gray-600 mb-6">Your biomarker data is now FDA submission-ready</p>
+                    
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <div class="text-2xl font-bold text-green-600">127</div>
+                            <div class="text-sm text-gray-600">Fields Cataloged</div>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600">44</div>
+                            <div class="text-sm text-gray-600">CDEs Defined</div>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <div class="text-2xl font-bold text-purple-600">94%</div>
+                            <div class="text-sm text-gray-600">Quality Score</div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="downloadReport()" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                        Download FDA Report
+                    </button>
+                </div>
+            `;
+        }
+
+        function viewDetails() {
+            alert('This would open a detailed view of discovered data assets');
+        }
+
+        function downloadReport() {
+            alert('This would download the FDA-ready compliance report');
+        }
+
+        function goBack() {
+            document.getElementById('step-2').style.display = 'none';
+            document.getElementById('step-1').style.display = 'block';
+            // Reset progress
+            document.getElementById('findings').innerHTML = '';
+            document.getElementById('recommendations').innerHTML = '';
+            document.getElementById('next-steps').classList.add('hidden');
+            document.getElementById('progress-bar').style.width = '0%';
+        }
+
+        function goBackToResults() {
+            document.getElementById('step-3').style.display = 'none';
+            document.getElementById('step-2').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html> 

@@ -574,6 +574,20 @@
                                     </div>
                                 </div>
 
+                                        <!-- 5-Step Implementation Process Breakdown -->
+                                        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-6 mb-6 border-l-4 border-indigo-500">
+                                            <h4 class="text-xl font-bold mb-4 text-indigo-800">
+                                                <i class="fas fa-list-ol mr-2"></i>5-Step Implementation Process
+                                                <span class="text-sm font-normal text-indigo-500 ml-2">(Customized for Selected Use Case)</span>
+                                            </h4>
+                                            <div id="use-case-process-steps" class="space-y-4">
+                                                <!-- Will be populated when use case is selected -->
+                                                <div class="text-center text-indigo-600 py-4">
+                                                    <i class="fas fa-route text-2xl mb-2"></i>
+                                                    <p>Select a use case above to see customized step-by-step implementation details</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <!-- Enhanced Interactive Step Interface for Individual Health -->
                                         <div id="individual-health-detailed-interface" class="hidden bg-white rounded-lg shadow-lg border p-6 mb-6">
@@ -2689,29 +2703,18 @@
                 .then(data => {
                     useCases = data.use_cases; // Fix: access the use_cases property
                     displayUseCases(data.use_cases);
-                    
-                    // Auto-select the "Product Impact on Individual Health" use case
-                    setTimeout(() => {
-                        selectUseCase('Product Impact on Individual Health');
-                    }, 100);
                 })
                 .catch(error => console.error('Error loading use cases:', error));
         }
 
         function displayUseCases(cases) {
             const grid = document.getElementById('use-cases-grid');
-            grid.innerHTML = cases.map(useCase => {
-                const isDisabled = useCase.name !== 'Product Impact on Individual Health';
-                const disabledClass = isDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:border-blue-300 cursor-pointer';
-                const clickHandler = isDisabled ? '' : `onclick="selectUseCase('${useCase.name}')"`;
-                
-                return `
-                <div class="use-case-card bg-white rounded-lg shadow-lg p-6 border-2 border-transparent ${disabledClass}" 
-                     ${clickHandler}>
+            grid.innerHTML = cases.map(useCase => `
+                <div class="use-case-card bg-white rounded-lg shadow-lg p-6 border-2 border-transparent hover:border-blue-300" 
+                     onclick="selectUseCase('${useCase.name}')">
                     <div class="text-center mb-4">
                         <div class="text-4xl mb-2">${useCase.icon}</div>
                         <h3 class="text-lg font-bold text-gray-800">${useCase.name}</h3>
-                        ${isDisabled ? '<div class="text-xs text-gray-400 mt-1">(Coming Soon)</div>' : ''}
                     </div>
                     <div class="space-y-2 text-sm text-gray-600">
                         <div class="flex justify-between">
@@ -2731,8 +2734,7 @@
                         ${useCase.description}
                     </div>
                 </div>
-            `;
-            }).join('');
+            `).join('');
         }
 
         function selectUseCase(useCaseName) {
@@ -3049,7 +3051,7 @@
             document.getElementById('use-case-glossary').innerHTML = cdeContent;
             
             // Generate step breakdown for this use case
-            // generateUseCaseStepBreakdown(useCase); // Removed - 5-step process section deleted
+            generateUseCaseStepBreakdown(useCase);
 
             // Load quality metrics
             document.getElementById('use-case-quality').innerHTML = `
@@ -3164,7 +3166,7 @@
                 </div>
             `).join('');
             
-            // document.getElementById('use-case-process-steps').innerHTML = stepsHTML; // Removed - element no longer exists
+            document.getElementById('use-case-process-steps').innerHTML = stepsHTML;
         }
 
         function getUseCaseSpecificSteps(useCase) {
