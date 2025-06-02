@@ -492,50 +492,117 @@ def initiate_workflow():
 
 @app.route('/api/use-cases', methods=['GET'])
 def get_use_cases():
+    use_cases = [
+        {
+            "name": "Product Description (Nonclinical)",
+            "icon": "🧪",
+            "description": "Comprehensive product characterization data for FDA Section 2.8, 2.9, 2.10 submissions including laboratory testing, batch records, and quality metrics",
+            "assets": "3 assets",
+            "cdes": "12 CDEs",
+            "fda_section": "Sections 2.8, 2.9, 2.10"
+        },
+        {
+            "name": "Product Impact on Individual Health",
+            "icon": "👤", 
+            "description": "Individual health biomarker and exposure data for FDA Section 2.7, 2.9 compliance including clinical observations and adverse events",
+            "assets": "2 assets",
+            "cdes": "9 CDEs",
+            "fda_section": "Sections 2.7, 2.9"
+        },
+        {
+            "name": "Product Impact on Population Health",
+            "icon": "👥",
+            "description": "Population health surveillance and epidemiological data for FDA Section 2.9 analysis including usage patterns and health outcomes",
+            "assets": "1 asset",
+            "cdes": "8 CDEs", 
+            "fda_section": "Section 2.9"
+        },
+        {
+            "name": "Comprehensive Regulatory Compliance",
+            "icon": "📋",
+            "description": "Complete regulatory submissions and compliance tracking across all FDA standards including audit trails and regulatory correspondence",
+            "assets": "2 assets",
+            "cdes": "15 CDEs",
+            "fda_section": "Sections 2.7, 2.8, 2.9, 2.10"
+        }
+    ]
+    
     return jsonify({
-        "use_cases": [
-            {
-                "id": "product_description",
-                "name": "Product Description (Nonclinical)",
-                "icon": "🧪",
-                "standards": ["Section 2.8 Standards for Tabulation", "Section 2.9 Standards for Analysis", "Section 2.10 Standards for Data Exchange"],
-                "fda_section": "Sections 2.8, 2.9, 2.10",
-                "description": "Laboratory testing and product characterization data management",
-                "assets": 3,
-                "cdes": 12
-            },
-            {
-                "id": "individual_health", 
-                "name": "Product Impact on Individual Health",
-                "icon": "👤",
-                "standards": ["Section 2.7 Standards for Collection", "Section 2.9 Standards for Analysis"],
-                "fda_section": "Sections 2.7, 2.9",
-                "description": "Clinical studies and biomarker analysis for individual health impact",
-                "assets": 2,
-                "cdes": 9
-            },
-            {
-                "id": "population_health",
-                "name": "Product Impact on Population Health",
-                "icon": "👥",
-                "standards": ["Section 2.9 Standards for Analysis"],
-                "fda_section": "Section 2.9",
-                "description": "Epidemiological surveillance and population health monitoring",
-                "assets": 2,
-                "cdes": 8
-            },
-            {
-                "id": "regulatory_compliance",
-                "name": "Comprehensive Regulatory Compliance",
-                "icon": "📋",
-                "standards": ["Section 2.7 Standards for Collection", "Section 2.8 Standards for Tabulation", "Section 2.9 Standards for Analysis", "Section 2.10 Standards for Data Exchange"],
-                "fda_section": "Sections 2.7-2.10",
-                "description": "End-to-end regulatory submission and compliance management",
-                "assets": 4,
-                "cdes": 15
-            }
-        ]
+        "use_cases": use_cases,
+        "total_count": len(use_cases)
     })
+
+@app.route('/api/interview-prep', methods=['GET'])
+def get_interview_prep():
+    interview_data = {
+        "strategy": {
+            "title": "Data Governance/Strategy",
+            "key_components": [
+                {
+                    "name": "FAIR Principles Implementation",
+                    "description": "Findable metadata catalogs, Accessible via automated workflows, Interoperable CDEs, Reusable definitions"
+                },
+                {
+                    "name": "Regulatory Compliance Framework", 
+                    "description": "FDA Section 2.7-2.10 standards, PMTA submission readiness, Audit trail automation"
+                },
+                {
+                    "name": "Clinical Data Lifecycle",
+                    "description": "Pre-clinical to post-market surveillance, Biomarker standardization, RWE integration"
+                },
+                {
+                    "name": "AI-Powered Automation",
+                    "description": "Intelligent discovery, Auto-standardization, Risk prediction, ROI optimization"
+                }
+            ],
+            "key_metric": "$2M+ annual savings through 85% automation of governance workflows"
+        },
+        "project": {
+            "title": "The Governance Project",
+            "steps": [
+                {"name": "Discover", "description": "Data asset inventory across 50+ systems", "progress": 85},
+                {"name": "Standardize", "description": "CDE implementation & validation", "progress": 73},
+                {"name": "Define", "description": "Business definitions & regulatory mapping", "progress": 67},
+                {"name": "Protect", "description": "Security controls & access management", "progress": 25},
+                {"name": "Report", "description": "Compliance reporting & monitoring", "progress": 10}
+            ],
+            "success_metrics": "Quality Score: 94.7% | Time to Value: 3 months | Compliance Ready: 98%"
+        },
+        "stakeholders": {
+            "title": "Key Stakeholders",
+            "raci": {
+                "responsible": ["Data Stewards", "Clinical SMEs", "Regulatory Affairs"],
+                "accountable": ["Data Owners", "Department Heads", "Compliance Officers"],
+                "consulted": ["IT Architecture", "Legal/Privacy", "External Auditors"],
+                "informed": ["Executive Team", "Research Teams", "Business Users"]
+            },
+            "addressing_needs": "AI automates 80% of stakeholder coordination, reduces meeting overhead by 60%"
+        },
+        "engagement": {
+            "title": "Organizational Engagement",
+            "strategies": [
+                {
+                    "name": "Executive Alignment",
+                    "description": "ROI-focused dashboards showing $2M+ savings potential, regulatory risk reduction"
+                },
+                {
+                    "name": "Department Champions", 
+                    "description": "Domain-specific value demonstrations, peer-to-peer success stories"
+                },
+                {
+                    "name": "Training & Enablement",
+                    "description": "Role-based training programs, AI copilot onboarding, continuous support"
+                },
+                {
+                    "name": "Success Metrics",
+                    "description": "Monthly governance scorecards, user adoption tracking, value realization reports"
+                }
+            ],
+            "results": "95% user adoption rate | 4.8/5 satisfaction score | 40% reduction in compliance queries"
+        }
+    }
+    
+    return jsonify(interview_data)
 
 @app.route('/simple')
 def simple_demo():
