@@ -2440,62 +2440,248 @@
                 `;
             } else if (useCase.name === 'Product Impact on Individual Health') {
                 dataAssetsContent = `
-                    <div class="space-y-3">
-                        <div class="text-sm font-semibold text-blue-800">2 Data Assets Identified</div>
-                        <div class="space-y-2 text-xs">
-                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
-                                <div class="font-semibold text-blue-700">1. Biomarker_Clinical_DB</div>
-                                <div class="text-gray-600 mt-1">
-                                    • Type: NoSQL Database<br>
-                                    • Records: 850K documents<br>
-                                    • Collections: biomarker_results, clinical_observations, adverse_events, subject_demographics<br>
-                                    • Owner: Clinical Research Team<br>
-                                    • Quality Score: 92%
+                    <div class="space-y-4">
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-200">
+                            <div class="text-sm font-semibold text-blue-800 mb-3">
+                                <i class="fas fa-heartbeat mr-2"></i>Clinical Data Assets Identified (12 Core + 5 Analysis-Ready)
+                            </div>
+                            
+                            <!-- Trial Design Assets -->
+                            <div class="mb-4">
+                                <div class="text-xs font-bold text-indigo-700 mb-2">📋 Trial Design & Structure</div>
+                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 text-xs">
+                                    <div class="bg-white p-2 rounded border-l-4 border-indigo-400">
+                                        <div class="font-semibold text-indigo-700">TV (Trial Visits)</div>
+                                        <div class="text-gray-600">Visit schedules & timelines<br>Owner: Clinical Ops • Quality: 98%</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border-l-4 border-indigo-400">
+                                        <div class="font-semibold text-indigo-700">TA (Trial Arms)</div>
+                                        <div class="text-gray-600">Treatment group definitions<br>Owner: Clinical Ops • Quality: 99%</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border-l-4 border-indigo-400">
+                                        <div class="font-semibold text-indigo-700">TE (Trial Elements)</div>
+                                        <div class="text-gray-600">Study elements & epochs<br>Owner: Clinical Ops • Quality: 97%</div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
-                                <div class="font-semibold text-blue-700">2. biomarker_exposure_data.csv</div>
-                                <div class="text-gray-600 mt-1">
-                                    • Type: CSV File<br>
-                                    • Size: 28MB, 67,500 rows<br>
-                                    • Fields: SUBJ_ID, COT_LEVEL, NNAL_CONC, AGE_VERIF, EXP_HIST, BMI_VAL, BP_SYS<br>
-                                    • Owner: Clinical Research Team<br>
-                                    • Quality Score: 82%
+
+                            <!-- Demographics & Subject Info -->
+                            <div class="mb-4">
+                                <div class="text-xs font-bold text-green-700 mb-2">👥 Subject Demographics & Characteristics</div>
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-white p-2 rounded border-l-4 border-green-400">
+                                        <div class="font-semibold text-green-700">DM (Demographics)</div>
+                                        <div class="text-gray-600">SEX, AGE, RACE, BMI variables<br>Records: 2,847 subjects • Quality: 96%</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border-l-4 border-green-400">
+                                        <div class="font-semibold text-green-700">SC (Subject Characteristics)</div>
+                                        <div class="text-gray-600">Medical history, inclusion criteria<br>Records: 2,847 subjects • Quality: 94%</div>
+                                    </div>
                                 </div>
                             </div>
+
+                            <!-- Safety & Clinical Assessments -->
+                            <div class="mb-4">
+                                <div class="text-xs font-bold text-red-700 mb-2">🏥 Safety & Clinical Assessments</div>
+                                <div class="grid grid-cols-1 lg:grid-cols-4 gap-2 text-xs">
+                                    <div class="bg-white p-2 rounded border-l-4 border-red-400">
+                                        <div class="font-semibold text-red-700">AE (Adverse Events)</div>
+                                        <div class="text-gray-600">AEDECOD, severity coding<br>Events: 1,247 • Quality: 98%</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border-l-4 border-red-400">
+                                        <div class="font-semibold text-red-700">VS (Vital Signs)</div>
+                                        <div class="text-gray-600">SYSBP, DIABP, heart rate<br>Measurements: 45,632 • Quality: 97%</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border-l-4 border-red-400">
+                                        <div class="font-semibold text-red-700">EG (ECG)</div>
+                                        <div class="text-gray-600">ECGCLSIG, QT intervals<br>ECGs: 8,541 • Quality: 95%</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border-l-4 border-red-400">
+                                        <div class="font-semibold text-red-700">LB (Laboratory)</div>
+                                        <div class="text-gray-600">Hematology, chemistry panels<br>Tests: 68,923 • Quality: 96%</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exposure & Device Data -->
+                            <div class="mb-4">
+                                <div class="text-xs font-bold text-purple-700 mb-2">💨 Product Exposure & Device Data</div>
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-white p-2 rounded border-l-4 border-purple-400">
+                                        <div class="font-semibold text-purple-700">EX (Exposure)</div>
+                                        <div class="text-gray-600">EXDOSE, product usage patterns<br>Exposure records: 12,847 • Quality: 93%</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border-l-4 border-purple-400">
+                                        <div class="font-semibold text-purple-700">EM (Device Events)</div>
+                                        <div class="text-gray-600">EMDECOD, device malfunctions<br>Device events: 284 • Quality: 91%</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Behavioral & PK/PD Data -->
+                            <div class="mb-4">
+                                <div class="text-xs font-bold text-teal-700 mb-2">🧠 Behavioral & Pharmacokinetic Data</div>
+                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 text-xs">
+                                    <div class="bg-white p-2 rounded border-l-4 border-teal-400">
+                                        <div class="font-semibold text-teal-700">QS (Questionnaires)</div>
+                                        <div class="text-gray-600">QSCAT, nicotine dependence scales<br>Responses: 34,567 • Quality: 89%</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border-l-4 border-teal-400">
+                                        <div class="font-semibold text-teal-700">PC (PK Concentrations)</div>
+                                        <div class="text-gray-600">PCTESTCD, biomarker levels<br>Samples: 15,432 • Quality: 97%</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border-l-4 border-teal-400">
+                                        <div class="font-semibold text-teal-700">PP (PK Parameters)</div>
+                                        <div class="text-gray-600">TMAX, AUCALL derived params<br>Parameters: 4,523 • Quality: 95%</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Analysis-Ready Datasets -->
+                            <div class="bg-gradient-to-r from-orange-50 to-amber-50 p-3 rounded border border-orange-200">
+                                <div class="text-xs font-bold text-orange-700 mb-2">📊 Analysis-Ready Datasets (ADaM)</div>
+                                <div class="grid grid-cols-1 lg:grid-cols-5 gap-2 text-xs">
+                                    <div class="bg-white p-2 rounded border">
+                                        <div class="font-semibold text-orange-700">ADSL</div>
+                                        <div class="text-gray-600">Subject-level analysis<br>TRT01A variables</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border">
+                                        <div class="font-semibold text-orange-700">ADVS</div>
+                                        <div class="text-gray-600">Vital signs analysis<br>BASE, CHG calculations</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border">
+                                        <div class="font-semibold text-orange-700">ADLB</div>
+                                        <div class="text-gray-600">Laboratory analysis<br>Reference ranges</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border">
+                                        <div class="font-semibold text-orange-700">ADEX</div>
+                                        <div class="text-gray-600">Exposure analysis<br>Derived variables</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border">
+                                        <div class="font-semibold text-orange-700">ADPP</div>
+                                        <div class="text-gray-600">PK parameters<br>Statistical summaries</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            `;
+                `;
 
                 cdeContent = `
-                <div class="space-y-3">
-                        <div class="text-sm font-semibold text-green-800">9 CDEs Suggested</div>
-                        <div class="text-xs space-y-2">
-                        <div class="bg-white p-2 rounded border">
-                                <div class="font-semibold text-green-700">Subject_ID</div>
-                                <div class="text-gray-600">Unique clinical study participant identifier • VARCHAR(15)</div>
-                        </div>
-                        <div class="bg-white p-2 rounded border">
-                                <div class="font-semibold text-green-700">Cotinine_Level</div>
-                                <div class="text-gray-600">Biomarker for nicotine exposure measured in ng/mL • DECIMAL(8,2)</div>
-                        </div>
-                            <div class="bg-white p-2 rounded border">
-                                <div class="font-semibold text-green-700">Clinical_Endpoint</div>
-                                <div class="text-gray-600">Primary or secondary endpoint measured in clinical studies • VARCHAR(100)</div>
+                    <div class="space-y-4">
+                        <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border border-green-200">
+                            <div class="text-sm font-semibold text-green-800 mb-3">
+                                <i class="fas fa-tags mr-2"></i>Critical Data Elements (CDEs) - Individual Health Study
                             </div>
-                            <div class="bg-white p-2 rounded border">
-                                <div class="font-semibold text-green-700">Exposure_Biomarker</div>
-                                <div class="text-gray-600">Biological indicators of product exposure • DECIMAL(10,3)</div>
+                            
+                            <!-- Core Subject Identifiers -->
+                            <div class="mb-4">
+                                <div class="text-xs font-bold text-blue-700 mb-2">🔑 Core Subject Identifiers</div>
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-white p-3 rounded border border-blue-200">
+                                        <div class="font-semibold text-blue-700">Subject_ID (USUBJID)</div>
+                                        <div class="text-gray-600 mt-1">
+                                            <strong>Definition:</strong> Unique subject identifier across studies<br>
+                                            <strong>Format:</strong> VARCHAR(20) - Study_Site_Subject pattern<br>
+                                            <strong>Example:</strong> IH2024_001_0001<br>
+                                            <strong>CDISC Standard:</strong> SDTM USUBJID variable
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-3 rounded border border-blue-200">
+                                        <div class="font-semibold text-blue-700">Visit_Name (VISIT)</div>
+                                        <div class="text-gray-600 mt-1">
+                                            <strong>Definition:</strong> Standardized visit nomenclature<br>
+                                            <strong>Format:</strong> VARCHAR(50)<br>
+                                            <strong>Values:</strong> Screening, Day 1, Week 2, Follow-up<br>
+                                            <strong>CDISC Standard:</strong> SDTM VISIT variable
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="bg-white p-2 rounded border">
-                                <div class="font-semibold text-green-700">Study_Protocol_ID</div>
-                                <div class="text-gray-600">Unique identifier for clinical study protocol • VARCHAR(20)</div>
+
+                            <!-- Biomarker CDEs -->
+                            <div class="mb-4">
+                                <div class="text-xs font-bold text-purple-700 mb-2">🧪 Key Biomarker CDEs</div>
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-white p-3 rounded border border-purple-200">
+                                        <div class="font-semibold text-purple-700">Cotinine_Level (COT)</div>
+                                        <div class="text-gray-600 mt-1">
+                                            <strong>Definition:</strong> Nicotine metabolite concentration in biological samples<br>
+                                            <strong>Units:</strong> ng/mL (nanograms per milliliter)<br>
+                                            <strong>Range:</strong> 0.1 - 500.0 ng/mL<br>
+                                            <strong>Method:</strong> LC-MS/MS per ICH bioanalytical guidelines<br>
+                                            <strong>Clinical Significance:</strong> Primary biomarker for nicotine exposure assessment
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-3 rounded border border-purple-200">
+                                        <div class="font-semibold text-purple-700">NNAL_Concentration (NNAL)</div>
+                                        <div class="text-gray-600 mt-1">
+                                            <strong>Definition:</strong> 4-(methylnitrosamino)-1-(3-pyridyl)-1-butanol concentration<br>
+                                            <strong>Units:</strong> pmol/mL (picomoles per milliliter)<br>
+                                            <strong>Range:</strong> 0.05 - 50.0 pmol/mL<br>
+                                            <strong>Method:</strong> LC-MS/MS<br>
+                                            <strong>Clinical Significance:</strong> Tobacco-specific nitrosamine exposure biomarker
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="bg-white p-2 rounded border">
-                                <div class="font-semibold text-green-700">Adverse_Event_Code</div>
-                                <div class="text-gray-600">Standardized code for adverse events • VARCHAR(10)</div>
+
+                            <!-- Clinical Assessment CDEs -->
+                            <div class="mb-4">
+                                <div class="text-xs font-bold text-red-700 mb-2">🏥 Clinical Assessment CDEs</div>
+                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 text-xs">
+                                    <div class="bg-white p-3 rounded border border-red-200">
+                                        <div class="font-semibold text-red-700">Clinical_Endpoint (CENDPT)</div>
+                                        <div class="text-gray-600 mt-1">
+                                            <strong>Definition:</strong> Primary clinical endpoint measurement<br>
+                                            <strong>Categories:</strong> Safety, Efficacy, Exposure, Behavioral<br>
+                                            <strong>Format:</strong> VARCHAR(100)<br>
+                                            <strong>Standards:</strong> ICH E6 Good Clinical Practice
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-3 rounded border border-red-200">
+                                        <div class="font-semibold text-red-700">Adverse_Event_Term (AETERM)</div>
+                                        <div class="text-gray-600 mt-1">
+                                            <strong>Definition:</strong> Standardized adverse event terminology<br>
+                                            <strong>Dictionary:</strong> MedDRA Preferred Terms<br>
+                                            <strong>Format:</strong> VARCHAR(200)<br>
+                                            <strong>Severity:</strong> Mild, Moderate, Severe grading
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-3 rounded border border-red-200">
+                                        <div class="font-semibold text-red-700">Vital_Signs_Panel (VSPANEL)</div>
+                                        <div class="text-gray-600 mt-1">
+                                            <strong>Definition:</strong> Standardized vital signs assessment<br>
+                                            <strong>Components:</strong> SBP, DBP, HR, RR, TEMP<br>
+                                            <strong>Units:</strong> mmHg, bpm, /min, °C<br>
+                                            <strong>Frequency:</strong> Per protocol schedule
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="text-xs text-gray-500 mt-2">+ 3 additional CDEs including Age_Verification, Blood_Pressure_Systolic, Body_Mass_Index</div>
+
+                            <!-- Behavioral & Quality of Life CDEs -->
+                            <div class="bg-gradient-to-r from-teal-50 to-cyan-50 p-3 rounded border border-teal-200">
+                                <div class="text-xs font-bold text-teal-700 mb-2">🧠 Behavioral & Quality of Life CDEs</div>
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-white p-2 rounded border">
+                                        <div class="font-semibold text-teal-700">Nicotine_Dependence_Score (FTND)</div>
+                                        <div class="text-gray-600">Fagerström Test score (0-10 scale) • Validated questionnaire</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border">
+                                        <div class="font-semibold text-teal-700">Craving_Assessment (QSU-Brief)</div>
+                                        <div class="text-gray-600">Questionnaire on Smoking Urges • 10-item scale</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border">
+                                        <div class="font-semibold text-teal-700">Product_Satisfaction (PSQ)</div>
+                                        <div class="text-gray-600">Product-specific satisfaction questionnaire • Likert scale</div>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border">
+                                        <div class="font-semibold text-teal-700">Withdrawal_Symptoms (MNWS)</div>
+                                        <div class="text-gray-600">Minnesota Nicotine Withdrawal Scale • Validated instrument</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 `;
