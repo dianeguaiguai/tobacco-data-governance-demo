@@ -609,5 +609,16 @@ def simple_demo():
     """Serve the simplified version of the demo"""
     return render_template('simplified.html')
 
+@app.route('/api/analyze', methods=['POST'])
+def analyze_workflow():
+    data = request.json
+    # Mock response for the demo
+    response = {
+        "status": "success",
+        "message": "Workflow analysis completed",
+        "data": data
+    }
+    return jsonify(response)
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5001) 
+    app.run(debug=True, port=5002) 

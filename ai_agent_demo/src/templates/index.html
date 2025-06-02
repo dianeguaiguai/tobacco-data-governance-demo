@@ -969,16 +969,46 @@
                                         </div>
                                     </div>
 
-                                    <!-- AI Workflow Demo -->
-                                    <div class="p-6 flex-1">
+                                    <!-- Interactive AI Chat Interface -->
+                                    <div class="p-6 flex-1 flex flex-col">
                                         <div class="flex items-center justify-between mb-4">
-                                            <h4 class="font-semibold text-gray-800">🤖 AI Workflow in Action</h4>
-                                            <button onclick="runWorkflowDemo()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm">
-                                                Run Demo →
+                                            <h4 class="font-semibold text-gray-800">💬 Ask Your AI Assistant</h4>
+                                            <button onclick="clearAIChat()" class="text-gray-400 hover:text-gray-600 text-sm">
+                                                Clear Chat
                                             </button>
                                         </div>
-                                        <div id="workflow-demo" class="space-y-3">
-                                            <!-- Workflow content will be populated by role -->
+                                        
+                                        <!-- Chat Messages Area -->
+                                        <div id="ai-chat-messages" class="flex-1 bg-gray-50 rounded-lg p-4 mb-4 h-64 overflow-y-auto space-y-3">
+                                            <!-- Welcome message will be populated by role -->
+                                        </div>
+                                        
+                                        <!-- Chat Input -->
+                                        <div class="flex space-x-2">
+                                            <input 
+                                                type="text" 
+                                                id="ai-chat-input" 
+                                                placeholder="Ask me anything about your governance workflow..."
+                                                class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                                                onkeypress="if(event.key==='Enter') sendAIMessage()"
+                                            >
+                                            <button 
+                                                onclick="sendAIMessage()" 
+                                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2 text-sm"
+                                            >
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                                </svg>
+                                                <span>Send</span>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Quick Questions -->
+                                        <div class="mt-4">
+                                            <h5 class="text-xs font-semibold text-gray-600 mb-2">Quick Questions:</h5>
+                                            <div id="quick-questions" class="flex flex-wrap gap-2">
+                                                <!-- Will be populated by role -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -4502,8 +4532,13 @@
                 governance: ["How do I coordinate the Individual Health workflow across all stakeholders?", "What governance bottlenecks need escalation?", "Where should we focus our improvement efforts?"]
             };
             
-            // Update key questions
-            const questionsHtml = questionSets[role].map(q => `<div class="p-3 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer transition-colors"><div class="text-sm text-gray-700">"${q}"</div></div>`).join('');
+            // Update key questions with click handlers
+            const questionsHtml = questionSets[role].map(q => `
+                <div class="p-3 bg-gray-50 rounded-lg hover:bg-blue-100 cursor-pointer transition-colors" onclick="askKeyQuestion('${q.replace(/'/g, "\\'")}')">
+                    <div class="text-sm text-gray-700 hover:text-blue-800">"${q}"</div>
+                    <div class="text-xs text-gray-500 mt-1">Click to ask this question</div>
+                </div>
+            `).join('');
             document.getElementById('key-questions').innerHTML = questionsHtml;
             
             // Update collaboration panel
@@ -4515,132 +4550,468 @@
             // Update smart handoffs
             updateSmartHandoffs(role);
             
-            // Update workflow demo
-            updateWorkflowDemo(role);
+            // Initialize AI chat for role
+            initializeAIChat(role);
+        }
+         
+        function initializeAIChat(role) {
+            const welcomeMessages = {
+                steward: `👋 Hi! I'm your Data Steward AI Assistant. I can help you with CDE validation, data quality checks, and compliance verification. I see you have 6 CDEs pending review - shall we start there?`,
+                owner: `👋 Hello! I'm your Data Owner AI Assistant. I can assist with access control decisions, compliance risk assessment, and ROI analysis. There's currently 1 access request awaiting your review.`,
+                architect: `👋 Hey! I'm your IT & Architecture AI Assistant. I can help with technical implementation, SDTM mapping, and system integration planning. Ready to tackle those tobacco endpoint mappings?`,
+                executive: `👋 Good day! I'm your Senior Management AI Assistant. I provide strategic insights, ROI tracking, and governance metrics. Your weekly executive dashboard is ready for review.`,
+                governance: `👋 Greetings! I'm your Corporate Governance AI Assistant. I orchestrate cross-role workflows and identify optimization opportunities. Currently managing 3 active workflows at 67% completion.`
+            };
+            
+            const quickQuestions = {
+                steward: ["Show CDE status", "Quality score update", "Schedule SME review", "Check compliance"],
+                owner: ["Review access requests", "Risk assessment", "ROI metrics", "Audit trail"],
+                architect: ["System performance", "SDTM mapping", "Integration status", "Capacity planning"],
+                executive: ["Weekly dashboard", "ROI summary", "Risk overview", "Team progress"],
+                governance: ["Workflow status", "Bottleneck analysis", "Team coordination", "Process optimization"]
+            };
+            
+            // Clear and populate chat
+            const chatContainer = document.getElementById('ai-chat-messages');
+            chatContainer.innerHTML = '';
+            addAIMessage(welcomeMessages[role], true);
+            
+            // Update quick questions
+            const quickQuestionsHtml = quickQuestions[role].map(q => `
+                <button onclick="askQuickQuestion('${q}')" class="text-xs bg-white border border-gray-200 rounded-full px-3 py-1 hover:bg-gray-50 transition-colors">
+                    ${q}
+                </button>
+            `).join('');
+            document.getElementById('quick-questions').innerHTML = quickQuestionsHtml;
+        }
+         
+        function sendAIMessage() {
+            const input = document.getElementById('ai-chat-input');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            // Add user message
+            addAIMessage(message, false);
+            input.value = '';
+            
+            // Show typing indicator
+            addTypingIndicator();
+            
+            // Generate AI response after delay
+            setTimeout(() => {
+                removeTypingIndicator();
+                const response = generateRoleSpecificResponse(message, currentRole);
+                addAIMessage(response, true);
+            }, 1500);
+        }
+         
+        function addAIMessage(message, isAI) {
+            const chatContainer = document.getElementById('ai-chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex items-start space-x-3';
+            
+            if (isAI) {
+                const roleColors = {
+                    steward: 'bg-blue-600',
+                    owner: 'bg-green-600',
+                    architect: 'bg-orange-600',
+                    executive: 'bg-purple-600',
+                    governance: 'bg-red-600'
+                };
+                
+                messageDiv.innerHTML = `
+                    <div class="w-8 h-8 ${roleColors[currentRole]} rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm font-bold">AI</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-white rounded-lg p-3 shadow-sm border">
+                            <p class="text-gray-800 text-sm">${message}</p>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">Just now</div>
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm font-bold">You</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-blue-100 rounded-lg p-3">
+                            <p class="text-gray-800 text-sm">${message}</p>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">Just now</div>
+                    </div>
+                `;
+            }
+            
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+         
+        function addTypingIndicator() {
+            const chatContainer = document.getElementById('ai-chat-messages');
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typing-indicator';
+            typingDiv.className = 'flex items-start space-x-3';
+            
+            const roleColors = {
+                steward: 'bg-blue-600',
+                owner: 'bg-green-600',
+                architect: 'bg-orange-600',
+                executive: 'bg-purple-600',
+                governance: 'bg-red-600'
+            };
+            
+            typingDiv.innerHTML = `
+                <div class="w-8 h-8 ${roleColors[currentRole]} rounded-full flex items-center justify-center">
+                    <span class="text-white text-sm font-bold">AI</span>
+                </div>
+                <div class="flex-1">
+                    <div class="bg-white rounded-lg p-3 shadow-sm border">
+                        <div class="flex space-x-1">
+                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            chatContainer.appendChild(typingDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+         
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+         
+        function generateRoleSpecificResponse(userMessage, role) {
+            const lowerMessage = userMessage.toLowerCase();
+            
+            // Role-specific response patterns
+            const responses = {
+                steward: {
+                    keywords: {
+                        'cde': `✅ **CDE Status Update**: Currently tracking 9 CDEs for Individual Health workflow. 6 are approved, 2 pending review (Clinical_Endpoint, Biomarker_Panel), and 1 in discussion (Cotinine_Level). Quality scores average 96.8%. Need any specific CDE details?`,
+                        'quality': `📊 **Data Quality Report**: Current overall score is 96.8% (↑2.3% from last week). CDISC compliance at 98.7%. Top quality issues: 2 missing values in DM domain, 1 format inconsistency in EX domain. Shall I prioritize fixes?`,
+                        'review': `🔍 **Review Schedule**: Dr. Sarah Chen available for Clinical_Endpoint CDE review today 2-4 PM (98% approval rate). Biomarker_Panel ready for technical review. I can schedule both - which is priority?`,
+                        'compliance': `✅ **Compliance Status**: CDISC compliance at 98.7%, FDA submission readiness at 94%. Minor gaps: 2 CDEs need final SME approval. Regulatory timeline on track. Any specific compliance concerns?`
+                    },
+                    default: `As your Data Steward AI, I can help with CDE management, quality validation, and compliance checks. Current priority: 2 CDEs awaiting review. Would you like me to schedule SME reviews or check quality metrics?`
+                },
+                owner: {
+                    keywords: {
+                        'access': `🔐 **Access Review**: 1 pending request from Research Team for cotinine measurement data. Risk assessment: LOW (internal team, GDPR compliant). Recommend approval with 90-day access window. Approve now?`,
+                        'risk': `⚠️ **Risk Assessment**: Current risk level LOW. Key factors: 98.7% compliance score, all PII properly encrypted, access controls functioning. Minor concern: 1 external data source needs validation. Mitigation plan ready.`,
+                        'roi': `💰 **ROI Analysis**: Current annual savings $850K vs $1.2M investment. Efficiency gains: 67% reduction in manual work, 14-day faster submission prep. Projected ROI: 285% by year-end. Cost breakdown available?`,
+                        'audit': `📋 **Audit Readiness**: FDA audit trail complete, all decisions documented. GDPR compliance verified, data lineage mapped. Estimated audit preparation: 2 days vs previous 2 weeks. Detailed report ready for review.`
+                    },
+                    default: `As your Data Owner AI, I manage access controls, compliance, and value realization. Current attention needed: 1 access request pending your approval. ROI tracking shows $850K annual savings. How can I assist you?`
+                },
+                architect: {
+                    keywords: {
+                        'sdtm': `🏗️ **SDTM Mapping**: Generated tobacco-specific domain mappings for puff topography data. Custom extensions: EXTO (tobacco exposure), ESTO (exposure summary). Compliance validated, ready for review. Implementation timeline: 3 days.`,
+                        'performance': `⚡ **System Performance**: Current uptime 99.7%, processing speed optimal. Biomarker data pipeline handling 15,432 records efficiently. Capacity utilization: 68%. Scaling recommendation: add 2 nodes for peak loads.`,
+                        'integration': `🔧 **Integration Status**: Successfully connected 8/10 planned systems. Remaining: external lab data feed (in progress), regulatory submission portal (scheduled next week). No blocking issues identified.`,
+                        'capacity': `📈 **Capacity Planning**: Current infrastructure supports 2,847 subjects efficiently. For multi-site expansion (projected 8,000 subjects), recommend infrastructure scaling. Estimated cost: $45K, ROI: 6 months.`
+                    },
+                    default: `As your IT & Architecture AI, I handle technical implementation and system optimization. Current focus: SDTM mapping for tobacco endpoints, system performance at 99.7% uptime. What technical guidance do you need?`
+                },
+                executive: {
+                    keywords: {
+                        'dashboard': `📊 **Executive Dashboard**: Overall governance progress 73%, on track for Q1 targets. Key metrics: $850K savings, 98.7% compliance, 14-day faster submissions. Risk level: LOW. Team velocity: HIGH. Strategic concerns?`,
+                        'roi': `💼 **ROI Summary**: Investment: $1.2M, Returns: $850K annually (285% ROI projected). Cost avoidance: $2.3M in penalties/delays. Efficiency gains: 67% reduction in manual work. Strategic value: regulatory competitive advantage.`,
+                        'risk': `🎯 **Risk Overview**: Overall risk LOW. Governance maturity score: 89%. Key strengths: automated compliance, strong team velocity. Watch item: 1 external data dependency. Mitigation strategies in place.`,
+                        'progress': `📈 **Team Progress**: All teams on schedule. Data Stewards: 67% complete, Data Owners: decision pending, IT: ahead of schedule. Governance coordination: 89% effectiveness. Escalation needed for CDE approvals.`
+                    },
+                    default: `As your Senior Management AI, I provide strategic oversight and ROI tracking. Current status: 73% governance progress, $850K annual savings, LOW risk profile. Your weekly executive summary is ready. What strategic insights do you need?`
+                },
+                governance: {
+                    keywords: {
+                        'workflow': `🎭 **Workflow Orchestration**: Managing 3 active workflows at 67% average completion. Current bottleneck: CDE approval requiring executive escalation. Recommended action: schedule stakeholder alignment meeting.`,
+                        'bottleneck': `🚨 **Bottleneck Analysis**: Identified 1 critical path issue: Clinical_Endpoint CDE approval delayed 2 days. Impact: potential 1-day slip in Step 4 start. Escalation path: engage Dr. Sarah Chen directly. Approve escalation?`,
+                        'coordination': `🔄 **Team Coordination**: Cross-role handoffs functioning at 89% efficiency. Strong collaboration between Stewards-Owners. Improvement opportunity: IT-Owner communication cadence. Recommend weekly sync meetings.`,
+                        'optimization': `⚙️ **Process Optimization**: Weekly retrospective shows 15% velocity improvement. Key wins: automated CDE routing, smart SME selection. Next optimization target: reduce decision lag time by 30%.`
+                    },
+                    default: `As your Corporate Governance AI, I orchestrate cross-functional workflows and optimize processes. Currently managing 3 workflows at 67% completion with 1 bottleneck requiring attention. How can I coordinate for you?`
+                }
+            };
+            
+            const roleResponses = responses[role];
+            
+            // Check for keyword matches
+            for (const [keyword, response] of Object.entries(roleResponses.keywords)) {
+                if (lowerMessage.includes(keyword)) {
+                    return response;
+                }
+            }
+            
+            // Return default response
+            return roleResponses.default;
+        }
+         
+        function askQuickQuestion(question) {
+            const input = document.getElementById('ai-chat-input');
+            input.value = question;
+            sendAIMessage();
+        }
+         
+        function askKeyQuestion(question) {
+            const input = document.getElementById('ai-chat-input');
+            input.value = question;
+            // Auto-focus the input for better UX
+            input.focus();
+            // Automatically send the message
+            sendAIMessage();
+        }
+         
+        function clearAIChat() {
+            const chatContainer = document.getElementById('ai-chat-messages');
+            chatContainer.innerHTML = '';
+            initializeAIChat(currentRole);
         }
         
         function updateCollaborationPanel(role) {
             const collaborations = {
                 steward: [
-                    { icon: "⚠️", title: "SME Review Needed", content: "Dr. Sarah Chen needs to approve Clinical_Endpoint CDE" },
-                    { icon: "💬", title: "CDE Discussion", content: "Cotinine_Level definition under review with regulatory team" },
-                    { icon: "✅", title: "Quality Check", content: "6 CDEs ready for your final validation and approval" }
+                    {
+                        partner: "Dr. Sarah Chen",
+                        role: "Clinical SME", 
+                        task: "CDE Review - Clinical_Endpoint",
+                        status: "active",
+                        priority: "high",
+                        due: "Today 4PM"
+                    },
+                    {
+                        partner: "Quality Team",
+                        role: "Lab Analysts",
+                        task: "Biomarker_Panel Validation", 
+                        status: "pending",
+                        priority: "medium",
+                        due: "Tomorrow"
+                    }
                 ],
                 owner: [
-                    { icon: "🔐", title: "Access Request", content: "Research team requesting access to cotinine measurements" },
-                    { icon: "📋", title: "Audit Preparation", content: "FDA audit prep - need data lineage documentation" },
-                    { icon: "💰", title: "Budget Review", content: "Q1 data governance ROI analysis ready for review" }
+                    {
+                        partner: "Research Team",
+                        role: "Data Requestor",
+                        task: "Cotinine Data Access Request",
+                        status: "pending_approval", 
+                        priority: "high",
+                        due: "Decision needed"
+                    },
+                    {
+                        partner: "Legal Team",
+                        role: "Privacy Officers",
+                        task: "GDPR Compliance Review",
+                        status: "active",
+                        priority: "medium", 
+                        due: "This week"
+                    }
+                ],
+                architect: [
+                    {
+                        partner: "DevOps Team",
+                        role: "Infrastructure",
+                        task: "SDTM Pipeline Optimization",
+                        status: "active",
+                        priority: "high",
+                        due: "End of week"
+                    }
+                ],
+                executive: [
+                    {
+                        partner: "Board of Directors", 
+                        role: "Strategic Oversight",
+                        task: "Quarterly Governance Review",
+                        status: "scheduled",
+                        priority: "high",
+                        due: "Next month"
+                    }
+                ],
+                governance: [
+                    {
+                        partner: "All Stakeholders",
+                        role: "Cross-functional",
+                        task: "Workflow Coordination",
+                        status: "active",
+                        priority: "high", 
+                        due: "Ongoing"
+                    }
                 ]
             };
             
-            const collabSet = collaborations[role] || collaborations.steward;
-            const collabHtml = collabSet.map(c => `
-                <div class="p-3 border rounded-lg hover:bg-gray-50 transition-colors">
-                    <div class="flex items-center space-x-2">
-                        <span class="text-lg">${c.icon}</span>
-                        <div>
-                            <div class="font-medium text-sm text-gray-800">${c.title}</div>
-                            <div class="text-xs text-gray-600">${c.content}</div>
-                        </div>
+            const statusColors = {
+                active: "bg-green-100 text-green-800",
+                pending: "bg-yellow-100 text-yellow-800", 
+                pending_approval: "bg-orange-100 text-orange-800",
+                scheduled: "bg-purple-100 text-purple-800"
+            };
+            
+            const collaborationsHtml = collaborations[role].map(collab => `
+                <div class="border-l-4 border-blue-400 pl-3 py-2 bg-gray-50 rounded-r">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="font-semibold text-sm">${collab.partner}</span>
+                        <span class="text-xs text-red-600 font-medium">${collab.priority.toUpperCase()}</span>
                     </div>
-                    <button class="text-xs text-blue-600 hover:text-blue-800 mt-2 underline">Take Action →</button>
+                    <div class="text-xs text-gray-600 mb-1">${collab.role} • ${collab.task}</div>
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${statusColors[collab.status]}">
+                            ${collab.status.replace('_', ' ')}
+                        </span>
+                        <span class="text-xs text-gray-500">${collab.due}</span>
+                    </div>
                 </div>
             `).join('');
-            document.getElementById('collaborations').innerHTML = collabHtml;
+            
+            document.getElementById('collaborations').innerHTML = collaborationsHtml;
         }
         
         function updateContextPanel(role) {
             const contexts = {
                 steward: [
-                    { label: "CDEs Assigned", value: "9" },
-                    { label: "Pending Review", value: "3" },
-                    { label: "Quality Score", value: "96.8%" },
-                    { label: "Next Deadline", value: "2 days" }
+                    {
+                        icon: "📊",
+                        title: "Data Quality Focus",
+                        description: "96.8% overall quality score",
+                        details: "2 missing values, 1 format issue"
+                    },
+                    {
+                        icon: "🎯", 
+                        title: "Compliance Status",
+                        description: "98.7% CDISC compliant",
+                        details: "2 CDEs need SME approval"
+                    },
+                    {
+                        icon: "⏰",
+                        title: "Current Priority", 
+                        description: "Clinical_Endpoint review",
+                        details: "Dr. Chen available 2-4 PM today"
+                    }
                 ],
                 owner: [
-                    { label: "Data Assets", value: "17" },
-                    { label: "Access Requests", value: "2" },
-                    { label: "Compliance Score", value: "98.7%" },
-                    { label: "Annual ROI", value: "$850K" }
+                    {
+                        icon: "🔐",
+                        title: "Access Management",
+                        description: "1 pending access request", 
+                        details: "Research team cotinine data"
+                    },
+                    {
+                        icon: "💰",
+                        title: "ROI Tracking",
+                        description: "$850K annual savings",
+                        details: "285% ROI projected by year-end"
+                    },
+                    {
+                        icon: "⚠️",
+                        title: "Risk Assessment",
+                        description: "LOW risk profile",
+                        details: "98.7% compliance, encrypted PII"
+                    }
+                ],
+                architect: [
+                    {
+                        icon: "⚡",
+                        title: "System Performance", 
+                        description: "99.7% uptime",
+                        details: "15,432 records processed efficiently"
+                    },
+                    {
+                        icon: "🏗️",
+                        title: "SDTM Implementation",
+                        description: "Tobacco domain mappings",
+                        details: "EXTO, ESTO extensions ready"
+                    }
                 ],
                 executive: [
-                    { label: "Overall Progress", value: "73%" },
-                    { label: "Budget Utilized", value: "68%" },
-                    { label: "Risk Level", value: "Low" },
-                    { label: "Next Milestone", value: "12 days" }
+                    {
+                        icon: "📊",
+                        title: "Governance Progress",
+                        description: "73% complete",
+                        details: "On track for Q1 targets"
+                    },
+                    {
+                        icon: "💼", 
+                        title: "Strategic Value",
+                        description: "$850K annual savings",
+                        details: "Regulatory competitive advantage"
+                    }
+                ],
+                governance: [
+                    {
+                        icon: "🎭",
+                        title: "Workflow Orchestration",
+                        description: "3 active workflows",
+                        details: "67% average completion"
+                    },
+                    {
+                        icon: "🚨",
+                        title: "Bottleneck Management", 
+                        description: "1 critical path issue",
+                        details: "CDE approval escalation needed"
+                    }
                 ]
             };
             
-            const contextSet = contexts[role] || contexts.steward;
-            const contextHtml = contextSet.map(c => `
-                <div class="flex justify-between">
-                    <span class="text-gray-600">${c.label}:</span>
-                    <span class="font-medium text-blue-600">${c.value}</span>
+            const contextHtml = contexts[role].map(ctx => `
+                <div class="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg mb-2">
+                    <div class="text-lg">${ctx.icon}</div>
+                    <div class="flex-1">
+                        <div class="font-semibold text-sm text-gray-800">${ctx.title}</div>
+                        <div class="text-sm text-blue-600 font-medium">${ctx.description}</div>
+                        <div class="text-xs text-gray-600 mt-1">${ctx.details}</div>
+                    </div>
                 </div>
             `).join('');
+            
             document.getElementById('role-context').innerHTML = contextHtml;
         }
         
-        function updateWorkflowDemo(role) {
-            const workflows = {
-                steward: `<div class="p-3 bg-blue-50 rounded"><div class="font-medium text-blue-800">AI Quality Assessment</div><div class="text-sm text-blue-600">Validating Cotinine_Level CDE against CDISC standards...</div></div>`,
-                owner: `<div class="p-3 bg-green-50 rounded"><div class="font-medium text-green-800">Risk Assessment</div><div class="text-sm text-green-600">Analyzing access request compliance with GDPR...</div></div>`,
-                architect: `<div class="p-3 bg-orange-50 rounded"><div class="font-medium text-orange-800">SDTM Mapping</div><div class="text-sm text-orange-600">Generating tobacco-specific domain mappings...</div></div>`,
-                executive: `<div class="p-3 bg-purple-50 rounded"><div class="font-medium text-purple-800">ROI Analysis</div><div class="text-sm text-purple-600">Computing governance investment returns...</div></div>`,
-                governance: `<div class="p-3 bg-red-50 rounded"><div class="font-medium text-red-800">Workflow Coordination</div><div class="text-sm text-red-600">Orchestrating cross-role handoffs...</div></div>`
-            };
-            document.getElementById('workflow-demo').innerHTML = workflows[role];
-        }
-        
-        function runWorkflowDemo() {
-            const button = event.target;
-            button.textContent = 'Running...';
-            setTimeout(() => {
-                button.textContent = 'Run Demo →';
-                updateWorkflowDemo(currentRole);
-            }, 2000);
-        }
-        
-        // Initialize default role
-        setTimeout(() => switchRole('steward'), 100);
-
         function updateSmartHandoffs(role) {
             const handoffs = {
                 steward: [
-                    { to: "Data Owner", reason: "Access approval needed for external biomarker data", urgent: true },
-                    { to: "IT Architecture", reason: "SDTM mapping consultation for tobacco endpoints", urgent: false }
+                    { action: "Escalate to SME", target: "Dr. Sarah Chen", reason: "Clinical_Endpoint needs domain expertise", urgency: "high", eta: "Today" },
+                    { action: "Route to Regulatory", target: "Compliance Team", reason: "SDTM validation complete", urgency: "medium", eta: "Tomorrow" }
                 ],
                 owner: [
-                    { to: "Data Steward", reason: "Quality validation needed before access grant", urgent: false },
-                    { to: "Senior Management", reason: "Budget approval for expanded governance tools", urgent: true }
+                    { action: "Approve Access", target: "Research Team", reason: "Risk assessment: LOW", urgency: "high", eta: "Decision needed" },
+                    { action: "Review with Legal", target: "Privacy Team", reason: "GDPR compliance check", urgency: "medium", eta: "This week" }
                 ],
                 architect: [
-                    { to: "Data Steward", reason: "Technical validation of new SDTM mapping logic", urgent: false },
-                    { to: "Data Owner", reason: "Infrastructure capacity planning approval needed", urgent: true }
+                    { action: "Deploy Pipeline", target: "DevOps Team", reason: "SDTM mapping validated", urgency: "high", eta: "End of week" },
+                    { action: "Scale Infrastructure", target: "Cloud Team", reason: "Capacity threshold reached", urgency: "medium", eta: "Next sprint" }
                 ],
                 executive: [
-                    { to: "Governance Team", reason: "Strategic planning for next quarter governance roadmap", urgent: false },
-                    { to: "Data Owner", reason: "Budget approval for compliance automation tools", urgent: true }
+                    { action: "Board Presentation", target: "Board Members", reason: "Quarterly governance review", urgency: "high", eta: "Next month" },
+                    { action: "Budget Approval", target: "Finance Team", reason: "ROI targets exceeded", urgency: "medium", eta: "This month" }
                 ],
                 governance: [
-                    { to: "All Roles", reason: "Quarterly governance framework review and optimization", urgent: false },
-                    { to: "Senior Management", reason: "Governance maturity assessment presentation", urgent: true }
+                    { action: "Coordinate Meeting", target: "All Stakeholders", reason: "Resolve CDE approval bottleneck", urgency: "high", eta: "This week" },
+                    { action: "Process Improvement", target: "Process Owners", reason: "15% velocity gain opportunity", urgency: "medium", eta: "Next retrospective" }
                 ]
             };
             
-            const handoffSet = handoffs[role] || handoffs.steward;
-            const handoffHtml = handoffSet.map(h => `
-                <div class="p-2 ${h.urgent ? 'bg-red-50 border border-red-200' : 'bg-gray-50'} rounded text-xs">
-                    <div class="font-medium text-gray-800">
-                        ${h.urgent ? '🚨' : '📝'} To: ${h.to}
+            const urgencyColors = {
+                high: "bg-red-100 text-red-800 border-red-200",
+                medium: "bg-orange-100 text-orange-800 border-orange-200"
+            };
+            
+            const handoffsHtml = handoffs[role].map(handoff => `
+                <div class="border rounded-lg p-3 ${urgencyColors[handoff.urgency]} cursor-pointer hover:shadow-md transition-shadow mb-2">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-semibold text-sm">${handoff.action}</span>
+                        <span class="text-xs font-medium">${handoff.urgency.toUpperCase()}</span>
                     </div>
-                    <div class="text-gray-600 mt-1">${h.reason}</div>
-                    <button class="text-blue-600 hover:text-blue-800 mt-1 underline">
-                        ${h.urgent ? 'Escalate Now' : 'Schedule'} →
-                    </button>
+                    <div class="text-sm mb-1">→ ${handoff.target}</div>
+                    <div class="text-xs opacity-80 mb-2">${handoff.reason}</div>
+                    <div class="text-xs font-medium">ETA: ${handoff.eta}</div>
                 </div>
             `).join('');
-            document.getElementById('smart-handoffs').innerHTML = handoffHtml;
+            
+            document.getElementById('smart-handoffs').innerHTML = handoffsHtml;
         }
     </script>
 
