@@ -109,8 +109,8 @@
 
         /* Use Case Selection */
         .use-case-card.selected {
-            border: 2px solid #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            border: 2px solid #000000; /* Changed to black */
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); /* Changed to black shadow */
         }
     </style>
 </head>
@@ -212,10 +212,10 @@
                                                 <i class="fas fa-rocket mr-2 text-green-600"></i>
                                                 <span class="font-semibold text-green-800">Impact: Efficient, Valuable, Compliant</span>
                                             </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
                             <!-- Component 2: AI-Powered 5-Step Lifecycle -->
                             <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border shadow-lg">
@@ -281,7 +281,7 @@
                                 <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
                                     <h3 class="text-xl font-semibold mb-4 text-gray-700 flex items-center">
                                         <i class="fas fa-users-cog mr-2 text-indigo-500"></i>Component 3: Clear Roles & Accountability
-                                </h3>
+                                    </h3>
                                     <div class="border p-4 rounded-md bg-indigo-50">
                                         <ul class="space-y-2 text-sm text-indigo-700">
                                             <li class="flex items-center"><i class="fas fa-user-shield mr-2"></i>Defined Data Stewards & Owners</li>
@@ -315,9 +315,9 @@
                                                 <li><span class="font-bold">98%</span> Regulatory Compliance Readiness</li>
                                             </ul>
                                         </div>
-                                        </div>
+                                    </div>
                                     <p class="text-xs text-gray-500 mt-3">Tangible benefits and assured regulatory alignment for Life Sciences.</p>
-                                        </div>
+                                </div>
 
                                 <!-- Component 5: Operationalized FAIR Principles -->
                                 <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
@@ -329,11 +329,11 @@
                                             <div class="text-center">
                                                 <i class="fas fa-search fa-2x text-amber-600"></i>
                                                 <p class="text-sm font-semibold text-amber-700 mt-1">Findable</p>
-                                        </div>
+                                            </div>
                                             <div class="text-center">
                                                 <i class="fas fa-key fa-2x text-amber-600"></i>
                                                 <p class="text-sm font-semibold text-amber-700 mt-1">Accessible</p>
-                                    </div>
+                                            </div>
                                             <div class="text-center">
                                                 <i class="fas fa-cogs fa-2x text-amber-600"></i> 
                                                 <p class="text-sm font-semibold text-amber-700 mt-1">Interoperable</p>
@@ -348,7 +348,7 @@
                                     <p class="text-xs text-gray-500 mt-3">Making data discoverable, usable, and valuable across the enterprise.</p>
                                 </div>
 
-                                </div>
+                            </div>
 
                             <!-- Key Metrics (Original location - consider if still needed here or if integrated above is sufficient) -->
                             <!-- This section might be redundant if metrics are well-integrated into Component 1 & 4 -->
@@ -357,7 +357,7 @@
                                 <div class="bg-white p-4 rounded-lg shadow">
                                     <div class="text-3xl font-bold text-blue-600">85%</div>
                                     <div class="text-sm text-gray-600">Time Reduction</div>
-                            </div>
+                                </div>
                                 <div class="bg-white p-4 rounded-lg shadow">
                                     <div class="text-3xl font-bold text-green-600">91%</div>
                                     <div class="text-sm text-gray-600">Quality Score</div>
@@ -390,483 +390,745 @@
                             <div id="selected-use-case-details" class="hidden">
                                 <h3 class="text-2xl font-bold mb-6 text-gray-800" id="selected-use-case-title">Use Case Implementation</h3>
                                 
-                                <!-- Enhanced Interactive Implementation Interface for Individual Health -->
-                                <div id="individual-health-detailed-interface" class="hidden bg-white rounded-lg shadow-lg border p-6 mb-6">
-                                    <h4 class="text-xl font-bold mb-6 text-blue-800">
-                                        <i class="fas fa-heartbeat mr-2"></i>AI-Powered 5-Step Lifecycle: Product Impact on Individual Health
-                                    </h4>
-                                    
-                                    <!-- TIG Section Progress Tracker -->
-                                    <div class="mb-6 bg-gradient-to-r from-indigo-50 to-blue-50 p-4 rounded-lg border border-indigo-200">
-                                        <h5 class="font-semibold text-indigo-800 mb-3">📋 TIG Section 3.3 Implementation Progress</h5>
-                                        <div class="grid grid-cols-2 lg:grid-cols-6 gap-2 text-xs">
-                                            <div class="bg-white p-2 rounded border text-center">
-                                                <div class="font-semibold text-indigo-700">3.3.1</div>
-                                                <div class="text-gray-600">Trial Design</div>
-                                                <div class="text-green-600 text-xs">✓ Complete</div>
-                                            </div>
-                                            <div class="bg-white p-2 rounded border text-center">
-                                                <div class="font-semibold text-indigo-700">3.3.2</div>
-                                                <div class="text-gray-600">Routine Data</div>
-                                                <div class="text-green-600 text-xs">✓ Complete</div>
-                                            </div>
-                                            <div class="bg-white p-2 rounded border text-center">
-                                                <div class="font-semibold text-indigo-700">3.3.3</div>
-                                                <div class="text-gray-600">Assessments</div>
-                                                <div class="text-blue-600 text-xs">🔄 Current</div>
-                                            </div>
-                                            <div class="bg-white p-2 rounded border text-center">
-                                                <div class="font-semibold text-indigo-700">3.3.4</div>
-                                                <div class="text-gray-600">Exposure</div>
-                                                <div class="text-gray-400 text-xs">⏳ Pending</div>
-                                            </div>
-                                            <div class="bg-white p-2 rounded border text-center">
-                                                <div class="font-semibold text-indigo-700">3.3.5</div>
-                                                <div class="text-gray-600">QRS</div>
-                                                <div class="text-gray-400 text-xs">⏳ Pending</div>
-                                            </div>
-                                            <div class="bg-white p-2 rounded border text-center">
-                                                <div class="font-semibold text-indigo-700">3.3.6</div>
-                                                <div class="text-gray-600">ADaM</div>
-                                                <div class="text-gray-400 text-xs">⏳ Pending</div>
-                                            </div>
+                                <!-- Implementation Components Grid -->
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                                    <!-- Data Inventory -->
+                                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6 border-l-4 border-blue-500">
+                                        <h4 class="text-xl font-bold mb-4 text-blue-700">
+                                            <i class="fas fa-database mr-2"></i>Data Inventory
+                                            <span class="text-sm font-normal text-blue-500 ml-2">(FINDABLE)</span>
+                                        </h4>
+                                        <div id="use-case-data-inventory">
+                                            <!-- Will be populated when use case is selected -->
                                         </div>
                                     </div>
 
-                                    <!-- 5-Step Lifecycle Navigation -->
-                                    <div class="flex justify-center mb-6">
-                                        <div class="flex space-x-2">
-                                            <button onclick="showDetailedStep(1)" id="detailed-step-1" class="detailed-step-btn active px-4 py-2 bg-blue-500 text-white rounded-lg text-sm font-semibold">
-                                                Step 1: Discover
-                                            </button>
-                                            <button onclick="showDetailedStep(2)" id="detailed-step-2" class="detailed-step-btn px-4 py-2 bg-gray-300 text-gray-600 rounded-lg text-sm font-semibold">
-                                                Step 2: Define  
-                                            </button>
-                                            <button onclick="showDetailedStep(3)" id="detailed-step-3" class="detailed-step-btn px-4 py-2 bg-gray-300 text-gray-600 rounded-lg text-sm font-semibold">
-                                                Step 3: Standardize
-                                            </button>
-                                            <button onclick="showDetailedStep(4)" id="detailed-step-4" class="detailed-step-btn px-4 py-2 bg-gray-300 text-gray-600 rounded-lg text-sm font-semibold">
-                                                Step 4: Protect
-                                            </button>
-                                            <button onclick="showDetailedStep(5)" id="detailed-step-5" class="detailed-step-btn px-4 py-2 bg-gray-300 text-gray-600 rounded-lg text-sm font-semibold">
-                                                Step 5: Govern & Optimize
-                                            </button>
+                                    <!-- Business Glossary & CDEs -->
+                                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-6 border-l-4 border-green-500">
+                                        <h4 class="text-xl font-bold mb-4 text-green-700">
+                                            <i class="fas fa-book mr-2"></i>Business Glossary & CDEs
+                                            <span class="text-sm font-normal text-green-500 ml-2">(REUSABLE)</span>
+                                        </h4>
+                                        <div id="use-case-glossary">
+                                            <!-- Will be populated when use case is selected -->
                                         </div>
                                     </div>
 
-                                    <!-- Step 1: Discover - TIG Sections 3.3.1 & 3.3.2 -->
-                                    <div id="detailed-step-content-1" class="detailed-step-content">
-                                        <div class="bg-blue-50 rounded-lg p-4 border border-blue-200 mb-4">
-                                            <h5 class="font-bold text-blue-800 mb-3">
-                                                <i class="fas fa-search mr-2"></i>Step 1: Discover - AI-Powered Clinical Data Discovery (FINDABLE)
-                                            </h5>
-                                            <p class="text-sm text-blue-700 mb-4">AI automatically scans and catalogs clinical data assets, making them easily discoverable through rich metadata and intelligent indexing.</p>
-                                        </div>
-
-                                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <!-- TIG 3.3.1: Trial Design Discovery -->
-                                            <div class="bg-white rounded-lg p-4 border border-indigo-200">
-                                                <h6 class="font-bold text-indigo-800 mb-3">📋 TIG 3.3.1: Trial Design Discovery</h6>
-                                                <div class="space-y-3 text-sm">
-                                                    <div class="bg-indigo-50 p-3 rounded">
-                                                        <div class="font-semibold text-indigo-700 mb-1">AI-Discovered SDTM Domains:</div>
-                                                        <div class="grid grid-cols-3 gap-2 text-xs">
-                                                            <div class="bg-white p-1 rounded text-center font-medium">TV</div>
-                                                            <div class="bg-white p-1 rounded text-center font-medium">TA</div>
-                                                            <div class="bg-white p-1 rounded text-center font-medium">TE</div>
-                                                        </div>
-                                                        <div class="text-indigo-600 mt-2 text-xs">
-                                                            • Visit schedules & timelines cataloged<br>
-                                                            • Trial arms automatically mapped<br>
-                                                            • Study elements & epochs indexed
-                                                        </div>
-                                                    </div>
-                                                    <div class="bg-green-50 p-2 rounded text-xs">
-                                                        <span class="font-semibold text-green-700">FAIR Impact:</span> Trial design now searchable by study phase, arm type, and visit pattern across all clinical databases.
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- TIG 3.3.2: Routinely-collected Data Discovery -->
-                                            <div class="bg-white rounded-lg p-4 border border-green-200">
-                                                <h6 class="font-bold text-green-800 mb-3">🏥 TIG 3.3.2: Core Baseline & Safety Data Discovery</h6>
-                                                <div class="space-y-3 text-sm">
-                                                    <div class="bg-green-50 p-3 rounded">
-                                                        <div class="font-semibold text-green-700 mb-1">AI-Cataloged Safety Domains (12 found):</div>
-                                                        <div class="grid grid-cols-4 gap-1 text-xs">
-                                                            <div class="bg-white p-1 rounded text-center font-medium">DM</div>
-                                                            <div class="bg-white p-1 rounded text-center font-medium">SC</div>
-                                                            <div class="bg-white p-1 rounded text-center font-medium">AE</div>
-                                                            <div class="bg-white p-1 rounded text-center font-medium">VS</div>
-                                                            <div class="bg-white p-1 rounded text-center font-medium">EG</div>
-                                                            <div class="bg-white p-1 rounded text-center font-medium">LB</div>
-                                                            <div class="bg-white p-1 rounded text-center font-medium">MH</div>
-                                                            <div class="bg-white p-1 rounded text-center font-medium">CM</div>
-                                                        </div>
-                                                        <div class="text-green-600 mt-2 text-xs">
-                                                            • 2,847 subjects indexed across demographics<br>
-                                                            • 68,923 lab tests cataloged with reference ranges<br>
-                                                            • 1,247 adverse events linked to terminology
-                                                        </div>
-                                                    </div>
-                                                    <div class="bg-blue-50 p-2 rounded text-xs">
-                                                        <span class="font-semibold text-blue-700">FAIR Impact:</span> All baseline safety data now discoverable through standardized variable names, units, and clinical significance codes.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Real-time Discovery Results -->
-                                        <div class="mt-6 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg p-4 border border-purple-200">
-                                            <h6 class="font-bold text-purple-800 mb-3">📊 Real-time Discovery Results</h6>
-                                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center text-sm">
-                                                <div class="bg-white p-3 rounded">
-                                                    <div class="text-2xl font-bold text-blue-600">15</div>
-                                                    <div class="text-xs text-gray-600">SDTM Domains Found</div>
-                                                </div>
-                                                <div class="bg-white p-3 rounded">
-                                                    <div class="text-2xl font-bold text-green-600">347</div>
-                                                    <div class="text-xs text-gray-600">Clinical Variables</div>
-                                                </div>
-                                                <div class="bg-white p-3 rounded">
-                                                    <div class="text-2xl font-bold text-purple-600">98%</div>
-                                                    <div class="text-xs text-gray-600">Metadata Coverage</div>
-                                                </div>
-                                                <div class="bg-white p-3 rounded">
-                                                    <div class="text-2xl font-bold text-orange-600">4.2s</div>
-                                                    <div class="text-xs text-gray-600">Discovery Time</div>
-                                                </div>
-                                            </div>
+                                    <!-- Data Quality -->
+                                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-6 border-l-4 border-purple-500">
+                                        <h4 class="text-xl font-bold mb-4 text-purple-700">
+                                            <i class="fas fa-chart-line mr-2"></i>Data Quality Metrics
+                                            <span class="text-sm font-normal text-purple-500 ml-2">(INTEROPERABLE)</span>
+                                        </h4>
+                                        <div id="use-case-quality">
+                                            <!-- Will be populated when use case is selected -->
                                         </div>
                                     </div>
 
-                                    <!-- Step 2: Define - TIG Section 3.3.3 -->
-                                    <div id="detailed-step-content-2" class="detailed-step-content hidden">
-                                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 mb-4">
-                                            <h5 class="font-bold text-green-800 mb-3">
-                                                <i class="fas fa-tags mr-2"></i>Step 2: Define - AI-Enhanced Clinical Metadata Definition (REUSABLE)
-                                            </h5>
-                                            <p class="text-sm text-green-700 mb-4">AI suggests standardized definitions and business glossary terms based on regulatory guidelines, making clinical data reusable across studies.</p>
-                                        </div>
-
-                                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <!-- TIG 3.3.3: Assessments of Interest -->
-                                            <div class="bg-white rounded-lg p-4 border border-purple-200">
-                                                <h6 class="font-bold text-purple-800 mb-3">🧪 TIG 3.3.3: Specialized Tobacco Research Endpoints</h6>
-                                                <div class="space-y-3 text-sm">
-                                                    <div class="bg-purple-50 p-3 rounded">
-                                                        <div class="font-semibold text-purple-700 mb-2">AI-Defined Biomarker CDEs:</div>
-                                                        <div class="space-y-2 text-xs">
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold text-purple-700">Cotinine_Level (PC)</div>
-                                                                <div class="text-gray-600">Definition: Nicotine metabolite concentration (ng/mL)<br>
-                                                                Standard: ICH bioanalytical guidelines<br>
-                                                                Range: 0.1-500.0 ng/mL</div>
-                                                            </div>
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold text-purple-700">NNAL_Concentration (PC)</div>
-                                                                <div class="text-gray-600">Definition: TSN exposure biomarker (pmol/mL)<br>
-                                                                Standard: FDA guidance<br>
-                                                                Range: 0.05-50.0 pmol/mL</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bg-teal-50 p-2 rounded text-xs">
-                                                        <span class="font-semibold text-teal-700">FAIR Impact:</span> Biomarker definitions now standardized with units, methods, and clinical significance, enabling cross-study reuse.
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Business Glossary Integration -->
-                                            <div class="bg-white rounded-lg p-4 border border-amber-200">
-                                                <h6 class="font-bold text-amber-800 mb-3">📖 Clinical Business Glossary Integration</h6>
-                                                <div class="space-y-3 text-sm">
-                                                    <div class="bg-amber-50 p-3 rounded">
-                                                        <div class="font-semibold text-amber-700 mb-2">AI-Linked Regulatory Standards:</div>
-                                                        <div class="space-y-2 text-xs">
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold text-amber-700">ICH E6 (GCP)</div>
-                                                                <div class="text-gray-600">Good Clinical Practice guidelines for biomarker validation</div>
-                                                            </div>
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold text-amber-700">FDA Bioanalytical</div>
-                                                                <div class="text-gray-600">Method validation guidance for exposure biomarkers</div>
-                                                            </div>
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold text-amber-700">CDISC SDTM</div>
-                                                                <div class="text-gray-600">Standard variable naming conventions</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bg-green-50 p-2 rounded text-xs">
-                                                        <span class="font-semibold text-green-700">FAIR Impact:</span> All clinical terms linked to authoritative sources, ensuring consistent interpretation across research teams.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Step 3: Standardize - TIG Sections 3.3.4 & 3.3.5 -->
-                                    <div id="detailed-step-content-3" class="detailed-step-content hidden">
-                                        <div class="bg-purple-50 rounded-lg p-4 border border-purple-200 mb-4">
-                                            <h5 class="font-bold text-purple-800 mb-3">
-                                                <i class="fas fa-sync-alt mr-2"></i>Step 3: Standardize - AI-Driven Harmonization (INTEROPERABLE)
-                                            </h5>
-                                            <p class="text-sm text-purple-700 mb-4">AI maps and transforms data to common standards, enabling seamless integration across clinical systems and studies.</p>
-                                        </div>
-
-                                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <!-- TIG 3.3.4: Exposure Assessments -->
-                                            <div class="bg-white rounded-lg p-4 border border-indigo-200">
-                                                <h6 class="font-bold text-indigo-800 mb-3">💨 TIG 3.3.4: Product Exposure Standardization</h6>
-                                                <div class="space-y-3 text-sm">
-                                                    <div class="bg-indigo-50 p-3 rounded">
-                                                        <div class="font-semibold text-indigo-700 mb-2">AI-Standardized EX Domain:</div>
-                                                        <div class="space-y-2 text-xs">
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold">EXDOSE → Standard Units</div>
-                                                                <div class="text-gray-600">Original: "2 puffs/day" → Standard: "2.0 PUFFS/DAY"</div>
-                                                            </div>
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold">Puff Topography Mapping</div>
-                                                                <div class="text-gray-600">Volume (mL) → PUFFVOL, Duration (sec) → PUFFDUR</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bg-blue-50 p-2 rounded text-xs">
-                                                        <span class="font-semibold text-blue-700">FAIR Impact:</span> Exposure data harmonized across devices and studies, enabling pooled analysis and meta-studies.
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- TIG 3.3.5: QRS Instruments -->
-                                            <div class="bg-white rounded-lg p-4 border border-teal-200">
-                                                <h6 class="font-bold text-teal-800 mb-3">🧠 TIG 3.3.5: Behavioral Assessment Standardization</h6>
-                                                <div class="space-y-3 text-sm">
-                                                    <div class="bg-teal-50 p-3 rounded">
-                                                        <div class="font-semibold text-teal-700 mb-2">AI-Mapped QS Instruments:</div>
-                                                        <div class="space-y-2 text-xs">
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold">FTND Scale</div>
-                                                                <div class="text-gray-600">Fagerström Test → QSCAT="NICOTINE DEPENDENCE"</div>
-                                                            </div>
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold">QSU-Brief</div>
-                                                                <div class="text-gray-600">Craving scores → QSTESTCD="QSU001-QSU010"</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bg-purple-50 p-2 rounded text-xs">
-                                                        <span class="font-semibold text-purple-700">FAIR Impact:</span> Behavioral assessments standardized with ISO-8601 timestamps and validated scoring algorithms.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Step 4: Protect - Quality & Security -->
-                                    <div id="detailed-step-content-4" class="detailed-step-content hidden">
-                                        <div class="bg-red-50 rounded-lg p-4 border border-red-200 mb-4">
-                                            <h5 class="font-bold text-red-800 mb-3">
-                                                <i class="fas fa-shield-alt mr-2"></i>Step 4: Protect - AI-Powered Quality & Security (ACCESSIBLE)
-                                            </h5>
-                                            <p class="text-sm text-red-700 mb-4">AI implements quality rules and access controls, ensuring data is accessible under proper conditions with maintained integrity.</p>
-                                        </div>
-
-                                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <!-- Quality Monitoring -->
-                                            <div class="bg-white rounded-lg p-4 border border-red-200">
-                                                <h6 class="font-bold text-red-800 mb-3">📊 AI-Powered Quality Monitoring</h6>
-                                                <div class="space-y-3 text-sm">
-                                                    <div class="bg-red-50 p-3 rounded">
-                                                        <div class="font-semibold text-red-700 mb-2">Clinical Data Quality Rules:</div>
-                                                        <div class="space-y-2 text-xs">
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold">Biomarker Range Checks</div>
-                                                                <div class="text-gray-600">Cotinine: 0.1-500.0 ng/mL (99.2% pass rate)</div>
-                                                            </div>
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold">Subject ID Validation</div>
-                                                                <div class="text-gray-600">Format: [STUDY]_[SITE]_[SUBJ] (100% compliance)</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bg-green-50 p-2 rounded text-xs">
-                                                        <span class="font-semibold text-green-700">Quality Score: 96.8%</span> - Exceeds FDA expectations for clinical data integrity
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Access Control -->
-                                            <div class="bg-white rounded-lg p-4 border border-orange-200">
-                                                <h6 class="font-bold text-orange-800 mb-3">🔐 Intelligent Access Control</h6>
-                                                <div class="space-y-3 text-sm">
-                                                    <div class="bg-orange-50 p-3 rounded">
-                                                        <div class="font-semibold text-orange-700 mb-2">Role-Based Data Access:</div>
-                                                        <div class="space-y-2 text-xs">
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold">Clinical Researchers</div>
-                                                                <div class="text-gray-600">Access: De-identified biomarker data only</div>
-                                                            </div>
-                                                            <div class="bg-white p-2 rounded border">
-                                                                <div class="font-semibold">Principal Investigators</div>
-                                                                <div class="text-gray-600">Access: Full dataset with audit trail</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bg-blue-50 p-2 rounded text-xs">
-                                                        <span class="font-semibold text-blue-700">FAIR Impact:</span> Clinical data accessible to authorized users through standardized APIs with comprehensive audit logging.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Step 5: Govern & Optimize - TIG Section 3.3.6 -->
-                                    <div id="detailed-step-content-5" class="detailed-step-content hidden">
-                                        <div class="bg-indigo-50 rounded-lg p-4 border border-indigo-200 mb-4">
-                                            <h5 class="font-bold text-indigo-800 mb-3">
-                                                <i class="fas fa-chart-line mr-2"></i>Step 5: Govern & Optimize - AI-Generated Analysis Assets (FAIR-Complete)
-                                            </h5>
-                                            <p class="text-sm text-indigo-700 mb-4">AI creates analysis-ready datasets and monitors governance effectiveness, completing the FAIR data lifecycle.</p>
-                                        </div>
-
-                                        <!-- TIG 3.3.6: Analysis Datasets -->
-                                        <div class="bg-white rounded-lg p-4 border border-indigo-200 mb-6">
-                                            <h6 class="font-bold text-indigo-800 mb-3">📊 TIG 3.3.6: AI-Generated ADaM Datasets</h6>
-                                            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 text-sm">
-                                                <div class="bg-indigo-50 p-3 rounded">
-                                                    <div class="font-semibold text-indigo-700 mb-2">Subject-Level Analysis (ADSL):</div>
-                                                    <div class="text-xs space-y-1">
-                                                        <div>• TRT01A: Treatment assignment</div>
-                                                        <div>• SAFFL: Safety population flag</div>
-                                                        <div>• COMP24FL: 24-week completion</div>
-                                                        <div>• 2,847 subjects processed</div>
-                                                    </div>
-                                                </div>
-                                                <div class="bg-green-50 p-3 rounded">
-                                                    <div class="font-semibold text-green-700 mb-2">Biomarker Analysis (ADPP):</div>
-                                                    <div class="text-xs space-y-1">
-                                                        <div>• PARAM: Cotinine, NNAL parameters</div>
-                                                        <div>• AVAL: Analysis values</div>
-                                                        <div>• BASE/CHG: Baseline & change</div>
-                                                        <div>• 15,432 PK records generated</div>
-                                                    </div>
-                                                </div>
-                                                <div class="bg-purple-50 p-3 rounded">
-                                                    <div class="font-semibold text-purple-700 mb-2">Safety Analysis (ADAE):</div>
-                                                    <div class="text-xs space-y-1">
-                                                        <div>• AEDECOD: Preferred terms</div>
-                                                        <div>• AESEV: Severity grades</div>
-                                                        <div>• AEREL: Causality assessment</div>
-                                                        <div>• 1,247 events categorized</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Governance KPIs & FAIR Metrics -->
-                                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div class="bg-white rounded-lg p-4 border border-green-200">
-                                                <h6 class="font-bold text-green-800 mb-3">📈 Data Governance KPIs</h6>
-                                                <div class="space-y-3 text-sm">
-                                                    <div class="grid grid-cols-2 gap-3">
-                                                        <div class="bg-green-50 p-3 rounded text-center">
-                                                            <div class="text-xl font-bold text-green-600">98.7%</div>
-                                                            <div class="text-xs text-gray-600">CDISC Compliance</div>
-                                                        </div>
-                                                        <div class="bg-blue-50 p-3 rounded text-center">
-                                                            <div class="text-xl font-bold text-blue-600">96.8%</div>
-                                                            <div class="text-xs text-gray-600">Data Quality Score</div>
-                                                        </div>
-                                                        <div class="bg-purple-50 p-3 rounded text-center">
-                                                            <div class="text-xl font-bold text-purple-600">14 days</div>
-                                                            <div class="text-xs text-gray-600">Submission Prep Time</div>
-                                                        </div>
-                                                        <div class="bg-orange-50 p-3 rounded text-center">
-                                                            <div class="text-xl font-bold text-orange-600">$850K</div>
-                                                            <div class="text-xs text-gray-600">Annual Cost Savings</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="bg-white rounded-lg p-4 border border-amber-200">
-                                                <h6 class="font-bold text-amber-800 mb-3">🌟 FAIR Principles Achievement</h6>
-                                                <div class="space-y-3 text-sm">
-                                                    <div class="bg-amber-50 p-3 rounded">
-                                                        <div class="grid grid-cols-2 gap-2 text-xs">
-                                                            <div class="bg-white p-2 rounded text-center">
-                                                                <div class="font-semibold text-blue-600">F</div>
-                                                                <div class="text-gray-600">98% Indexed</div>
-                                                            </div>
-                                                            <div class="bg-white p-2 rounded text-center">
-                                                                <div class="font-semibold text-green-600">A</div>
-                                                                <div class="text-gray-600">99% Uptime</div>
-                                                            </div>
-                                                            <div class="bg-white p-2 rounded text-center">
-                                                                <div class="font-semibold text-orange-600">I</div>
-                                                                <div class="text-gray-600">95% CDISC</div>
-                                                            </div>
-                                                            <div class="bg-white p-2 rounded text-center">
-                                                                <div class="font-semibold text-purple-600">R</div>
-                                                                <div class="text-gray-600">87% Reused</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-xs text-amber-700 text-center">
-                                                        Clinical data now fully FAIR-compliant and regulatory-ready
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <!-- Workflow -->
+                                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-6 border-l-4 border-orange-500">
+                                        <h4 class="text-xl font-bold mb-4 text-orange-700">
+                                            <i class="fas fa-cogs mr-2"></i>Compliance Workflow
+                                            <span class="text-sm font-normal text-orange-500 ml-2">(ACCESSIBLE)</span>
+                                        </h4>
+                                        <div id="use-case-workflow">
+                                            <!-- Will be populated when use case is selected -->
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Generated Implementation Results -->
-                                <div id="implementation-results" class="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 border border-green-200">
-                                    <h4 class="text-xl font-bold mb-4 text-gray-800">
-                                        <i class="fas fa-check-circle mr-2 text-green-600"></i>Implementation Results: Product Impact on Individual Health
-                                    </h4>
-                                    <div class="text-sm text-gray-700 mb-4">
-                                        Based on the AI-powered 5-step lifecycle implementation, the following clinical data governance results have been achieved:
-                                    </div>
-                                    
-                                    <!-- Dynamic Results Grid -->
-                                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                        <!-- Data Assets Summary -->
-                                        <div class="bg-white rounded-lg p-4 border border-blue-200">
-                                            <h5 class="font-bold text-blue-700 mb-3">📊 Clinical Data Assets Governed</h5>
-                                            <div id="use-case-data-inventory">
-                                                <!-- This will be populated with the enhanced content -->
-                                            </div>
-                                        </div>
 
-                                        <!-- CDEs & Standards -->
-                                        <div class="bg-white rounded-lg p-4 border border-green-200">
-                                            <h5 class="font-bold text-green-700 mb-3">🏷️ Critical Data Elements Defined</h5>
-                                            <div id="use-case-glossary">
-                                                <!-- This will be populated with the enhanced content -->
-                                            </div>
-                                        </div>
-
-                                        <!-- Quality Metrics -->
-                                        <div class="bg-white rounded-lg p-4 border border-purple-200">
-                                            <h5 class="font-bold text-purple-700 mb-3">⚡ Quality & Compliance Metrics</h5>
-                                            <div id="use-case-quality">
-                                                <!-- This will be populated when use case is selected -->
-                                            </div>
-                                        </div>
-
-                                        <!-- Governance Workflow -->
-                                        <div class="bg-white rounded-lg p-4 border border-orange-200">
-                                            <h5 class="font-bold text-orange-700 mb-3">🔄 Governance Workflow Status</h5>
-                                            <div id="use-case-workflow">
-                                                <!-- This will be populated when use case is selected -->
-                                            </div>
-                                        </div>
+                                        <!-- Enhanced Interactive Step Interface for Individual Health -->
+                                        <div id="individual-health-detailed-interface" class="hidden bg-white rounded-lg shadow-lg border p-6 mb-6">
+                                            <h4 class="text-xl font-bold mb-6 text-blue-800">
+                                                <i class="fas fa-heartbeat mr-2"></i>Interactive Implementation: Product Impact on Individual Health
+                                            </h4>
+                                            
+                                            <!-- Step Navigation -->
+                                            <div class="flex justify-center mb-6">
+                                                <div class="flex space-x-2">
+                                                    <button onclick="showDetailedStep(1)" id="detailed-step-1" class="detailed-step-btn active px-4 py-2 bg-blue-500 text-white rounded-lg text-sm font-semibold">
+                                                        Step 1: Discover
+                                                    </button>
+                                                    <button onclick="showDetailedStep(2)" id="detailed-step-2" class="detailed-step-btn px-4 py-2 bg-gray-300 text-gray-600 rounded-lg text-sm font-semibold">
+                                                        Step 2: Define  
+                                                    </button>
+                                                    <button onclick="showDetailedStep(3)" id="detailed-step-3" class="detailed-step-btn px-4 py-2 bg-gray-300 text-gray-600 rounded-lg text-sm font-semibold">
+                                                        Step 3: Standardize
+                                                    </button>
+                                                    <button onclick="showDetailedStep(4)" id="detailed-step-4" class="detailed-step-btn px-4 py-2 bg-gray-300 text-gray-600 rounded-lg text-sm font-semibold">
+                                                        Step 4: Protect
+                                                    </button>
+                                                    <button onclick="showDetailedStep(5)" id="detailed-step-5" class="detailed-step-btn px-4 py-2 bg-gray-300 text-gray-600 rounded-lg text-sm font-semibold">
+                                                        Step 5: Govern & Optimize
+                                        </button>
                                     </div>
                                 </div>
+
+                                            <!-- Step 1: Discover Interface -->
+                                            <div id="detailed-step-content-1" class="detailed-step-content">
+                                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                                    <!-- Left: System Scanning Progress -->
+                                                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                                                        <h5 class="font-bold text-blue-800 mb-3">
+                                                            <i class="fas fa-search mr-2"></i>Clinical System Scanning Progress
+                                                        </h5>
+                                                        <div class="space-y-3">
+                                                            <div class="text-sm">
+                                                                <div class="flex justify-between mb-1">
+                                                                    <span>Clinical Research DB</span>
+                                                                    <span class="text-green-600 font-semibold">100%</span>
+                                                                </div>
+                                                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                                                    <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="text-sm">
+                                                                <div class="flex justify-between mb-1">
+                                                                    <span>Biomarker LIMS</span>
+                                                                    <span class="text-blue-600 font-semibold">78%</span>
+                                                                </div>
+                                                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 78%"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="text-sm">
+                                                                <div class="flex justify-between mb-1">
+                                                                    <span>CRO Data Systems</span>
+                                                                    <span class="text-yellow-600 font-semibold">45%</span>
+                                                                </div>
+                                                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                                                    <div class="bg-yellow-500 h-2 rounded-full" style="width: 45%"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="text-sm">
+                                                                <div class="flex justify-between mb-1">
+                                                                    <span>Clinical Trial APIs</span>
+                                                                    <span class="text-gray-600 font-semibold">12%</span>
+                                                                </div>
+                                                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                                                    <div class="bg-gray-500 h-2 rounded-full" style="width: 12%"></div>
+                                                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                                                    <!-- Center: Data Asset Discovery View (System→Table→Field) -->
+                                                    <div class="bg-green-50 rounded-lg p-4 border border-green-200">
+                                                        <h5 class="font-bold text-green-800 mb-3">
+                                                            <i class="fas fa-sitemap mr-2"></i>Clinical Data Asset Discovery
+                                                        </h5>
+                                                        <div class="space-y-2 text-sm">
+                                                            <div class="bg-white p-2 rounded border">
+                                                                <div class="font-semibold text-blue-700">📊 Biomarker_Clinical_DB</div>
+                                                                <div class="ml-4 text-gray-600">
+                                                                    └── biomarker_results <span class="text-purple-600">(67 fields)</span><br>
+                                                                    └── clinical_observations <span class="text-purple-600">(43 fields)</span><br>
+                                                                    └── adverse_events <span class="text-purple-600">(28 fields)</span><br>
+                                                                    └── subject_demographics <span class="text-purple-600">(19 fields)</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bg-white p-2 rounded border">
+                                                                <div class="font-semibold text-blue-700">📄 biomarker_exposure_data.csv</div>
+                                                                <div class="ml-4 text-gray-600">
+                                                                    └── Clinical Fields <span class="text-purple-600">(8 core fields)</span><br>
+                                                                    • SUBJ_ID, COT_LEVEL, NNAL_CONC<br>
+                                                                    • AGE_VERIF, EXP_HIST, BMI_VAL
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Right: Real-time Discovery Statistics -->
+                                                    <div class="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                                                        <h5 class="font-bold text-purple-800 mb-3">
+                                                            <i class="fas fa-chart-line mr-2"></i>Real-time Discovery Stats
+                                                        </h5>
+                                                        <div class="space-y-3">
+                                                            <div class="bg-white p-3 rounded text-center">
+                                                                <div class="text-2xl font-bold text-blue-600">157</div>
+                                                                <div class="text-xs text-gray-600">Clinical Fields Found</div>
+                                                            </div>
+                                                            <div class="bg-white p-3 rounded text-center">
+                                                                <div class="text-2xl font-bold text-green-600">9</div>
+                                                                <div class="text-xs text-gray-600">Biomarker Tables</div>
+                                                            </div>
+                                                            <div class="bg-white p-3 rounded text-center">
+                                                                <div class="text-2xl font-bold text-orange-600">3</div>
+                                                                <div class="text-xs text-gray-600">Clinical Systems</div>
+                                                            </div>
+                                                            <div class="bg-white p-3 rounded text-center">
+                                                                <div class="text-2xl font-bold text-purple-600">92%</div>
+                                                                <div class="text-xs text-gray-600">Data Quality Score</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <!-- FAIR Principles in Action for Step 1 -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h6 class="font-semibold text-gray-700 mb-2 flex items-center"><i class="fas fa-star mr-2 text-yellow-400"></i>FAIR Principles in Action:</h6>
+                                                    <p class="text-sm text-gray-600">AI-powered discovery, like scanning clinical systems and identifying data assets (e.g., Biomarker_Clinical_DB, biomarker_exposure_data.csv), makes these assets and their metadata richly described and cataloged. This significantly enhances <strong>Findability</strong>, allowing researchers and data stewards to quickly locate relevant clinical and biomarker data across the organization.</p>
+                                                </div>
+                                    </div>
+                                    
+                                            <!-- Step 2: Define Interface -->
+                                            <div id="detailed-step-content-2" class="detailed-step-content hidden">
+                                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                                    <!-- Left: Card-style Metadata Editor -->
+                                                    <div class="space-y-4">
+                                                        <h5 class="font-bold text-green-800">
+                                                            <i class="fas fa-edit mr-2"></i>Clinical Metadata Card Editor
+                                                        </h5>
+                                                        <div class="bg-white border rounded-lg p-4">
+                                                            <div class="flex justify-between items-center mb-3">
+                                                                <span class="font-semibold text-blue-700">Cotinine_Level</span>
+                                                                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Active</span>
+                                                            </div>
+                                                            <div class="space-y-3">
+                                                                <div>
+                                                                    <label class="text-xs font-medium text-gray-700">Business Definition:</label>
+                                                                    <textarea class="w-full mt-1 p-2 border rounded text-sm" rows="3">Biomarker for nicotine exposure measured in ng/mL. Used to assess individual exposure levels in clinical studies per ICH bioanalytical guidelines.</textarea>
+                                                                </div>
+                                                                <div class="grid grid-cols-2 gap-2">
+                                                                    <div>
+                                                                        <label class="text-xs font-medium text-gray-700">Data Type:</label>
+                                                                        <select class="w-full mt-1 p-2 border rounded text-sm">
+                                                                            <option>DECIMAL(8,2)</option>
+                                                                            <option>FLOAT</option>
+                                                                            <option>NUMERIC</option>
+                                        </select>
+                                                                    </div>
+                                                                    <div>
+                                                                        <label class="text-xs font-medium text-gray-700">Units:</label>
+                                                                        <input type="text" class="w-full mt-1 p-2 border rounded text-sm" value="ng/mL">
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <label class="text-xs font-medium text-gray-700">Sample Values:</label>
+                                                                    <input type="text" class="w-full mt-1 p-2 border rounded text-sm" value="15.7, 23.4, 8.9, 45.2">
+                                                                </div>
+                                                            </div>
+                                    </div>
+                                </div>
+                                
+                                                    <!-- Right: Field Definition Writer & Business Glossary -->
+                                                    <div class="space-y-4">
+                                                        <h5 class="font-bold text-green-800">
+                                                            <i class="fas fa-book mr-2"></i>Clinical Business Glossary Integration
+                                                        </h5>
+                                                        <div class="bg-green-50 border rounded-lg p-4">
+                                                            <div class="space-y-3">
+                                                                <div class="bg-white p-3 rounded border">
+                                                                    <div class="font-semibold text-purple-700">ICH E6 Guidelines</div>
+                                                                    <div class="text-sm text-gray-600">Good Clinical Practice standards for biomarker validation</div>
+                                                                </div>
+                                                                <div class="bg-white p-3 rounded border">
+                                                                    <div class="font-semibold text-purple-700">FDA Bioanalytical Method</div>
+                                                                    <div class="text-sm text-gray-600">Regulatory guidance for biomarker measurement protocols</div>
+                                                                </div>
+                                                                <div class="bg-white p-3 rounded border">
+                                                                    <div class="font-semibold text-purple-700">Clinical Study Protocol</div>
+                                                                    <div class="text-sm text-gray-600">Standardized procedures for individual health assessments</div>
+                                                                </div>
+                                </div>
+                            </div>
+
+                                                        <!-- Version Control History -->
+                                                        <div class="bg-blue-50 border rounded-lg p-4">
+                                                            <h6 class="font-semibold text-blue-800 mb-2">Version Control History</h6>
+                                                            <div class="space-y-2 text-xs">
+                                                                <div class="flex justify-between">
+                                                                    <span>v1.2 - Added ICH compliance notes</span>
+                                                                    <span class="text-gray-500">2024-05-30</span>
+                                                                </div>
+                                                                <div class="flex justify-between">
+                                                                    <span>v1.1 - Updated measurement units</span>
+                                                                    <span class="text-gray-500">2024-05-28</span>
+                                                                </div>
+                                                                <div class="flex justify-between">
+                                                                    <span>v1.0 - Initial definition</span>
+                                                                    <span class="text-gray-500">2024-05-25</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- FAIR Principles in Action for Step 2 -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h6 class="font-semibold text-gray-700 mb-2 flex items-center"><i class="fas fa-star mr-2 text-yellow-400"></i>FAIR Principles in Action:</h6>
+                                                    <p class="text-sm text-gray-600">Centrally defining business terms (e.g., "Cotinine_Level" for nicotine exposure), linking them to a clinical business glossary (e.g., ICH E6 Guidelines, FDA Bioanalytical Method), and specifying Critical Data Elements (CDEs) ensures metadata is understandable and consistently applied. This makes the data and its definitions highly <strong>Reusable</strong>. This common, clear language is also foundational for achieving data <strong>Interoperability</strong> across different studies and systems.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Other steps will be hidden initially -->
+                                            <div id="detailed-step-content-3" class="detailed-step-content hidden">
+                                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                                    <!-- Left: CDE Selection Flow -->
+                                                    <div class="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                                                        <h5 class="font-bold text-purple-800 mb-3">
+                                                            <i class="fas fa-filter mr-2"></i>CDE Selection Flow (Drag & Drop)
+                                                        </h5>
+                                                        <div class="space-y-3">
+                                                            <div class="bg-white p-3 rounded border border-dashed border-purple-300">
+                                                                <div class="text-xs font-semibold text-purple-700 mb-2">🎯 Selected CDEs (9)</div>
+                                                                <div class="space-y-1 text-xs">
+                                                                    <div class="bg-green-100 p-2 rounded border">
+                                                                        <span class="font-semibold">Cotinine_Level</span>
+                                                                        <span class="text-green-600 ml-2">✓ Validated</span>
+                                                                    </div>
+                                                                    <div class="bg-green-100 p-2 rounded border">
+                                                                        <span class="font-semibold">Subject_ID</span>
+                                                                        <span class="text-green-600 ml-2">✓ Validated</span>
+                                                                    </div>
+                                                                    <div class="bg-yellow-100 p-2 rounded border">
+                                                                        <span class="font-semibold">Clinical_Endpoint</span>
+                                                                        <span class="text-yellow-600 ml-2">⚠ Pending Review</span>
+                                                                    </div>
+                                                                    <div class="bg-blue-100 p-2 rounded border">
+                                                                        <span class="font-semibold">Exposure_Biomarker</span>
+                                                                        <span class="text-blue-600 ml-2">📝 In Progress</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bg-gray-100 p-3 rounded border border-dashed border-gray-300">
+                                                                <div class="text-xs font-semibold text-gray-700 mb-2">📋 Available Fields (148)</div>
+                                                                <div class="text-xs text-gray-600">Drag fields above to create CDEs</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Center: CDE Definition Workspace -->
+                                                    <div class="bg-indigo-50 rounded-lg p-4 border border-indigo-200">
+                                                        <h5 class="font-bold text-indigo-800 mb-3">
+                                                            <i class="fas fa-edit mr-2"></i>CDE Definition Workspace
+                                                        </h5>
+                                                        <div class="space-y-3">
+                                                            <div class="bg-white p-3 rounded border">
+                                                                <div class="flex justify-between items-center mb-2">
+                                                                    <span class="font-semibold text-indigo-700">Cotinine_Level</span>
+                                                                    <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">CDE-001</span>
+                                                                </div>
+                                                                <div class="space-y-2 text-xs">
+                                                                    <div>
+                                                                        <div class="font-medium text-gray-700">Standard Name:</div>
+                                                                        <input type="text" class="w-full mt-1 p-2 border rounded" value="COTININE_LEVEL_BIOMARKER_NG_ML">
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="font-medium text-gray-700">Harmonized Units:</div>
+                                                                        <select class="w-full mt-1 p-2 border rounded">
+                                                                            <option>ng/mL (nanograms per milliliter)</option>
+                                                                            <option>μg/L (micrograms per liter)</option>
+                                                                            <option>nmol/L (nanomoles per liter)</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="font-medium text-gray-700">Value Range:</div>
+                                                                        <div class="flex gap-2">
+                                                                            <input type="number" placeholder="Min" class="flex-1 p-2 border rounded" value="0.1">
+                                                                            <input type="number" placeholder="Max" class="flex-1 p-2 border rounded" value="500.0">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bg-blue-50 p-3 rounded border">
+                                                                <div class="text-xs font-semibold text-blue-700 mb-1">Transformation Logic:</div>
+                                                                <code class="text-xs bg-gray-100 p-2 rounded block">
+                                                                    IF source_unit = 'μg/L' THEN value * 1000 ELSE value
+                                                                </code>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Right: Business SME Review Dashboard -->
+                                                    <div class="bg-orange-50 rounded-lg p-4 border border-orange-200">
+                                                        <h5 class="font-bold text-orange-800 mb-3">
+                                                            <i class="fas fa-users mr-2"></i>Data Steward Review Dashboard
+                                                        </h5>
+                                                        <div class="space-y-3">
+                                                            <div class="bg-white p-3 rounded text-center">
+                                                                <div class="text-lg font-bold text-green-600">6/9</div>
+                                                                <div class="text-xs text-gray-600">CDEs Approved</div>
+                                                            </div>
+                                                            <div class="bg-white p-3 rounded text-center">
+                                                                <div class="text-lg font-bold text-yellow-600">2/9</div>
+                                                                <div class="text-xs text-gray-600">Pending Review</div>
+                                                            </div>
+                                                            <div class="bg-white p-3 rounded text-center">
+                                                                <div class="text-lg font-bold text-blue-600">1/9</div>
+                                                                <div class="text-xs text-gray-600">In Discussion</div>
+                                                            </div>
+                                                            <div class="bg-green-100 p-3 rounded">
+                                                                <div class="text-xs font-semibold text-green-700 mb-1">Next Review Session:</div>
+                                                                <div class="text-xs text-green-600">June 3, 2024 - 2:00 PM</div>
+                                                                <div class="text-xs text-green-600">Dr. Sarah Chen (Data Steward)</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Bottom: CDE Mapping Preview -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h5 class="font-bold text-gray-800 mb-3">
+                                                        <i class="fas fa-sitemap mr-2"></i>CDE Mapping & Transformation Preview
+                                                    </h5>
+                                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                                                        <div class="bg-white p-3 rounded border">
+                                                            <div class="font-semibold text-blue-700 mb-2">Source System</div>
+                                                            <div>Biomarker_Clinical_DB.cotinine_ng_ml</div>
+                                                            <div class="text-gray-600">Range: 0.5-450.2 ng/mL</div>
+                                                        </div>
+                                                        <div class="flex items-center justify-center">
+                                                            <div class="bg-purple-500 text-white px-3 py-1 rounded">
+                                                                <i class="fas fa-arrow-right mr-1"></i>Transform
+                                                            </div>
+                                                        </div>
+                                                        <div class="bg-white p-3 rounded border">
+                                                            <div class="font-semibold text-green-700 mb-2">CDE Standard</div>
+                                                            <div>COTININE_LEVEL_BIOMARKER_NG_ML</div>
+                                                            <div class="text-gray-600">Standardized: 0.1-500.0 ng/mL</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- FAIR Principles in Action for Step 3 -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h6 class="font-semibold text-gray-700 mb-2 flex items-center"><i class="fas fa-star mr-2 text-yellow-400"></i>FAIR Principles in Action:</h6>
+                                                    <p class="text-sm text-gray-600">Harmonizing data by mapping source fields (e.g., Biomarker_Clinical_DB.cotinine_ng_ml) to agreed-upon CDEs (e.g., COTININE_LEVEL_BIOMARKER_NG_ML) and applying transformation logic ensures that data from diverse sources can be integrated, compared, and analyzed coherently. This process achieves true <strong>Interoperability</strong>, allowing different datasets to work together seamlessly.</p>
+                                                </div>
+                                            </div>
+
+                                            <div id="detailed-step-content-4" class="detailed-step-content hidden">
+                                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                                    <!-- Left: Quality Rule Configuration -->
+                                                    <div class="bg-red-50 rounded-lg p-4 border border-red-200">
+                                                        <h5 class="font-bold text-red-800 mb-3">
+                                                            <i class="fas fa-shield-alt mr-2"></i>Quality Rule Configuration
+                                                        </h5>
+                                                        <div class="space-y-3">
+                                                            <div class="bg-white p-3 rounded border">
+                                                                <div class="font-semibold text-red-700 mb-2">Cotinine_Level Rules</div>
+                                                                <div class="space-y-2 text-xs">
+                                                                    <div class="bg-green-100 p-2 rounded">
+                                                                        <span class="font-medium">Range Check:</span> 0.1 ≤ value ≤ 500.0
+                                                                    </div>
+                                                                    <div class="bg-green-100 p-2 rounded">
+                                                                        <span class="font-medium">Not Null:</span> Required field
+                                                                    </div>
+                                                                    <div class="bg-yellow-100 p-2 rounded">
+                                                                        <span class="font-medium">Outlier Detection:</span> > 3σ from mean
+                                                                    </div>
+                                                                    <div class="bg-blue-100 p-2 rounded">
+                                                                        <span class="font-medium">Cross-Field:</span> vs. exposure history
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bg-white p-3 rounded border">
+                                                                <div class="font-semibold text-red-700 mb-2">Subject_ID Rules</div>
+                                                                <div class="space-y-2 text-xs">
+                                                                    <div class="bg-green-100 p-2 rounded">
+                                                                        <span class="font-medium">Format:</span> [A-Z]{3}[0-9]{4}
+                                                                    </div>
+                                                                    <div class="bg-green-100 p-2 rounded">
+                                                                        <span class="font-medium">Uniqueness:</span> Per study protocol
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Center: Real-time Quality Monitor -->
+                                                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                                                        <h5 class="font-bold text-blue-800 mb-3">
+                                                            <i class="fas fa-monitor-heart-rate mr-2"></i>Real-time Quality Monitor
+                                                        </h5>
+                                                        <div class="space-y-3">
+                                                            <div class="bg-white p-3 rounded border">
+                                                                <div class="text-center mb-2">
+                                                                    <div class="text-2xl font-bold text-green-600">94.7%</div>
+                                                                    <div class="text-xs text-gray-600">Overall Data Quality</div>
+                                                                </div>
+                                                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                                                    <div class="bg-green-500 h-3 rounded-full" style="width: 94.7%"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="grid grid-cols-2 gap-2">
+                                                                <div class="bg-white p-2 rounded text-center">
+                                                                    <div class="text-lg font-bold text-blue-600">98.2%</div>
+                                                                    <div class="text-xs text-gray-600">Completeness</div>
+                                                                </div>
+                                                                <div class="bg-white p-2 rounded text-center">
+                                                                    <div class="text-lg font-bold text-green-600">96.8%</div>
+                                                                    <div class="text-xs text-gray-600">Accuracy</div>
+                                                                </div>
+                                                                <div class="bg-white p-2 rounded text-center">
+                                                                    <div class="text-lg font-bold text-yellow-600">89.3%</div>
+                                                                    <div class="text-xs text-gray-600">Consistency</div>
+                                                                </div>
+                                                                <div class="bg-white p-2 rounded text-center">
+                                                                    <div class="text-lg font-bold text-purple-600">95.1%</div>
+                                                                    <div class="text-xs text-gray-600">Validity</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bg-yellow-100 p-3 rounded border">
+                                                                <div class="text-xs font-semibold text-yellow-700 mb-1">⚠ Active Alerts (3)</div>
+                                                                <div class="space-y-1 text-xs">
+                                                                    <div>Cotinine outliers detected: 7 records</div>
+                                                                    <div>Missing BMI values: 12 subjects</div>
+                                                                    <div>Subject ID format issues: 2 records</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Right: Quality Score Trends -->
+                                                    <div class="bg-green-50 rounded-lg p-4 border border-green-200">
+                                                        <h5 class="font-bold text-green-800 mb-3">
+                                                            <i class="fas fa-chart-line mr-2"></i>Quality Score Trends
+                                                        </h5>
+                                                        <div class="space-y-3">
+                                                            <div class="bg-white p-3 rounded border">
+                                                                <div class="text-xs font-semibold text-green-700 mb-2">7-Day Trend</div>
+                                                                <div class="h-20 bg-gradient-to-r from-yellow-200 via-green-200 to-green-300 rounded relative">
+                                                                    <div class="absolute bottom-2 left-2 text-xs text-gray-600">Mon</div>
+                                                                    <div class="absolute bottom-2 right-2 text-xs text-gray-600">Sun</div>
+                                                                    <div class="absolute top-2 left-1/2 transform -translate-x-1/2 text-xs font-semibold text-green-700">
+                                                                        📈 +2.3% improvement
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bg-white p-3 rounded border">
+                                                                <div class="text-xs font-semibold text-green-700 mb-2">Quality Milestones</div>
+                                                                <div class="space-y-1 text-xs">
+                                                                    <div class="flex justify-between">
+                                                                        <span>Target: 95%</span>
+                                                                        <span class="text-yellow-600">94.7% (99.7%)</span>
+                                                                    </div>
+                                                                    <div class="flex justify-between">
+                                                                        <span>Regulatory: 90%</span>
+                                                                        <span class="text-green-600">✓ Met</span>
+                                                                    </div>
+                                                                    <div class="flex justify-between">
+                                                                        <span>Baseline: 85%</span>
+                                                                        <span class="text-green-600">✓ Exceeded</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bg-blue-100 p-3 rounded border">
+                                                                <div class="text-xs font-semibold text-blue-700 mb-1">Next Quality Review:</div>
+                                                                <div class="text-xs text-blue-600">June 5, 2024</div>
+                                                                <div class="text-xs text-blue-600">Clinical Quality Team</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Bottom: Alert Configuration Panel -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h5 class="font-bold text-gray-800 mb-3">
+                                                        <i class="fas fa-bell mr-2"></i>Alert Threshold Configuration
+                                                    </h5>
+                                                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
+                                                        <div class="bg-white p-3 rounded border">
+                                                            <div class="font-semibold text-red-700 mb-2">Critical Alerts</div>
+                                                            <div>Quality < 85%</div>
+                                                            <div>Missing critical biomarkers</div>
+                                                            <div class="text-red-600 mt-1">📧 Immediate notification</div>
+                                                        </div>
+                                                        <div class="bg-white p-3 rounded border">
+                                                            <div class="font-semibold text-yellow-700 mb-2">Warning Alerts</div>
+                                                            <div>Quality 85-90%</div>
+                                                            <div>Outlier threshold exceeded</div>
+                                                            <div class="text-yellow-600 mt-1">📊 Daily summary</div>
+                                                        </div>
+                                                        <div class="bg-white p-3 rounded border">
+                                                            <div class="font-semibold text-blue-700 mb-2">Info Alerts</div>
+                                                            <div>Quality 90-95%</div>
+                                                            <div>Trend notifications</div>
+                                                            <div class="text-blue-600 mt-1">📈 Weekly report</div>
+                                                        </div>
+                                                        <div class="bg-white p-3 rounded border">
+                                                            <div class="font-semibold text-green-700 mb-2">Success Alerts</div>
+                                                            <div>Quality > 95%</div>
+                                                            <div>Milestone achievements</div>
+                                                            <div class="text-green-600 mt-1">🎉 Celebration notice</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- FAIR Principles in Action for Step 4 -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h6 class="font-semibold text-gray-700 mb-2 flex items-center"><i class="fas fa-star mr-2 text-yellow-400"></i>FAIR Principles in Action:</h6>
+                                                    <p class="text-sm text-gray-600">Implementing clear quality rules (e.g., range checks for Cotinine_Level, format rules for Subject_ID), security protocols, and access controls ensures that clinical data is not only secure and high-quality but also trustworthy and appropriately <strong>Accessible</strong>. Data access is granted under well-defined conditions and protocols, often leveraging metadata about data sensitivity and permitted use.</p>
+                                                </div>
+                                            </div>
+
+                                            <div id="detailed-step-content-5" class="detailed-step-content hidden">
+                                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                                    <!-- Left: Executive Summary Generator -->
+                                                    <div class="bg-indigo-50 rounded-lg p-4 border border-indigo-200">
+                                                        <h5 class="font-bold text-indigo-800 mb-3">
+                                                            <i class="fas fa-file-alt mr-2"></i>Govern & Optimize: Performance Dashboards & Strategic Insights
+                                                        </h5>
+                                                        <div class="space-y-3">
+                                                            <div class="bg-white p-3 rounded border">
+                                                                <div class="text-xs font-semibold text-indigo-700 mb-2">Clinical Data Governance Report</div>
+                                                                <div class="space-y-2 text-xs">
+                                                                    <div class="bg-green-100 p-2 rounded">
+                                                                        <div class="font-medium">Data Assets:</div>
+                                                                        <div>2 clinical systems cataloged</div>
+                                                                        <div>157 biomarker fields mapped</div>
+                                                                    </div>
+                                                                    <div class="bg-blue-100 p-2 rounded">
+                                                                        <div class="font-medium">CDEs Standardized:</div>
+                                                                        <div>9 critical biomarker CDEs</div>
+                                                                        <div>100% clinical SME approval</div>
+                                                                    </div>
+                                                                    <div class="bg-purple-100 p-2 rounded">
+                                                                        <div class="font-medium">Quality Achievement:</div>
+                                                                        <div>94.7% overall quality score</div>
+                                                                        <div>98% regulatory compliance</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bg-green-100 p-3 rounded border">
+                                                                <div class="text-xs font-semibold text-green-700 mb-1">Business Impact:</div>
+                                                                <div class="text-xs">
+                                                                    • 75% reduction in clinical data prep time<br>
+                                                                    • $850K annual cost savings<br>
+                                                                    • 40% faster biomarker analysis
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Center: KPI Dashboard -->
+                                                    <div class="bg-teal-50 rounded-lg p-4 border border-teal-200">
+                                                        <h5 class="font-bold text-teal-800 mb-3">
+                                                            <i class="fas fa-tachometer-alt mr-2"></i>Clinical Governance KPIs
+                                                        </h5>
+                                                        <div class="space-y-3">
+                                                            <div class="grid grid-cols-2 gap-2">
+                                                                <div class="bg-white p-3 rounded text-center">
+                                                                    <div class="text-xl font-bold text-blue-600">157</div>
+                                                                    <div class="text-xs text-gray-600">Biomarker Fields</div>
+                                                                    <div class="text-xs text-green-600">+23% vs baseline</div>
+                                                                </div>
+                                                                <div class="bg-white p-3 rounded text-center">
+                                                                    <div class="text-xl font-bold text-green-600">9</div>
+                                                                    <div class="text-xs text-gray-600">Clinical CDEs</div>
+                                                                    <div class="text-xs text-green-600">100% validated</div>
+                                                                </div>
+                                                                <div class="bg-white p-3 rounded text-center">
+                                                                    <div class="text-xl font-bold text-purple-600">94.7%</div>
+                                                                    <div class="text-xs text-gray-600">Quality Score</div>
+                                                                    <div class="text-xs text-green-600">+9.7% improvement</div>
+                                                                </div>
+                                                                <div class="bg-white p-3 rounded text-center">
+                                                                    <div class="text-xl font-bold text-orange-600">98%</div>
+                                                                    <div class="text-xs text-gray-600">Compliance</div>
+                                                                    <div class="text-xs text-green-600">Regulatory ready</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bg-white p-3 rounded border">
+                                                                <div class="text-xs font-semibold text-teal-700 mb-2">Implementation Timeline</div>
+                                                                <div class="space-y-1 text-xs">
+                                                                    <div class="flex justify-between">
+                                                                        <span>Discover (3 weeks)</span>
+                                                                        <span class="text-green-600">✓ Complete</span>
+                                                                    </div>
+                                                                    <div class="flex justify-between">
+                                                                        <span>Define (4 weeks)</span>
+                                                                        <span class="text-green-600">✓ Complete</span>
+                                                                    </div>
+                                                                    <div class="flex justify-between">
+                                                                        <span>Standardize (3 weeks)</span>
+                                                                        <span class="text-green-600">✓ Complete</span>
+                                                                    </div>
+                                                                    <div class="flex justify-between">
+                                                                        <span>Protect (2 weeks)</span>
+                                                                        <span class="text-green-600">✓ Complete</span>
+                                                                    </div>
+                                                                    <div class="flex justify-between">
+                                                                        <span>Report (1 week)</span>
+                                                                        <span class="text-blue-600">📊 Current</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Right: Trend Analysis & Recommendations -->
+                                                    <div class="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+                                                        <h5 class="font-bold text-yellow-800 mb-3">
+                                                            <i class="fas fa-chart-bar mr-2"></i>Trend Analysis & Next Steps
+                                                        </h5>
+                                                        <div class="space-y-3">
+                                                            <div class="bg-white p-3 rounded border">
+                                                                <div class="text-xs font-semibold text-yellow-700 mb-2">📈 Performance Trends</div>
+                                                                <div class="space-y-2 text-xs">
+                                                                    <div class="bg-green-100 p-2 rounded">
+                                                                        <div class="font-medium">Quality Improvement:</div>
+                                                                        <div>+15% in 12 weeks</div>
+                                                                        <div>Consistent upward trend</div>
+                                                                    </div>
+                                                                    <div class="bg-blue-100 p-2 rounded">
+                                                                        <div class="font-medium">Data Coverage:</div>
+                                                                        <div>From 67% to 98%</div>
+                                                                        <div>All critical biomarkers included</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bg-white p-3 rounded border">
+                                                                <div class="text-xs font-semibold text-yellow-700 mb-2">🎯 Recommendations</div>
+                                                                <div class="space-y-1 text-xs">
+                                                                    <div>• Expand to additional CRO systems</div>
+                                                                    <div>• Implement real-time quality monitoring</div>
+                                                                    <div>• Integrate with regulatory submission tools</div>
+                                                                    <div>• Establish automated validation workflows</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bg-purple-100 p-3 rounded border">
+                                                                <div class="text-xs font-semibold text-purple-700 mb-1">🚀 Next Phase Planning:</div>
+                                                                <div class="text-xs">
+                                                                    Phase 2: Population Health Integration<br>
+                                                                    Estimated Timeline: 8-10 weeks<br>
+                                                                    Expected ROI: $1.2M additional savings
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Bottom: Exportable Report Templates -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h5 class="font-bold text-gray-800 mb-3">
+                                                        <i class="fas fa-download mr-2"></i>Exportable Report Templates
+                                                    </h5>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <button class="px-4 py-2 bg-blue-500 text-white rounded text-sm hover:bg-blue-600">
+                                                            <i class="fas fa-file-pdf mr-1"></i>Executive Summary (PDF)
+                                                        </button>
+                                                        <button class="px-4 py-2 bg-green-500 text-white rounded text-sm hover:bg-green-600">
+                                                            <i class="fas fa-file-excel mr-1"></i>Detailed KPI Report (Excel)
+                                                        </button>
+                                                        <button class="px-4 py-2 bg-purple-500 text-white rounded text-sm hover:bg-purple-600">
+                                                            <i class="fas fa-presentation mr-1"></i>Board Presentation (PowerPoint)
+                                                        </button>
+                                                        <button class="px-4 py-2 bg-orange-500 text-white rounded text-sm hover:bg-orange-600">
+                                                            <i class="fas fa-chart-line mr-1"></i>Trend Analysis Dashboard (Live)
+                                                        </button>
+                                                        <button class="px-4 py-2 bg-teal-500 text-white rounded text-sm hover:bg-teal-600">
+                                                            <i class="fas fa-code mr-1"></i>Technical Implementation Guide (JSON)
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <!-- FAIR Principles in Action for Step 5 -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h6 class="font-semibold text-gray-700 mb-2 flex items-center"><i class="fas fa-star mr-2 text-yellow-400"></i>FAIR Principles in Action:</h6>
+                                                    <p class="text-sm text-gray-600">Continuous monitoring of governance effectiveness through KPIs (e.g., Quality Score, CDE validation rates) and trend analysis ensures that clinical data assets maintain their value over time. This iterative governance and optimization makes data persistently <strong>Findable</strong> (through updated catalogs), <strong>Accessible</strong> (through refined controls), <strong>Interoperable</strong> (through ongoing standard adherence), and <strong>Reusable</strong> (through sustained quality and relevance), driving ongoing improvement of data governance practices and maximizing data's scientific and business impact.</p>
+                                                </div>
+                                            </div>
+                                        </div>
                             </div>
                         </div>
                     </div>
@@ -2159,248 +2421,62 @@
                 `;
             } else if (useCase.name === 'Product Impact on Individual Health') {
                 dataAssetsContent = `
-                    <div class="space-y-4">
-                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-200">
-                            <div class="text-sm font-semibold text-blue-800 mb-3">
-                                <i class="fas fa-heartbeat mr-2"></i>Clinical Data Assets Identified (12 Core + 5 Analysis-Ready)
-                            </div>
-                            
-                            <!-- Trial Design Assets -->
-                            <div class="mb-4">
-                                <div class="text-xs font-bold text-indigo-700 mb-2">📋 Trial Design & Structure</div>
-                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 text-xs">
-                                    <div class="bg-white p-2 rounded border-l-4 border-indigo-400">
-                                        <div class="font-semibold text-indigo-700">TV (Trial Visits)</div>
-                                        <div class="text-gray-600">Visit schedules & timelines<br>Owner: Clinical Ops • Quality: 98%</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border-l-4 border-indigo-400">
-                                        <div class="font-semibold text-indigo-700">TA (Trial Arms)</div>
-                                        <div class="text-gray-600">Treatment group definitions<br>Owner: Clinical Ops • Quality: 99%</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border-l-4 border-indigo-400">
-                                        <div class="font-semibold text-indigo-700">TE (Trial Elements)</div>
-                                        <div class="text-gray-600">Study elements & epochs<br>Owner: Clinical Ops • Quality: 97%</div>
-                                    </div>
+                    <div class="space-y-3">
+                        <div class="text-sm font-semibold text-blue-800">2 Data Assets Identified</div>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">1. Biomarker_Clinical_DB</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: NoSQL Database<br>
+                                    • Records: 850K documents<br>
+                                    • Collections: biomarker_results, clinical_observations, adverse_events, subject_demographics<br>
+                                    • Owner: Clinical Research Team<br>
+                                    • Quality Score: 92%
                                 </div>
                             </div>
-
-                            <!-- Demographics & Subject Info -->
-                            <div class="mb-4">
-                                <div class="text-xs font-bold text-green-700 mb-2">👥 Subject Demographics & Characteristics</div>
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs">
-                                    <div class="bg-white p-2 rounded border-l-4 border-green-400">
-                                        <div class="font-semibold text-green-700">DM (Demographics)</div>
-                                        <div class="text-gray-600">SEX, AGE, RACE, BMI variables<br>Records: 2,847 subjects • Quality: 96%</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border-l-4 border-green-400">
-                                        <div class="font-semibold text-green-700">SC (Subject Characteristics)</div>
-                                        <div class="text-gray-600">Medical history, inclusion criteria<br>Records: 2,847 subjects • Quality: 94%</div>
-                                    </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                                <div class="font-semibold text-blue-700">2. biomarker_exposure_data.csv</div>
+                                <div class="text-gray-600 mt-1">
+                                    • Type: CSV File<br>
+                                    • Size: 28MB, 67,500 rows<br>
+                                    • Fields: SUBJ_ID, COT_LEVEL, NNAL_CONC, AGE_VERIF, EXP_HIST, BMI_VAL, BP_SYS<br>
+                                    • Owner: Clinical Research Team<br>
+                                    • Quality Score: 82%
                                 </div>
                             </div>
-
-                            <!-- Safety & Clinical Assessments -->
-                            <div class="mb-4">
-                                <div class="text-xs font-bold text-red-700 mb-2">🏥 Safety & Clinical Assessments</div>
-                                <div class="grid grid-cols-1 lg:grid-cols-4 gap-2 text-xs">
-                                    <div class="bg-white p-2 rounded border-l-4 border-red-400">
-                                        <div class="font-semibold text-red-700">AE (Adverse Events)</div>
-                                        <div class="text-gray-600">AEDECOD, severity coding<br>Events: 1,247 • Quality: 98%</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border-l-4 border-red-400">
-                                        <div class="font-semibold text-red-700">VS (Vital Signs)</div>
-                                        <div class="text-gray-600">SYSBP, DIABP, heart rate<br>Measurements: 45,632 • Quality: 97%</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border-l-4 border-red-400">
-                                        <div class="font-semibold text-red-700">EG (ECG)</div>
-                                        <div class="text-gray-600">ECGCLSIG, QT intervals<br>ECGs: 8,541 • Quality: 95%</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border-l-4 border-red-400">
-                                        <div class="font-semibold text-red-700">LB (Laboratory)</div>
-                                        <div class="text-gray-600">Hematology, chemistry panels<br>Tests: 68,923 • Quality: 96%</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Exposure & Device Data -->
-                            <div class="mb-4">
-                                <div class="text-xs font-bold text-purple-700 mb-2">💨 Product Exposure & Device Data</div>
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs">
-                                    <div class="bg-white p-2 rounded border-l-4 border-purple-400">
-                                        <div class="font-semibold text-purple-700">EX (Exposure)</div>
-                                        <div class="text-gray-600">EXDOSE, product usage patterns<br>Exposure records: 12,847 • Quality: 93%</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border-l-4 border-purple-400">
-                                        <div class="font-semibold text-purple-700">EM (Device Events)</div>
-                                        <div class="text-gray-600">EMDECOD, device malfunctions<br>Device events: 284 • Quality: 91%</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Behavioral & PK/PD Data -->
-                            <div class="mb-4">
-                                <div class="text-xs font-bold text-teal-700 mb-2">🧠 Behavioral & Pharmacokinetic Data</div>
-                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 text-xs">
-                                    <div class="bg-white p-2 rounded border-l-4 border-teal-400">
-                                        <div class="font-semibold text-teal-700">QS (Questionnaires)</div>
-                                        <div class="text-gray-600">QSCAT, nicotine dependence scales<br>Responses: 34,567 • Quality: 89%</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border-l-4 border-teal-400">
-                                        <div class="font-semibold text-teal-700">PC (PK Concentrations)</div>
-                                        <div class="text-gray-600">PCTESTCD, biomarker levels<br>Samples: 15,432 • Quality: 97%</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border-l-4 border-teal-400">
-                                        <div class="font-semibold text-teal-700">PP (PK Parameters)</div>
-                                        <div class="text-gray-600">TMAX, AUCALL derived params<br>Parameters: 4,523 • Quality: 95%</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Analysis-Ready Datasets -->
-                            <div class="bg-gradient-to-r from-orange-50 to-amber-50 p-3 rounded border border-orange-200">
-                                <div class="text-xs font-bold text-orange-700 mb-2">📊 Analysis-Ready Datasets (ADaM)</div>
-                                <div class="grid grid-cols-1 lg:grid-cols-5 gap-2 text-xs">
-                                    <div class="bg-white p-2 rounded border">
-                                        <div class="font-semibold text-orange-700">ADSL</div>
-                                        <div class="text-gray-600">Subject-level analysis<br>TRT01A variables</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border">
-                                        <div class="font-semibold text-orange-700">ADVS</div>
-                                        <div class="text-gray-600">Vital signs analysis<br>BASE, CHG calculations</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border">
-                                        <div class="font-semibold text-orange-700">ADLB</div>
-                                        <div class="text-gray-600">Laboratory analysis<br>Reference ranges</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border">
-                                        <div class="font-semibold text-orange-700">ADEX</div>
-                                        <div class="text-gray-600">Exposure analysis<br>Derived variables</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border">
-                                        <div class="font-semibold text-orange-700">ADPP</div>
-                                        <div class="text-gray-600">PK parameters<br>Statistical summaries</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                `;
+                </div>
+            `;
 
                 cdeContent = `
-                    <div class="space-y-4">
-                        <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border border-green-200">
-                            <div class="text-sm font-semibold text-green-800 mb-3">
-                                <i class="fas fa-tags mr-2"></i>Critical Data Elements (CDEs) - Individual Health Study
+                <div class="space-y-3">
+                        <div class="text-sm font-semibold text-green-800">9 CDEs Suggested</div>
+                        <div class="text-xs space-y-2">
+                        <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Subject_ID</div>
+                                <div class="text-gray-600">Unique clinical study participant identifier • VARCHAR(15)</div>
+                        </div>
+                        <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Cotinine_Level</div>
+                                <div class="text-gray-600">Biomarker for nicotine exposure measured in ng/mL • DECIMAL(8,2)</div>
+                        </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Clinical_Endpoint</div>
+                                <div class="text-gray-600">Primary or secondary endpoint measured in clinical studies • VARCHAR(100)</div>
                             </div>
-                            
-                            <!-- Core Subject Identifiers -->
-                            <div class="mb-4">
-                                <div class="text-xs font-bold text-blue-700 mb-2">🔑 Core Subject Identifiers</div>
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs">
-                                    <div class="bg-white p-3 rounded border border-blue-200">
-                                        <div class="font-semibold text-blue-700">Subject_ID (USUBJID)</div>
-                                        <div class="text-gray-600 mt-1">
-                                            <strong>Definition:</strong> Unique subject identifier across studies<br>
-                                            <strong>Format:</strong> VARCHAR(20) - Study_Site_Subject pattern<br>
-                                            <strong>Example:</strong> IH2024_001_0001<br>
-                                            <strong>CDISC Standard:</strong> SDTM USUBJID variable
-                                        </div>
-                                    </div>
-                                    <div class="bg-white p-3 rounded border border-blue-200">
-                                        <div class="font-semibold text-blue-700">Visit_Name (VISIT)</div>
-                                        <div class="text-gray-600 mt-1">
-                                            <strong>Definition:</strong> Standardized visit nomenclature<br>
-                                            <strong>Format:</strong> VARCHAR(50)<br>
-                                            <strong>Values:</strong> Screening, Day 1, Week 2, Follow-up<br>
-                                            <strong>CDISC Standard:</strong> SDTM VISIT variable
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Exposure_Biomarker</div>
+                                <div class="text-gray-600">Biological indicators of product exposure • DECIMAL(10,3)</div>
                             </div>
-
-                            <!-- Biomarker CDEs -->
-                            <div class="mb-4">
-                                <div class="text-xs font-bold text-purple-700 mb-2">🧪 Key Biomarker CDEs</div>
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs">
-                                    <div class="bg-white p-3 rounded border border-purple-200">
-                                        <div class="font-semibold text-purple-700">Cotinine_Level (COT)</div>
-                                        <div class="text-gray-600 mt-1">
-                                            <strong>Definition:</strong> Nicotine metabolite concentration in biological samples<br>
-                                            <strong>Units:</strong> ng/mL (nanograms per milliliter)<br>
-                                            <strong>Range:</strong> 0.1 - 500.0 ng/mL<br>
-                                            <strong>Method:</strong> LC-MS/MS per ICH bioanalytical guidelines<br>
-                                            <strong>Clinical Significance:</strong> Primary biomarker for nicotine exposure assessment
-                                        </div>
-                                    </div>
-                                    <div class="bg-white p-3 rounded border border-purple-200">
-                                        <div class="font-semibold text-purple-700">NNAL_Concentration (NNAL)</div>
-                                        <div class="text-gray-600 mt-1">
-                                            <strong>Definition:</strong> 4-(methylnitrosamino)-1-(3-pyridyl)-1-butanol concentration<br>
-                                            <strong>Units:</strong> pmol/mL (picomoles per milliliter)<br>
-                                            <strong>Range:</strong> 0.05 - 50.0 pmol/mL<br>
-                                            <strong>Method:</strong> LC-MS/MS<br>
-                                            <strong>Clinical Significance:</strong> Tobacco-specific nitrosamine exposure biomarker
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Study_Protocol_ID</div>
+                                <div class="text-gray-600">Unique identifier for clinical study protocol • VARCHAR(20)</div>
                             </div>
-
-                            <!-- Clinical Assessment CDEs -->
-                            <div class="mb-4">
-                                <div class="text-xs font-bold text-red-700 mb-2">🏥 Clinical Assessment CDEs</div>
-                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 text-xs">
-                                    <div class="bg-white p-3 rounded border border-red-200">
-                                        <div class="font-semibold text-red-700">Clinical_Endpoint (CENDPT)</div>
-                                        <div class="text-gray-600 mt-1">
-                                            <strong>Definition:</strong> Primary clinical endpoint measurement<br>
-                                            <strong>Categories:</strong> Safety, Efficacy, Exposure, Behavioral<br>
-                                            <strong>Format:</strong> VARCHAR(100)<br>
-                                            <strong>Standards:</strong> ICH E6 Good Clinical Practice
-                                        </div>
-                                    </div>
-                                    <div class="bg-white p-3 rounded border border-red-200">
-                                        <div class="font-semibold text-red-700">Adverse_Event_Term (AETERM)</div>
-                                        <div class="text-gray-600 mt-1">
-                                            <strong>Definition:</strong> Standardized adverse event terminology<br>
-                                            <strong>Dictionary:</strong> MedDRA Preferred Terms<br>
-                                            <strong>Format:</strong> VARCHAR(200)<br>
-                                            <strong>Severity:</strong> Mild, Moderate, Severe grading
-                                        </div>
-                                    </div>
-                                    <div class="bg-white p-3 rounded border border-red-200">
-                                        <div class="font-semibold text-red-700">Vital_Signs_Panel (VSPANEL)</div>
-                                        <div class="text-gray-600 mt-1">
-                                            <strong>Definition:</strong> Standardized vital signs assessment<br>
-                                            <strong>Components:</strong> SBP, DBP, HR, RR, TEMP<br>
-                                            <strong>Units:</strong> mmHg, bpm, /min, °C<br>
-                                            <strong>Frequency:</strong> Per protocol schedule
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="bg-white p-2 rounded border">
+                                <div class="font-semibold text-green-700">Adverse_Event_Code</div>
+                                <div class="text-gray-600">Standardized code for adverse events • VARCHAR(10)</div>
                             </div>
-
-                            <!-- Behavioral & Quality of Life CDEs -->
-                            <div class="bg-gradient-to-r from-teal-50 to-cyan-50 p-3 rounded border border-teal-200">
-                                <div class="text-xs font-bold text-teal-700 mb-2">🧠 Behavioral & Quality of Life CDEs</div>
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs">
-                                    <div class="bg-white p-2 rounded border">
-                                        <div class="font-semibold text-teal-700">Nicotine_Dependence_Score (FTND)</div>
-                                        <div class="text-gray-600">Fagerström Test score (0-10 scale) • Validated questionnaire</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border">
-                                        <div class="font-semibold text-teal-700">Craving_Assessment (QSU-Brief)</div>
-                                        <div class="text-gray-600">Questionnaire on Smoking Urges • 10-item scale</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border">
-                                        <div class="font-semibold text-teal-700">Product_Satisfaction (PSQ)</div>
-                                        <div class="text-gray-600">Product-specific satisfaction questionnaire • Likert scale</div>
-                                    </div>
-                                    <div class="bg-white p-2 rounded border">
-                                        <div class="font-semibold text-teal-700">Withdrawal_Symptoms (MNWS)</div>
-                                        <div class="text-gray-600">Minnesota Nicotine Withdrawal Scale • Validated instrument</div>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="text-xs text-gray-500 mt-2">+ 3 additional CDEs including Age_Verification, Blood_Pressure_Systolic, Body_Mass_Index</div>
                         </div>
                     </div>
                 `;
