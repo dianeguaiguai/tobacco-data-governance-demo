@@ -153,7 +153,7 @@
                 <div class="border-b border-gray-200">
                     <nav class="flex space-x-8 px-6" aria-label="Tabs">
                         <button onclick="switchTab('process')" id="process-tab" class="tab-button active py-4 px-1 border-b-2 border-blue-500 font-medium text-sm text-blue-600">
-                            <i class="fas fa-cogs mr-2"></i>Data Governance Process
+                            <i class="fas fa-cogs mr-2"></i>Data Governance Policy to Implementation
                         </button>
                         <button onclick="switchTab('use-cases')" id="use-cases-tab" class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300">
                             <i class="fas fa-th-large mr-2"></i>Use Cases & Implementation
@@ -168,347 +168,210 @@
                 <div class="p-6">
                     <!-- Tab 1: Data Governance Process (General) -->
                     <div id="process-content" class="tab-content">
-                        <div class="space-y-8">
-                            <!-- Transformation Before/After -->
-                            <div class="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-6 border">
-                                <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
-                                    <i class="fas fa-exchange-alt mr-2"></i>Transformation: Before vs After AI Agent
+                        <div class="space-y-12">
+                            <!-- Component 1: Centralized, Standardized Metadata Management -->
+                            <div class="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-6 border shadow-lg">
+                                <h3 class="text-2xl font-bold mb-8 text-center text-gray-800">
+                                    <i class="fas fa-sitemap mr-2"></i>Component 1: Centralized, Standardized Metadata Management - Before vs. After
                                 </h3>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     <!-- Before AI Agent -->
-                                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-400">
-                                        <h4 class="font-bold text-red-800 mb-4 text-lg">❌ Before AI Agent</h4>
+                                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500 shadow-md">
+                                        <h4 class="font-bold text-red-800 mb-4 text-xl flex items-center">
+                                            <i class="fas fa-exclamation-triangle mr-3 text-red-600"></i>❌ Before: Data Chaos & Inconsistency
+                                        </h4>
                                         <ul class="space-y-3 text-sm text-red-700">
-                                            <li>• <strong>Scattered data, no definitions</strong><br><span class="text-red-600">Data stewards spend 3 days hunting across 50+ systems</span></li>
-                                            <li>• <strong>No starting point for CDEs</strong><br><span class="text-red-600">Manual CDE identification takes weeks</span></li>
-                                            <li>• <strong>Tribal knowledge trapped in documents</strong><br><span class="text-red-600">Business definitions buried in emails and files</span></li>
-                                            <li>• <strong>No clear ownership</strong><br><span class="text-red-600">SMEs unknown, data lineage unclear</span></li>
-                                            <li>• <strong>Manual compliance checks</strong><br><span class="text-red-600">Audit preparation takes 3+ weeks</span></li>
+                                            <li class="flex items-start"><i class="fas fa-folder-open mr-2 mt-1 text-red-500"></i><div><strong>Scattered & Siloed Data:</strong><br><span class="text-red-600">Information fragmented across numerous, disconnected systems.</span></div></li>
+                                            <li class="flex items-start"><i class="fas fa-question-circle mr-2 mt-1 text-red-500"></i><div><strong>Undefined & Inconsistent Metadata:</strong><br><span class="text-red-600">Lack of clear definitions, outdated documentation, varying standards.</span></div></li>
+                                            <li class="flex items-start"><i class="fas fa-hand-paper mr-2 mt-1 text-red-500"></i><div><strong>Manual & Error-Prone Processes:</strong><br><span class="text-red-600">Heavy reliance on manual efforts for data discovery and quality checks.</span></div></li>
+                                            <li class="flex items-start"><i class="fas fa-eye-slash mr-2 mt-1 text-red-500"></i><div><strong>Poor Data Lineage & Visibility:</strong><br><span class="text-red-600">Difficult to trace data origins and transformations.</span></div></li>
+                                            <li class="flex items-start"><i class="fas fa-shield-alt mr-2 mt-1 text-red-500"></i><div><strong>Increased Compliance Risks:</strong><br><span class="text-red-600">Inability to consistently meet regulatory requirements.</span></div></li>
                                         </ul>
-                                        <div class="mt-4 p-3 bg-red-100 rounded text-sm">
+                                        <div class="mt-6 p-3 bg-red-100 rounded text-sm border border-red-200">
                                             <div class="flex items-center">
-                                                <i class="fas fa-clock mr-2 text-red-600"></i>
-                                                <span class="font-semibold text-red-800">Time to Value: 3-6 months</span>
-                                            </div>
-                                            <div class="flex items-center mt-1">
-                                                <i class="fas fa-dollar-sign mr-2 text-red-600"></i>
-                                                <span class="font-semibold text-red-800">Cost: High manual effort, delayed projects</span>
+                                                <i class="fas fa-tachometer-alt mr-2 text-red-600"></i>
+                                                <span class="font-semibold text-red-800">Impact: Slow, Costly, Risky</span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- After AI Agent -->
-                                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-400">
-                                        <h4 class="font-bold text-green-800 mb-4 text-lg">✅ After AI Agent + Human Review</h4>
+                                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500 shadow-md">
+                                        <h4 class="font-bold text-green-800 mb-4 text-xl flex items-center">
+                                            <i class="fas fa-check-circle mr-3 text-green-600"></i>✅ After: AI-Powered Data Clarity & Control
+                                        </h4>
                                         <ul class="space-y-3 text-sm text-green-700">
-                                            <li>• <strong>Draft metadata for 127 fields in 30 minutes</strong><br><span class="text-green-600">AI discovers and catalogs data across all systems</span></li>
-                                            <li>• <strong>Suggested 44 high-priority CDEs</strong><br><span class="text-green-600">AI identifies CDEs with 94-96% confidence</span></li>
-                                            <li>• <strong>Key terms extracted from documents</strong><br><span class="text-green-600">AI parses and structures business knowledge</span></li>
-                                            <li>• <strong>Draft list of SMEs for review</strong><br><span class="text-green-600">AI suggests domain experts and data owners</span></li>
-                                            <li>• <strong>Automated compliance workflows</strong><br><span class="text-green-600">Continuous monitoring, 2-day audit prep</span></li>
+                                            <li class="flex items-start"><i class="fas fa-database mr-2 mt-1 text-green-500"></i><div><strong>AI-Powered Data Hub (Single Source of Truth):</strong><br><span class="text-green-600">Centralized catalog with auto-discovered and classified data.</span></div></li>
+                                            <li class="flex items-start"><i class="fas fa-book-open mr-2 mt-1 text-green-500"></i><div><strong>Standardized & Enriched Metadata:</strong><br><span class="text-green-600">AI suggests definitions, business glossary, and CDEs. Quality: <span class="font-bold">91% Score</span>.</span></div></li>
+                                            <li class="flex items-start"><i class="fas fa-cogs mr-2 mt-1 text-green-500"></i><div><strong>Automated Data Lineage & Quality Rules:</strong><br><span class="text-green-600">Visual lineage tracing and AI-driven quality monitoring.</span></div></li>
+                                            <li class="flex items-start"><i class="fas fa-search mr-2 mt-1 text-green-500"></i><div><strong>Enhanced Data Discovery & Accessibility:</strong><br><span class="text-green-600">Easily find and understand trusted data assets.</span></div></li>
+                                             <li class="flex items-start"><i class="fas fa-lightbulb mr-2 mt-1 text-green-500"></i><div><strong>Proactive Compliance & Governance:</strong><br><span class="text-green-600">AI monitors policies, flags risks. Readiness: <span class="font-bold">98%</span>.</span></div></li>
                                         </ul>
-                                        <div class="mt-4 p-3 bg-green-100 rounded text-sm">
+                                        <div class="mt-6 p-3 bg-green-100 rounded text-sm border border-green-200">
                                             <div class="flex items-center">
-                                                <i class="fas fa-clock mr-2 text-green-600"></i>
-                                                <span class="font-semibold text-green-800">Time to Value: 2-3 weeks</span>
+                                                <i class="fas fa-rocket mr-2 text-green-600"></i>
+                                                <span class="font-semibold text-green-800">Impact: Efficient, Valuable, Compliant</span>
                                             </div>
-                                            <div class="flex items-center mt-1">
-                                                <i class="fas fa-dollar-sign mr-2 text-green-600"></i>
-                                                <span class="font-semibold text-green-800">ROI: $2M+ annually, 85% time savings</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Key Metrics -->
-                                <div class="grid grid-cols-4 gap-4 mt-8 text-center">
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <div class="text-3xl font-bold text-blue-600">85%</div>
-                                        <div class="text-sm text-gray-600">Time Reduction</div>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <div class="text-3xl font-bold text-green-600">91%</div>
-                                        <div class="text-sm text-gray-600">Quality Score</div>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <div class="text-3xl font-bold text-purple-600">48</div>
-                                        <div class="text-sm text-gray-600">AI Contexts</div>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <div class="text-3xl font-bold text-orange-600">$2M+</div>
-                                        <div class="text-sm text-gray-600">Annual ROI</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Complete Process Flow -->
-                            <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border">
-                                <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
-                                    <i class="fas fa-project-diagram mr-2"></i>Complete Data Governance Process Flow
+                            <!-- Component 2: AI-Powered 5-Step Lifecycle -->
+                            <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border shadow-lg">
+                                <h3 class="text-2xl font-bold mb-8 text-center text-gray-800">
+                                    <i class="fas fa-project-diagram mr-2"></i>Component 2: AI-Powered 5-Step Lifecycle
                                 </h3>
-                                
-                                <!-- Simplified Role Legend -->
-                                <div class="bg-white rounded-lg p-4 mb-6 border">
-                                    <h4 class="font-bold text-gray-800 mb-3">Team Roles</h4>
-                                    <div class="text-sm text-gray-600">
-                                        <p>Each step shows <strong>Led by</strong> (who executes) and <strong>Needs</strong> (who approves/provides input)</p>
-                                        </div>
-                                        </div>
+                                <!-- New Descriptive Content for Component 2 -->
+                                <div class="mb-8 space-y-6 text-left text-sm text-gray-700">
+                                    <p class="text-base text-gray-800 leading-relaxed">
+                                        Our AI-Powered 5-Step Lifecycle provides a structured, iterative approach to transform raw data into governed, valuable, and FAIR-compliant assets. Each step is supercharged by AI to enhance efficiency, accuracy, and insight, ensuring data governance policies are practically implemented and their impact is measurable.
+                                    </p>
 
-                                <!-- Enhanced Process Steps -->
-                                <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-8">
-                                    <!-- Step 1: Discover -->
-                                    <div class="process-step-enhanced active bg-white rounded-lg shadow-md border-2 border-blue-500 p-4 hover:shadow-lg transition-all cursor-pointer" id="enhanced-step-1" onclick="selectProcessStep(1)">
-                                        <div class="text-center mb-3">
-                                            <div class="w-12 h-12 bg-blue-500 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-2 font-bold">1</div>
-                                            <h4 class="font-bold text-gray-800">Discover</h4>
-                                            <p class="text-xs text-gray-600">Scan Systems & Data Assets</p>
-                                        </div>
-                                        
-                                        <!-- Key Deliverables -->
-                                        <div class="mb-3">
-                                            <div class="text-xs font-semibold text-blue-700 mb-1">Key Outputs:</div>
-                                            <ul class="text-xs text-gray-600 space-y-1">
-                                                <li>• Initial data-asset inventory</li>
-                                                <li>• System-table-field mapping</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <!-- Simplified Roles -->
-                                        <div class="border-t pt-2">
-                                            <div class="text-xs font-semibold text-gray-700 mb-2">Team:</div>
-                                            <div class="text-xs text-gray-600">
-                                                <div><strong>Led by:</strong> Data Architect</div>
-                                                <div><strong>Needs:</strong> System Admin approval</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Progress Indicator -->
-                                        <div class="mt-3">
-                                            <div class="flex justify-between text-xs text-gray-500 mb-1">
-                                                <span>Progress</span>
-                                                <span id="step-1-progress">0%</span>
-                                            </div>
-                                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                                <div id="step-1-bar" class="bg-blue-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
-                                            </div>
-                                        </div>
+                                    <div class="p-4 bg-white rounded-lg shadow border border-gray-200">
+                                        <h4 class="font-semibold text-lg text-blue-700 mb-2 flex items-center"><i class="fas fa-search mr-2"></i>1. Discover</h4>
+                                        <p class="mb-1"><strong>About:</strong> Automatically identify, profile, and inventory data assets across disparate sources. AI helps in understanding data landscapes, detecting sensitive data, and assessing initial quality.</p>
+                                        <p class="mb-1"><strong>Key Personas:</strong> Data Stewards, Data Architects, System Owners.</p>
+                                        <p><strong>Key Deliverables:</strong> Comprehensive Data Asset Inventory, Data Lineage Maps (initial), Data Quality Baseline Report, Sensitive Data Identification.</p>
                                     </div>
-
-                                    <!-- Step 2: Define -->
-                                    <div class="process-step-enhanced bg-white rounded-lg shadow-md border-2 border-gray-200 p-4 hover:shadow-lg transition-all cursor-pointer" id="enhanced-step-2" onclick="selectProcessStep(2)">
-                                        <div class="text-center mb-3">
-                                            <div class="w-12 h-12 bg-gray-400 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-2 font-bold">2</div>
-                                            <h4 class="font-bold text-gray-800">Define</h4>
-                                            <p class="text-xs text-gray-600">Add Business & Technical Metadata</p>
-                                        </div>
-                                        
-                                        <!-- Key Deliverables -->
-                                        <div class="mb-3">
-                                            <div class="text-xs font-semibold text-green-700 mb-1">Key Outputs:</div>
-                                            <ul class="text-xs text-gray-600 space-y-1">
-                                                <li>• Metadata dictionary</li>
-                                                <li>• Field definition cards</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <!-- Simplified Roles -->
-                                        <div class="border-t pt-2">
-                                            <div class="text-xs font-semibold text-gray-700 mb-2">Team:</div>
-                                            <div class="text-xs text-gray-600">
-                                                <div><strong>Led by:</strong> Data Steward</div>
-                                                <div><strong>Needs:</strong> SME & Data Owner approval</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Progress Indicator -->
-                                        <div class="mt-3">
-                                            <div class="flex justify-between text-xs text-gray-500 mb-1">
-                                                <span>Progress</span>
-                                                <span id="step-2-progress">0%</span>
-                                            </div>
-                                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                                <div id="step-2-bar" class="bg-green-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
-                                            </div>
-                                        </div>
+                                    <div class="p-4 bg-white rounded-lg shadow border border-gray-200">
+                                        <h4 class="font-semibold text-lg text-green-700 mb-2 flex items-center"><i class="fas fa-tags mr-2"></i>2. Define</h4>
+                                        <p class="mb-1"><strong>About:</strong> Establish clear, consistent business and technical metadata. AI assists in suggesting definitions, linking terms to a business glossary, and identifying Critical Data Elements (CDEs).</p>
+                                        <p class="mb-1"><strong>Key Personas:</strong> Data Stewards, Business SMEs, Data Owners.</p>
+                                        <p><strong>Key Deliverables:</strong> Approved Business Glossary, Standardized Data Definitions, Critical Data Element (CDE) Register, Metadata Repository.</p>
                                     </div>
-
-                                    <!-- Step 3: Standardize -->
-                                    <div class="process-step-enhanced bg-white rounded-lg shadow-md border-2 border-gray-200 p-4 hover:shadow-lg transition-all cursor-pointer" id="enhanced-step-3" onclick="selectProcessStep(3)">
-                                        <div class="text-center mb-3">
-                                            <div class="w-12 h-12 bg-gray-400 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-2 font-bold">3</div>
-                                            <h4 class="font-bold text-gray-800">Standardize</h4>
-                                            <p class="text-xs text-gray-600">Define CDEs with Business</p>
-                                        </div>
-                                        
-                                        <!-- Key Deliverables -->
-                                        <div class="mb-3">
-                                            <div class="text-xs font-semibold text-purple-700 mb-1">Key Outputs:</div>
-                                            <ul class="text-xs text-gray-600 space-y-1">
-                                                <li>• CDE register</li>
-                                                <li>• Standard mapping/transformation logic</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <!-- Simplified Roles -->
-                                        <div class="border-t pt-2">
-                                            <div class="text-xs font-semibold text-gray-700 mb-2">Team:</div>
-                                            <div class="text-xs text-gray-600">
-                                                <div><strong>Led by:</strong> Data Steward</div>
-                                                <div><strong>Needs:</strong> SME & Data Owner approval</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Progress Indicator -->
-                                        <div class="mt-3">
-                                            <div class="flex justify-between text-xs text-gray-500 mb-1">
-                                                <span>Progress</span>
-                                                <span id="step-3-progress">0%</span>
-                                            </div>
-                                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                                <div id="step-3-bar" class="bg-purple-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
-                                            </div>
-                                        </div>
+                                    <div class="p-4 bg-white rounded-lg shadow border border-gray-200">
+                                        <h4 class="font-semibold text-lg text-purple-700 mb-2 flex items-center"><i class="fas fa-sync-alt mr-2"></i>3. Standardize</h4>
+                                        <p class="mb-1"><strong>About:</strong> Harmonize data formats, values, and structures to ensure interoperability and consistency. AI aids in identifying mapping rules, suggesting transformations, and aligning data to industry/internal standards.</p>
+                                        <p class="mb-1"><strong>Key Personas:</strong> Data Stewards, Data Architects, Integration Specialists.</p>
+                                        <p><strong>Key Deliverables:</strong> Data Standardization Rules, Transformation Logic, Harmonized Data Models, CDE Implementation Guidelines.</p>
                                     </div>
-
-                                    <!-- Step 4: Protect -->
-                                    <div class="process-step-enhanced bg-white rounded-lg shadow-md border-2 border-gray-200 p-4 hover:shadow-lg transition-all cursor-pointer" id="enhanced-step-4" onclick="selectProcessStep(4)">
-                                        <div class="text-center mb-3">
-                                            <div class="w-12 h-12 bg-gray-400 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-2 font-bold">4</div>
-                                            <h4 class="font-bold text-gray-800">Protect</h4>
-                                            <p class="text-xs text-gray-600">Configure Quality Rules for CDEs</p>
-                                        </div>
-                                        
-                                        <!-- Key Deliverables -->
-                                        <div class="mb-3">
-                                            <div class="text-xs font-semibold text-orange-700 mb-1">Key Outputs:</div>
-                                            <ul class="text-xs text-gray-600 space-y-1">
-                                                <li>• Quality-rule library</li>
-                                                <li>• Quality dashboard/alert mechanism</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <!-- Simplified Roles -->
-                                        <div class="border-t pt-2">
-                                            <div class="text-xs font-semibold text-gray-700 mb-2">Team:</div>
-                                            <div class="text-xs text-gray-600">
-                                                <div><strong>Led by:</strong> Data Quality Engineer</div>
-                                                <div><strong>Needs:</strong> Data Owner approval</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Progress Indicator -->
-                                        <div class="mt-3">
-                                            <div class="flex justify-between text-xs text-gray-500 mb-1">
-                                                <span>Progress</span>
-                                                <span id="step-4-progress">0%</span>
-                                            </div>
-                                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                                <div id="step-4-bar" class="bg-orange-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
-                                            </div>
-                                        </div>
+                                    <div class="p-4 bg-white rounded-lg shadow border border-gray-200">
+                                        <h4 class="font-semibold text-lg text-red-700 mb-2 flex items-center"><i class="fas fa-shield-alt mr-2"></i>4. Protect</h4>
+                                        <p class="mb-1"><strong>About:</strong> Implement data quality rules, security policies, and access controls to ensure data integrity, compliance, and appropriate usage. AI powers automated quality monitoring, anomaly detection, and policy enforcement.</p>
+                                        <p class="mb-1"><strong>Key Personas:</strong> Data Stewards, Data Owners, Security Officers, Compliance Officers.</p>
+                                        <p><strong>Key Deliverables:</strong> Data Quality Rulebook & Monitoring Dashboard, Access Control Policies Implemented, Security & Compliance Framework, Data Masking/Anonymization Rules.</p>
                                     </div>
-
-                                    <!-- Step 5: Report -->
-                                    <div class="process-step-enhanced bg-white rounded-lg shadow-md border-2 border-gray-200 p-4 hover:shadow-lg transition-all cursor-pointer" id="enhanced-step-5" onclick="selectProcessStep(5)">
-                                        <div class="text-center mb-3">
-                                            <div class="w-12 h-12 bg-gray-400 text-white rounded-full text-xl flex items-center justify-center mx-auto mb-2 font-bold">5</div>
-                                            <h4 class="font-bold text-gray-800">Report</h4>
-                                            <p class="text-xs text-gray-600">Aggregate Coverage & Quality Scores</p>
-                                        </div>
-                                        
-                                        <!-- Key Deliverables -->
-                                        <div class="mb-3">
-                                            <div class="text-xs font-semibold text-indigo-700 mb-1">Key Outputs:</div>
-                                            <ul class="text-xs text-gray-600 space-y-1">
-                                                <li>• Data Governance Report (visualized)</li>
-                                                <li>• Next-step improvement plan</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <!-- Simplified Roles -->
-                                        <div class="border-t pt-2">
-                                            <div class="text-xs font-semibold text-gray-700 mb-2">Team:</div>
-                                            <div class="text-xs text-gray-600">
-                                                <div><strong>Led by:</strong> Data Steward</div>
-                                                <div><strong>Needs:</strong> Management approval</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Progress Indicator -->
-                                        <div class="mt-3">
-                                            <div class="flex justify-between text-xs text-gray-500 mb-1">
-                                                <span>Progress</span>
-                                                <span id="step-5-progress">0%</span>
-                                            </div>
-                                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                                <div id="step-5-bar" class="bg-indigo-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
-                                            </div>
-                                        </div>
+                                    <div class="p-4 bg-white rounded-lg shadow border border-gray-200">
+                                        <h4 class="font-semibold text-lg text-indigo-700 mb-2 flex items-center"><i class="fas fa-chart-line mr-2"></i>5. Govern & Optimize</h4>
+                                        <p class="mb-1"><strong>About:</strong> Continuously monitor data governance effectiveness, measure its impact, and optimize processes. AI provides insights for continuous improvement, automates reporting, and helps quantify the value of governed data.</p>
+                                        <p class="mb-1"><strong>Key Personas:</strong> Data Governance Council, Data Owners, Business Leaders.</p>
+                                        <p><strong>Key Deliverables:</strong> Data Governance KPIs & Dashboards, ROI & Impact Analysis, Process Optimization Recommendations, Audit Trails & Compliance Reports.</p>
                                     </div>
                                 </div>
-
-                                <!-- Overall Progress Tracker -->
-                                <div class="bg-white rounded-lg p-4 mb-6 border">
-                                    <div class="flex justify-between items-center mb-3">
-                                        <h4 class="font-bold text-gray-800">Overall Project Progress</h4>
-                                        <span id="overall-progress-text" class="text-sm text-gray-600">Not Started</span>
+                                <div id="process-steps-container" class="flex justify-between items-start space-x-4 mb-6 overflow-x-auto pb-4">
+                                    <!-- Steps will be dynamically injected here by JavaScript -->
+                                    <!-- Example of how a step might look with AI icon: -->
+                                    <!-- 
+                                    <div class="process-step flex-1 min-w-[120px]" data-step="discover">
+                                        <div class="step-number"><i class="fas fa-search"></i></div>
+                                        <div class="step-label">Discover <span class="text-xs text-blue-500 block">(<i class="fas fa-robot text-xs"></i> AI Auto-Discovery)</span></div>
                                     </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
-                                        <div id="overall-progress-bar" class="bg-gradient-to-r from-blue-500 to-indigo-500 h-4 rounded-full transition-all duration-1000" style="width: 0%">
-                                            <div class="h-full bg-white bg-opacity-30 rounded-full"></div>
-                                        </div>
-                                    </div>
-                                    <div class="flex justify-between text-xs text-gray-500">
-                                        <span>Start</span>
-                                        <span>25%</span>
-                                        <span>50%</span>
-                                        <span>75%</span>
-                                        <span>Complete</span>
-                                    </div>
+                                    -->
                                 </div>
-
-                                <!-- Selected Step Details -->
-                                <div id="step-details" class="bg-white rounded-lg p-6 border mb-6">
-                                    <h4 class="text-xl font-bold mb-4 text-gray-800">Step 1: Discover - Detailed Information</h4>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div>
-                                            <h5 class="font-semibold text-gray-700 mb-2">Key Activities:</h5>
-                                            <ul class="text-sm text-gray-600 space-y-1">
-                                                <li>• Scan systems/data lakes/folders horizontally</li>
-                                                <li>• Inventory \"what tables and fields exist\"</li>
-                                                <li>• Create system-table-field mapping</li>
-                                                <li>• AI-powered identification and classification</li>
-                                            </ul>
-                                        </div>
-                                        <div>
-                                            <h5 class="font-semibold text-gray-700 mb-2">Success Criteria:</h5>
-                                            <ul class="text-sm text-gray-600 space-y-1">
-                                                <li>• 95%+ system coverage rate</li>
-                                                <li>• Complete asset inventory</li>
-                                                <li>• Data lineage foundation established</li>
-                                                <li>• Initial quality assessment completed</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                <div class="text-center text-sm text-gray-600">
+                                    <p>This iterative process, supercharged by AI at each stage, transforms raw data into governed, valuable assets.</p>
                                 </div>
-
-                                <!-- Process Control -->
-                                <div class="text-center mb-6">
-                                    <button onclick="startEnhancedGovernanceProcess()" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold shadow-lg text-lg">
-                                        🚀 Start Complete Governance Process
-                                    </button>
-                                    <button onclick="pauseProcess()" class="ml-4 px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-all" id="pause-btn" style="display:none;">
-                                        <i class="fas fa-pause mr-2"></i>Pause
-                                    </button>
-                                    <button onclick="resetEnhancedProcess()" class="ml-4 px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-all">
-                                        <i class="fas fa-undo mr-2"></i>Reset Process
-                                    </button>
-                                </div>
-
-                                <!-- Process Results -->
-                                <div id="enhanced-process-results" class="mt-6"></div>
                             </div>
+
+                            <!-- Grid for Components 3, 4, 5 -->
+                            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                                <!-- Component 3: Clear Roles & Responsibilities -->
+                                <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                                    <h3 class="text-xl font-semibold mb-4 text-gray-700 flex items-center">
+                                        <i class="fas fa-users-cog mr-2 text-indigo-500"></i>Component 3: Clear Roles & Accountability
+                                </h3>
+                                    <div class="border p-4 rounded-md bg-indigo-50">
+                                        <ul class="space-y-2 text-sm text-indigo-700">
+                                            <li class="flex items-center"><i class="fas fa-user-shield mr-2"></i>Defined Data Stewards & Owners</li>
+                                            <li class="flex items-center"><i class="fas fa-tasks mr-2"></i>Automated Workflow Handoffs</li>
+                                            <li class="flex items-center"><i class="fas fa-check-double mr-2"></i>RACI Aligned for Clarity</li>
+                                            <li class="flex items-center"><i class="fas fa-comments mr-2"></i>AI-Assisted Stakeholder Engagement</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-3">Ensuring everyone knows their part in maintaining data integrity.</p>
+                                </div>
+
+                                <!-- Component 4: Value-Driven & Compliance-Focused -->
+                                <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                                    <h3 class="text-xl font-semibold mb-4 text-gray-700 flex items-center">
+                                        <i class="fas fa-balance-scale mr-2 text-teal-500"></i>Component 4: Value-Driven & Compliance
+                                    </h3>
+                                    <div class="space-y-4">
+                                        <div class="border p-4 rounded-md bg-teal-50">
+                                            <h4 class="font-semibold text-md text-teal-800 mb-2 flex items-center"><i class="fas fa-chart-line mr-2"></i>Value Delivered</h4>
+                                            <ul class="space-y-1 text-sm text-teal-700">
+                                                <li><span class="font-bold">$2M+</span> Annual ROI</li>
+                                                <li><span class="font-bold">85%</span> Time Reduction in Data Prep</li>
+                                                <li><span class="font-bold">91%</span> Overall Data Quality Score</li>
+                                            </ul>
+                                        </div>
+                                        <div class="border p-4 rounded-md bg-cyan-50">
+                                            <h4 class="font-semibold text-md text-cyan-800 mb-2 flex items-center"><i class="fas fa-gavel mr-2"></i>Life Sciences Focused & Compliance Ready</h4>
+                                            <ul class="space-y-1 text-sm text-cyan-700">
+                                                <li><i class="fas fa-microscope mr-1"></i>Adherence to FDA, GxP Standards</li>
+                                                <li><i class="far fa-file-alt mr-1"></i>21 CFR Part 11 Considerations</li>
+                                                <li><span class="font-bold">98%</span> Regulatory Compliance Readiness</li>
+                                            </ul>
+                                        </div>
+                                        </div>
+                                    <p class="text-xs text-gray-500 mt-3">Tangible benefits and assured regulatory alignment for Life Sciences.</p>
+                                        </div>
+
+                                <!-- Component 5: Operationalized FAIR Principles -->
+                                <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                                    <h3 class="text-xl font-semibold mb-4 text-gray-700 flex items-center">
+                                        <i class="fas fa-puzzle-piece mr-2 text-amber-500"></i>Component 5: Operationalized FAIR Principles
+                                    </h3>
+                                    <div class="border p-4 rounded-md bg-amber-50 text-center">
+                                        <div class="flex justify-around items-center mb-3">
+                                            <div class="text-center">
+                                                <i class="fas fa-search fa-2x text-amber-600"></i>
+                                                <p class="text-sm font-semibold text-amber-700 mt-1">Findable</p>
+                                        </div>
+                                            <div class="text-center">
+                                                <i class="fas fa-key fa-2x text-amber-600"></i>
+                                                <p class="text-sm font-semibold text-amber-700 mt-1">Accessible</p>
+                                    </div>
+                                            <div class="text-center">
+                                                <i class="fas fa-cogs fa-2x text-amber-600"></i> 
+                                                <p class="text-sm font-semibold text-amber-700 mt-1">Interoperable</p>
+                                            </div>
+                                            <div class="text-center">
+                                                <i class="fas fa-recycle fa-2x text-amber-600"></i>
+                                                <p class="text-sm font-semibold text-amber-700 mt-1">Reusable</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-sm text-amber-800 font-medium">Unlocking Data's Full Potential through AI-driven FAIRification.</p>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-3">Making data discoverable, usable, and valuable across the enterprise.</p>
+                                </div>
+
+                                </div>
+
+                            <!-- Key Metrics (Original location - consider if still needed here or if integrated above is sufficient) -->
+                            <!-- This section might be redundant if metrics are well-integrated into Component 1 & 4 -->
+                            <!-- 
+                            <div class="grid grid-cols-4 gap-4 mt-8 text-center">
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <div class="text-3xl font-bold text-blue-600">85%</div>
+                                    <div class="text-sm text-gray-600">Time Reduction</div>
+                            </div>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <div class="text-3xl font-bold text-green-600">91%</div>
+                                    <div class="text-sm text-gray-600">Quality Score</div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <div class="text-3xl font-bold text-purple-600">48</div>
+                                    <div class="text-sm text-gray-600">AI Contexts</div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <div class="text-3xl font-bold text-orange-600">$2M+</div>
+                                    <div class="text-sm text-gray-600">Annual ROI</div>
+                                </div>
+                            </div>
+                            -->
                         </div>
                     </div>
 
@@ -597,7 +460,7 @@
                                                         Step 4: Protect
                                                     </button>
                                                     <button onclick="showDetailedStep(5)" id="detailed-step-5" class="detailed-step-btn px-4 py-2 bg-gray-300 text-gray-600 rounded-lg text-sm font-semibold">
-                                                        Step 5: Report
+                                                        Step 5: Govern & Optimize
                                         </button>
                                     </div>
                                 </div>
@@ -722,6 +585,11 @@
                                         </button>
                                                     </div>
                                                 </div>
+                                                <!-- FAIR Principles in Action for Step 1 -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h6 class="font-semibold text-gray-700 mb-2 flex items-center"><i class="fas fa-star mr-2 text-yellow-400"></i>FAIR Principles in Action:</h6>
+                                                    <p class="text-sm text-gray-600">AI-powered discovery, like scanning clinical systems and identifying data assets (e.g., Biomarker_Clinical_DB, biomarker_exposure_data.csv), makes these assets and their metadata richly described and cataloged. This significantly enhances <strong>Findability</strong>, allowing researchers and data stewards to quickly locate relevant clinical and biomarker data across the organization.</p>
+                                                </div>
                                     </div>
                                     
                                             <!-- Step 2: Define Interface -->
@@ -805,6 +673,11 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <!-- FAIR Principles in Action for Step 2 -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h6 class="font-semibold text-gray-700 mb-2 flex items-center"><i class="fas fa-star mr-2 text-yellow-400"></i>FAIR Principles in Action:</h6>
+                                                    <p class="text-sm text-gray-600">Centrally defining business terms (e.g., "Cotinine_Level" for nicotine exposure), linking them to a clinical business glossary (e.g., ICH E6 Guidelines, FDA Bioanalytical Method), and specifying Critical Data Elements (CDEs) ensures metadata is understandable and consistently applied. This makes the data and its definitions highly <strong>Reusable</strong>. This common, clear language is also foundational for achieving data <strong>Interoperability</strong> across different studies and systems.</p>
                                                 </div>
                                             </div>
 
@@ -936,6 +809,11 @@
                                                             <div class="text-gray-600">Standardized: 0.1-500.0 ng/mL</div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <!-- FAIR Principles in Action for Step 3 -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h6 class="font-semibold text-gray-700 mb-2 flex items-center"><i class="fas fa-star mr-2 text-yellow-400"></i>FAIR Principles in Action:</h6>
+                                                    <p class="text-sm text-gray-600">Harmonizing data by mapping source fields (e.g., Biomarker_Clinical_DB.cotinine_ng_ml) to agreed-upon CDEs (e.g., COTININE_LEVEL_BIOMARKER_NG_ML) and applying transformation logic ensures that data from diverse sources can be integrated, compared, and analyzed coherently. This process achieves true <strong>Interoperability</strong>, allowing different datasets to work together seamlessly.</p>
                                                 </div>
                                             </div>
 
@@ -1096,6 +974,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!-- FAIR Principles in Action for Step 4 -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h6 class="font-semibold text-gray-700 mb-2 flex items-center"><i class="fas fa-star mr-2 text-yellow-400"></i>FAIR Principles in Action:</h6>
+                                                    <p class="text-sm text-gray-600">Implementing clear quality rules (e.g., range checks for Cotinine_Level, format rules for Subject_ID), security protocols, and access controls ensures that clinical data is not only secure and high-quality but also trustworthy and appropriately <strong>Accessible</strong>. Data access is granted under well-defined conditions and protocols, often leveraging metadata about data sensitivity and permitted use.</p>
+                                                </div>
                                             </div>
 
                                             <div id="detailed-step-content-5" class="detailed-step-content hidden">
@@ -1103,7 +986,7 @@
                                                     <!-- Left: Executive Summary Generator -->
                                                     <div class="bg-indigo-50 rounded-lg p-4 border border-indigo-200">
                                                         <h5 class="font-bold text-indigo-800 mb-3">
-                                                            <i class="fas fa-file-alt mr-2"></i>Executive Summary Generator
+                                                            <i class="fas fa-file-alt mr-2"></i>Govern & Optimize: Performance Dashboards & Strategic Insights
                                                         </h5>
                                                         <div class="space-y-3">
                                                             <div class="bg-white p-3 rounded border">
@@ -1257,6 +1140,11 @@
                                                             <i class="fas fa-code mr-1"></i>Technical Implementation Guide (JSON)
                                                         </button>
                                                     </div>
+                                                </div>
+                                                <!-- FAIR Principles in Action for Step 5 -->
+                                                <div class="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                                    <h6 class="font-semibold text-gray-700 mb-2 flex items-center"><i class="fas fa-star mr-2 text-yellow-400"></i>FAIR Principles in Action:</h6>
+                                                    <p class="text-sm text-gray-600">Continuous monitoring of governance effectiveness through KPIs (e.g., Quality Score, CDE validation rates) and trend analysis ensures that clinical data assets maintain their value over time. This iterative governance and optimization makes data persistently <strong>Findable</strong> (through updated catalogs), <strong>Accessible</strong> (through refined controls), <strong>Interoperable</strong> (through ongoing standard adherence), and <strong>Reusable</strong> (through sustained quality and relevance), driving ongoing improvement of data governance practices and maximizing data's scientific and business impact.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3622,6 +3510,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Start with the first tab active
             switchTab('process');
+            populateLifecycleSteps(); // Added this line
         });
 
         // Enhanced Process Navigation Functions
@@ -4618,6 +4507,31 @@
         // Stub function to prevent errors (interview content removed)
         function loadInterviewPrep() {
             console.log('Interview prep content has been removed');
+        }
+
+        function populateLifecycleSteps() {
+            const container = document.getElementById('process-steps-container');
+            if (!container) return;
+
+            const lifecycleSteps = [
+                { name: "Discover", icon: "fas fa-search", aiText: "AI Auto-Discovery", color: "blue-500", textColor: "blue-600" },
+                { name: "Define", icon: "fas fa-tags", aiText: "AI Metadata Suggestion", color: "green-500", textColor: "green-600" },
+                { name: "Standardize", icon: "fas fa-sync-alt", aiText: "AI Harmonization", color: "purple-500", textColor: "purple-600" },
+                { name: "Protect", icon: "fas fa-shield-alt", aiText: "AI Compliance Monitoring", color: "red-500", textColor: "red-600" },
+                { name: "Govern & Optimize", icon: "fas fa-chart-line", aiText: "AI Insights & Automation", color: "indigo-500", textColor: "indigo-600" }
+            ];
+
+            container.innerHTML = lifecycleSteps.map(step => `
+                <div class="process-step flex-1 min-w-[140px] p-3 text-center">
+                    <div class="step-number mx-auto bg-${step.color} text-white">
+                        <i class="${step.icon} fa-lg"></i>
+                    </div>
+                    <div class="step-label mt-2 font-semibold text-gray-700">${step.name}</div>
+                    <div class="text-xs text-${step.textColor} mt-1">
+                        (<i class="fas fa-robot text-xs mr-1"></i>${step.aiText})
+                    </div>
+                </div>
+            `).join('');
         }
     </script>
 </body>
