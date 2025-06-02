@@ -4,188 +4,186 @@
 ---
 
 ## **Opening Hook (30 seconds)**
-*"I'm going to show you how we transformed a 3-6 month manual data governance process into a 3-week AI-accelerated framework that delivers $2M+ annual ROI while achieving 98% regulatory compliance readiness for life sciences organizations."*
+*"I'm going to show you how we transformed data governance from a 3-month manual compliance exercise into an intelligent, AI-powered platform that delivers $850K annual savings, 96.8% data quality, and 98.7% CDISC compliance readiness for life sciences organizations."*
 
-**Demo Transition**: *"Let me walk you through our live governance platform..."*
+**Demo Transition**: *"Let me walk you through our live governance platform at localhost:5002..."*
 
 ---
 
 ## **Question 1: Data Governance Strategy (2 minutes)**
 
 ### **Framework Overview**
-*"Our strategy is built on a 5-step governance framework specifically designed for life sciences regulatory requirements."*
+*"Our strategy transforms reactive compliance into proactive intelligence through a 5-step FAIR framework specifically engineered for life sciences regulatory requirements."*
 
-**Demo Reference**: *[Show Process tab - highlight the 5 steps]*
+**Demo Reference**: *[Tab 1: Data Governance Policy to Implementation - show before/after transformation]*
 
 ### **Key Talking Points:**
 
-**1. FAIR Principles Implementation**
-- *"We've operationalized FAIR principles with intelligent automation"*
-- **Findable**: AI-powered metadata discovery across 50+ systems
-- **Accessible**: Automated workflow provisioning (show workflow examples)
-- **Interoperable**: FDA Section 2.7-2.10 standard mappings 
-- **Reusable**: CDE repository with 89 compliance-ready definitions
+**1. Measurable Transformation**
+- *"We've moved from scattered, manual processes to centralized intelligence"*
+- **Before**: Data fragmented across disconnected systems
+- **After**: Centralized repository with 2,847 subjects, 347 clinical variables cataloged
+- **Evidence**: 98.7% CDISC compliance, 96.8% data quality vs 78% industry average
 
 **2. Life Sciences Regulatory Focus**
-- *"Unlike generic governance tools, we're purpose-built for FDA submissions"*
-- Product characterization data (Sections 2.8, 2.9, 2.10)
-- Individual health biomarkers (Sections 2.7, 2.9)
-- Population health surveillance (Section 2.9)
-- **Demo Evidence**: *[Switch to Use Cases tab - show FDA section mappings]*
+- *"Purpose-built for clinical trial governance and FDA submissions"*
+- **SDTM Domain Expertise**: 15 domains cataloged (DM, AE, VS, LB, CM, EG, MH)
+- **TIG Section 3.3 Implementation**: Clinical trial data governance aligned with FDA requirements
+- **Regulatory Integration**: ICH E6, FDA Bioanalytical guidance, CDISC SDTM standards
+- **Demo Evidence**: *[Show TIG implementation progress tracker]*
 
-**3. AI-First Automation**
-- *"The traditional approach takes 3-6 months. Our AI discovers, catalogs, and suggests CDEs in weeks"*
-- 127 fields cataloged automatically
-- 44 high-confidence CDEs identified
-- 91% overall quality score achieved
-- **Demo Evidence**: *[Show quality metrics in real-time]*
+**3. AI-Powered Intelligence**
+- *"Role-based AI assistant that knows your context, your role, and your next actions"*
+- 5 distinct perspectives: Data Steward, Data Owner, IT Architect, Executive, Governance
+- Context-aware recommendations and intelligent workflow optimization
+- **Demo Evidence**: *[Tab 3: AI Assistant - show role switching]*
 
-**4. ROI-Driven Implementation**
-- 85% reduction in manual effort
-- $2M+ annual savings through automation
-- 3-week time to value vs. 3-6 months traditional
+**4. Quantified Business Impact**
+- **$850K annual savings** with 285% ROI projected
+- **85% time reduction** in compliance preparation (3 weeks → 3 days)
+- **95% user adoption** with 4.8/5 satisfaction scores
+- **14 days** submission prep vs 6-week traditional approach
 
 ### **Closing Statement**
-*"This isn't just governance - it's strategic competitive advantage for regulatory submissions."*
+*"This isn't just governance - it's strategic competitive advantage that enables faster, compliant innovation."*
 
 ---
 
 ## **Question 2: The Governance Project (2.5 minutes)**
 
 ### **Project Structure**
-*"Let me walk you through our 5-step implementation methodology using a real Individual Health biomarker project."*
+*"Let me walk you through our TIG Section 3.3 implementation using real Individual Health biomarker data with measurable outcomes at each step."*
 
-**Demo Reference**: *[Use Cases tab - select "Product Impact on Individual Health"]*
+**Demo Reference**: *[Tab 2: Use Cases & Implementation - "Product Impact on Individual Health" auto-selected]*
 
-### **Step-by-Step Walkthrough:**
+### **Step-by-Step Implementation:**
 
-**Step 1: Discover (85% Complete)**
-- *"AI scanned our biomarker systems and found 2 data assets"*
-- Biomarker_Clinical_DB: 850K documents, 92% quality
-- biomarker_exposure_data.csv: 67,500 rows, 82% quality
-- **Demo Evidence**: *[Show detailed asset inventory]*
+**Step 1: Discover (Click Step 1 button)**
+- *"AI discovered 15 SDTM domains with 347 clinical variables across 2,847 subjects"*
+- **Discovery Speed**: 4.2 seconds vs weeks of manual cataloging
+- **Metadata Coverage**: 98% automated vs 60% traditional
+- **SDTM Domains**: TV (Trial Visits), TA (Trial Arms), DM (Demographics), AE (Adverse Events)
+- **Demo Evidence**: *[Show real-time discovery results panel]*
 
-**Step 2: Define (73% Complete)**
-- *"AI extracted business definitions and suggested field mappings"*
-- Subject_ID, Cotinine_Level, NNAL_Concentration mapped
-- Technical metadata auto-generated
-- **Demo Evidence**: *[Show CDE definitions in detail view]*
+**Step 2: Define (Click Step 2 button)**
+- *"AI extracted and standardized biomarker definitions with regulatory context"*
+- **Cotinine_Level**: Nicotine metabolite concentration (ng/mL) with ICH bioanalytical guidelines
+- **NNAL_Concentration**: TSN exposure biomarker (pmol/mL) with FDA guidance compliance
+- **Standards Integration**: ICH E6 (GCP), FDA Bioanalytical, CDISC SDTM linkage
+- **Demo Evidence**: *[Show CDE definitions with regulatory references]*
 
-**Step 3: Standardize (67% Complete)**
-- *"Currently working on 9 CDEs for biomarker standardization"*
-- Blood_Pressure, Heart_Rate: Already approved (98% quality)
-- Clinical_Endpoint: Pending Dr. Sarah Chen's review
-- **Demo Evidence**: *[Show current workflow status]*
+**Step 3: Standardize (Click Step 3 button)**
+- *"AI maps and transforms data to clinical standards for seamless integration"*
+- **Exposure Standardization**: EX domain with puff topography mapping
+- **Behavioral Assessments**: QS instruments (FTND Scale, QSU-Brief) standardized
+- **Regulatory Compliance**: Real-time CDISC validation and quality scoring
+- **Demo Evidence**: *[Show standardization progress with quality metrics]*
 
-**Step 4: Protect (25% Complete)**
-- Role-based access controls
-- Audit trail automation
-- Privacy compliance frameworks
+**Step 4: Protect (Click Step 4 button)**
+- *"AI implements quality rules and access controls with continuous monitoring"*
+- **Quality Monitoring**: 96.8% data quality with real-time range checks
+- **Access Control**: Role-based data access with comprehensive audit logging
+- **Compliance Tracking**: 98.7% CDISC compliance with automated validation
+- **Demo Evidence**: *[Show quality scores and compliance indicators]*
 
-**Step 5: Report (10% Complete)**
-- Automated compliance reporting
-- FDA submission readiness dashboards
+**Step 5: Govern & Optimize (Click Step 5 button)**
+- *"Continuous governance monitoring with predictive insights and ROI tracking"*
+- **Process Optimization**: 15,432 process improvements identified
+- **Compliance Effectiveness**: 1,247 governance events tracked
+- **Business Value**: $850K annual savings from accelerated biomarker analysis
+- **Demo Evidence**: *[Show governance KPIs and FAIR metrics]*
 
 ### **Success Metrics in Action**
-- **Quality Score**: 94.7% (shown live in demo)
-- **Time to Value**: 3 months vs. traditional 6+ months
-- **CDE Coverage**: 44 CDEs identified across all use cases
-- **Compliance Readiness**: 98% for regulatory submissions
-
-### **Project Management Approach**
-*"We use agile, phased delivery with continuous stakeholder engagement"*
-- Weekly progress reviews with SMEs
-- Risk-based prioritization
-- Automated status reporting
+- **Data Quality**: 96.8% score with real-time monitoring
+- **CDISC Compliance**: 98.7% readiness for regulatory submissions
+- **44 CDEs** standardized with regulatory linkage
+- **127 data fields** cataloged across clinical domains
 
 ---
 
 ## **Question 3: Key Stakeholders (2 minutes)**
 
-### **RACI Matrix Implementation**
-*"We've operationalized stakeholder management through our AI assistant that knows exactly who to engage and when."*
+### **AI-Powered Stakeholder Intelligence**
+*"Our role-based AI assistant operationalizes stakeholder management by providing context-aware guidance for each role in the governance process."*
 
-**Demo Reference**: *[Switch to AI Assistant tab]*
+**Demo Reference**: *[Tab 3: AI Assistant - demonstrate role switching]*
 
-### **Stakeholder Categories:**
+### **Five Role Perspectives:**
 
-**Responsible (Execution)**
-- **Data Stewards**: Lead field-level standardization
-- **Clinical SMEs**: Validate biomarker definitions
-- **Regulatory Affairs**: Ensure FDA compliance
-- **Demo Evidence**: *[Show AI assistant suggesting "Dr. Sarah Chen for Clinical_Endpoint review"]*
+**Data Steward (Switch to Data Steward role)**
+- **Focus**: Operational quality metrics and CDE management
+- **AI Guidance**: "Data Quality: 96.8%", "CDEs: 44 standardized"
+- **Quick Actions**: CDE status inquiries, quality metric reviews
+- **Demo Evidence**: *[Show Data Steward sidebar with active collaborations]*
 
-**Accountable (Decision Authority)**
-- **Data Owners**: Final approval on data definitions
-- **Department Heads**: Resource allocation and priorities
-- **Compliance Officers**: Regulatory sign-off
+**Data Owner (Switch to Data Owner role)**
+- **Focus**: Data asset governance and access control decisions
+- **AI Guidance**: Asset ownership clarity, approval workflows
+- **Quick Actions**: Access request approvals, data lineage reviews
 
-**Consulted (Subject Matter Expertise)**
-- **IT Architecture**: Technical implementation guidance
-- **Legal/Privacy**: Data protection requirements
-- **External Auditors**: Compliance validation
+**IT Architect (Switch to IT Architect role)**
+- **Focus**: Technical implementation and system integration
+- **AI Guidance**: Architecture recommendations, integration pathways
+- **Quick Actions**: System health checks, technical debt analysis
 
-**Informed (Communication Recipients)**
-- **Executive Team**: Progress and ROI reporting
-- **Research Teams**: CDE availability and usage
-- **Business Users**: Training and adoption support
+**Executive (Switch to Executive role)**
+- **Focus**: ROI tracking and strategic governance outcomes
+- **AI Guidance**: "$850K savings projected", "285% ROI", "95% user adoption"
+- **Quick Actions**: Executive dashboards, business value reports
+- **Demo Evidence**: *[Show Executive context panel with financial metrics]*
 
-### **AI-Powered Stakeholder Management**
-*"Our AI assistant eliminates 80% of coordination overhead"*
+**Governance (Switch to Governance role)**
+- **Focus**: Compliance monitoring and regulatory readiness
+- **AI Guidance**: "98.7% CDISC compliance", "100% audit trail coverage"
+- **Quick Actions**: Compliance reports, regulatory risk assessments
 
-**Demo Evidence**: *[Show AI assistant features]*
-- *"Ask AI: 'Who should review Clinical_Endpoint CDE?'"*
-- *"AI Response: 'Dr. Sarah Chen - 98% approval rate, available now'"*
-- Automated scheduling suggestions
-- Escalation path recommendations
-- Success rate predictions for different reviewers
+### **Intelligent Collaboration**
+- **Smart Handoffs**: AI recommends next actions with urgency and ETAs
+- **Expert Matching**: Context-aware stakeholder suggestions
+- **Automated Coordination**: 85% reduction in manual coordination overhead
 
 ### **Engagement Results**
-- 95% stakeholder adoption rate
-- 60% reduction in meeting overhead
-- 4.8/5 satisfaction score from SMEs
+- **95% user adoption** - Role-specific value demonstration
+- **4.8/5 satisfaction** - AI makes complex compliance accessible
+- **85% coordination efficiency** - AI handles routine workflow management
 
 ---
 
 ## **Question 4: Organizational Engagement (2 minutes)**
 
-### **Multi-Channel Engagement Strategy**
-*"We've learned that governance adoption requires role-specific value demonstration."*
+### **Role-Based Adoption Strategy**
+*"We achieved 95% adoption by making AI governance feel like intelligent assistance rather than system replacement."*
 
-### **Four-Pillar Approach:**
+### **Multi-Channel Approach:**
 
-**1. Executive Alignment**
-- **ROI-Focused Dashboards**: Show $2M+ savings potential
-- **Risk Reduction Metrics**: Demonstrate compliance improvements
-- **Demo Evidence**: *[Show transformation metrics - 85% time reduction]*
+**1. Executive Value Demonstration**
+- **ROI Visibility**: Real-time $850K savings tracking
+- **Risk Reduction**: 98.7% compliance readiness vs industry uncertainty
+- **Strategic Enablement**: FAIR principles enable AI/ML initiatives
+- **Demo Evidence**: *[Executive role view with business metrics]*
 
-**2. Department Champions**
-- **Domain-Specific Demos**: Biomarker examples for clinical teams
-- **Peer Success Stories**: Dr. Sarah Chen's 98% approval rate
-- **Quick Wins**: Bulk CDE approvals in 30 minutes vs. weeks
+**2. Operational Efficiency for Practitioners**
+- **Data Stewards**: Focus on validation, not discovery (AI finds the data)
+- **SMEs**: Review AI-generated definitions rather than create from scratch
+- **IT Teams**: AI handles metadata extraction and quality monitoring
+- **Demo Evidence**: *[Show Data Steward quick questions and AI responses]*
 
-**3. Training & Enablement**
-- **Role-Based Training**: Different workflows for stewards vs. SMEs
-- **AI Copilot Onboarding**: Interactive guidance system
-- **Demo Evidence**: *[Show AI assistant providing contextual help]*
+**3. Interactive Training & Support**
+- **Contextual Help**: AI assistant provides role-specific guidance
+- **Quick Questions**: Pre-built queries for common tasks
+- **Progressive Disclosure**: Information complexity matches user expertise
+- **Demo Evidence**: *[Show AI chat interface with contextual responses]*
 
-**4. Success Metrics & Feedback**
-- **Real-Time Scorecards**: 94.7% quality score displayed live
-- **User Adoption Tracking**: 95% adoption rate achieved
-- **Continuous Improvement**: Weekly feedback incorporation
+**4. Measurable Success Tracking**
+- **Real-Time Scorecards**: 96.8% quality visible to all stakeholders
+- **Adoption Metrics**: 95% engagement tracked and celebrated
+- **Satisfaction Monitoring**: 4.8/5 user satisfaction with quarterly surveys
 
-### **Engagement Results**
-**Demo Evidence**: *[Reference actual metrics from quality dashboard]*
-- **95% user adoption rate** - Industry average is 60%
-- **4.8/5 satisfaction score** - Measured quarterly
-- **40% reduction in compliance queries** - SMEs report less confusion
-- **2.5 day average response time** - Down from 2+ weeks
-
-### **Cultural Change Management**
-*"The key was making AI feel like assistance, not replacement"*
-- SMEs see AI as intelligent research assistant
-- Data stewards focus on validation, not discovery
-- Executives get strategic insights, not operational details
+### **Cultural Change Results**
+- **From Manual to Intelligent**: AI amplifies expertise rather than replacing it
+- **From Reactive to Proactive**: Predictive insights prevent compliance issues
+- **From Siloed to Collaborative**: Role-based AI connects the right people
+- **Demo Evidence**: *[Show AI recommendations for expert collaboration]*
 
 ---
 
@@ -193,90 +191,91 @@
 
 ### **What's Working Exceptionally Well**
 
-**1. AI-First Discovery**
-- *"85% automation exceeded our expectations"*
-- Manual effort reduced from weeks to hours
-- Quality actually improved with AI assistance
-- **Demo Evidence**: *[Show 127 fields cataloged, 91% quality]*
+**1. AI-Powered Discovery and Definition**
+- *"SDTM domain discovery in 4.2 seconds exceeded our expectations"*
+- Manual effort reduced from weeks to hours with higher quality
+- 15 domains cataloged with 98% metadata coverage automatically
+- **Demo Evidence**: *[Tab 2: Step 1 - show discovery metrics]*
 
-**2. Role-Based Personas**
-- *"Tailoring interfaces increased adoption by 90%"*
-- SMEs get focused review workflows
-- Data stewards get comprehensive dashboards
-- Executives get strategic summaries
+**2. Role-Based Intelligence**
+- *"Context-aware AI for different roles increased adoption by 95%"*
+- Executives get strategic insights, stewards get operational guidance
+- Each role receives precisely the intelligence they need
+- AI reduces friction while improving compliance outcomes
+- **Demo Evidence**: *[Switch between roles to show contextual differences]*
 
-**3. Life Sciences Regulatory Focus**
-- *"Purpose-built for FDA compliance was game-changing"*
-- 98% regulatory compliance readiness
-- Built-in Section 2.7-2.10 mappings
-- Industry-specific CDE suggestions
+**3. Regulatory-Specific Focus**
+- *"Life sciences expertise was game-changing for adoption and compliance"*
+- 98.7% CDISC compliance readiness vs generic governance tools
+- Built-in TIG Section 3.3 implementation guidance
+- ICH E6, FDA Bioanalytical guidance integration
+- **Demo Evidence**: *[Show regulatory standards integration]*
 
-### **Lessons Learned for Future Projects**
+### **Lessons for Future Implementations**
 
-**1. Start with Change Management**
-- *"Next time, I'd invest 2x more in training before technical rollout"*
-- People need to understand AI capabilities before seeing the tool
-- Success stories work better than feature demonstrations
+**1. Start with Stakeholder Experience Design**
+- *"Role-based AI assistant should be designed with users, not for users"*
+- Co-creation with Data Stewards and SMEs builds ownership
+- User experience drives adoption more than technical features
 
-**2. Involve SMEs Earlier**
-- *"Dr. Sarah Chen should have been engaged in design, not just validation"*
-- SME insights during development vs. post-development feedback
-- Co-creation builds ownership and adoption
+**2. Measure Baseline Quality First**
+- *"We measured improvement during implementation - should have been before"*
+- Baseline metrics prove AI value (92% → 96.8% quality improvement)
+- Better ROI calculation and success demonstration
 
-**3. Establish Quality Baselines First**
-- *"We measured quality during implementation - should have been before"*
-- Baseline metrics prove AI improvement
-- Better ROI calculation and success measurement
+**3. Emphasize Augmentation, Not Replacement**
+- *"AI amplifies human expertise rather than replacing domain knowledge"*
+- SMEs validate AI suggestions rather than create from scratch
+- Positioning AI as intelligent research assistant improves acceptance
 
-### **Future Project Impact**
-*"Based on these lessons, our next implementation should achieve:"*
-- **30% faster delivery** - Earlier SME engagement
-- **95% user satisfaction** - Better change management
-- **50% fewer post-launch issues** - Quality baselines upfront
+### **Demonstrable Transformation**
+**Demo Evidence**: *[Show comprehensive metrics]*
+- **Business Impact**: $850K savings, 285% ROI, 14-day submission prep
+- **Quality Excellence**: 96.8% data quality, 98.7% CDISC compliance
+- **Adoption Success**: 95% user adoption, 4.8/5 satisfaction
+- **Operational Efficiency**: 85% time reduction, 4.2-second discovery
 
-### **Demonstrable Business Impact**
-**Demo Evidence**: *[Show final metrics]*
-- **$2M+ annual ROI** through automation
-- **98% compliance readiness** for FDA submissions
-- **3-month time to value** vs. 6+ month industry standard
-- **95% stakeholder adoption** vs. 60% industry average
+### **Future Vision**
+*"This platform enables predictive governance - preventing compliance issues before they occur while accelerating scientific discovery through FAIR data principles."*
 
 ---
 
 ## **Closing Statement (30 seconds)**
 
-*"This governance framework demonstrates three critical capabilities: First, the technical ability to automate complex life sciences compliance requirements. Second, the organizational skills to achieve 95% stakeholder adoption in a highly regulated environment. And third, the strategic vision to deliver $2M+ ROI while reducing regulatory risk."*
+*"This AI-powered governance platform demonstrates three critical capabilities: First, the technical sophistication to automate complex CDISC compliance with 98.7% readiness. Second, the organizational intelligence to achieve 95% stakeholder adoption through role-based AI assistance. And third, the strategic vision to deliver $850K ROI while transforming reactive compliance into proactive intelligence."*
 
-**Final Demo Moment**: *[Show AI assistant answering a complex question about CDE status]*
+**Final Demo Moment**: *[Show AI assistant answering complex question about compliance status]*
 
-*"The future of data governance isn't just about managing data - it's about accelerating scientific discovery while ensuring regulatory excellence. That's what this platform delivers, and that's what I bring to your organization."*
+*"The future of life sciences governance isn't just about managing regulatory requirements - it's about enabling faster, safer innovation through intelligent data stewardship. That's what this platform delivers, and that's the transformation I bring to your organization."*
 
 ---
 
 ## **Demo Navigation Guide**
 
 ### **Tab Sequence for Maximum Impact:**
-1. **Process Tab**: Show transformation metrics and 5-step framework
-2. **Use Cases Tab**: Select "Individual Health" - show real implementation
-3. **AI Assistant Tab**: Demonstrate intelligent stakeholder suggestions
-4. **Quality Metrics**: Reference throughout for credibility
+1. **Tab 1**: Data Governance Policy to Implementation - Show transformation story
+2. **Tab 2**: Use Cases & Implementation - Click Steps 1-5 for detailed implementation
+3. **Tab 3**: AI Assistant - Demonstrate role switching and contextual intelligence
 
-### **Key Numbers to Memorize:**
-- 127 fields cataloged automatically
-- 44 CDEs identified with high confidence
-- 91% overall quality score
-- 95% stakeholder adoption rate
-- 98% regulatory compliance readiness
-- $2M+ annual ROI
-- 85% reduction in manual effort
-- 3-week time to value
+### **Key Metrics to Emphasize:**
+- **15 SDTM domains** cataloged automatically
+- **347 clinical variables** with 98% metadata coverage
+- **2,847 subjects** across clinical databases
+- **96.8% data quality** vs 78% industry average
+- **98.7% CDISC compliance** readiness
+- **$850K annual savings** with 285% ROI
+- **95% user adoption** with 4.8/5 satisfaction
+- **4.2 seconds** discovery time
 
 ### **Interactive Demo Moments:**
-- Ask AI: "Who should review Clinical_Endpoint?"
-- Show live quality metrics updating
-- Navigate between use cases to show breadth
-- Demonstrate workflow status tracking
+- **Role Switching**: Data Steward → Executive → Governance to show context adaptation
+- **Step Navigation**: Click Steps 1-5 to show detailed TIG implementation
+- **AI Chat**: Ask "What's my CDE status?" or "Show compliance metrics"
+- **Quality Metrics**: Point to real-time 96.8% quality scores
+
+### **Demo URL:**
+`http://localhost:5002` - Ensure platform is running before presentation
 
 ---
 
-*This pitch leverages your actual demo capabilities while telling a compelling story about governance transformation in life sciences.* 
+*This pitch leverages your actual AI-powered demo platform capabilities while demonstrating measurable governance transformation specifically for life sciences regulatory requirements.* 
