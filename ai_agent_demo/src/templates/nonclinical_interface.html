@@ -65,11 +65,149 @@
 
         <!-- Step Content Container -->
         <div id="nonclinical-steps-container">
-            <!-- Placeholder - Step content will be added incrementally -->
-            <div class="text-center py-8 text-purple-600">
-                <i class="fas fa-flask text-4xl mb-4"></i>
-                <p class="font-semibold">Nonclinical Interface Framework Ready!</p>
-                <p class="text-sm">Step 1: Discover content will be added next...</p>
+            <!-- Step 1: Discover Content -->
+            <div id="nonclinical-step-content-1" class="step-content">
+                <div class="bg-gradient-to-r from-purple-100 to-indigo-100 p-6 rounded-lg mb-6">
+                    <h5 class="text-xl font-bold text-purple-800 mb-4">🔍 Step 1: Discover & Scan Nonclinical Data Assets</h5>
+                    <p class="text-gray-700 mb-4">AI-powered discovery across in-vitro systems, in-vivo study databases, and SEND domain repositories to identify all nonclinical study data assets automatically.</p>
+                </div>
+
+                <!-- Discovery Results Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    <!-- In Vivo Studies Discovery -->
+                    <div class="bg-white rounded-lg shadow-md border border-purple-200 p-5">
+                        <h6 class="font-bold text-purple-700 mb-3">🐭 In Vivo Studies (18 SEND Domains)</h6>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Demographics (DM)</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">✓ Found 45 studies</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Subject Elements (SE)</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">✓ Found 42 datasets</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Exposure (EX)</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">✓ Found 38 protocols</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Laboratory Tests (LB)</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">✓ Found 156 batches</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Body Weight (BW)</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">✓ Found 89 time series</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Vital Signs (VS)</span>
+                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">⚠ 12 need mapping</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200">
+                            <div class="text-xs text-gray-500">
+                                <strong>Total:</strong> 18 SEND domains • <strong>Coverage:</strong> 94.2% • <strong>Quality:</strong> 91.5%
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- In Vitro Studies Discovery -->
+                    <div class="bg-white rounded-lg shadow-md border border-purple-200 p-5">
+                        <h6 class="font-bold text-purple-700 mb-3">🧪 In Vitro Studies (4 Test Types)</h6>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Ames Test (OECD 471)</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">✓ Found 28 studies</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Mouse Lymphoma (OECD 476)</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">✓ Found 15 studies</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Micronucleus (OECD 487)</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">✓ Found 22 studies</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Chromosomal Aberration</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">🔄 Mapping GLP labs</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200">
+                            <div class="text-xs text-gray-500">
+                                <strong>Total:</strong> 4 test types • <strong>GLP Compliance:</strong> 96.8% • <strong>OECD Standards:</strong> 100%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Asset Summary -->
+                <div class="bg-purple-50 rounded-lg p-6 border border-purple-200 mb-6">
+                    <h6 class="font-bold text-purple-800 mb-4">📊 Discovery Summary: Nonclinical Data Assets</h6>
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                        <div class="bg-white rounded-lg p-4 border">
+                            <div class="text-2xl font-bold text-purple-600">284</div>
+                            <div class="text-sm text-gray-600">Toxicology Variables</div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border">
+                            <div class="text-2xl font-bold text-green-600">95%</div>
+                            <div class="text-sm text-gray-600">Metadata Coverage</div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border">
+                            <div class="text-2xl font-bold text-blue-600">18</div>
+                            <div class="text-sm text-gray-600">SEND Domains</div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border">
+                            <div class="text-2xl font-bold text-orange-600">4</div>
+                            <div class="text-sm text-gray-600">Study Types</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Sources Found -->
+                <div class="bg-white rounded-lg shadow-md border border-gray-200 p-5">
+                    <h6 class="font-bold text-gray-800 mb-4">🗄️ Data Sources Discovered</h6>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <div class="font-semibold text-purple-700 mb-2">Primary Repositories:</div>
+                            <ul class="space-y-1 text-gray-600">
+                                <li>• Product_Toxicology_DB (SQL Server)</li>
+                                <li>• Animal_Study_DB (Oracle)</li>
+                                <li>• In_Vitro_DB (MongoDB)</li>
+                                <li>• SEND_Archive (File System)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-purple-700 mb-2">Integration APIs:</div>
+                            <ul class="space-y-1 text-gray-600">
+                                <li>• Laboratory_LIMS_API</li>
+                                <li>• Toxicology_Data_API</li>
+                                <li>• GLP_Compliance_API</li>
+                                <li>• SEND_Submission_API</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden step contents (will be added later) -->
+            <div id="nonclinical-step-content-2" class="step-content hidden">
+                <div class="text-center py-8 text-gray-500">
+                    <p>Step 2: Define content coming next...</p>
+                </div>
+            </div>
+            <div id="nonclinical-step-content-3" class="step-content hidden">
+                <div class="text-center py-8 text-gray-500">
+                    <p>Step 3: Standardize content coming next...</p>
+                </div>
+            </div>
+            <div id="nonclinical-step-content-4" class="step-content hidden">
+                <div class="text-center py-8 text-gray-500">
+                    <p>Step 4: Protect content coming next...</p>
+                </div>
+            </div>
+            <div id="nonclinical-step-content-5" class="step-content hidden">
+                <div class="text-center py-8 text-gray-500">
+                    <p>Step 5: Govern & Optimize content coming next...</p>
+                </div>
             </div>
         </div>
     </div>
