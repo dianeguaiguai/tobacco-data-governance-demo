@@ -56,8 +56,13 @@ Open your browser and navigate to: `http://localhost:5002`
 
 ### **3. Demo Navigation**
 - **Tab 1**: Data Governance Policy to Implementation (transformation story)
-- **Tab 2**: Use Cases & Implementation (TIG Section 3.3 with measurable metrics)
+- **Tab 2**: Governance Project (TIG Section 3.3 with measurable metrics)
 - **Tab 3**: AI Assistant (role-based intelligence and chat interface)
+
+### **Tab Sequence for Maximum Impact:**
+1. **Tab 1**: Data Governance Policy to Implementation - Show transformation story
+2. **Tab 2**: Governance Project - Click Steps 1-5 for detailed implementation
+3. **Tab 3**: AI Assistant - Demonstrate role switching and contextual intelligence
 
 ---
 
@@ -71,7 +76,7 @@ Open your browser and navigate to: `http://localhost:5002`
 - Highlight: 2,847 subjects, 347 clinical variables, 98.7% CDISC compliance
 
 #### **Minute 3-6: Real Implementation in Action**
-- Switch to **Tab 2: Use Cases & Implementation**
+- Switch to **Tab 2: Governance Project**
 - Focus on "Product Impact on Individual Health" (auto-selected)
 - Click through **Steps 1-5** to demonstrate:
   - **Discovery**: 15 SDTM domains in 4.2 seconds

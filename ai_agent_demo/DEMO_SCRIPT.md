@@ -50,8 +50,8 @@
 
 ## **MINUTE 3: Real Implementation in Action (2:00-3:00)**
 
-### **Tab 2: Use Cases & Implementation**
-- Click **"Use Cases & Implementation"** tab
+### **Tab 2: Governance Project**
+- Click **"Governance Project"** tab
 - Point to the four available use cases (note: only Individual Health is fully clickable)
 
 *"This tab shows our governance framework in action across critical Life Sciences use cases - Product Description for nonclinical data, Individual Health for biomarkers, Population Health for surveillance, and Comprehensive Regulatory Compliance."*

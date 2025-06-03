@@ -59,7 +59,7 @@ An intelligent, AI-powered data governance platform specifically designed for ph
 - **After**: Centralized repository with 2,847 subjects, 98.7% CDISC compliance
 - **5-Step FAIR Framework**: Discover → Define → Standardize → Protect → Govern
 
-### **Tab 2: Use Cases & Implementation** 
+### **Tab 2: Governance Project**
 **Demonstrates**: Real TIG Section 3.3 implementation with measurable metrics
 - **Product Impact on Individual Health** (fully interactive)
 - **Step-by-Step Lifecycle**: Click Steps 1-5 to see detailed implementation

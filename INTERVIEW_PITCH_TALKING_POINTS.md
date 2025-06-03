@@ -54,7 +54,7 @@
 ### **Project Structure**
 *"Let me walk you through our TIG Section 3.3 implementation using real Individual Health biomarker data with measurable outcomes at each step."*
 
-**Demo Reference**: *[Tab 2: Use Cases & Implementation - "Product Impact on Individual Health" auto-selected]*
+**Demo Reference**: *[Tab 2: Governance Project - "Product Impact on Individual Health" auto-selected]*
 
 ### **Step-by-Step Implementation:**
 
@@ -98,6 +98,11 @@
 - **CDISC Compliance**: 98.7% readiness for regulatory submissions
 - **44 CDEs** standardized with regulatory linkage
 - **127 data fields** cataloged across clinical domains
+
+#### **Minute 3-6: Real Implementation in Action**
+- Switch to **Tab 2: Governance Project**
+- Focus on "Product Impact on Individual Health" (auto-selected)
+- Click through **Steps 1-5** to demonstrate:
 
 ---
 
@@ -250,12 +255,10 @@
 
 ---
 
-## **Demo Navigation Guide**
-
-### **Tab Sequence for Maximum Impact:**
-1. **Tab 1**: Data Governance Policy to Implementation - Show transformation story
-2. **Tab 2**: Use Cases & Implementation - Click Steps 1-5 for detailed implementation
-3. **Tab 3**: AI Assistant - Demonstrate role switching and contextual intelligence
+## **3. Demo Navigation**
+- **Tab 1**: Data Governance Policy to Implementation (transformation story)
+- **Tab 2**: Governance Project (TIG Section 3.3 with measurable metrics)
+- **Tab 3**: AI Assistant (role-based intelligence and chat interface)
 
 ### **Key Metrics to Emphasize:**
 - **15 SDTM domains** cataloged automatically
