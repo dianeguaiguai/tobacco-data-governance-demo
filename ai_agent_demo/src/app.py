@@ -16,7 +16,7 @@ data_inventory = {
             "owner": "Quality Control Lab",
             "last_updated": "2024-03-15",
             "quality_score": 0.95,
-            "use_case": "Product Description (Nonclinical)",
+            "use_case": "Product Description",
             "standards": ["Section 2.8 Tabulation", "Section 2.9 Analysis", "Section 2.10 Data Exchange"],
             "cde_count": 12,
             "tables": ["product_tests", "batch_records", "quality_metrics", "composition_data"],
@@ -78,7 +78,7 @@ data_inventory = {
             "owner": "Quality Control Lab",
             "last_updated": "2024-03-13",
             "quality_score": 0.75,
-            "use_case": "Product Description (Nonclinical)",
+            "use_case": "Product Description",
             "fields": ["PROD_CHAR_ID", "NIC_TOT", "TAR_ANHY", "CO_YLD", "FILT_EFF", "MOIST_CONT", "PH_VAL"],
             "size": "45MB",
             "row_count": "125,000 rows"
@@ -117,7 +117,7 @@ data_inventory = {
             "owner": "Manufacturing Operations",
             "last_updated": "2024-03-14",
             "quality_score": 0.91,
-            "use_case": "Product Description (Nonclinical)",
+            "use_case": "Product Description",
             "fields": ["batch_id", "production_date", "quality_checks", "environmental_conditions"],
             "size": "89MB",
             "row_count": "15,750 batches"
@@ -145,7 +145,7 @@ data_inventory = {
             "owner": "Quality Control",
             "last_updated": "2024-03-14",
             "quality_score": 0.94,
-            "use_case": "Product Description (Nonclinical)",
+            "use_case": "Product Description",
             "endpoints": ["/test-results", "/batch-tracking", "/certifications", "/equipment-calibration"],
             "response_time": "< 500ms",
             "uptime": "99.5%"
@@ -176,7 +176,7 @@ business_glossary = {
         "last_updated": "2024-03-15",
         "standards": ["Section 2.8", "Section 2.10"],
         "regulatory_requirement": "FDA PMTA",
-        "use_cases": ["Product Description (Nonclinical)", "Comprehensive Regulatory Compliance"],
+        "use_cases": ["Product Description", "Comprehensive Regulatory Compliance"],
         "data_type": "VARCHAR(20)",
         "example_values": ["PRD-2024-001", "PRD-2024-002"]
     },
@@ -188,7 +188,7 @@ business_glossary = {
         "last_updated": "2024-03-15",
         "standards": ["Section 2.8", "Section 2.9"],
         "regulatory_requirement": "FDA Testing Standards",
-        "use_cases": ["Product Description (Nonclinical)", "Product Impact on Individual Health", "Comprehensive Regulatory Compliance"],
+        "use_cases": ["Product Description", "Product Impact on Individual Health", "Comprehensive Regulatory Compliance"],
         "data_type": "DECIMAL(5,2)",
         "example_values": ["12.5", "8.3", "15.7"]
     },
@@ -200,7 +200,7 @@ business_glossary = {
         "last_updated": "2024-03-15",
         "standards": ["Section 2.8", "Section 2.9"],
         "regulatory_requirement": "ISO 4387 Standard",
-        "use_cases": ["Product Description (Nonclinical)", "Comprehensive Regulatory Compliance"],
+        "use_cases": ["Product Description", "Comprehensive Regulatory Compliance"],
         "data_type": "DECIMAL(4,1)",
         "example_values": ["10.5", "8.2", "12.8"]
     },
@@ -248,7 +248,7 @@ business_glossary = {
         "last_updated": "2024-03-15",
         "standards": ["Section 2.8", "Section 2.10"],
         "regulatory_requirement": "FDA Manufacturing Standards",
-        "use_cases": ["Product Description (Nonclinical)", "Comprehensive Regulatory Compliance"],
+        "use_cases": ["Product Description", "Comprehensive Regulatory Compliance"],
         "data_type": "DATE",
         "example_values": ["2024-03-15", "2024-03-14"]
     },
@@ -296,7 +296,7 @@ business_glossary = {
         "last_updated": "2024-03-15",
         "standards": ["Section 2.8", "Section 2.10"],
         "regulatory_requirement": "FDA Manufacturing Standards",
-        "use_cases": ["Product Description (Nonclinical)", "Comprehensive Regulatory Compliance"],
+        "use_cases": ["Product Description", "Comprehensive Regulatory Compliance"],
         "data_type": "VARCHAR(12)",
         "example_values": ["BTH-240315-A", "BTH-240315-B"]
     },
@@ -308,7 +308,7 @@ business_glossary = {
         "last_updated": "2024-03-15",
         "standards": ["Section 2.8", "Section 2.9"],
         "regulatory_requirement": "ISO Quality Standards",
-        "use_cases": ["Product Description (Nonclinical)", "Comprehensive Regulatory Compliance"],
+        "use_cases": ["Product Description", "Comprehensive Regulatory Compliance"],
         "data_type": "DECIMAL(3,2)",
         "example_values": ["0.95", "0.87", "0.92"]
     },
@@ -344,7 +344,7 @@ business_glossary = {
         "last_updated": "2024-03-15",
         "standards": ["Section 2.8", "Section 2.10"],
         "regulatory_requirement": "FDA Submission Requirements",
-        "use_cases": ["Product Description (Nonclinical)", "Comprehensive Regulatory Compliance"],
+        "use_cases": ["Product Description", "Comprehensive Regulatory Compliance"],
         "data_type": "VARCHAR(20)",
         "example_values": ["Approved", "Under Review", "Submitted"]
     }
@@ -427,7 +427,7 @@ def get_quality_metrics():
     # Use case specific adjustments
     if use_case_filter:
         use_case_metrics = {
-            "Product Description (Nonclinical)": {
+            "Product Description": {
                 "overall_score": 0.95,
                 "cde_coverage": {"total_fields": 45, "standardized_fields": 42, "cde_identified": 15, "compliance_ready": 42},
                 "focus_areas": ["Product Characterization", "Manufacturing", "Quality Control"]
@@ -494,7 +494,7 @@ def initiate_workflow():
 def get_use_cases():
     use_cases = [
         {
-            "name": "Product Description (Nonclinical)",
+            "name": "Product Description",
             "icon": "🧪",
             "description": "Comprehensive product characterization data for FDA Section 2.8, 2.9, 2.10 submissions including laboratory testing, batch records, and quality metrics",
             "assets": "3 assets",
