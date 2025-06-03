@@ -840,7 +840,7 @@
                                 </div>
 
                                 <!-- Generated Implementation Results -->
-                                <div id="implementation-results" class="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 border border-green-200">
+                                <div id="implementation-results" class="individual-health-only bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 border border-green-200">
                                     <h4 class="text-xl font-bold mb-4 text-gray-800">
                                         <i class="fas fa-check-circle mr-2 text-green-600"></i>Implementation Results: Product Impact on Individual Health
                                         </h4>
@@ -2127,8 +2127,16 @@
             // Show detailed interface for Individual Health use case
             if (useCaseName === 'Product Impact on Individual Health') {
                 document.getElementById('individual-health-detailed-interface').classList.remove('hidden');
+                // Show Individual Health specific content
+                document.querySelectorAll('.individual-health-only').forEach(element => {
+                    element.classList.remove('hidden');
+                });
             } else {
                 document.getElementById('individual-health-detailed-interface').classList.add('hidden');
+                // Hide Individual Health specific content for other use cases
+                document.querySelectorAll('.individual-health-only').forEach(element => {
+                    element.classList.add('hidden');
+                });
             }
 
             // Show detailed interface for Nonclinical use case
